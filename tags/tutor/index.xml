@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutor on ifconfig.it</title>
+    <link>http://www.ifconfig.it/hugo/tags/tutor/</link>
+    <description>Recent content in Tutor on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 04 Sep 2016 16:34:27 +0200</lastBuildDate>
+    <atom:link href="http://www.ifconfig.it/hugo/tags/tutor/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>CCIE Hints</title>
+      <link>http://www.ifconfig.it/hugo/post/cciehints/</link>
+      <pubDate>Sun, 04 Sep 2016 16:34:27 +0200</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/cciehints/</guid>
+      <description>
+
+&lt;p&gt;My company is looking for new hires to grow the Network Engineers team. As the only CCIE of the group I&amp;rsquo;ll be their tutor and do my best to help them to obtain the very same certification.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ve already worked as trainer for internal and external classes, up to CCNP level, but this is a different challenge.&lt;/p&gt;
+
+&lt;p&gt;The plan is to start from almost zero knowledge of networking up to CCIE in a time window of a little less than one year in the best case, two years at most.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ll try to share here my best advices for them but I think they&amp;rsquo;re valid for everybody starting the CCIE journey.&lt;/p&gt;
+
+&lt;h3 id=&#34;plan-you-work-work-your-plan&#34;&gt;Plan you work, work your plan&lt;/h3&gt;
+
+&lt;h3 id=&#34;stress&#34;&gt;Stress&lt;/h3&gt;
+
+&lt;h3 id=&#34;motivation&#34;&gt;Motivation&lt;/h3&gt;
+
+&lt;h3 id=&#34;learn-to-learn&#34;&gt;Learn to learn&lt;/h3&gt;
+
+&lt;h3 id=&#34;read-a-lot&#34;&gt;Read a lot&lt;/h3&gt;
+
+&lt;h3 id=&#34;focus&#34;&gt;Focus&lt;/h3&gt;
+
+&lt;p&gt;Pareto&lt;/p&gt;
+
+&lt;h3 id=&#34;join-a-community&#34;&gt;Join a community&lt;/h3&gt;
+
+&lt;h3 id=&#34;take-structured-notes&#34;&gt;Take structured notes&lt;/h3&gt;
+
+&lt;p&gt;Onenote/Evernote&lt;/p&gt;
+
+&lt;h3 id=&#34;think-out-of-the-box&#34;&gt;Think out of the box&lt;/h3&gt;
+
+&lt;p&gt;Different solution for the same problem&lt;/p&gt;
+
+&lt;h3 id=&#34;do-not-learn-commands-lear-protocols&#34;&gt;Do not learn commands, lear protocols&lt;/h3&gt;
+
+&lt;h3 id=&#34;when-in-doubt-read-the-rfc&#34;&gt;When in doubt read the RFC&lt;/h3&gt;
+
+&lt;h3 id=&#34;after-fail-don-t-give-up&#34;&gt;After fail don&amp;rsquo;t give up&lt;/h3&gt;
+
+&lt;p&gt;Small % pass on first attept, use it to improve.&lt;/p&gt;
+
+&lt;h3 id=&#34;speed&#34;&gt;Speed&lt;/h3&gt;
+
+&lt;p&gt;CCIE is not about typing speed. Less typing than expected.&lt;/p&gt;
+
+&lt;h3 id=&#34;method&#34;&gt;Method&lt;/h3&gt;
+
+&lt;p&gt;Config/Break/Fix&lt;/p&gt;
+
+&lt;h3 id=&#34;read-and-understand-command-output-debug&#34;&gt;Read and understand command output / debug&lt;/h3&gt;
+
+&lt;p&gt;&amp;hellip;and in the end of that CLI commands!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

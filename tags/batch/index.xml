@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Batch on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/batch/</link>
+    <description>Recent content in Batch on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 26 Mar 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/batch/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Quick script: backup multiple Alcatel Omniswitch configuration files</title>
+      <link>https://www.ifconfig.it/hugo/post/qs-bck-alomniftp/</link>
+      <pubDate>Thu, 26 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/qs-bck-alomniftp/</guid>
+      <description>A quick batch script I did to backup configuration files of multiple Alcatel Omniswitch via FTP.
+All files are named boot.cfg so the script renames each file appending the IP address.
+Create a file with all the IP of switches to backup - iplist.txt
+10.10.29.10 10.12.29.10 10.14.29.10 10.14.29.11 10.14.29.12 10.14.29.13 10.14.29.14 10.14.29.15  Create a FTP script to login and backup the configuration file - ftp.scr
+Note: user admin password switch are defaults on Omniswitch</description>
+    </item>
+    
+    <item>
+      <title>Batch Compiler</title>
+      <link>https://www.ifconfig.it/hugo/post/batch-compiler/</link>
+      <pubDate>Tue, 24 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/batch-compiler/</guid>
+      <description>Tool of the day:
+[Batch Compiler](http://sourceforge.net/projects/batchcompiler/) is a small and very easy top use application designed to help you script batch programs and compile them in to exe file with integrated help utility and a user friendly interface. </description>
+    </item>
+    
+  </channel>
+</rss>

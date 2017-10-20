@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.26" />
+
+  <title>HP Procurve to Cisco switchport migration with Python and Netmiko &middot; ifconfig.it</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.ifconfig.it/hugoimg/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-2507441616057251",
+    enable_page_level_ads: true
+  });
+</script>
+  
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://www.ifconfig.it/hugo/">ifconfig.it</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/tags/"><i class='fa fa-list fa-fw'></i>Tags</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/gp_ifconfig" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/gpboa" target="_blank"><i class="fa fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/gpaolo" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/routetonull" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://keybase.io/bgp" target="_blank"><i class="fa fa-key fa-fw"></i>Keybase</a>
+    </li>
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>HP Procurve to Cisco switchport migration with Python and Netmiko</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+	<time>Friday, August 11, 2017
+	</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/networking">networking</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/python">python</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/automation">automation</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  
+
+<p>Summertime usually means a busy period for Network Engineers, customers are on holidays and we have the opportunity to performs all the changes that impact network connectivity.</p>
+
+<p>For me this usually means core switch replacement.</p>
+
+<p>Today I was moving a configuration from an HP8200 to a Cisco 4500, taking care of all the details of ports, trunks, vlans.</p>
+
+<p>From this:</p>
+
+<p><img src="https://www.ifconfig.it/images/hp8200.png" alt="" /></p>
+
+<p>to this:</p>
+
+<p><img src="https://www.ifconfig.it/images/c4500.png" alt="" /></p>
+
+<p>When a task is manual, boring, repetitive and error-prone my automation skills came to help.</p>
+
+<h2 id="the-process">The process</h2>
+
+<p>I prefer to write as little CLI commands as possible, so I start to work with and Excel spreadsheet with all the migration notes and what I call a <strong>switchmap</strong>.</p>
+
+<p>In the switchmap, along with other information, I map the ports on the old switch to the ports on the new switch, something like</p>
+
+<pre><code>a1  g1/1
+a2  g1/2
+</code></pre>
+
+<p>and so on for all the ports and modules.</p>
+
+<p>This mapping will be used as input for the actual script.</p>
+
+<h2 id="reading-vlan-information-from-hp">Reading VLAN information from HP</h2>
+
+<p>From the HP switch it is possible to read detailed VLAN information and description for each port with this command:</p>
+
+<pre><code>sh vlans ports c1 detail 
+</code></pre>
+
+<p>The output for a trunk port is something like this:</p>
+
+<pre><code>Status and Counters - VLAN Information - for ports C1
+
+ Port name: LINK_TO_IMPORTANT_ACCESS_SWITCH
+ VLAN ID Name                 | Status     Voice Jumbo Mode    
+ ------- -------------------- + ---------- ----- ----- --------
+ 100     Server               | Port-based No    No    Tagged  
+ 101     Clients              | Port-based No    No    Tagged  
+ 102     WiFi                 | Port-based No    No    Tagged  
+ 103     GuestWiFi            | Port-based No    No    Tagged  
+ 104     CCTV                 | Port-based No    No    Tagged  
+ 105     MGMT                 | Port-based No    No    Untagged
+ 106     IOT                  | Port-based No    No    Tagged  
+ 107     DMZ                  | Port-based No    No    Tagged  
+</code></pre>
+
+<p>An access port would be like this:</p>
+
+<pre><code>Status and Counters - VLAN Information - for ports C2
+
+ Port name: LINK_TO_IMPORTANT_ACCESS_SWITCH
+ VLAN ID Name                 | Status     Voice Jumbo Mode    
+ ------- -------------------- + ---------- ----- ----- --------
+ 101     Clients              | Port-based No    No    Untagged  
+</code></pre>
+
+<h2 id="the-script">The script</h2>
+
+<p>The script I created connects via SSH to the HP switch using <a href="https://github.com/ktbyers/netmiko">NETMIKO</a>. It uses the switchmap to read the list of switch ports, for each port it gets all the VLAN details.</p>
+
+<p>With this information a for loop creates a file with all the commands translated to Cisco syntax. Notice that it&rsquo;s not an elegant implementation, it adds each single vlan to the trunk instead of creating ranges, but it works fine.</p>
+
+<pre><code>from netmiko import ConnectHandler
+import getpass
+swip = raw_input('IP ADDRESS: ')
+swun = raw_input('SWITCH USERNAME: ')
+swpass = getpass.getpass()
+connection = ConnectHandler(ip=swip, device_type='hp_procurve', username=swun, password=swpass)
+cisco_output = open(&quot;cisco_output.txt&quot;, 'w')
+portlist = open(&quot;portlist.total.txt&quot;, 'r')
+for port in portlist:
+    porthp = port.strip().split()[0]
+    portcisco = port.strip().split()[1]
+    print (&quot;MAPPING HP PORT &quot;+porthp+&quot; TO CISCO PORT &quot;+portcisco)
+    command=&quot;sh vlans ports &quot;+porthp+&quot; detail&quot;
+    result = connection.send_command(command)
+    cisco_output.write(&quot;interface &quot;+portcisco+&quot;\n&quot;) 
+    trunk = 0
+    if &quot;Tagged&quot; in result:
+        trunk = 1
+        cisco_output.write(&quot;switchport mode trunk\n&quot;)
+        cisco_output.write(&quot;switchport trunk allowed vlan 1\n&quot;)
+        if &quot;Untagged&quot; not in result:
+            cisco_output.write(&quot;switchport trunk native vlan 1\n&quot;)            
+    else:
+        cisco_output.write(&quot;switchport mode access\n&quot;)
+    for line in result.splitlines():     
+        if &quot;Tagged&quot; in line and trunk:
+            fields = line.strip().split()
+            cisco_output.write(&quot;switchport trunk allowed vlan add &quot;+fields[0]+&quot;\n&quot;)
+        elif &quot;Untagged&quot; in line:
+            fields = line.strip().split()
+            if trunk: cisco_output.write(&quot;switchport trunk allowed vlan add &quot;+fields[0]+&quot;\n&quot;+&quot;switchport trunk native vlan &quot;+fields[0]+&quot;\n&quot;)
+            else: cisco_output.write(&quot;switchport access vlan &quot;+fields[0]+&quot;\n&quot;)
+        elif &quot;Port name&quot; in line:
+            fields = line.strip().split(&quot;:&quot;)
+            cisco_output.write(&quot;description &quot;+fields[1]+&quot;\n&quot;)
+cisco_output.close()
+connection.disconnect()
+</code></pre>
+
+<p>This script is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA</a>.</p>
+
+<p><a href="https://github.com/routetonull/various/blob/master/provision2ios.py"><strong>Link on github</strong></a></p>
+
+<h2 id="final-considerations">Final considerations</h2>
+
+<p>This script successfully migrated over 90 access and trunk ports. I consider this a success!</p>
+
+<p><a href="http://robotswillstealyourjob.com/">Robots will steal our job</a> one day?</p>
+
+<p>I think I&rsquo;ll leave to the robot who wants to replace me just the boring tasks and I&rsquo;ll keep the most creative ones.</p>
+
+<p><strong>Welcome to my fellow robot, we&rsquo;ll be great friends!</strong></p>
+
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2507441616057251"
+     data-ad-slot="5064206496"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://www.ifconfig.it/hugo/post/2017-07-30-network-career-interview/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://www.ifconfig.it/hugo/post/2017-07-30-network-career-interview/">Networkcareer.net interview</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://www.ifconfig.it/hugo/post/2017-08-12-nfd16-delegate/">NFD16 delegate</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://www.ifconfig.it/hugo/post/2017-08-12-nfd16-delegate/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'ifconfig';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2507441616057251"
+     data-ad-slot="2220017315"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  
+</div>
+
+</div>
+</div>
+<script src="https://www.ifconfig.it/hugojs/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10670358-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

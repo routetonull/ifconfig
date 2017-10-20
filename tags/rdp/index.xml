@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rdp on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/rdp/</link>
+    <description>Recent content in Rdp on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Sat, 11 Feb 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/rdp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to change RDP listening port on Windows</title>
+      <link>https://www.ifconfig.it/hugo/post/how-to-change-rdp-listening-port-on-windows/</link>
+      <pubDate>Sat, 11 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/how-to-change-rdp-listening-port-on-windows/</guid>
+      <description>I needed to change the RDP listening port on a Windows machine, just edit the registry key:
+HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\TerminalServer\WinStations\RDP-Tcp\PortNumber</description>
+    </item>
+    
+  </channel>
+</rss>

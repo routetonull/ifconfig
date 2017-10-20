@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nexus on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/nexus/</link>
+    <description>Recent content in Nexus on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 27 Nov 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/nexus/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Cisco Nexus 9000 training DCINX9K</title>
+      <link>https://www.ifconfig.it/hugo/post/2014-11-27-dcinx9k/</link>
+      <pubDate>Thu, 27 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2014-11-27-dcinx9k/</guid>
+      <description>This week I attended a two days training of Cisco DCINX9K.
+The training is focused on Cisco Nexus 9000 switches in NX-OS mode.
+NX9K can run two different software images, the full ACI image with all the cool SDN stuff and the traditional NS-OX image with some cool features like Python, Rest API, VX-LAN and more.
+Now it&amp;rsquo;s time to improve my Python skills and borrow a couple of boxes to do some labs.</description>
+    </item>
+    
+    <item>
+      <title>MTU on Nexus switches, CDP and vCenter</title>
+      <link>https://www.ifconfig.it/hugo/post/2014-04-09-nxmtucdp/</link>
+      <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2014-04-09-nxmtucdp/</guid>
+      <description>Some time ago I&amp;rsquo;ve installed the new core switches for a customer: a couple of Nexus 7000, a couple of 5000 and twelve Nexus 2232TM, Virtual port channels, VLANs, Radius auth and so on.. all the usual configs a good network engineer does.
+
+Since the Nexus 5000 are connected to an iSCSI storage I&amp;rsquo;ve configured Jumbo frames.
+Customer called complaining that MTU isn&amp;rsquo;t correctly set and I must fix it.</description>
+    </item>
+    
+  </channel>
+</rss>

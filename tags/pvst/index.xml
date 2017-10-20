@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pvst on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/pvst/</link>
+    <description>Recent content in Pvst on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Tue, 23 Oct 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/pvst/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>PVST and non Cisco switches interoperability</title>
+      <link>https://www.ifconfig.it/hugo/post/pvst-interoperability/</link>
+      <pubDate>Tue, 23 Oct 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/pvst-interoperability/</guid>
+      <description>This week I&amp;rsquo;m attending an HP training in Milan The course topics aren&amp;rsquo;t as challenging as I&amp;rsquo;ve expected but I had the opportunity to test focus on some interoperability problems that may occur in mixed environments, especially with Cisco and non-Cisco devices, like PVST.
+For this post we use 2 switches, a Cisco and a non Cisco (HP in this case), the topology is simple:
+CISCO port g1/0/3 -- HP port 13 On the Cisco switch we enable PVST:</description>
+    </item>
+    
+  </channel>
+</rss>

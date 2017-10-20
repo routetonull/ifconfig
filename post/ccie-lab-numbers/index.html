@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.16-DEV" />
+
+  <title>CCIE lab numbers, preallocation myth, certification value. &middot; ifconfig.it</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.ifconfig.it/hugoimg/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://www.ifconfig.it/hugo/">ifconfig.it</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/tags/"><i class='fa fa-list fa-fw'></i>Tags</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/gp_ifconfig" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/gpaolo" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/routetonull" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>CCIE lab numbers, preallocation myth, certification value.</h1>
+  <h2></h2>
+</div>
+<div class="content">
+  <p>Cisco stopped to publish CCIE statistics some time ago but in Cisco Live presentations we can find some slides like this:</p>
+
+<p><a href="http://www.ifconfig.it/images/ccie_stats_2012.png"><img src="http://www.ifconfig.it/images/ccie_stats_2012-300x203.png" alt="ccie_stats_2012" /></a></p>
+
+<p>Based on this numbers the math is simple:
+<table cellpadding="0" width="260" cellspacing="0" border="0" >
+<tbody >
+<tr ></p>
+
+<p><td width="100" style="text-align: center;" height="21" ><strong>TOTAL CCIE</strong>
+</td></p>
+
+<p><td width="80" style="text-align: center;" ><strong>26634</strong>
+</td></p>
+
+<p><td width="80" style="text-align: center;" ><strong>%</strong>
+</td>
+</tr>
+<tr ></p>
+
+<p><td style="text-align: center;" height="20" >RS
+</td></p>
+
+<p><td style="text-align: center;" >17320
+</td></p>
+
+<p><td style="text-align: center;" >65,03%
+</td>
+</tr>
+<tr ></p>
+
+<p><td style="text-align: center;" height="20" >SEC
+</td></p>
+
+<p><td style="text-align: center;" >3794
+</td></p>
+
+<p><td style="text-align: center;" >14,24%
+</td>
+</tr>
+<tr ></p>
+
+<p><td style="text-align: center;" height="20" >SP
+</td></p>
+
+<p><td style="text-align: center;" >2885
+</td></p>
+
+<p><td style="text-align: center;" >10,83%
+</td>
+</tr>
+<tr ></p>
+
+<p><td style="text-align: center;" height="20" >VOICE
+</td></p>
+
+<p><td style="text-align: center;" >2291
+</td></p>
+
+<p><td style="text-align: center;" >8,60%
+</td>
+</tr>
+<tr ></p>
+
+<p><td style="text-align: center;" height="20" >SAN
+</td></p>
+
+<p><td style="text-align: center;" >170
+</td></p>
+
+<p><td style="text-align: center;" >0,64%
+</td>
+</tr>
+<tr ></p>
+
+<p><td style="text-align: center;" height="20" >WIRELESS
+</td></p>
+
+<p><td style="text-align: center;" >93
+</td></p>
+
+<p><td style="text-align: center;" >0,35%
+</td>
+</tr>
+<tr ></p>
+
+<p><td style="text-align: center;" height="20" >CCDE
+</td></p>
+
+<p><td style="text-align: center;" >63
+</td></p>
+
+<p><td style="text-align: center;" >0,24%
+</td>
+</tr>
+<tr ></p>
+
+<p><td style="text-align: center;" height="20" >SP OPS
+</td></p>
+
+<p><td style="text-align: center;" >11
+</td></p>
+
+<p><td style="text-align: center;" >0,04%
+</td>
+</tr>
+<tr ></p>
+
+<p><td style="text-align: center;" height="21" >CCA
+</td></p>
+
+<p><td style="text-align: center;" >7
+</td></p>
+
+<p><td style="text-align: center;" >0,03%
+</td>
+</tr>
+</tbody>
+</table></p>
+
+<p>A couple of days ago on twitter <a href="https://twitter.com/BobMcCouch">Bob McCouch</a> who passed his lab on February 21st posted this:</p>
+
+<p><img src="http://www.ifconfig.it/images/tweet_1177ccie.png" alt="tweet_1177ccie" /></p>
+
+<p>I know 14 days are not enough to make statistics, but let&rsquo;s play with the numbers since they&rsquo;re very fresh.</p>
+
+<p>There&rsquo;re 9 <a href="http://www.cisco.com/web/learning/certifications/general/pop_exam_locations.html">CCIE lab locations wordwide</a>, suppose each lab locations ha 5 seats per day. I say 5 because on the online schedule of the lab I can&rsquo;t find a single day with more than 5 seats available, maybe they are more.</p>
+
+<p>9 lab locations X 5 seats X 10 labs days (2 weeks) = 450 candidates, about 900 per month</p>
+
+<p>If 177 candidates passed in two weeks that means a passing rate of 40%, quite higher than I expected but not knowing the number of seats that&rsquo;s hard to say.</p>
+
+<p>CCIE is divided in <a href="http://www.cisco.com/web/learning/certifications/expert/index.html">9 tracks</a> now, but if we stick with the numbers above, 65% of them go for the R&amp;S exam so we have 115 every 2 weeks, or 230 per month.</p>
+
+<p> So first myth busted: are CCIE numbers pre-allocated? I would say no, that would mean aroud 11k new numbers per year and since lastest CCIEs numbers are around 38k that&rsquo;s not possible.</p>
+
+<p>Take for example <a href="http://rizzitech.blogspot.it/2011/02/ccie-lab-exam-result-pass.html">Marco Rizzi</a>, he got his digits in February 2011, number 28129. With 11k pre-allocated numbers per year they would have reached almost 50k now .</p>
+
+<p>Another proof of that: <a href="http://networkbroadcast.co.uk/">David Rothera</a> passed after a re-read, he got a higher number than <a href="http://herdingpackets.net/">Bob</a>&rsquo;s who passed the lab earlier:</p>
+
+<p><a href="http://www.ifconfig.it/images/ccie_david_reread.png"><img src="http://www.ifconfig.it/images/ccie_david_reread.png" alt="ccie_david_reread" /></a></p>
+
+<p>Second question: is the CCIE still a certification for an elite?</p>
+
+<p>IMO the answer is yes.</p>
+
+<p>Numbers are growing fast, but can they keep the pace of the growth of the networking market worldwide? Definitely no.</p>
+
+<p>Like many other jobs in IT, the demand is growing faster than the offer, higher skills are still rare so the certification worths any minute  and money spent to achieve it.</p>
+
+<p>I&rsquo;ll update this post if any correction/update is required, feel free to reply here of on my <a href="https://twitter.com/gp_ifconfig">twitte</a><a href="https://twitter.com/gp_ifconfig">r account</a>.</p>
+
+<p>UPDATE 20/04/13</p>
+
+<p><a href="http://aitaseller.wordpress.com/2013/03/13/one-of-the-best-feeling-ccie-38520/">Laurent Prat</a> passed his lab on March 12 2013 and got #32520, I passed mine on March 19th and got #38619 so 100 CCIE in just one week.</p>
+
+<p>LINKS</p>
+
+<p><em>More accurate CCIE statistics can be found on <a href="http://www.bradreese.com/worldwide-ccie-count.htm">Brad Reese website</a>.</em></p>
+
+<p><em>Thanks to <a href="https://twitter.com/madkiwiinaus">@madkiwiinaus</a> for the link to <a href="http://www.ccie18473.net/wwccies/wwccies.htm">Worldwide CCIEs since January 2006</a></em></p>
+
+</div>
+
+</div>
+</div>
+<script src="https://www.ifconfig.it/hugojs/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10670358-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

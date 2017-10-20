@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fspl on ifconfig.it</title>
+    <link>http://www.ifconfig.it/hugo/tags/fspl/</link>
+    <description>Recent content in Fspl on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Sat, 20 Apr 2013 15:55:01 +0000</lastBuildDate>
+    <atom:link href="http://www.ifconfig.it/hugo/tags/fspl/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Antenna radiation pattern, law of sines, free space propagation loss</title>
+      <link>http://www.ifconfig.it/hugo/post/wifi-law-of-sines/</link>
+      <pubDate>Sat, 20 Apr 2013 15:55:01 +0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/wifi-law-of-sines/</guid>
+      <description>&lt;p&gt;I work with WiFi more than I admit to myself and now that I have more time to study outside the CCIE R&amp;amp;S blueprint boundaries it&amp;rsquo;s time to focus on other technologies.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ve been involved in an interesting high density WiFi project and after a successfull deployment there&amp;rsquo;re some things I&amp;rsquo;d like to check. As Cisco partner my company had support for the network design from the same team involved in London Olympics and Cisco Live! so it was a great opportunity to learn a lot.&lt;/p&gt;
+
+&lt;p&gt;The first topic I want to explore is antenna radiation pattern and what it means for network coverage.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s start with an example. &lt;a href=&#34;http://www.cisco.com/en/US/prod/collateral/wireless/ps5678/ps11983/data_sheet_c78-686782.html&#34;&gt;Cisco Aironet 3600&lt;/a&gt; has a wide &lt;a href=&#34;http://www.cisco.com/en/US/prod/collateral/wireless/ps7183/ps469/at_a_glance_c45-513837.pdf&#34;&gt;choice of antennas&lt;/a&gt;. Let&amp;rsquo;s say we choose to use &lt;a href=&#34;http://www.cisco.com/en/US/docs/wireless/antenna/installation/guide/ant2566p4w.pdf&#34;&gt;AIR-ANT2566P4W-R&lt;/a&gt; mounted in a 10 meters ceiling pointing down to cover a big hall like a fairground.&lt;/p&gt;
+
+&lt;p&gt;How can we calculate the coverage area on the ground (where the clients are) and the expected signal power? We need this data to plan where the APs will be installed and how many APs we&amp;rsquo;ll need to cover the area.&lt;/p&gt;
+
+&lt;p&gt;WARNING: math involved!&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;The first factor to consider is &amp;ldquo;free space loss&amp;rdquo;: the radio signal loses power then travelling through space, the amount of power is based on the distance and the frequency.&lt;/p&gt;
+
+&lt;p&gt;The formula is &lt;a href=&#34;http://www.radio-electronics.com/info/propagation/path-loss/free-space-formula-equation.php&#34;&gt;HERE&lt;/a&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/04/fspl_formula.png&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/04/fspl_formula-300x65.png&#34; alt=&#34;fspl_formula&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/04/fspl_formula2.png&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/04/fspl_formula2-300x52.png&#34; alt=&#34;fspl_formula2&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;If we apply the formula using 10 meters, a frequency of 2440Mhz (around the middle of 802.11g range) and an antenna gain of 6dBi we get a just litte more than &lt;strong&gt;54dB&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;The maximum &lt;a href=&#34;http://en.wikipedia.org/wiki/Equivalent_isotropically_radiated_power&#34;&gt;EIRP&lt;/a&gt; permitted in Europe for 2,4Ghz is 20 dBm.&lt;/p&gt;
+
+&lt;p&gt;That meas we expect to measure a signal power of  &lt;strong&gt;20 - 54 = -34 dBm&lt;/strong&gt; when we are just under of the antenna at a distance of 10 meters.&lt;/p&gt;
+
+&lt;p&gt;But what if we move around? This is where the radiation pattern must be checked.&lt;/p&gt;
+
+&lt;p&gt;I recommend to read &amp;ldquo;&lt;a href=&#34;http://www.cisco.com/en/US/prod/collateral/wireless/ps7183/ps469/prod_white_paper0900aecd806a1a3e.html&#34;&gt;Antenna Patterns and Their Meaning&lt;/a&gt;&amp;rdquo; before going further.&lt;/p&gt;
+
+&lt;p&gt;What&amp;rsquo;s the pattern of our antenna? We can find it in the antenna &lt;a href=&#34;http://www.cisco.com/en/US/docs/wireless/antenna/installation/guide/ant2566p4w.pdf&#34;&gt;Data Sheet&lt;/a&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/04/radiation_pattern.png&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/04/radiation_pattern-300x96.png&#34; alt=&#34;radiation_pattern&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s start with the Azimuth Plane and 2,4GHz band.&lt;/p&gt;
+
+&lt;p&gt;This is the planned physical installation:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/04/triangle.png&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/04/triangle-210x300.png&#34; alt=&#34;triangle&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;From the data sheet we know the angle at the top is 105 degrees and the ceiling height is 10 meters. We need to know the base of the triangle. The good part is trigonometry helps us and the &lt;a href=&#34;http://en.wikipedia.org/wiki/Law_of_sines&#34;&gt;Law of sines&lt;/a&gt; tells us the triangle has a base of 26 meters.&lt;/p&gt;
+
+&lt;p&gt;That means we expect to read -37dBm when we&amp;rsquo;re 14 meters away from the AP on the Azimuth plane. The same formula tells us we read the same power from 7 meteres on the Elevation plane.&lt;/p&gt;
+
+&lt;p&gt;So on the groud we can track a rectangle 26 meters wide and 14 meters tall where the expected signal  power is at least -37dBm. A lower signal expectation would mean a bigger area.&lt;/p&gt;
+
+&lt;p&gt;Now it&amp;rsquo;s easy to place our APs to cover all the area (notice the picture show circles, replace it with rectangles).&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/04/ap_placement.png&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/04/ap_placement-300x295.png&#34; alt=&#34;ap_placement&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Many factors are involved in WiFi network design, in this post I just started to play with some numbers and concepts, hope you enjoy.&lt;/p&gt;
+
+&lt;p&gt;Documents to read:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.cisco.com/web/strategy/docs/education/cisco_wlan_design_guide.pdf&#34;&gt;Cisco High Density WiFi Design&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.cisco.com/en/US/prod/collateral/wireless/ps7183/ps469/prod_white_paper0900aecd806a1a3e.html&#34;&gt;Antenna Patterns and their Meaning&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

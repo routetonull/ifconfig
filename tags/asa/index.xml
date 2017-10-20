@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Asa on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/asa/</link>
+    <description>Recent content in Asa on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 03 Aug 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/asa/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Cisco ASA boot problem</title>
+      <link>https://www.ifconfig.it/hugo/post/asa_restore_failed_image/</link>
+      <pubDate>Wed, 03 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/asa_restore_failed_image/</guid>
+      <description>Cisco ASA memory problem
+ASA doesn&amp;rsquo;t boot:
+Launching BootLoader... Default configuration file contains 1 entry. Searching / for images to boot. Loading /asa825-k8.bin... Booting...  Press ESC to interrupt boot:
+Use BREAK or ESC to interrupt boot. Use SPACE to begin boot immediately.  We&amp;rsquo;re now in rommon:
+rommon #0&amp;gt;  Check variables:
+rommon #3&amp;gt; set ROMMON Variable Settings: ADDRESS=0.0.0.0 SERVER=0.0.0.0 GATEWAY=0.0.0.0 PORT=Ethernet0/0 VLAN=untagged IMAGE= CONFIG= LINKTIMEOUT=20 PKTTIMEOUT=4 RETRY=20  Config network parameters.</description>
+    </item>
+    
+    <item>
+      <title>Cisco ASA and Office 365</title>
+      <link>https://www.ifconfig.it/hugo/post/2016-06-11-asaoffice365/</link>
+      <pubDate>Sat, 11 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2016-06-11-asaoffice365/</guid>
+      <description>Office 365 is widely used between many customers. Some of them happen to manage all the Internet connections through a Cisco ASA, not the fancy ASA-X with Firepower, just the plain old 5510.
+I was asked to allow Office 365 traffic, looks easy huh?
+Step 1: know your enemy After some Google-fu I found Microsoft kindly provides an update list of the IP/subnet/URLs necessary to access various services including Office 365, Lync, OneNOte etc.</description>
+    </item>
+    
+    <item>
+      <title>Cisco ASA VPN with over overlapping addresses and twice NAT</title>
+      <link>https://www.ifconfig.it/hugo/post/2015-08-10-cisco-asa-vpn-with-over-overlapping-addresses-and-twice-nat/</link>
+      <pubDate>Mon, 10 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2015-08-10-cisco-asa-vpn-with-over-overlapping-addresses-and-twice-nat/</guid>
+      <description>IP addressing design is a topic that follows every networker from the basic to the architect level of experience.
+Usually we just pick a random range from RFC1918 and address all the devices.
+But then VPN happens, and with VPN comes the risk of overlapping.
+How do we fix overlapping? With NAT of course!
+In this post I&amp;rsquo;ll show how to use twice NAT to allow VPN connections with overlapping addresses.</description>
+    </item>
+    
+    <item>
+      <title>How to change a L2L VPN peer IP on Cisco ASA 8.3(2)4</title>
+      <link>https://www.ifconfig.it/hugo/post/2012-05-29-asavpnpeeripchange/</link>
+      <pubDate>Tue, 29 May 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2012-05-29-asavpnpeeripchange/</guid>
+      <description>Today a customer called to change the IP address of a L2L VPN peer on his Cisco ASA 8.3(2)4.
+The task can be divided in 3 steps:
+1) Get the VPN password. It should be written somewhere in the network documentation, as stated by rule 7, but you know, password sometimes just get lost.
+2) Find and update crypto map
+asa# sh run | b peer 1.1.1.1  You should get a line like</description>
+    </item>
+    
+    <item>
+      <title>Copy files to ASA via SCP</title>
+      <link>https://www.ifconfig.it/hugo/post/2012-04-12-copy-files-to-asa-via-scp/</link>
+      <pubDate>Thu, 12 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2012-04-12-copy-files-to-asa-via-scp/</guid>
+      <description>Sometimes it can be useful to copy files to and from a Cisco ASA Firewall via SCP.
+To enable SCP just type:
+ssh scopy enable  </description>
+    </item>
+    
+    <item>
+      <title>ASA - show vpn pre shared key in cleartext</title>
+      <link>https://www.ifconfig.it/hugo/post/asa-show-vpn-pre-shared-key-in-cleartext/</link>
+      <pubDate>Thu, 05 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/asa-show-vpn-pre-shared-key-in-cleartext/</guid>
+      <description>Forgot the PSK of a VPN on a Cisco ASA? With this command you can see all the passwords in clear:
+more system:running-configuration</description>
+    </item>
+    
+    <item>
+      <title>TCP sync on ASA</title>
+      <link>https://www.ifconfig.it/hugo/post/2012-01-14-tcp-sycn-on-asa/</link>
+      <pubDate>Sat, 14 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2012-01-14-tcp-sycn-on-asa/</guid>
+      <description>A customer called today for a strange issue on their Cisco ASA. They have 60Mbit internet connection and a big event is filling the bandwidth. The session graph is what they are worried about:
+
+This is a perfect example of TCP Sync, well explained HERE. The ISP applies a basic rate-limit rule on the router that causes the packet drops.
+Since ISP uses a Cisco router as CPE I&amp;rsquo;ll try to negotiate some QoS policy to avoid the TCP sync behaviour.</description>
+    </item>
+    
+  </channel>
+</rss>

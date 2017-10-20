@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.16" />
+
+  <title>Docker: networking - bridge to host NIC &middot; ifconfig.it</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="http://www.ifconfig.it/hugo/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="http://www.ifconfig.it/hugo/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="http://www.ifconfig.it/hugo/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="http://www.ifconfig.it/hugoimg/favicon.ico" type="image/x-icon" />
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="http://www.ifconfig.it/hugo/">ifconfig.it</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://www.ifconfig.it/hugo/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://www.ifconfig.it/hugo/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://www.ifconfig.it/hugo/tags/"><i class='fa fa-list fa-fw'></i>Tags</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://www.ifconfig.it/hugo/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/gp_ifconfig" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/gpaolo" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/routetonull" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Docker: networking - bridge to host NIC</h1>
+  <h2></h2>
+</div>
+<div class="content">
+  
+
+<p>This post is part of a series about Docker, including:</p>
+
+<ul>
+<li><p><a href="http://www.ifconfig.it/wordpress/2015/05/docker-introduction/">Docker Introduction</a></p></li>
+
+<li><p><a href="http://wp.me/p4biGi-o0">Docker: Install software inside a container</a></p></li>
+
+<li><p><a href="http://wp.me/p4biGi-o5">Docker Volumes</a></p></li>
+</ul>
+
+<p>Today we&rsquo;ll see <a href="https://docs.docker.com/articles/networking/">Docker networking</a> with a very specific target in mind: bridge container to the host network.</p>
+
+<!-- more -->
+
+<p>This isn&rsquo;t supposed to be the way of work of containers: a container should be created to run a single application so container networking, from the point of view of a <a href="http://www.netengday.net/">Network Engineer</a>, is essentialy a <a href="http://it.wikipedia.org/wiki/Port_Address_Translation">Port Address Translation</a> with a firewall exception.</p>
+
+<p>I know that&rsquo;s a strong simplification, you cand find lot of good explanation about Docker networking on <a href="http://www.slideshare.net/search/slideshow?searchfrom=header&amp;q=docker+networking">Slideshare</a>.</p>
+
+<p>Different methods to connect a Docker container to the network can be found <a href="http://blog.oddbit.com/2014/08/11/four-ways-to-connect-a-docker/">HERE</a>.</p>
+
+<h2 id="docker-networking">Docker Networking</h2>
+
+<p>When you install Docker on a Linux host in creates a new interface called <strong>docker0</strong>.</p>
+
+<p>Every container&rsquo;s eth0 interface is connected to an internal &ldquo;host-only&rdquo; interface that could be accessed via the PAT/Firewall exception mentioned before.</p>
+
+<pre><code>&lt;code&gt;root@1d622f185fe4:/# ifconfig
+eth0      Link encap:Ethernet  HWaddr 02:42:ac:11:00:03  
+      inet addr:172.17.0.3  Bcast:0.0.0.0  Mask:255.255.0.0
+      inet6 addr: fe80::42:acff:fe11:3/64 Scope:Link
+      UP BROADCAST RUNNING  MTU:1500  Metric:1
+      RX packets:31567 errors:0 dropped:0 overruns:0 frame:0
+      TX packets:19482 errors:0 dropped:0 overruns:0 carrier:0
+      collisions:0 txqueuelen:0 
+      RX bytes:49245829 (49.2 MB)  TX bytes:1366148 (1.3 MB)
+&lt;/code&gt;
+</code></pre>
+
+<p>Note: the Ubuntu image hasn&rsquo;t ifconfig installed, install it executing:</p>
+
+<pre><code>&lt;code&gt;apt-get install net-tools
+&lt;/code&gt;
+</code></pre>
+
+<h2 id="bridging">Bridging</h2>
+
+<p>On the Docker documentation about bridging the <a href="(https://docs.docker.com/articles/networking/#bridge-building)">suggested method</a> is to use <a href="http://linux.die.net/man/8/brctl">Linux bridge</a>.</p>
+
+<p>A better method is show below.</p>
+
+<h1 id="open-vswitch-and-pipework">Open vSwitch and Pipework</h1>
+
+<p><a href="http://openvswitch.org/">Open vSwitch</a> (shortened OVS) is an open source multilayer software switch that support many well-known features, including bridging.</p>
+
+<p>Let&rsquo;s see how it can be used with Docker to bridge a container to the local network.</p>
+
+<p>Install Open vSwitch on host:</p>
+
+<pre><code>&lt;code&gt;apt-get install openvswitch-switch openvswitch-common
+&lt;/code&gt;
+</code></pre>
+
+<p>Verify OVS is correctly installed:</p>
+
+<pre><code>&lt;code&gt;root@ubuntusrv:~# ovs-vsctl show
+f9018860-275f-49e5-a6a8-5d9baf2df7b7
+ovs_version: &quot;2.3.1&quot;
+&lt;/code&gt;
+</code></pre>
+
+<p>Create a bridge interface and add host&rsquo;s eth0 to the bridge:</p>
+
+<pre><code>&lt;code&gt;ovs-vsctl add-br ovsbr0; ovs-vsctl add-port ovsbr0 eth0; dhclient ovsbr0; service networking restart
+&lt;/code&gt;
+</code></pre>
+
+<p><strong>Note:</strong> network connection to the host may be lost. In my case I was connected remotely via SSH to the host and executing all the commands in a single line the connection wasn&rsquo;t lost.</p>
+
+<p><strong>Note2:</strong> to delete the previous configuration run</p>
+
+<pre><code>&lt;code&gt;ovs-vsctl del-port eth0; ovs-vsctl del-br ovsbr0; service networking restart
+&lt;/code&gt;
+</code></pre>
+
+<p>This is the final configuration of the Open vSwitch:</p>
+
+<pre><code>&lt;code&gt;ovs-vsctl show
+
+Bridge &quot;ovsbr0&quot;
+    Port &quot;eth0&quot;
+        Interface &quot;eth0&quot;
+    Port &quot;ovsbr0&quot;
+        Interface &quot;ovsbr0&quot;
+            type: internal
+ovs_version: &quot;2.3.1&quot;
+&lt;/code&gt;
+</code></pre>
+
+<p>The OVS named <strong>ovsbr0</strong> now has just two ports, one external <strong>eth0</strong> and one internal <strong>ovsbr0</strong>.</p>
+
+<p>Now we just need to create the Docker containers with an interface bridged to the internal vSwitch interface ovsbr0. To do that <a href="https://github.com/jpetazzo/pipework">Pipework</a> helps a lot.</p>
+
+<p><strong>Install pipework</strong></p>
+
+<p>Pipework is a script that can automate many Docker and OVS configurations, check <a href="https://github.com/jpetazzo/pipework">documentation</a> for details.</p>
+
+<p>To install Pipework on the host machine run:</p>
+
+<pre><code>&lt;code&gt;git clone https://github.com/jpetazzo/pipework.git
+&lt;/code&gt;
+</code></pre>
+
+<p>In our case we want to start a container with a bridged interface and assign it an IP address from a DHCP server in the same subnet of the host.</p>
+
+<p>This is the command to run:</p>
+
+<pre><code>&lt;code&gt;./pipework/pipework ovsbr0 $(docker run -i -t --net=&quot;none&quot; -d ubuntuplus /bin/bash) dhcp
+&lt;/code&gt;
+</code></pre>
+
+<p>Now attach to the container and verify the network interface configuration:</p>
+
+<pre><code>&lt;code&gt;root@b30fcf44858f:/# ifconfig
+eth1  Link encap:Ethernet  HWaddr 3a:05:56:81:f4:eb  
+      inet addr:10.1.0.18  Bcast:10.1.0.255  Mask:255.255.255.0
+      inet6 addr: fe80::3805:56ff:fe81:f4eb/64 Scope:Link
+      UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+      RX packets:221 errors:0 dropped:0 overruns:0 frame:0
+      TX packets:11 errors:0 dropped:0 overruns:0 carrier:0
+      collisions:0 txqueuelen:1000 
+      RX bytes:19161 (19.1 KB)  TX bytes:1674 (1.6 KB)
+&lt;/code&gt;
+</code></pre>
+
+<p>Great! 10.1.0.0/24 is my network. Verify on the <a href="http://www.tcpipguide.com/free/t_TCPIPDynamicHostConfigurationProtocolDHCP.htm">DHCP</a> server (a <a href="www.cisco.com">Cisco</a> router)</p>
+
+<pre><code>&lt;code&gt;sh ip dhcp binding 10.1.0.18
+IP address          Client-ID/              Lease expiration        Type
+                Hardware address/
+                User name
+10.1.0.18           3a05.5681.f4eb          May 13 2015 02:26 PM    Automatic
+&lt;/code&gt;
+</code></pre>
+
+<p>Notice in the DHCP output the real <a href="http://www.tcpipguide.com/free/t_DataLinkLayerLayer2.htm">MAC address</a> of the container.</p>
+
+<p>This is the configuration of the OVS</p>
+
+<pre><code>&lt;code&gt;ovs-vsctl show
+
+Bridge &quot;ovsbr0&quot;
+    Port &quot;eth0&quot;
+        Interface &quot;eth0&quot;
+    Port &quot;veth1pl13142&quot;
+        Interface &quot;veth1pl13142&quot;
+    Port &quot;ovsbr0&quot;
+        Interface &quot;ovsbr0&quot;
+            type: internal
+ovs_version: &quot;2.3.1&quot;
+&lt;/code&gt;
+</code></pre>
+
+<p>Notice the new port <em>veth1pl13142</em> associtated to the running container.</p>
+
+<p>Stay tuned for the next post of the Docker series where I&rsquo;ll join the dots to show you my final goal, the actual reason I&rsquo;ve started to use Docker.</p>
+
+<p>A few notes.</p>
+
+<h2 id="cleaning-ovs">Cleaning OVS</h2>
+
+<p>When the container is killed the OVS port isn&rsquo;t removed. After some time the OVS could have many unused ports. To clean the ports I wrote this simple scripts:</p>
+
+<pre><code>&lt;code&gt;ovs-vsctl show | grep Interface.*veth | sed 's/&quot;//g' | awk '{ cmd= &quot;ovs-vsctl del-port &quot;$2 ; system(cmd) }'
+&lt;/code&gt;
+</code></pre>
+
+<h2 id="container-to-ovs-port-map">Container to OVS port map</h2>
+
+<p>I still haven&rsquo;t found a working script to map an OVS port to a container but <a href="http://ewen.mcneill.gen.nz/blog/entry/2014-10-12-finding-docker-containers-connection-to-openvswitch/">THIS</a> looks like a good start. Any help would be appreciated.</p>
+
+<p>That&rsquo;s it</p>
+
+</div>
+
+</div>
+</div>
+<script src="http://www.ifconfig.it/hugo/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10670358-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

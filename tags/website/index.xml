@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Website on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/website/</link>
+    <description>Recent content in Website on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 18 Aug 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/website/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Welcome Hugo</title>
+      <link>https://www.ifconfig.it/hugo/post/hugo/</link>
+      <pubDate>Thu, 18 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/hugo/</guid>
+      <description>Ladies and gentlemen, welcome to my new website!
+I mean site url, content and topics are still the same but but now I use Hugo instead of Wordpress.
+Why change Speed: my website got slower and slower. Static pages are fast, very fast.
+Easy of use: I started to use markdown to write posts then copy&amp;amp;paste them in Wordpress via browser. This process was slow and required too many steps.</description>
+    </item>
+    
+  </channel>
+</rss>

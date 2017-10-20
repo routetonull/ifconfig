@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ssid on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/ssid/</link>
+    <description>Recent content in Ssid on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 02 May 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/ssid/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>inSSIDer</title>
+      <link>https://www.ifconfig.it/hugo/post/inssider/</link>
+      <pubDate>Wed, 02 May 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/inssider/</guid>
+      <description>inSSIDer is a free tool to monitor and troubleshoot WiFi networks. Even if it isn&amp;rsquo;t as complete as other solutions like Chanalyzer or AirMagnet it can be used as a first step to check the channels usage, power levels and the mac addresses of the APs.
+Download it for free on the MetaGeek.com website.</description>
+    </item>
+    
+  </channel>
+</rss>

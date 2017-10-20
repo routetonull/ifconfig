@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vlan on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/vlan/</link>
+    <description>Recent content in Vlan on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Tue, 21 Oct 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/vlan/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Alcatel switches Auto Vlan Assignement</title>
+      <link>https://www.ifconfig.it/hugo/post/alcatel-ava/</link>
+      <pubDate>Tue, 21 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/alcatel-ava/</guid>
+      <description>Switch configuration includes many tasks, some of them are just boring and error prone.
+Vlan port assignment on access switches, excited huh? There can be many vlans (clients, printers, access-point, security cameras and more) and it may not be easy to plan the assignments before the actual installation.
+No my friend! In this installation I was lucky enough to deal with Alcatel switches that have a great feature: auto vlan assignments without the hassle of 802.</description>
+    </item>
+    
+    <item>
+      <title>PVLAN Quick Notes</title>
+      <link>https://www.ifconfig.it/hugo/post/pvlan-quick-notes/</link>
+      <pubDate>Thu, 20 Dec 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/pvlan-quick-notes/</guid>
+      <description>Private VLAN configuration:
+vlan 300 private-vlan primary private-vlan association 301-302 ! vlan 301 private-vlan isolated ! vlan 302 private-vlan community Port configuration:
+interface GigabitEthernet1/0/1 switchport private-vlan host-association 300 301 switchport mode private-vlan host What about the SVI?
+interface Vlan300 ip address 11.0.0.48 255.255.255.0 private-vlan mapping ? WORD Secondary VLAN IDs of the private VLAN SVI interface mapping add Add a VLAN to private VLAN list remove Remove a VLAN from private VLAN list If we add a private-vlan mapping to the SVI it works like a promicuous port for all the secondary vlans mapped, reachable by both isolated and community ports:</description>
+    </item>
+    
+  </channel>
+</rss>

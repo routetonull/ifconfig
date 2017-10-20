@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Meraki on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/meraki/</link>
+    <description>Recent content in Meraki on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Mon, 14 Nov 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/meraki/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Meraki Masters</title>
+      <link>https://www.ifconfig.it/hugo/post/merakimasters/</link>
+      <pubDate>Mon, 14 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/merakimasters/</guid>
+      <description>Last week I had the opportunity to attend a &amp;ldquo;Cisco Meraki Masters&amp;rdquo; session at Meraki HQ in San Francisco.
+Meraki Masters is a program that sits on top of CMNA to give partners a deeper view of the Meraki product line, vision and roadmap.
+Merakify a.k.a. &amp;ldquo;Don&amp;rsquo;t spend your time doing work a well-trained monkey could do.&amp;rdquo; Meraki has a strong focus on the &amp;ldquo;merakification&amp;rdquo; of the products. Merakification means that all the repetitive tasks a network administrator performs almost on daily basis are now included in the Meraki Dashboard.</description>
+    </item>
+    
+  </channel>
+</rss>

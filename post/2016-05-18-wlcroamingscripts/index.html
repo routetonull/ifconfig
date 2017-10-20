@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.26" />
+
+  <title>Cisco WLC roaming troubleshooting scripts &middot; ifconfig.it</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.ifconfig.it/hugoimg/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-2507441616057251",
+    enable_page_level_ads: true
+  });
+</script>
+  
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://www.ifconfig.it/hugo/">ifconfig.it</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/tags/"><i class='fa fa-list fa-fw'></i>Tags</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/gp_ifconfig" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/gpboa" target="_blank"><i class="fa fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/gpaolo" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/routetonull" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://keybase.io/bgp" target="_blank"><i class="fa fa-key fa-fw"></i>Keybase</a>
+    </li>
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Cisco WLC roaming troubleshooting scripts</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+	<time>Wednesday, May 18, 2016
+	</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/script">script</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/troubleshooting">troubleshooting</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/wlc">wlc</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  
+
+<p>As it often happens, everything begins with a call from a customer with a problem.</p>
+
+<p>The problem is related to WiFi roaming in a warehouse with clients disconnecting from RDP sessions. The clients are industrial PCs installed on forklifts that move quite fast (and dangerously).</p>
+
+<h2 id="second-rule-of-troubleshooting-measure">Second rule of troubleshooting: measure</h2>
+
+<p>As the first rule is <strong>clearly identify the problem</strong>, I skip to the second one.</p>
+
+<p><em>How can we measure roaming problems?</em></p>
+
+<p>On Cisco WLC we can debug clients (up to 10 a the same time) and look for &ldquo;Association&rdquo; messages.</p>
+
+<p>When a client roams correctly between APs we should see only <strong>RE</strong>association messages. If the client for any reason drops the connection while moving it will start a new connetions sending an Association request to the AP.</p>
+
+<p>But how many Association messages are too many? How can we check if some clients are associating/reassociating more than others?</p>
+
+<p>Association messages are part of the behaviour of a normal WiFi network so it critical to distinguish what&rsquo;s <em>normal</em> from what&rsquo;s a <em>problem</em>.</p>
+
+<h3 id="get-the-logs">Get the logs</h3>
+
+<p>We start getting the logs. Connect to WLC, debug up to 10 clients identified by MAC address, logs to a file. Easy huh?</p>
+
+<pre><code>debug client 7c:5c:f8:4a:79:82 7c:5c:f8:4a:7e:82 7c:5c:f8:4a:73:8d 7c:5c:f8:4a:7e:7d 7c:5c:f8:4a:7e:aa 7c:5c:f8:4b:9e:43 7c:5c:f8:4a:7e:41 7c:5c:f8:4a:7c:f7 7c:5c:f8:4a:7c:f7 7c:5c:f8:4a:7d:e2
+</code></pre>
+
+<h3 id="count-the-messages">Count the messages</h3>
+
+<p>NOTE: I work on a Windows machine with some GNU tools installed so you can easily port these scripts on Linux/OSX. Feel free to send me a MacBookAir if you need my support on OSX ;-)</p>
+
+<p>Association messages format:</p>
+
+<pre><code>*apfMsConnTask_1: May 13 13:30:26.883: 7c:5c:f8:4a:7c:f7 Association received from mobile on BSSID 00:08:2f:fa:dc:b0
+</code></pre>
+
+<p>Reassociation message format:</p>
+
+<pre><code>*apfMsConnTask_7: May 13 13:25:48.487: 7c:5c:f8:4a:7e:41 Reassociation received from mobile on BSSID e0:89:9d:d2:31:e0
+</code></pre>
+
+<p>Now lets white a script that counts <strong>Association messages per AP</strong>:</p>
+
+<pre><code>@echo off
+:loop
+cls
+echo ASSOCIATION EVENTS PER AP
+time /T
+grep &quot; Association received&quot; wlc_243_20160513.log | gawk &quot;{print $12}&quot; | sort | uniq -c | sort /R
+sleep 5
+goto loop
+</code></pre>
+
+<p>In the output we see a list of APs (BSSIDs) ordered by the number of Association messages they received from one of our 10 debugged clients.</p>
+
+<p>Since I named all my APs I prefer to replace the BSSIDs with AP names.</p>
+
+<p>Create a sed script with a good name - I chose ap2name.sed</p>
+
+<pre><code>s/00:08:2f:4b:yy:xx/APB058/g
+s/1c:de:a7:1a:yy:xx/APD057/g
+s/1c:de:a7:1a:yy:xx/APD069/g
+s/1c:de:a7:1a:yy:xx/APA062/g
+s/00:08:2f:fa:yy:xx/APE068/g
+s/1c:de:a7:1a:yy:xx/APC053/g
+s/1c:de:a7:1a:yy:xx/APA064/g
+s/1c:de:a7:1a:yy:xx/APD055/g
+s/00:08:2f:fa:yy:xx/APA063/g
+s/dc:eb:94:11:yy:xx/APC071/g
+s/00:08:2f:fa:yy:xx/APC051/g
+s/00:08:2f:fa:yy:xx/APE067/g
+s/1c:de:a7:1a:yy:xx/APC054/g
+s/1c:de:a7:1a:yy:xx/APC052/g
+s/00:08:2f:fa:yy:xx/APB061/g
+s/00:08:2f:fa:yy:xx/APD070/g
+s/00:08:2f:fa:yy:xx/APD059/g
+s/00:08:2f:fa:yy:xx/APA065/g
+s/0c:27:24:0f:yy:xx/AP1410/g
+s/00:08:2f:fa:yy:xx/APE066/g
+s/1c:de:a7:1a:yy:xx/APD056/g
+s/0c:68:03:5f:yy:xx/AP1810/g
+</code></pre>
+
+<p>Add it at the end of the grep command to see AP names instead of the mac address:</p>
+
+<pre><code>@echo off
+:loop
+cls
+echo ASSOCIATION EVENTS PER AP
+time /T
+grep &quot; Association received&quot; wlc_243_20160513.log | gawk &quot;{print $12}&quot; | sort | uniq -c | sort /R | sed -f ap2name.sed
+sleep 5
+goto loop
+</code></pre>
+
+<p>The output looks better now:</p>
+
+<pre><code>ASSOCIATION PER AP
+07:55
+ 14 APA062
+ 14 APA063
+ 14 APD059
+  9 APB060
+  9 APC051
+  9 APB058
+  8 APC053
+  7 APB061
+  5 APC071
+  4 APD057
+  4 APA064
+  4 APC052
+  4 APE068
+  3 APD069
+  3 APD055
+  3 APD056
+  3 APC054
+  3 APD070
+  1 APA065
+  1 APE066
+  1 APE067
+</code></pre>
+
+<p>With the same method we can count <strong>Reassociation messages per AP</strong>:</p>
+
+<pre><code>@echo off
+:loop
+cls
+ECHO REASSOCIATION EVENTS PER AP
+time /T
+grep &quot; Reassociation&quot; wlc_243_20160513.log | gawk &quot;{print $12}&quot; | sort | uniq -c | sort /R | sed -f ap2name.sed
+sleep 5
+goto loop
+</code></pre>
+
+<p>Now focus on the clients, let&rsquo;s count <strong>Association messages per client</strong>:</p>
+
+<pre><code>@echo off
+:loop
+cls
+echo ASSOCIATION EVENTS PER CLIENT
+time /T
+grep &quot; Association received&quot; wlc_243_20160513.log | gawk &quot;{print $5}&quot; | sort | uniq -c | sort /R
+sleep 5
+goto loop
+</code></pre>
+
+<p>And finally <strong>Reassociation messages per client</strong>:</p>
+
+<pre><code>@echo off
+:loop
+cls
+echo REASSOCIATION EVENTS PER CLIENT
+time /T
+grep &quot; Reassociation&quot; wlc_243_20160513.log | gawk &quot;{print $5}&quot; | sort | uniq -c | sort /R | sed -f ap2name.sed
+sleep 5
+goto loop
+</code></pre>
+
+<p>This is the final result:</p>
+
+<p><img src="http://www.ifconfig.it/images/ap_batch_output.png" alt="" /></p>
+
+<h3 id="understand-the-output">Understand the output</h3>
+
+<p>What we see now is a good view of which clients and APs have more <strong>Association events</strong>, that may be an indicator that they are not roaming correctly.</p>
+
+<p>In the <strong>Association events per AP</strong> output we can identify which APs are getting more association messages, possibly meaning clients moving towards that AP experience a coverage hole and a disconnection.</p>
+
+<h3 id="fix-the-problem">Fix the problem</h3>
+
+<p>I can&rsquo;t really talk about how to fix the problem because it depends on your WiFi network design, AP placement, antennas in use, noise floor, interferers&hellip; I just want to show you the results.</p>
+
+<p>Before:</p>
+
+<p><img src="http://www.ifconfig.it/images/ap-reass.png" alt="" /></p>
+
+<p>After:</p>
+
+<p><img src="http://www.ifconfig.it/images/ap-ass.png" alt="" /></p>
+
+<p>You see almost no Association messages while clients move around, it is a good sign roaming is working fine.</p>
+
+<h3 id="wrap-up">Wrap up</h3>
+
+<p>Use the counters <em><a href="https://en.wikipedia.org/wiki/Grain_of_salt">cum granus salis</a></em>, their meaning really depends on your infrastructure, the position of the APs and how the clients move.</p>
+
+<p>Sometimes you get many Associations on an AP that is the first one the clients connect to in the morning and that&rsquo;s not a problem.</p>
+
+<p>It is possible that an AP that receives many Associations request is workig perfectly fine but the previous one is the row is not correctly positioned or has the wrong settins so that&rsquo;s the one causing roaming problems.</p>
+
+<p>I strongly advise anybody who installs/manages WiFi network to study <a href="https://www.cwnp.com/certifications/cwna">CWNA</a> for a better undestanding.</p>
+
+<p>Enjoy!</p>
+
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2507441616057251"
+     data-ad-slot="5064206496"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://www.ifconfig.it/hugo/post/2016-04-04-wifisec4dummies/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://www.ifconfig.it/hugo/post/2016-04-04-wifisec4dummies/">WiFi security 4 dummies</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://www.ifconfig.it/hugo/post/2016-06-11-asaoffice365/">Cisco ASA and Office 365</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://www.ifconfig.it/hugo/post/2016-06-11-asaoffice365/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'ifconfig';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2507441616057251"
+     data-ad-slot="2220017315"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  
+</div>
+
+</div>
+</div>
+<script src="https://www.ifconfig.it/hugojs/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10670358-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

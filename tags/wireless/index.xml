@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Wireless on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/wireless/</link>
+    <description>Recent content in Wireless on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Fri, 21 Apr 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/wireless/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CWDP</title>
+      <link>https://www.ifconfig.it/hugo/post/2017-04-21-cwdp/</link>
+      <pubDate>Fri, 21 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2017-04-21-cwdp/</guid>
+      <description>Today I passed exam CWDP-302 and got CWDP.
+To be honest I had to renew my CWNA that was about to expire but I don&amp;rsquo;t really like to renew, I prefer o move forward when I can.
+Exam preparation To prepare the exam I read cover-to-cover the official study guide and review some topics on the CWNA study guide.
+The study guide is dated 2011 so it covers up to 802.</description>
+    </item>
+    
+    <item>
+      <title>CWNA</title>
+      <link>https://www.ifconfig.it/hugo/post/2014-05-04-cwna/</link>
+      <pubDate>Sun, 04 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2014-05-04-cwna/</guid>
+      <description>Last week I passed PW0-105 exam and obtained the CWNA certification:
+I work with wireless network since 2005, I began installing some SoHo APs and in the last few years I designed and deployed many bigger networks, some of which are challenging high density environments.
+I read manyCisco documents about wifi design and in this year&amp;rsquo;s Cisco Live I attended many session related to wifi. After passing CCNA-W I didn&amp;rsquo;t felt confident enough, I know how to design, install and troubleshoot a wireless network but I wanted to have a deeper knowledge of the technologies involved ant how the protocols work.</description>
+    </item>
+    
+    <item>
+      <title>Cisco WLC roaming debug &#43; gawk &#43; sed</title>
+      <link>https://www.ifconfig.it/hugo/post/wlc-logs-and-sed/</link>
+      <pubDate>Tue, 14 May 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/wlc-logs-and-sed/</guid>
+      <description>Quite often I have to debug a wireless client roaming across lighweight Cisco APs to confirm it moves between APs as expected in the network design.
+On the WLC the command is &amp;ldquo;debug client MAC&amp;rdquo;. The command shows all the events related to the specific client including:
+Reassociation received from mobile on AP 00:23:ab:ba:YY:XX that means client moved to the AP with radio MAC 00:23:ab:ba:YY:XX. Since I&amp;rsquo;ve named all the APs and and I&amp;rsquo;ve a map with all the positions, I&amp;rsquo;d like to see the names in the debug instead of MAC.</description>
+    </item>
+    
+    <item>
+      <title>CCIEWireless blog and Youtube Channel</title>
+      <link>https://www.ifconfig.it/hugo/post/cciewireless-blog/</link>
+      <pubDate>Mon, 08 Oct 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/cciewireless-blog/</guid>
+      <description>A great blog and Youtube channel with a lot of resources for Cisco Wireless:
+[youtube]http://www.youtube.com/watch?v=y6gxNMo3CW4&amp;amp;list=UUm3YBBhcJRokmAD1LaJg3hQ&amp;amp;index=1&amp;amp;feature=plcp[/youtube]</description>
+    </item>
+    
+    <item>
+      <title>Airfoil</title>
+      <link>https://www.ifconfig.it/hugo/post/2012-03-24-airfoil/</link>
+      <pubDate>Sat, 24 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2012-03-24-airfoil/</guid>
+      <description>Apple&amp;rsquo;s Airport Express is a multi-pourpose device that I really like. It is small, not energy hungry and has many features.
+Wireless music streaming is a very useful feature, but it&amp;rsquo;s limited to use iTunes as source.
+Today I bought Airfoil that allows to stream the audio from any running program on PC or MAC.
+
+Now I can stream music from any online service like Grooveshark or Rdio to my home stereo.</description>
+    </item>
+    
+  </channel>
+</rss>

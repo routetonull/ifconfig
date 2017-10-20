@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Senza Categoria on IFCONFIG.IT </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>http://www.ifconfig.it/hugo/categories/senza-categoria/</link>
+    <language>en-us</language>
+    
+    
+    <updated>Mon, 04 Apr 2016 14:12:47 &#43;0000</updated>
+    
+    <item>
+      <title>WiFi security 4 dummies</title>
+      <link>http://www.ifconfig.it/hugo/post/wifisec4dummies/</link>
+      <pubDate>Mon, 04 Apr 2016 14:12:47 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/wifisec4dummies/</guid>
+      <description>
+
+&lt;p&gt;Customer site, their security policy for WiFi is an SSID with a &lt;strong&gt;secret&lt;/strong&gt; PSK: the IT manager type the password on my PC to allow me to access the network.&lt;/p&gt;
+
+&lt;p&gt;Maybe he&amp;rsquo;s not aware of my keylogger or that the password con be easily retrieved in cleartext. Let&amp;rsquo;s see how.&lt;/p&gt;
+
+&lt;h2 id=&#34;windows-10-retrieve-the-wifi-psk-in-cleartext&#34;&gt;Windows 10: retrieve the WiFi PSK in cleartext&lt;/h2&gt;
+
+&lt;p&gt;Show a list of all WiFi profiles configured on the PC:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;netsh wlan show profiles
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Show the WiFi network currently in use:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;netsh wlan show networks
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Change PROFILENAME with the WiFi profile:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;netsh wlan show profiles name=&amp;quot;PROFILENAME&amp;quot; key=clear
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;wrap-up&#34;&gt;Wrap up&lt;/h2&gt;
+
+&lt;p&gt;Never type your passwords in a PC you don&amp;rsquo;t control - keylogger exists - and don&amp;rsquo;t rely on a &lt;strong&gt;secret&lt;/strong&gt; PSK for your WiFi security.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>CCIE: You need to recertify in twelve months</title>
+      <link>http://www.ifconfig.it/hugo/post/ccie-recert-2014/</link>
+      <pubDate>Wed, 19 Mar 2014 14:45:01 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/ccie-recert-2014/</guid>
+      <description>&lt;p&gt;This means two things:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;I&amp;rsquo;m CCIE for over one year now&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;I need to prepare again the written exam&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The last day to test the v4 edition is June 3, 2014, I&amp;rsquo;ve passed that exam twice so I expect a little effort to pass it again.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Happy birthday: ifconfig.it is 10 years old today.</title>
+      <link>http://www.ifconfig.it/hugo/post/happy-birthday-ifconfig-it-is-10-years-old-today/</link>
+      <pubDate>Tue, 10 Sep 2013 23:01:42 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/happy-birthday-ifconfig-it-is-10-years-old-today/</guid>
+      <description>&lt;p&gt;Today, 10 years ago, I&amp;rsquo;ve registered &lt;a href=&#34;http://www.ifconfig.it&#34;&gt;this&lt;/a&gt; domain.&lt;/p&gt;
+
+&lt;p&gt;My initial idea was just to have a place to play with html and to save some interesting links. After that I switched to &lt;a href=&#34;http://www.realmacsoftware.com/rapidweaver/&#34;&gt;RapidVeawer&lt;/a&gt; mostly beacuse I liked the themes and it was a good WYSIWYG editor.&lt;/p&gt;
+
+&lt;p&gt;The current release is just another wordpress blog but it works for me.&lt;/p&gt;
+
+&lt;p&gt;Check web archive for previous site versions &lt;a href=&#34;http://web.archive.org/web/20030401000000*/http://www.ifconfig.it&#34;&gt;HERE&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I hope you enjoyed the content so far.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>AutoHotkey</title>
+      <link>http://www.ifconfig.it/hugo/post/autohotkey/</link>
+      <pubDate>Sat, 25 May 2013 08:46:17 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/autohotkey/</guid>
+      <description>&lt;p&gt;One of the more annoying things of the windows command line is the lack of Shift+Ins to paste the clipboard.&lt;/p&gt;
+
+&lt;p&gt;A bit of googling made me discover a very useful software called &lt;a href=&#34;http://www.autohotkey.com/&#34;&gt;AutoHotkey&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;While I&amp;rsquo;m just beginning to use it it proved to be the perfect tool for the job.&lt;/p&gt;
+
+&lt;p&gt;This simple script allows use Shift+Ins to paste the clipboard content inside the Windows console:&lt;/p&gt;
+
+&lt;blockquote&gt;#IfWinActive ahk_class ConsoleWindowClass
+RShift &amp; Ins::
+SendInput {Raw}%clipboard%
+return
+#IfWinActive&lt;/blockquote&gt;
+
+&lt;p&gt;I&amp;rsquo;m sure AutoHotkey will be even more valuable as I learn how to use the advanced functions.&lt;/p&gt;
+
+&lt;p&gt;Strongly recommended. License is &lt;a href=&#34;http://www.autohotkey.com/docs/license.htm&#34;&gt;GPL&lt;/a&gt;. Download it &lt;a href=&#34;http://www.autohotkey.com/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>fping</title>
+      <link>http://www.ifconfig.it/hugo/post/fping/</link>
+      <pubDate>Sat, 24 Mar 2012 09:15:29 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/fping/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://www.webcitation.org/5saCKBpgH&#34;&gt;Ping&lt;/a&gt; is one of the most useful tools to test network connectivity, sometimes it is the first step for troubleshooting and getting the &amp;ldquo;!&amp;rdquo; (if you work on Cisco devices) can be a big satisfaction.&lt;/p&gt;
+
+&lt;p&gt;I use ping on daily basis and sometimes I need some features that the basic ping command  lacks. The solution? &lt;a href=&#34;http://www.kwakkelflap.com&#34;&gt;FPING&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Of all the features of fping my favorite is &amp;ldquo; -b : beep on every successful reply (- to beep on timeout)&amp;ldquo;. When I reload a device I can just wait for fping to beep instead of keeping a window on the screen with &amp;ldquo;ping -t&amp;rdquo;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>RFC 1925 - The Twelve Networking Truths</title>
+      <link>http://www.ifconfig.it/hugo/post/rfc-1925-the-twelve-networking-truths/</link>
+      <pubDate>Sat, 21 Jan 2012 22:13:35 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/rfc-1925-the-twelve-networking-truths/</guid>
+      <description>&lt;p&gt;Number 8 is the one I mention when I see a network project made with PowerPoint that looks simple with all those clouds and arrows:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;(8)  It is more complicated than you think.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Link to all the 12 truths &lt;a href=&#34;http://www.faqs.org/rfcs/rfc1925.html&#34;&gt;HERE&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>2012: new website</title>
+      <link>http://www.ifconfig.it/hugo/post/new_website/</link>
+      <pubDate>Sun, 01 Jan 2012 16:31:54 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/new_website/</guid>
+      <description>&lt;p&gt;This website will be the new platform for my blog www.ifconfig.it. The migration has just begun, I&amp;rsquo;m copying the most interesting post from the old blog here, it&amp;rsquo;ll take some time.&lt;/p&gt;
+
+&lt;p&gt;I used to manage the website with &lt;a href=&#34;http://www.realmacsoftware.com/rapidweaver/overview/&#34;&gt;RapidWeaver&lt;/a&gt; but in the last year I&amp;rsquo;m using a Win7 PC most of the time and I needed a more flexible platform, something I could manage from any browser. The choices were to close the blog or find another tool to manage it, so I&amp;rsquo;ve installed &lt;a href=&#34;http://wordpress.org/&#34;&gt;WordPress&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;In the blog you&amp;rsquo;ll find informations about software, mostly related to my job as network engineer, and some posts regarding my studies of various certifications, mostly Cisco.&lt;/p&gt;
+
+&lt;p&gt;Feel free to comment/correct/contribute.&lt;/p&gt;
+
+&lt;p&gt;I wish you all a happy new year 2012.&lt;/p&gt;
+
+&lt;p&gt;Enjoy&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Wordpress backup to DropBox</title>
+      <link>http://www.ifconfig.it/hugo/post/wordpress-backup-to-dropbox/</link>
+      <pubDate>Tue, 27 Dec 2011 19:11:20 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/wordpress-backup-to-dropbox/</guid>
+      <description>&lt;p&gt;This is the way I like backups: scheduled, automated, cloudy &amp;ndash;&amp;gt; &lt;a href=&#34;http://wordpress.org/extend/plugins/wordpress-backup-to-dropbox/&#34;&gt;LINK&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The pluging does a backup of all WordPress files and database to a &lt;a href=&#34;http://db.tt/jsBAEfg&#34;&gt;DropBox&lt;/a&gt; account. You can schedule the backup so it&amp;rsquo;s fully automated.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>CCIE R&amp;S, not this time.</title>
+      <link>http://www.ifconfig.it/hugo/post/ccie-rs-not-this-time/</link>
+      <pubDate>Mon, 27 Jun 2011 22:43:02 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/ccie-rs-not-this-time/</guid>
+      <description>&lt;p&gt;I didn&amp;rsquo;t pass the &lt;a href=&#34;http://www.cisco.com/web/learning/le3/ccie/rs/lab_exam.html&#34;&gt;CCIE R&amp;amp;S Lab exam&lt;/a&gt; today in Brussels. This was my first attempt.&lt;/p&gt;
+
+&lt;p&gt;I have to improve my troubleshooting skills and go deeper in some technologies but I think I can do it. Don&amp;rsquo;t have plans for the next attempt, there&amp;rsquo;re other personal projects that will take most of my free time that I use to study so maybe it&amp;rsquo;ll take a while but I don&amp;rsquo;t give up.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Small servers</title>
+      <link>http://www.ifconfig.it/hugo/post/small-servers/</link>
+      <pubDate>Sat, 26 Mar 2011 15:25:51 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/small-servers/</guid>
+      <description>&lt;p&gt;A quick note about tcp small servers.&lt;/p&gt;
+
+&lt;p&gt;DOC-CD says:&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;The TCP small servers consist of three services: Discard (port 9), Echo (port 7), and Chargen (port 19).&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;If we do a portscan to a router before and after enabling tcp-small-server with the command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;R(config)#service tcp-small-servers&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We can see that these ports are opened:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;Starting nmap V. 3.00 ( www.insecure.org/nmap/ ) Interesting ports on (10.1.0.254): 
+Port State Service 
+7/tcp open echo 
+9/tcp open discard 
+13/tcp open daytime 
+19/tcp open chargen&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The DOC-CD misses port 13 corresponding to &lt;a href=&#34;http://en.wikipedia.org/wiki/Daytime_Protocol&#34;&gt;Daytime Protocol&lt;/a&gt;. As &lt;a href=&#34;http://en.wikipedia.org/wiki/Fox_Mulder&#34;&gt;Fox Mulder&lt;/a&gt; used to say: &amp;ldquo;trust no one&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s check if it works:``&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;telnet 10.1.0.254 13 Trying 10.1.0.254... Connected to 10.1.0.254. Escape character is &#39;^]&#39;. Saturday, March 26, 2011 18:09:30-ROME Connection closed by foreign host.&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Great! IOS tell us the time.&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href=&#34;http://en.wikipedia.org/wiki/Chargen&#34;&gt;chargen&lt;/a&gt; port:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;telnet 10.1.0.254 19 Trying 10.1.0.254... Connected to 10.1.0.254. Escape character is &#39;^]&#39;. !&amp;quot;#$%&amp;amp;&#39;()*+,-./0123456789:;&amp;lt;=&amp;gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefg !&amp;quot;#$%&amp;amp;&#39;()*+,-./0123456789:;&amp;lt;=&amp;gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefgh &amp;quot;#$%&amp;amp;&#39;()*+,-./0123456789:;&amp;lt;=&amp;gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghi #$%&amp;amp;&#39;()*+,-./0123456789:;&amp;lt;=&amp;gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghij $%&amp;amp;&#39;()*+,-./0123456789:;&amp;lt;=&amp;gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijk %&amp;amp;&#39;()*+,-./0123456789:;&amp;lt;=&amp;gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijkl&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The &lt;a href=&#34;http://en.wikipedia.org/wiki/Echo_Protocol&#34;&gt;echo port&lt;/a&gt; is quite funny, it send us back whatever we send it:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;telnet 10.1.0.254 7 Trying 10.1.0.254... Connected to 10.1.0.254. Escape character is &#39;^]&#39;. hi! hi! hello! hello!&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The traffic sent to the &lt;a href=&#34;http://en.wikipedia.org/wiki/Discard_Protocol&#34;&gt;discard port&lt;/a&gt; is simply discarded, used for testing:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;telnet 10.1.0.254 9 Trying 10.1.0.254... Connected to 10.1.0.254. Escape character is &#39;^]&#39;. junk junk trash&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;UDP small servers work as TCP, just over a different transport protocol.&lt;/p&gt;
+
+&lt;p&gt;HTH&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The 10 Networking Commandments</title>
+      <link>http://www.ifconfig.it/hugo/post/the-10-networking-commandments/</link>
+      <pubDate>Sun, 13 Mar 2011 15:28:14 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/the-10-networking-commandments/</guid>
+      <description>&lt;ol&gt;
+&lt;li&gt;Thou shalt above all, maintain the integrity of the network.&lt;/li&gt;
+&lt;li&gt;Thou shalt have a long term strategic direction.&lt;/li&gt;
+&lt;li&gt;Thou shalt always opt for quality before expediency.&lt;/li&gt;
+&lt;li&gt;Thou shalt meet the requirements, exceed the expectations and anticipate the needs of users.&lt;/li&gt;
+&lt;li&gt;Thou shalt benefit from a successful implementation by careful project planning.&lt;/li&gt;
+&lt;li&gt;Thou shalt provide reliability, availability and serviceability.&lt;/li&gt;
+&lt;li&gt;Thou shalt maintain detailed, timely and accurate documentation.&lt;/li&gt;
+&lt;li&gt;Thou shalt commit to continuous training.&lt;/li&gt;
+&lt;li&gt;Thou shalt test in a test environment.&lt;/li&gt;
+&lt;li&gt;Thou shalt install and label cables properly.&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

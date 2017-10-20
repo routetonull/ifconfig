@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.26" />
+
+  <title>SecureCRT and Python &middot; ifconfig.it</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.ifconfig.it/hugoimg/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-2507441616057251",
+    enable_page_level_ads: true
+  });
+</script>
+  
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://www.ifconfig.it/hugo/">ifconfig.it</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/tags/"><i class='fa fa-list fa-fw'></i>Tags</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/gp_ifconfig" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/gpboa" target="_blank"><i class="fa fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/gpaolo" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/routetonull" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://keybase.io/bgp" target="_blank"><i class="fa fa-key fa-fw"></i>Keybase</a>
+    </li>
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>SecureCRT and Python</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+	<time>Monday, June 1, 2015
+	</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/python">python</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/software">software</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  <p><a href="http://www.vandyke.com/products/securecrt/">SecureCRT</a> is one of my favourite tools, today I had a chance to use it in a way I didn&rsquo;t expected.</p>
+
+<p>A customer called with a problem: he has a radio bridge that sometimes loses connection with the remote unit. The workaround is to reload the base unit. The process is manual, he monitors the radio bridge status and reload when required.</p>
+
+<p>Since the radio bridge is not business critical he doesn&rsquo;t have budget to replace tha radio bridge or troubleshoot the problem, the request was to automate the check/reload process.</p>
+
+<p>I checked the available tools: no Linux servers, no monitoring, no management platform&hellip; just a Windows server and&hellip; <a href="http://www.vandyke.com/products/securecrt/">SecureCRT</a>!
+A quick look on <a href="http://www.vandyke.com/products/securecrt/">SecureCRT</a> website confirmed that it supports <a href="http://www.vandyke.com/products/securecrt/scripts.html">scripting</a> with <a href="https://www.python.org/">Python</a>, VBScript, Jscript and PerlScript. I&rsquo;m familiar with <a href="https://www.python.org/">Python</a> so it is my choice.</p>
+
+<p>The idea is simple:</p>
+
+<ul>
+<li><p>connect to the remote device via <a href="https://tools.ietf.org/html/rfc854">telnet</a></p></li>
+
+<li><p>verify the radio bridge is up</p></li>
+
+<li><p>reload the device if radio bridge is down</p></li>
+</ul>
+
+<p>The script with comments is quite self explanatory:</p>
+
+<pre><code># $language = &quot;Python&quot;
+# $interface = &quot;1.0&quot;
+
+# Website: www.ifconfig.it
+# License: https://creativecommons.org/licenses/by-sa/4.0/legalcode
+
+def main():
+
+    # CONNECTION DATA
+    hostIP = &quot;X.X.X.X&quot;
+    username = &quot;myUsername&quot;
+    password = &quot;myPassword&quot;
+    enablePassword = &quot;myEnablePassword&quot;
+    prompt = &quot;#&quot;
+
+    # PARAMETERS
+    command = &quot;sh dot11 associations&quot;
+    searchString = &quot;6cfa.8923.beef&quot;
+    reloadCommand = &quot;reload in 1 reason REMOTE_NOT_FOUND&quot;
+
+    # LOGIN STRINGS
+    loginStrings = [&quot;Username&quot;,&quot;Password:&quot;,&quot;&gt;&quot;,&quot;Password:&quot;]
+    sendString = [username,password,&quot;enable&quot;,enablePassword]
+
+    crt.Screen.Synchronous = True
+
+    # CONNECT TO REMOTE DEVICE  
+    crt.Session.Connect(&quot;/telnet &quot;+hostIP)
+
+    # AUTHENTICATE PROCESS
+
+    if (crt.Session.Connected):
+
+        i=0
+        for string in loginStrings:
+            crt.Screen.WaitForString(string)
+            crt.Screen.Send(sendString[i]+&quot;\r&quot;)
+            i = i+1
+
+        crt.Screen.WaitForString(prompt)
+        crt.Screen.Send(&quot;term len 0&quot;+&quot;\r&quot;)
+
+        crt.Screen.WaitForString(prompt)
+
+        # EXECUTE VERIFICATION COMMAND AND GET OUTPUT
+        crt.Screen.Send(command+&quot;\r&quot;)
+
+        crt.Screen.IgnoreEscape = True
+
+        result = crt.Screen.ReadString(prompt)
+        result.strip()
+
+        crt.Screen.IgnoreEscape = False
+
+        #SEARCH STRING IN OUTPUT
+
+        if searchString not in result:
+            #crt.Dialog.MessageBox(&quot;FOUND STRING&quot;)
+        #else:
+            #crt.Dialog.MessageBox(&quot;STRING NOT FOUND&quot;)
+            crt.Screen.Send(&quot;\r&quot;)
+            crt.Screen.WaitForString(prompt)
+            crt.Screen.Send(reloadCommand+&quot;\r&quot;)
+
+        # EXIT THE SESSION
+        crt.Screen.Send(&quot;\r&quot;)
+        crt.Screen.WaitForString(prompt)
+        crt.Screen.Send(&quot;exit&quot;+&quot;\r&quot;)    
+
+        crt.Screen.Synchronous = False
+
+main()
+</code></pre>
+
+<p>This script is scheduled to run every 30 minutes on the Windows server using this sintax:</p>
+
+<pre><code>&quot;c:\Program Files\SecureCRT\securecrt.exe&quot; /script c:\script\checkRadioBridge.py
+</code></pre>
+
+<p>I&rsquo;d have prefered a better implementation on a Linux machine but this works so far, the customer is happy and I learnt something new: <a href="http://en.wikipedia.org/wiki/Win-win_game">win-win</a>!</p>
+
+<p>###Useful links</p>
+
+<ul>
+<li><p><a href="https://forums.vandyke.com/forumdisplay.php?f=14">VanDyke scripting forum</a></p></li>
+
+<li><p><a href="http://learnpythonthehardway.org/">LearnPythonTheHardWay</a></p></li>
+</ul>
+
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2507441616057251"
+     data-ad-slot="5064206496"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://www.ifconfig.it/hugo/post/2015-05-25-docker-join-the-dots/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://www.ifconfig.it/hugo/post/2015-05-25-docker-join-the-dots/">Docker join the dots</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://www.ifconfig.it/hugo/post/2015-07-31-exam-passed-hp2-z31-creating-hp-software-defined-networks/">Exam passed HP2-Z31 - Creating HP Software-defined Networks</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://www.ifconfig.it/hugo/post/2015-07-31-exam-passed-hp2-z31-creating-hp-software-defined-networks/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'ifconfig';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2507441616057251"
+     data-ad-slot="2220017315"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  
+</div>
+
+</div>
+</div>
+<script src="https://www.ifconfig.it/hugojs/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10670358-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

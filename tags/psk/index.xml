@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Psk on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/psk/</link>
+    <description>Recent content in Psk on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 05 Apr 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/psk/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ASA - show vpn pre shared key in cleartext</title>
+      <link>https://www.ifconfig.it/hugo/post/asa-show-vpn-pre-shared-key-in-cleartext/</link>
+      <pubDate>Thu, 05 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/asa-show-vpn-pre-shared-key-in-cleartext/</guid>
+      <description>Forgot the PSK of a VPN on a Cisco ASA? With this command you can see all the passwords in clear:
+more system:running-configuration</description>
+    </item>
+    
+  </channel>
+</rss>

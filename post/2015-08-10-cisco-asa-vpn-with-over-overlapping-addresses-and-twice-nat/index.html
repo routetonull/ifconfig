@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.26" />
+
+  <title>Cisco ASA VPN with over overlapping addresses and twice NAT &middot; ifconfig.it</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.ifconfig.it/hugoimg/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-2507441616057251",
+    enable_page_level_ads: true
+  });
+</script>
+  
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://www.ifconfig.it/hugo/">ifconfig.it</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/tags/"><i class='fa fa-list fa-fw'></i>Tags</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/gp_ifconfig" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/gpboa" target="_blank"><i class="fa fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/gpaolo" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/routetonull" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://keybase.io/bgp" target="_blank"><i class="fa fa-key fa-fw"></i>Keybase</a>
+    </li>
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Cisco ASA VPN with over overlapping addresses and twice NAT</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+	<time>Monday, August 10, 2015
+	</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/asa">asa</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/nat">nat</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/vpn">vpn</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  
+
+<p>IP addressing design is a topic that follows every networker from the basic to the architect level of experience.</p>
+
+<p>Usually we just pick a random range from <a href="https://tools.ietf.org/html/rfc1918">RFC1918</a> and address all the devices.</p>
+
+<p>But then VPN happens, and with VPN comes the risk of overlapping.</p>
+
+<p>How do we fix overlapping? With <a href="2">NAT</a> of course!</p>
+
+<p>In this post I&rsquo;ll show how to use twice NAT to allow VPN connections with overlapping addresses.</p>
+
+<p>Topology:</p>
+
+<p><img src="http://www.ifconfig.it/images/asa_twicenat_topology.png" alt="topology" /></p>
+
+<p>Constrains:</p>
+
+<ul>
+<li><p>to change addressing of any network is not an option</p></li>
+
+<li><p>no NAT on ASA-REMOTE for the VPN</p></li>
+</ul>
+
+<p>Our tools:</p>
+
+<ul>
+<li><p>Cisco ASA 5510 releas 8.4(2)</p></li>
+
+<li><p><a href="http://www.cisco.com/c/en/us/td/docs/security/asa/asa84/configuration/guide/asa_84_cli_config/nat_rules.html">twice nat</a></p></li>
+</ul>
+
+<p>We can see in the topology both local and remote network use addressing 10.99.0.0/24. The local PC2 must reach remote PC1.</p>
+
+<h1 id="the-plan">The plan</h1>
+
+<p>To fix the overlapping we need to NAT on ASA-NAT both networks to two subnets not used on both sides.</p>
+
+<p>Network LOCAL LAN 10.99.0.0/24 will be seen as 10.101.0.0/24 from REMOTE LAN.</p>
+
+<p>Network REMOTE LAN 10.99.0.0/24 will be seen as 10.100.0.0/24 from LOCAL LAN.</p>
+
+<p>A full network NAT will be used so a host 10.99.0.1 on LOCAL LAN will be natted ad 10.101.0.1 to REMOTE LAN. This is a better choice than nat overload when remote services must be reached.</p>
+
+<h2 id="vpn-configuration">VPN Configuration</h2>
+
+<p>If you&rsquo;re familiar with VPN configuration on ASA or IOS you know a cryptomap is involved. A cryptomap is an ACL that defines the traffic that will be encrypted and sent to the remote VPN peer.</p>
+
+<p>In out case the cryptomap on device ASA-NAT will be:</p>
+
+<pre><code>access-list outside_cryptomap extended permit ip 10.100.0.0 255.255.255.0 10.99.0.0 255.255.255.0  
+</code></pre>
+
+<p>This could be quite confunsing, the destination address is the same subnet of the LOCAL LAN, but we&rsquo;ll see why it works (hint: <a href="https://supportforums.cisco.com/document/132066/asa-nat-83-nat-operation-and-configuration-format-cli">order of operation</a>).</p>
+
+<p>VPN configuration on device ASA-NAT:</p>
+
+<pre><code>crypto ipsec ikev2 ipsec-proposal AES256
+ protocol esp encryption aes-256
+ protocol esp integrity sha-1 md5
+crypto map outside_map 1 match address outside_cryptomap
+crypto map outside_map 1 set peer 192.168.2.2
+crypto map outside_map 1 set ikev2 ipsec-proposal AES256
+crypto map outside_map interface outside
+crypto ikev2 policy 1
+ encryption aes-256
+ integrity sha
+ group 5 2
+ prf sha
+ lifetime seconds 86400
+crypto ikev2 enable outside 
+group-policy GroupPolicy_192.168.2.2 internal
+group-policy GroupPolicy_192.168.2.2 attributes
+ vpn-tunnel-protocol ikev2
+tunnel-group 192.168.2.2 type ipsec-l2l
+tunnel-group 192.168.2.2 general-attributes
+ default-group-policy GroupPolicy_192.168.2.2
+tunnel-group 192.168.2.2 ipsec-attributes
+ ikev2 remote-authentication pre-shared-key cisco123
+ ikev2 local-authentication pre-shared-key cisco123
+</code></pre>
+
+<p>VPN configuration on device ASA-REMOTE:</p>
+
+<pre><code>crypto ipsec ikev2 ipsec-proposal AES256
+ protocol esp encryption aes-256
+ protocol esp integrity sha-1 md5
+crypto map outside_map 1 match address outside_cryptomap
+crypto map outside_map 1 set peer 192.168.1.1
+crypto map outside_map 1 set ikev2 ipsec-proposal AES256
+crypto map outside_map interface outside
+crypto ikev2 policy 1
+ encryption aes-256
+ integrity sha
+ group 5 2
+ prf sha
+ lifetime seconds 86400
+crypto ikev2 enable outside
+group-policy GroupPolicy_192.168.1.1 internal
+group-policy GroupPolicy_192.168.1.1 attributes
+ vpn-tunnel-protocol ikev2
+tunnel-group 192.168.1.1 type ipsec-l2l
+tunnel-group 192.168.1.1 general-attributes
+ default-group-policy GroupPolicy_192.168.1.1
+tunnel-group 192.168.1.1 ipsec-attributes
+ ikev2 remote-authentication pre-shared-key cisco123
+ ikev2 local-authentication pre-shared-key cisco123
+</code></pre>
+
+<h2 id="nat-configuration">NAT Configuration</h2>
+
+<p>All the magic happens on device ASA-NAT.</p>
+
+<p>First step - create the network objects:</p>
+
+<p>ASA-LAN is the <strong>local network:</strong></p>
+
+<pre><code>object network ASA-LAN
+  subnet 10.99.0.0 255.255.255.0
+</code></pre>
+
+<p>ASA-REMOTE-LAN is the <strong>remote network</strong>:</p>
+
+<pre><code>object network ASA-REMOTE-LAN
+  subnet 10.99.0.0 255.255.255.0
+</code></pre>
+
+<p><em>It is the same as AS-LAN but I used different names to make the nat command more clear.</em></p>
+
+<p>ASA-NATTED-LAN is how the <strong>local network</strong> is seen from the <strong>remote network:</strong></p>
+
+<pre><code>object network ASA-NATTED-LAN
+  subnet 10.100.0.0 255.255.255.0
+</code></pre>
+
+<p>ASA-NATTED-REMOTE is how the <strong>remote network</strong> is seen from the <strong>local network:</strong></p>
+
+<pre><code>object network ASA-NATTED-REMOTE
+  subnet 10.101.0.0 255.255.255.0
+</code></pre>
+
+<p>Second step - the NAT command:</p>
+
+<pre><code>nat (inside,outside) source static ASA-LAN ASA-NATTED-LAN destination static ASA-NATTED-REMOTE ASA-REMOTE-LAN net-to-net
+</code></pre>
+
+<p>The first part of the command <strong>source</strong> translates the local network ASA-LAN (10.99.0.0/24) as ASA-NATTED-LAN (10.100.0.0/24) when talking to ASA-NATTED-REMOTE (10.101.0.0/24)</p>
+
+<p>The second part of the command <strong>destination</strong> translates the remote network ASA-NATTED-REMOTE (10.101.0.0/24) as ASA-REMOTE (10.99.0.0/24).</p>
+
+<p>The final result creates a packet with source 10.100.0.0/24 and destination 10.99.0.0/24 that perfectly matches the cryptomap we created so the traffic correctly enters the VPN.</p>
+
+<p><img src="http://www.ifconfig.it/images/asa_twicenat_nat.png" alt="nat" /></p>
+
+<h2 id="order-of-operations">Order of operations</h2>
+
+<p>For a better understanding of the whole process we can use the <strong>packet tracer</strong> and see the steps.</p>
+
+<p>The command is:</p>
+
+<pre><code>ASA-NAT# packet-tracer input inside tcp 10.99.0.1 http 10.101.0.1 http
+</code></pre>
+
+<p>I removed some lines for a better output.</p>
+
+<pre><code>Phase: 1
+Type: ACCESS-LIST
+Result: ALLOW
+</code></pre>
+
+<p>In phase 2 the destination IP of the packet is &ldquo;un-natted&rdquo; from 10.101.0.1 to 10.99.0.1.</p>
+
+<p>Notice: there&rsquo;s no routing involved here, the traffic is diverted to the outside interface by the NAT rule, overriding the routing table.</p>
+
+<pre><code>Phase: 2
+Type: UN-NAT
+Subtype: static
+Result: ALLOW
+Config:
+nat (inside,outside) source static ASA-LAN ASA-NATTED-LAN destination static ASA-NATTED-REMOTE ASA-LAN
+Additional Information:
+NAT divert to egress interface outside
+Untranslate 10.101.0.1/80 to 10.99.0.1/80
+
+Phase: 3
+Type: IP-OPTIONS
+Result: ALLOW
+</code></pre>
+
+<p>In phase 4 the source of the packet is natted from 10.99.0.1 to 10.100.0.1:</p>
+
+<pre><code>Phase: 4
+Type: NAT
+Subtype:
+Result: ALLOW
+Config:
+nat (inside,outside) source static ASA-LAN ASA-NATTED-LAN destination static ASA-NATTED-REMOTE ASA-LAN
+Additional Information:
+Static translate 10.99.0.1/80 to 10.100.0.1/80
+</code></pre>
+
+<p>The traffic matches the cryptomap:</p>
+
+<pre><code>Phase: 5
+Type: VPN
+Subtype: encrypt
+Result: ALLOW
+Config:
+Additional Information:
+
+Phase: 6
+Type: NAT
+Subtype: rpf-check
+Result: ALLOW
+Config:
+nat (inside,outside) source static ASA-LAN ASA-NATTED-LAN destination static ASA-NATTED-REMOTE ASA-LAN
+Additional Information:
+
+Phase: 7
+Type: VPN
+Subtype: ipsec-tunnel-flow
+Result: ALLOW
+Config:
+Additional Information:
+
+Phase: 8
+Result: ALLOW
+
+Phase: 9
+Type: FLOW-CREATION
+Result: ALLOW
+</code></pre>
+
+<p>The final result:</p>
+
+<pre><code>Result:
+input-interface: inside
+input-status: up
+input-line-status: up
+output-interface: outside
+output-status: up
+output-line-status: up
+Action: allow
+</code></pre>
+
+<h2 id="final-considerations">Final considerations</h2>
+
+<p>I want to thank my friend (and happy customer) <a href="http://www.routereflector.com/">Andrea</a> (the creator of <a href="http://www.unetlab.com/">Unified Networking Lab</a>) for the question he sent me that gave me the chance to lab this feature and write this post.</p>
+
+<p>I use to configure NAT on both firewalls for this kind of overlapping but in this case we wanted to have the same results without any NAT on remote firewall.</p>
+
+<p>HTH</p>
+
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2507441616057251"
+     data-ad-slot="5064206496"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://www.ifconfig.it/hugo/post/2015-08-03-quick-config-ssl-vpn-on-cisco-ios-via-cli/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://www.ifconfig.it/hugo/post/2015-08-03-quick-config-ssl-vpn-on-cisco-ios-via-cli/">Quick config: SSL VPN on Cisco IOS via CLI</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://www.ifconfig.it/hugo/post/awkwlc/">AWK and Cisco WLC</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://www.ifconfig.it/hugo/post/awkwlc/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'ifconfig';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2507441616057251"
+     data-ad-slot="2220017315"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  
+</div>
+
+</div>
+</div>
+<script src="https://www.ifconfig.it/hugojs/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10670358-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

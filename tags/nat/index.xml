@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nat on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/nat/</link>
+    <description>Recent content in Nat on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Mon, 10 Aug 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/nat/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Cisco ASA VPN with over overlapping addresses and twice NAT</title>
+      <link>https://www.ifconfig.it/hugo/post/2015-08-10-cisco-asa-vpn-with-over-overlapping-addresses-and-twice-nat/</link>
+      <pubDate>Mon, 10 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2015-08-10-cisco-asa-vpn-with-over-overlapping-addresses-and-twice-nat/</guid>
+      <description>IP addressing design is a topic that follows every networker from the basic to the architect level of experience.
+Usually we just pick a random range from RFC1918 and address all the devices.
+But then VPN happens, and with VPN comes the risk of overlapping.
+How do we fix overlapping? With NAT of course!
+In this post I&amp;rsquo;ll show how to use twice NAT to allow VPN connections with overlapping addresses.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Exam on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/exam/</link>
+    <description>Recent content in Exam on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Fri, 11 Dec 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/exam/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>VMware VCP5-DCV for a network engineer</title>
+      <link>https://www.ifconfig.it/hugo/post/2015-12-11-vcp5dcv/</link>
+      <pubDate>Fri, 11 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2015-12-11-vcp5dcv/</guid>
+      <description>Today I passed exam VCP550 and got VMware VCP5-DCV certification.
+Exam preparation For exam preparation I attended the official training that is mandatory to access the exam. The printed material provided with the training is good enough but I integrated with the great Mastering VMware vSphere 5.5 by Scott Lowe. The official documentation available online for free.
+I had some hands-on experience with VSphere, did some installations myself and supported some trouble tickets so even if I don&amp;rsquo;t work every day with VSphere I have a decent knowledge on the topic.</description>
+    </item>
+    
+    <item>
+      <title>CCIE #38619</title>
+      <link>https://www.ifconfig.it/hugo/post/2013-03-20-ccie38619/</link>
+      <pubDate>Wed, 20 Mar 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2013-03-20-ccie38619/</guid>
+      <description>I&amp;rsquo;ve passed the CCIE R&amp;amp;S lab exam yesterday in Brussels, results arrived this morning:
+[]
+[]</description>
+    </item>
+    
+    <item>
+      <title>Alcatel Lucent Certified Field Expert</title>
+      <link>https://www.ifconfig.it/hugo/post/2012-11-22-acfe/</link>
+      <pubDate>Thu, 22 Nov 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2012-11-22-acfe/</guid>
+      <description>After one week of training in Milan and passing the exam I&amp;rsquo;ve added an Alcatel-Lucent certification to my c.v.:
+&amp;ldquo;Alcatel-Lucent Certified Field Expert - ACFE - OmniSwitch R6/R6&amp;ldquo;
+OmniSwitch have some proprietary features, like mobile vlans, that may be very useful in some deployments. The new 10K platform with MC-LAG and other featuers seems great as core switch.
+The bright side of working for a system integrator is the opportunity to mess play work with many different vendors and accumulate experience with many devices.</description>
+    </item>
+    
+    <item>
+      <title>Brocade Certified Network Professional</title>
+      <link>https://www.ifconfig.it/hugo/post/2012-04-12-bcnp/</link>
+      <pubDate>Thu, 12 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2012-04-12-bcnp/</guid>
+      <description>Passed Brocade 150-220 exam, another badge added to my c.v.
+Having a CCNP background and some CCIE theory knowledge I found this exam quite easy.On the exam blueprint just some QoS implementations, VRRP-E and Metro Ring Protocol are different than Cisco exams. STP and IGP/BGP are almost the same, and no EIGRP of course!</description>
+    </item>
+    
+    <item>
+      <title>Certified in Cisco Data Center Support for UC Specialist</title>
+      <link>https://www.ifconfig.it/hugo/post/certified-in-cisco-data-center-support-for-uc-specialist/</link>
+      <pubDate>Wed, 21 Dec 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/certified-in-cisco-data-center-support-for-uc-specialist/</guid>
+      <description>Today I passed Cisco 642-983 DCUCI exam and it was a surprise to see two certifications on my Cisco curriculum:
+Cisco Unified Computing Technology Support Specialist
+and
+Cisco Data Center Support for UC Specialist
+The next step would be &amp;ldquo;Cisco Data Center Unified Computing Support Specialist&amp;rdquo; but since VCP is a requirement and is not in my plans I have to skip that cert.</description>
+    </item>
+    
+  </channel>
+</rss>

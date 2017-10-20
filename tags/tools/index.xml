@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tools on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/tools/</link>
+    <description>Recent content in Tools on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Sat, 07 Jan 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/tools/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>NtRadPing - a free Radius test utility</title>
+      <link>https://www.ifconfig.it/hugo/post/ntradping-a-free-radius-test-utility/</link>
+      <pubDate>Sat, 07 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/ntradping-a-free-radius-test-utility/</guid>
+      <description>NtRadPing is a free utility to test a Radius server. The usage is simple: insert the IP address of the radius server, the secret, username and password of the user to test. Remember to add the IP of the PC as NAS on the Radius server.
+
+You can download it from the MasterSoft website HERE.</description>
+    </item>
+    
+  </channel>
+</rss>

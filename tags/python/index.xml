@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/python/</link>
+    <description>Recent content in Python on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Fri, 11 Aug 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>HP Procurve to Cisco switchport migration with Python and Netmiko</title>
+      <link>https://www.ifconfig.it/hugo/post/2017-08-07-python-hp-to-cisco-switchport-migration/</link>
+      <pubDate>Fri, 11 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2017-08-07-python-hp-to-cisco-switchport-migration/</guid>
+      <description>Summertime usually means a busy period for Network Engineers, customers are on holidays and we have the opportunity to performs all the changes that impact network connectivity.
+For me this usually means core switch replacement.
+Today I was moving a configuration from an HP8200 to a Cisco 4500, taking care of all the details of ports, trunks, vlans.
+From this:
+to this:
+When a task is manual, boring, repetitive and error-prone my automation skills came to help.</description>
+    </item>
+    
+    <item>
+      <title>SecureCRT and Python</title>
+      <link>https://www.ifconfig.it/hugo/post/2015-06-01-scrtpython/</link>
+      <pubDate>Mon, 01 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2015-06-01-scrtpython/</guid>
+      <description>SecureCRT is one of my favourite tools, today I had a chance to use it in a way I didn&amp;rsquo;t expected.
+A customer called with a problem: he has a radio bridge that sometimes loses connection with the remote unit. The workaround is to reload the base unit. The process is manual, he monitors the radio bridge status and reload when required.
+Since the radio bridge is not business critical he doesn&amp;rsquo;t have budget to replace tha radio bridge or troubleshoot the problem, the request was to automate the check/reload process.</description>
+    </item>
+    
+    <item>
+      <title>Cisco Nexus 9000 training DCINX9K</title>
+      <link>https://www.ifconfig.it/hugo/post/2014-11-27-dcinx9k/</link>
+      <pubDate>Thu, 27 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2014-11-27-dcinx9k/</guid>
+      <description>This week I attended a two days training of Cisco DCINX9K.
+The training is focused on Cisco Nexus 9000 switches in NX-OS mode.
+NX9K can run two different software images, the full ACI image with all the cool SDN stuff and the traditional NS-OX image with some cool features like Python, Rest API, VX-LAN and more.
+Now it&amp;rsquo;s time to improve my Python skills and borrow a couple of boxes to do some labs.</description>
+    </item>
+    
+    <item>
+      <title>NeDi and Observium/LibreNMS</title>
+      <link>https://www.ifconfig.it/hugo/post/nedi2observium/</link>
+      <pubDate>Wed, 26 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/nedi2observium/</guid>
+      <description>NeDi and Observium are two of my favourites network monitoring tools.
+I do like to deploy both, they complete each other and since they&amp;rsquo;re free there is no need to choose. The only problem with the use of two tools is the integration.
+Observium has a limitation with host discovery: a device can be discovered only by name and that name must be resolved to an IP via DNS or hosts file.</description>
+    </item>
+    
+    <item>
+      <title>Google&#39;s Python Class</title>
+      <link>https://www.ifconfig.it/hugo/post/googles-python-class/</link>
+      <pubDate>Sat, 05 May 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/googles-python-class/</guid>
+      <description>Google provides free Python Class under Creative Commons license.</description>
+    </item>
+    
+    <item>
+      <title>Python - get module informations</title>
+      <link>https://www.ifconfig.it/hugo/post/python-get-module-informations/</link>
+      <pubDate>Thu, 23 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/python-get-module-informations/</guid>
+      <description>Learning Python means understand the modules and their functions. Python has some built-in ways to get the documentation that I found very useful as a total beginner.
+The first one is dir(module), to get all the funcions of a module:
+   C:\Python27python Python 2.7.2 (default, Jun 12 2011, 14:24:46) [MSC v.1500 64 bit (AMD64)] on win32 Type &#34;help&#34;, &#34;copyright&#34;, &#34;credits&#34; or &#34;license&#34; for more information.  import ipaddr  **dir(ipaddr)** [&#39;AddressValueError&#39;, &#39;Bytes&#39;, &#39;CollapseAddrList&#39;, &#39;IPAddress&#39;, &#39;IPNetwork&#39;, &#39;IPV4LENGTH&#39;, &#39;IPV6LENGTH&#39;, &#39;IPv4Address&#39;, &#39;IPv4Network&#39;, &#39;IPv6Address&#39;, &#39;IPv6Network&#39;, &#39;NetmaskValueError&#39;, &#39;_BaseIP&#39;, &#39;_BaseNet&#39;, &#39;_BaseV4&#39;, &#39;_BaseV6&#39;, &#39;_IPAddrB ase&#39;, &#39;__builtins__&#39;, &#39;__doc__&#39;, &#39;__file__&#39;, &#39;__loader__&#39;, &#39;__name__&#39;, &#39;__package__&#39;, &#39;__version__&#39;, &#39;_collapse_address_ list_recursive&#39;, &#39;_count_righthand_zero_bits&#39;, &#39;_find_address_range&#39;, &#39;_get_prefix_length&#39;, &#39;collapse_address_list&#39;, &#39;ge t_mixed_type_key&#39;, &#39;struct&#39;, &#39;summarize_address_range&#39;, &#39;v4_int_to_packed&#39;, &#39;v6_int_to_packed&#39;]    To get the documentation of a single function just type the function and append &amp;ldquo;.</description>
+    </item>
+    
+    <item>
+      <title>Python module of the week</title>
+      <link>https://www.ifconfig.it/hugo/post/python-module-of-the-week/</link>
+      <pubDate>Thu, 16 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/python-module-of-the-week/</guid>
+      <description>Python module of the week by Doug Hellmann is a website (and a book) with many examples of the use of Python standard library.</description>
+    </item>
+    
+    <item>
+      <title>Let&#39;s Python!</title>
+      <link>https://www.ifconfig.it/hugo/post/lets-python/</link>
+      <pubDate>Sat, 04 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/lets-python/</guid>
+      <description>Inspired by the CodeAcademy project, I&amp;rsquo;ve decided to learn a programming language this year. Back in high school I&amp;rsquo;ve learnt Pascal, Delphi, Assembly and C but many years passed so I forgot all the sintax but not the basics.
+What I need is some basic scripting, read and write on a DB, a web interface and integration with network protocols.
+After reading some websites, googling a lot, I choose Python that has a simple sintax, many libraries and is widely used so I think I could get support from many forums available.</description>
+    </item>
+    
+  </channel>
+</rss>

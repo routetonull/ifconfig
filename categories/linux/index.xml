@@ -1,0 +1,1279 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Linux on IFCONFIG.IT </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>http://www.ifconfig.it/hugo/categories/linux/</link>
+    <language>en-us</language>
+    
+    
+    <updated>Mon, 21 Mar 2016 17:00:10 &#43;0000</updated>
+    
+    <item>
+      <title>OED tools: tmux</title>
+      <link>http://www.ifconfig.it/hugo/post/oed-tools-tmux/</link>
+      <pubDate>Mon, 21 Mar 2016 17:00:10 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/oed-tools-tmux/</guid>
+      <description>
+
+&lt;h1 id=&#34;the-need&#34;&gt;The need&lt;/h1&gt;
+
+&lt;p&gt;If you work with Linux machines and you don&amp;rsquo;t use a terminal multiplexer you&amp;rsquo;re doing it wrong.&lt;/p&gt;
+
+&lt;h2 id=&#34;what-is-a-terminal-multiplexer&#34;&gt;What is a terminal multiplexer?&lt;/h2&gt;
+
+&lt;p&gt;It lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and reattach them to a different terminal.&lt;/p&gt;
+
+&lt;h1 id=&#34;the-solution&#34;&gt;The Solution&lt;/h1&gt;
+
+&lt;p&gt;I use &lt;a href=&#34;https://tmux.github.io/&#34;&gt;tmux&lt;/a&gt;, some people prefer &lt;a href=&#34;https://www.gnu.org/software/screen/&#34;&gt;sceen&lt;/a&gt;, just pick one and learn how to use is.&lt;/p&gt;
+
+&lt;p&gt;For tmux users &lt;a href=&#34;http://tmuxcheatsheet.com/&#34;&gt;this cheat sheet&lt;/a&gt; helps.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>OED tools: bash oneliners</title>
+      <link>http://www.ifconfig.it/hugo/post/oed-tools-bash-1line/</link>
+      <pubDate>Mon, 14 Mar 2016 17:00:10 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/oed-tools-bash-1line/</guid>
+      <description>&lt;p&gt;Linux scripting is a skill every network/system engineer should learn in the early stages of the career. Plenty of guides available in the interwebz, &lt;a href=&#34;http://www.bash.academy/&#34;&gt;The Bash Academy&lt;/a&gt; is a good start.&lt;/p&gt;
+
+&lt;p&gt;A particular type of scripts are the &lt;a href=&#34;http://www.bashoneliners.com/&#34;&gt;one-liners&lt;/a&gt;: just a line of code to solve a problem.&lt;/p&gt;
+
+&lt;p&gt;This is the latest I&amp;rsquo;ve used while testing &lt;a href=&#34;http://www.harding.motd.ca/autossh/&#34;&gt;autossh&lt;/a&gt;, check active ssh sessions continuously:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;while true; do netstat -an | egrep -e &#39;:22 &#39;; sleep 2s;clear;done
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Enjoy!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>OED Tolls: Linux &#34;at&#34;</title>
+      <link>http://www.ifconfig.it/hugo/post/oed-tolls-linux-at/</link>
+      <pubDate>Thu, 28 Jan 2016 15:00:53 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/oed-tolls-linux-at/</guid>
+      <description>
+
+&lt;p&gt;Another post on Linux commands, short and simple but very useful: &lt;a href=&#34;http://linux.die.net/man/1/at&#34;&gt;at&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-problem&#34;&gt;The problem&lt;/h2&gt;
+
+&lt;p&gt;As IT pros we are all comfortable with the &lt;a href=&#34;http://itsm.certification.info/cw.html&#34;&gt;change window&lt;/a&gt; concept.&lt;/p&gt;
+
+&lt;p&gt;This window usually opens at night or during the week-end and sometimes the change actually just requires a few commands on a Linux machine.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-automation&#34;&gt;The automation&lt;/h2&gt;
+
+&lt;p&gt;The &lt;a href=&#34;http://linux.die.net/man/1/at&#34;&gt;at&lt;/a&gt; command allows to schedule a command or script to be run at a specific time.&lt;/p&gt;
+
+&lt;p&gt;Usually I use it to run &lt;a href=&#34;https://www.python.org/&#34;&gt;Python&lt;/a&gt; scripts with notifications on my mobile (more on that on another post) before and after so I know:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;the script has run&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;the commands were executed&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;the output was expected&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A simple alarm clock in the night for a quick check of the notifications, if everything was right my change window lasts just a few minutes.&lt;/p&gt;
+
+&lt;p&gt;Sleep well ;-)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>OED tools: Linux command alias</title>
+      <link>http://www.ifconfig.it/hugo/post/oed-tools-linux-command-alias/</link>
+      <pubDate>Mon, 18 Jan 2016 15:00:55 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/oed-tools-linux-command-alias/</guid>
+      <description>
+
+&lt;p&gt;After a few posts about Windows software now it&amp;rsquo;s time for Linux.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-problem&#34;&gt;The problem&lt;/h2&gt;
+
+&lt;p&gt;Working with the Linux bash sometimes requires to type long commands multiple times. Isn&amp;rsquo;t that a motivation strong enough to look for a better way?&lt;/p&gt;
+
+&lt;h2 id=&#34;the-automation&#34;&gt;The automation&lt;/h2&gt;
+
+&lt;p&gt;Linux &lt;a href=&#34;http://linuxcommand.org/lc3_man_pages/aliash.html&#34;&gt;alias&lt;/a&gt; is quite self-explanatory, it allows to create command aliases like with the familiar &lt;a href=&#34;http://www.cisco.com/c/en/us/td/docs/ios/fundamentals/command/reference/cf_book/cf_a1.html#wp1013037&#34;&gt;Cisco CLI&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;A good place to store aliases is &lt;strong&gt;.bashrc&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Add some alias:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  
+&gt; 
+&gt; echo &#34;alias tat=&#39;tmux a -t&#39;&#34; &gt;&gt; ~/.bashrc echo &#34;alias tls=&#39;tmux ls&#39;&#34; &gt;&gt; ~/.bashrc
+&gt; 
+&gt; 
+&lt;/blockquote&gt;
+
+&lt;p&gt;Then update the alias:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  
+&gt; 
+&gt; source ~/.bashrc
+&gt; 
+&gt; 
+&lt;/blockquote&gt;
+
+&lt;p&gt;Alias are a easy&amp;amp;quick way to save some clicks on the keyboard but are hard to scale and maintain/update. A better approach would be the use of a text expander but I keep that for another post.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>AWK and Cisco WLC</title>
+      <link>http://www.ifconfig.it/hugo/post/awkwlc/</link>
+      <pubDate>Fri, 04 Sep 2015 11:29:33 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/awkwlc/</guid>
+      <description>
+
+&lt;p&gt;When you see an hacker movie you see people typing on the keyboard very fast. Actually the toughest the hacker is the faster he types very long commands and all of them work the first time.&lt;/p&gt;
+
+&lt;p&gt;Want to impress friends and colleagues? Type &lt;a href=&#34;http://hackertyper.net/&#34;&gt;HERE&lt;/a&gt; ;-)&lt;/p&gt;
+
+&lt;p&gt;More experienced network engineers, as I learn during my CCIE studies, type in a [text language=&amp;ldquo;editor&amp;rdquo;][/text]&lt;a href=&#34;https://notepad-plus-plus.org/&#34;&gt;2&lt;/a&gt; then copy/paste on the CLI.&lt;/p&gt;
+
+&lt;p&gt;This approach make easier to spot typos, faster to reuse configuration snippets and to change portions of configuration and more.&lt;/p&gt;
+
+&lt;p&gt;Then comes &lt;a href=&#34;http://www.cisco.com/c/en/us/products/wireless/wireless-lan-controller/index.html&#34;&gt;Cisco WLC&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Do not misunderstand me, I really like the product and after many installations I really appreciate it&amp;rsquo;s reliability and features.&lt;/p&gt;
+
+&lt;p&gt;What I don&amp;rsquo;t like are repetitive tasks and web interface.&lt;/p&gt;
+
+&lt;p&gt;In this post I&amp;rsquo;ll show you how I automate some configurations on WLC&amp;rsquo;s CLI with these &lt;strong&gt;rules&lt;/strong&gt; in mind:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;respect &lt;a href=&#34;https://en.wikipedia.org/wiki/Pareto_principle&#34;&gt;Pareto principle&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;do not use a cannon to kill a mosquito&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;acceptable &lt;a href=&#34;https://en.wikipedia.org/wiki/Learning_curve&#34;&gt;learning curve&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;code reusability, readability and portability&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;script-all-the-things&#34;&gt;Script all the things!&lt;/h1&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;Among the common tasks we usually do on Cisco WLC are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;rename AP&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;set AP antenna gain&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;enable Flexconnect and VLAN support&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I&amp;rsquo;ll show these examples, the scripts are easiliy customizable for any other platform and task.&lt;/p&gt;
+
+&lt;h1 id=&#34;choose-the-right-tool&#34;&gt;Choose the right tool&lt;/h1&gt;
+
+&lt;p&gt;There are many scripting tools available, my choice for this particular use is &lt;a href=&#34;https://en.wikipedia.org/wiki/AWK&#34;&gt;AWK&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;If you know something better just send me a note but keep in mind the rules above.&lt;/p&gt;
+
+&lt;h1 id=&#34;the-scripts&#34;&gt;The scripts&lt;/h1&gt;
+
+&lt;h2 id=&#34;get-the-data&#34;&gt;Get the data&lt;/h2&gt;
+
+&lt;p&gt;Let&amp;rsquo;s start with the most repetitive task when a WLC is first installed: rename APs.&lt;/p&gt;
+
+&lt;p&gt;Usually I do this after all the APs are connected and joined the controller. Get the AP list from the WLC CLI whit these commands:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;config paging disable
+show ap summary
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then copy and paste on your favorite spreadsheet.&lt;/p&gt;
+
+&lt;p&gt;You see all the APs have a name like &lt;em&gt;APxxxx.xxxx.xxxx&lt;/em&gt; where &lt;em&gt;xxxx.xxxx.xxxx&lt;/em&gt; is the MAC address.&lt;/p&gt;
+
+&lt;h2 id=&#34;set-parameters&#34;&gt;Set parameters&lt;/h2&gt;
+
+&lt;p&gt;Now add a second column and type the AP name you want to set according to the naming convention in use.&lt;/p&gt;
+
+&lt;p&gt;If you use external antennas add a third column with the correct gain in dBi.&lt;/p&gt;
+
+&lt;p&gt;Now export the data in a file named &lt;strong&gt;aplist.txt&lt;/strong&gt; values should be separated by a space.&lt;/p&gt;
+
+&lt;p&gt;Your file should look like something like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;AP54a2.7469.6316 AP01
+AP54a2.8458.4666 AP02
+AP54a2.c346.9837 AP03 2.5
+AP54a2.7646.3339 AP04 2.5
+AP54a2.3015.5053 AP05 2.5
+AP54a2.0336.9286 AP06 2.5
+AP54a2.4517.995a AP07 2.5
+AP54a2.1000.8907 AP08 2.5
+AP54a2.5344.3444 AP09 5
+AP54a2.6856.2293 AP10 5
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;first-script-rename-aps&#34;&gt;First script: rename APs&lt;/h2&gt;
+
+&lt;p&gt;Create a file named &lt;strong&gt;wlc_rename_ap.awk&lt;/strong&gt; with this commands:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;# RENAME ACCESS POINTS
+# $1 = old name
+# $2 = new name
+{print &amp;quot;config ap name &amp;quot;,$2,&amp;quot; &amp;quot;,$1}
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now run:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;cat aplist.txt | awk -f wlc_rename_ap.awk 
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The expected output:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;config ap name  AP01   AP54a2.7469.6316
+config ap name  AP02   AP54a2.8458.4666
+config ap name  AP03   AP54a2.c346.9837
+config ap name  AP04   AP54a2.7646.3339
+config ap name  AP05   AP54a2.3015.5053
+config ap name  AP06   AP54a2.0336.9286
+config ap name  AP07   AP54a2.4517.995a
+config ap name  AP08   AP54a2.1000.8907
+config ap name  AP09   AP54a2.5344.3444
+config ap name  AP10   AP54a2.6856.2293
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Good! Now just copy/paste on WLC&amp;rsquo;s CLI and all the APs will have the correct name.&lt;/p&gt;
+
+&lt;h2 id=&#34;second-script-set-ap-antenna-gain&#34;&gt;Second script: set AP antenna gain&lt;/h2&gt;
+
+&lt;p&gt;When the antenna gain is set the value to put is the double of the actual value:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.cisco.com/c/dam/en/us/td/i/200001-300000/200001-210000/207001-208000/207760.tif/_jcr_content/renditions/207760.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Notice also in aplist.txt not all APs have antenna gain set, some have internal antenna.&lt;/p&gt;
+
+&lt;p&gt;I set the same gain for both 802.11b and 802.11a radios because in my case I use dual-band antennas.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s see the script:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;# RENAME ACCESS POINTS
+# $1 = old name
+# $2 = new name
+# $3 =  actual antenna gain
+{if ($3)
+{
+print &amp;quot;config 802.11b disable &amp;quot;$2;
+print &amp;quot;config 802.11b antenna extAntGain &amp;quot;$3*2;
+print &amp;quot;config 802.11b enable &amp;quot;$2;
+print &amp;quot;config 802.11a disable &amp;quot;$2;
+print &amp;quot;config 802.11a antenna extAntGain &amp;quot;$3*2;
+print &amp;quot;config 802.11a enable &amp;quot;$2;
+}}
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The &lt;strong&gt;if&lt;/strong&gt; statement runs the print commands only if the antenna gain is specified.&lt;/p&gt;
+
+&lt;p&gt;The second print command prints twice the value of the gain.&lt;/p&gt;
+
+&lt;p&gt;Check the ouput:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;config 802.11b disable AP03
+config 802.11b antenna extAntGain 5
+config 802.11b enable AP03
+config 802.11a disable AP03
+config 802.11a antenna extAntGain 5
+config 802.11a enable AP03
+config 802.11b disable AP04
+config 802.11b antenna extAntGain 5
+config 802.11b enable AP04
+config 802.11a disable AP04
+config 802.11a antenna extAntGain 5
+config 802.11a enable AP04
+config 802.11b disable AP05
+config 802.11b antenna extAntGain 5
+config 802.11b enable AP05
+config 802.11a disable AP05
+config 802.11a antenna extAntGain 5
+config 802.11a enable AP05
+config 802.11b disable AP06
+config 802.11b antenna extAntGain 5
+config 802.11b enable AP06
+config 802.11a disable AP06
+config 802.11a antenna extAntGain 5
+config 802.11a enable AP06
+config 802.11b disable AP07
+config 802.11b antenna extAntGain 5
+config 802.11b enable AP07
+config 802.11a disable AP07
+config 802.11a antenna extAntGain 5
+config 802.11a enable AP07
+config 802.11b disable AP08
+config 802.11b antenna extAntGain 5
+config 802.11b enable AP08
+config 802.11a disable AP08
+config 802.11a antenna extAntGain 5
+config 802.11a enable AP08
+config 802.11b disable AP09
+config 802.11b antenna extAntGain 10
+config 802.11b enable AP09
+config 802.11a disable AP09
+config 802.11a antenna extAntGain 10
+config 802.11a enable AP09
+config 802.11b disable AP10
+config 802.11b antenna extAntGain 10
+config 802.11b enable AP10
+config 802.11a disable AP10
+config 802.11a antenna extAntGain 10
+config 802.11a enable AP10
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Looks good! APs AP01 and AP02 are not listed as expected, all the gain values are the double of the value in the file.&lt;/p&gt;
+
+&lt;h2 id=&#34;third-script-enable-flexconnect-and-vlan-support&#34;&gt;Third script: enable flexconnect and VLAN support&lt;/h2&gt;
+
+&lt;p&gt;This is very simple, just some commands to disable the AP (required to enable FlexConnect), enable FlexConnect, VLAN support an enable the AP again:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;# ENABLE FLEXCONNECT AND VLAN SUPPORT ON AP
+# $2 = new name
+{
+print &amp;quot;config ap disable &amp;quot;$2;
+print &amp;quot;config ap mode flexconnect &amp;quot;$2;
+print &amp;quot;config ap flexconnect vlan enable &amp;quot;$2;
+print &amp;quot;config ap enable &amp;quot;$2
+}
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The ouput:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;config ap disable AP01
+config ap mode flexconnect AP01
+config ap flexconnect vlan enable AP01
+config ap enable AP01
+config ap disable AP02
+config ap mode flexconnect AP02
+config ap flexconnect vlan enable AP02
+config ap enable AP02
+config ap disable AP03
+config ap mode flexconnect AP03
+config ap flexconnect vlan enable AP03
+config ap enable AP03
+config ap disable AP04
+config ap mode flexconnect AP04
+config ap flexconnect vlan enable AP04
+config ap enable AP04
+config ap disable AP05
+config ap mode flexconnect AP05
+config ap flexconnect vlan enable AP05
+config ap enable AP05
+config ap disable AP06
+config ap mode flexconnect AP06
+config ap flexconnect vlan enable AP06
+config ap enable AP06
+config ap disable AP07
+config ap mode flexconnect AP07
+config ap flexconnect vlan enable AP07
+config ap enable AP07
+config ap disable AP08
+config ap mode flexconnect AP08
+config ap flexconnect vlan enable AP08
+config ap enable AP08
+config ap disable AP09
+config ap mode flexconnect AP09
+config ap flexconnect vlan enable AP09
+config ap enable AP09
+config ap disable AP10
+config ap mode flexconnect AP10
+config ap flexconnect vlan enable AP10
+config ap enable AP10
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;wrap-up&#34;&gt;Wrap up&lt;/h1&gt;
+
+&lt;p&gt;In this post I showed how to reduce the mouse clicks, avoid typing errors and save time.&lt;/p&gt;
+
+&lt;p&gt;AWK is a very powerful tool, I just scratched the surface but as a network engineer I don&amp;rsquo;t want to master it, I just want to be able to use it at my own advantage in the most efficient way.&lt;/p&gt;
+
+&lt;p&gt;I hope you enjoyed this post, please share it if you find it useful and feel free to comment if you find errors or want to add you point of view.&lt;/p&gt;
+
+&lt;h2 id=&#34;useful-links&#34;&gt;Useful links&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.grymoire.com/Unix/Awk.html#TOC&#34;&gt;Awk tutorial on grymoire.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.gnu.org/software/gawk/manual/gawk.html&#34;&gt;The GNU Awk User’s Guide&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Docker: join the dots</title>
+      <link>http://www.ifconfig.it/hugo/post/docker-join-the-dots/</link>
+      <pubDate>Mon, 25 May 2015 17:00:18 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/docker-join-the-dots/</guid>
+      <description>
+
+&lt;p&gt;This post is part of a series about Docker, including:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/2015/05/docker-introduction/&#34;&gt;Docker Introduction&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://wp.me/p4biGi-o0&#34;&gt;Docker: Install software inside a container&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://wp.me/p4biGi-o5&#34;&gt;Docker Volumes&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://wp.me/p4biGi-o9&#34;&gt;Docker Networking - bridge container to host NIC&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We &lt;a href=&#34;(http://www.ifconfig.it/wordpress/2015/05/docker-introduction/)&#34;&gt;started&lt;/a&gt; with the basics and moved on with &lt;a href=&#34;http://wp.me/p4biGi-o0&#34;&gt;adding software&lt;/a&gt;, using &lt;a href=&#34;http://wp.me/p4biGi-o5&#34;&gt;volumes&lt;/a&gt; and then &lt;a href=&#34;(http://wp.me/p4biGi-o9)&#34;&gt;bridging a container to the network&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;As a said I&amp;rsquo;m neither a developer or a system administrator, I work as Network Engineer so I&amp;rsquo;m not the main target for Docker but I found it very useful for a specific need and now it&amp;rsquo;s time to &lt;a href=&#34;https://www.youtube.com/watch?v=UF8uR6Z6KLc&#34;&gt;join the dots&lt;/a&gt;.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;Here&amp;rsquo;s the story. I do wireless networks with &lt;a href=&#34;https://en.wikipedia.org/wiki/Captive_portal&#34;&gt;captive portals&lt;/a&gt;. I know &lt;a href=&#34;https://twitter.com/keithrparsons/status/539935622811492352&#34;&gt;some pleople&lt;/a&gt; think captive portals are bad and I agree in some way, but they have a purpose.&lt;/p&gt;
+
+&lt;p&gt;For those who don&amp;rsquo;t know what a captive portal is: it is a VM or an appliance that captures the client traffic, redirects it to a web authentication portal, requests valid credentials that allow the user to access the internet.&lt;/p&gt;
+
+&lt;p&gt;Long story short, how can we test a captive portal scalabilty?&lt;/p&gt;
+
+&lt;p&gt;We can configure it and see how it behaves under load of real clients (reactive) or find a way to &amp;ldquo;simulate&amp;rdquo; many clients and test in lab environment.&lt;/p&gt;
+
+&lt;p&gt;Yes it would be easier just to read and trust the vendor datasheet but we all know vendors sometimes are not so accurate with the published values so my approach is &lt;a href=&#34;http://en.wikipedia.org/wiki/Trust,_but_verify&#34;&gt;trust but verify&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Note: the captive portal is often used for wireless clients but it can just listen on a specific VLAN so load tests can be done with wired clients.&lt;/p&gt;
+
+&lt;h2 id=&#34;first-try-vms&#34;&gt;First try: VMs&lt;/h2&gt;
+
+&lt;p&gt;I first tried to use &lt;a href=&#34;https://www.virtualbox.org/&#34;&gt;VirtualBox&lt;/a&gt; and clone a VM many times. Even with some scripting this solution was little scalable and required lots of resources.&lt;/p&gt;
+
+&lt;p&gt;I need to simulate at least 500 clients per host and scale up to few thousands in the future.&lt;/p&gt;
+
+&lt;h2 id=&#34;second-try-docker&#34;&gt;Second try: Docker&lt;/h2&gt;
+
+&lt;p&gt;On my second try I used &lt;a href=&#34;https://hub.docker.com&#34;&gt;Docker&lt;/a&gt;. I notice this technology thanks to &lt;a href=&#34;http://www.twitter.com&#34;&gt;Twitter&lt;/a&gt; and saw a big potential for my purpose.&lt;/p&gt;
+
+&lt;h1 id=&#34;join-the-dots-the-final-solution&#34;&gt;Join the dots: the final solution&lt;/h1&gt;
+
+&lt;p&gt;If you read all the &lt;a href=&#34;(http://www.ifconfig.it/wordpress/2015/05/docker-introduction/)&#34;&gt;previous posts&lt;/a&gt; you can see now how the dots join all toghether: I run multiple &lt;a href=&#34;https://hub.docker.com&#34;&gt;Docker&lt;/a&gt; containers on a host, &lt;a href=&#34;http://wp.me/p4biGi-o9&#34;&gt;bridge&lt;/a&gt; them to the host NIC using &lt;a href=&#34;http://openvswitch.org/&#34;&gt;Open vSwitch&lt;/a&gt;, run a &lt;a href=&#34;https://www.python.org&#34;&gt;Python&lt;/a&gt;+&lt;a href=&#34;https://pypi.python.org/pypi/mechanize&#34;&gt;Mechanize&lt;/a&gt; script stored in a shared &lt;a href=&#34;http://wp.me/p4biGi-o9&#34;&gt;Volume&lt;/a&gt; that does a login on the Captive Portal and then simulate Internet access from the client simply with &lt;a href=&#34;http://en.wikipedia.org/wiki/CURL&#34;&gt;curl&lt;/a&gt; and a list of websites.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Advantages:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;little overhead on the host&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&amp;ldquo;real&amp;rdquo; network access, Captive Portal need to see different MAC addressed to do its magic&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;scalable performance: I can run containers on multiple hosts for a real &lt;a href=&#34;http://en.wikipedia.org/wiki/Scalability&#34;&gt;scale-out&lt;/a&gt; solution&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;manageable: the scripts are stored on a shared &lt;a href=&#34;http://wp.me/p4biGi-o9&#34;&gt;Volume&lt;/a&gt; so it&amp;rsquo;s easy to make changes&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;reusable: a few changes on the login the script allows to test different portals&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;easy to start: a simple bash loop starts as many container are neede, host performances are the only limit (more on that later)&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;the-start-script&#34;&gt;The start script&lt;/h2&gt;
+
+&lt;p&gt;This is the start script used to run multiple containers:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;#! /bin/bash 
+# start.sh
+# runs multiple container
+for i in {0..$1}
+do
+./pipework/pipework ovsbr0 $(docker run --privileged -i -t --net=&amp;quot;none&amp;quot; -v /root/dockervolume:/volume -d ubuntuplus /bin/bash /volume/runthis.sh) dhcp  
+done
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;the-kill-script&#34;&gt;The kill script&lt;/h2&gt;
+
+&lt;p&gt;This is the kill script, used to kill all the containers:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;#! /bin/bash
+# dockerkillall.sh
+# kill all the containers
+while read containerID
+do
+docker kill $containerID 
+done &amp;lt; &amp;lt;(docker ps -q)
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;the-ovs-clean-script&#34;&gt;The OVS clean script&lt;/h2&gt;
+
+&lt;p&gt;This command removes all the Oper vSwitch ports except the ports used to bridge the switch itself.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;ovs-vsctl show | grep Interface.*veth | sed &#39;s/&amp;quot;//g&#39; | awk &#39;{ cmd= &amp;quot;ovs-vsctl del-port &amp;quot;$2 ; system(cmd) }&#39;
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;limitations&#34;&gt;Limitations&lt;/h2&gt;
+
+&lt;p&gt;The only limit I foud so far is the time it takes to start a new container and run the custom startup script. On my PC &lt;a href=&#34;http://www.dell.com/us/business/p/latitude-e5550-laptop/pd&#34;&gt;(Dell Latitude E5550, i5 CPU, 16GM RAM)&lt;/a&gt; it takes about a hour to start 300 containers.&lt;/p&gt;
+
+&lt;p&gt;I didn&amp;rsquo;t had a chance to test it on a server hardware so I don&amp;rsquo;t know how if more powerful hardware can speed-up the process or it&amp;rsquo;s a software limitation that gets little advantage of faster CPUs. I&amp;rsquo;ll update this post with my finding later.&lt;/p&gt;
+
+&lt;h1 id=&#34;wrap-up&#34;&gt;Wrap Up&lt;/h1&gt;
+
+&lt;p&gt;I hope you enjoyed my posts about Docker. My target was to share a very specific use case that maybe isn&amp;rsquo;t the purpose of the techonology but I found very useful and easy to implement.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Docker: networking - bridge to host NIC</title>
+      <link>http://www.ifconfig.it/hugo/post/docker-networking-bridge/</link>
+      <pubDate>Mon, 18 May 2015 17:00:51 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/docker-networking-bridge/</guid>
+      <description>
+
+&lt;p&gt;This post is part of a series about Docker, including:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/2015/05/docker-introduction/&#34;&gt;Docker Introduction&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://wp.me/p4biGi-o0&#34;&gt;Docker: Install software inside a container&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://wp.me/p4biGi-o5&#34;&gt;Docker Volumes&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Today we&amp;rsquo;ll see &lt;a href=&#34;https://docs.docker.com/articles/networking/&#34;&gt;Docker networking&lt;/a&gt; with a very specific target in mind: bridge container to the host network.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;This isn&amp;rsquo;t supposed to be the way of work of containers: a container should be created to run a single application so container networking, from the point of view of a &lt;a href=&#34;http://www.netengday.net/&#34;&gt;Network Engineer&lt;/a&gt;, is essentialy a &lt;a href=&#34;http://it.wikipedia.org/wiki/Port_Address_Translation&#34;&gt;Port Address Translation&lt;/a&gt; with a firewall exception.&lt;/p&gt;
+
+&lt;p&gt;I know that&amp;rsquo;s a strong simplification, you cand find lot of good explanation about Docker networking on &lt;a href=&#34;http://www.slideshare.net/search/slideshow?searchfrom=header&amp;amp;q=docker+networking&#34;&gt;Slideshare&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Different methods to connect a Docker container to the network can be found &lt;a href=&#34;http://blog.oddbit.com/2014/08/11/four-ways-to-connect-a-docker/&#34;&gt;HERE&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;docker-networking&#34;&gt;Docker Networking&lt;/h2&gt;
+
+&lt;p&gt;When you install Docker on a Linux host in creates a new interface called &lt;strong&gt;docker0&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Every container&amp;rsquo;s eth0 interface is connected to an internal &amp;ldquo;host-only&amp;rdquo; interface that could be accessed via the PAT/Firewall exception mentioned before.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;root@1d622f185fe4:/# ifconfig
+eth0      Link encap:Ethernet  HWaddr 02:42:ac:11:00:03  
+      inet addr:172.17.0.3  Bcast:0.0.0.0  Mask:255.255.0.0
+      inet6 addr: fe80::42:acff:fe11:3/64 Scope:Link
+      UP BROADCAST RUNNING  MTU:1500  Metric:1
+      RX packets:31567 errors:0 dropped:0 overruns:0 frame:0
+      TX packets:19482 errors:0 dropped:0 overruns:0 carrier:0
+      collisions:0 txqueuelen:0 
+      RX bytes:49245829 (49.2 MB)  TX bytes:1366148 (1.3 MB)
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note: the Ubuntu image hasn&amp;rsquo;t ifconfig installed, install it executing:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;apt-get install net-tools
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;bridging&#34;&gt;Bridging&lt;/h2&gt;
+
+&lt;p&gt;On the Docker documentation about bridging the &lt;a href=&#34;(https://docs.docker.com/articles/networking/#bridge-building)&#34;&gt;suggested method&lt;/a&gt; is to use &lt;a href=&#34;http://linux.die.net/man/8/brctl&#34;&gt;Linux bridge&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;A better method is show below.&lt;/p&gt;
+
+&lt;h1 id=&#34;open-vswitch-and-pipework&#34;&gt;Open vSwitch and Pipework&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://openvswitch.org/&#34;&gt;Open vSwitch&lt;/a&gt; (shortened OVS) is an open source multilayer software switch that support many well-known features, including bridging.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s see how it can be used with Docker to bridge a container to the local network.&lt;/p&gt;
+
+&lt;p&gt;Install Open vSwitch on host:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;apt-get install openvswitch-switch openvswitch-common
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Verify OVS is correctly installed:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;root@ubuntusrv:~# ovs-vsctl show
+f9018860-275f-49e5-a6a8-5d9baf2df7b7
+ovs_version: &amp;quot;2.3.1&amp;quot;
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Create a bridge interface and add host&amp;rsquo;s eth0 to the bridge:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;ovs-vsctl add-br ovsbr0; ovs-vsctl add-port ovsbr0 eth0; dhclient ovsbr0; service networking restart
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; network connection to the host may be lost. In my case I was connected remotely via SSH to the host and executing all the commands in a single line the connection wasn&amp;rsquo;t lost.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note2:&lt;/strong&gt; to delete the previous configuration run&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;ovs-vsctl del-port eth0; ovs-vsctl del-br ovsbr0; service networking restart
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This is the final configuration of the Open vSwitch:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;ovs-vsctl show
+
+Bridge &amp;quot;ovsbr0&amp;quot;
+    Port &amp;quot;eth0&amp;quot;
+        Interface &amp;quot;eth0&amp;quot;
+    Port &amp;quot;ovsbr0&amp;quot;
+        Interface &amp;quot;ovsbr0&amp;quot;
+            type: internal
+ovs_version: &amp;quot;2.3.1&amp;quot;
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The OVS named &lt;strong&gt;ovsbr0&lt;/strong&gt; now has just two ports, one external &lt;strong&gt;eth0&lt;/strong&gt; and one internal &lt;strong&gt;ovsbr0&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now we just need to create the Docker containers with an interface bridged to the internal vSwitch interface ovsbr0. To do that &lt;a href=&#34;https://github.com/jpetazzo/pipework&#34;&gt;Pipework&lt;/a&gt; helps a lot.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Install pipework&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Pipework is a script that can automate many Docker and OVS configurations, check &lt;a href=&#34;https://github.com/jpetazzo/pipework&#34;&gt;documentation&lt;/a&gt; for details.&lt;/p&gt;
+
+&lt;p&gt;To install Pipework on the host machine run:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;git clone https://github.com/jpetazzo/pipework.git
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In our case we want to start a container with a bridged interface and assign it an IP address from a DHCP server in the same subnet of the host.&lt;/p&gt;
+
+&lt;p&gt;This is the command to run:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;./pipework/pipework ovsbr0 $(docker run -i -t --net=&amp;quot;none&amp;quot; -d ubuntuplus /bin/bash) dhcp
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now attach to the container and verify the network interface configuration:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;root@b30fcf44858f:/# ifconfig
+eth1  Link encap:Ethernet  HWaddr 3a:05:56:81:f4:eb  
+      inet addr:10.1.0.18  Bcast:10.1.0.255  Mask:255.255.255.0
+      inet6 addr: fe80::3805:56ff:fe81:f4eb/64 Scope:Link
+      UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+      RX packets:221 errors:0 dropped:0 overruns:0 frame:0
+      TX packets:11 errors:0 dropped:0 overruns:0 carrier:0
+      collisions:0 txqueuelen:1000 
+      RX bytes:19161 (19.1 KB)  TX bytes:1674 (1.6 KB)
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Great! 10.1.0.0/24 is my network. Verify on the &lt;a href=&#34;http://www.tcpipguide.com/free/t_TCPIPDynamicHostConfigurationProtocolDHCP.htm&#34;&gt;DHCP&lt;/a&gt; server (a &lt;a href=&#34;www.cisco.com&#34;&gt;Cisco&lt;/a&gt; router)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;sh ip dhcp binding 10.1.0.18
+IP address          Client-ID/              Lease expiration        Type
+                Hardware address/
+                User name
+10.1.0.18           3a05.5681.f4eb          May 13 2015 02:26 PM    Automatic
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Notice in the DHCP output the real &lt;a href=&#34;http://www.tcpipguide.com/free/t_DataLinkLayerLayer2.htm&#34;&gt;MAC address&lt;/a&gt; of the container.&lt;/p&gt;
+
+&lt;p&gt;This is the configuration of the OVS&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;ovs-vsctl show
+
+Bridge &amp;quot;ovsbr0&amp;quot;
+    Port &amp;quot;eth0&amp;quot;
+        Interface &amp;quot;eth0&amp;quot;
+    Port &amp;quot;veth1pl13142&amp;quot;
+        Interface &amp;quot;veth1pl13142&amp;quot;
+    Port &amp;quot;ovsbr0&amp;quot;
+        Interface &amp;quot;ovsbr0&amp;quot;
+            type: internal
+ovs_version: &amp;quot;2.3.1&amp;quot;
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Notice the new port &lt;em&gt;veth1pl13142&lt;/em&gt; associtated to the running container.&lt;/p&gt;
+
+&lt;p&gt;Stay tuned for the next post of the Docker series where I&amp;rsquo;ll join the dots to show you my final goal, the actual reason I&amp;rsquo;ve started to use Docker.&lt;/p&gt;
+
+&lt;p&gt;A few notes.&lt;/p&gt;
+
+&lt;h2 id=&#34;cleaning-ovs&#34;&gt;Cleaning OVS&lt;/h2&gt;
+
+&lt;p&gt;When the container is killed the OVS port isn&amp;rsquo;t removed. After some time the OVS could have many unused ports. To clean the ports I wrote this simple scripts:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;ovs-vsctl show | grep Interface.*veth | sed &#39;s/&amp;quot;//g&#39; | awk &#39;{ cmd= &amp;quot;ovs-vsctl del-port &amp;quot;$2 ; system(cmd) }&#39;
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;container-to-ovs-port-map&#34;&gt;Container to OVS port map&lt;/h2&gt;
+
+&lt;p&gt;I still haven&amp;rsquo;t found a working script to map an OVS port to a container but &lt;a href=&#34;http://ewen.mcneill.gen.nz/blog/entry/2014-10-12-finding-docker-containers-connection-to-openvswitch/&#34;&gt;THIS&lt;/a&gt; looks like a good start. Any help would be appreciated.&lt;/p&gt;
+
+&lt;p&gt;That&amp;rsquo;s it&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Docker: Volumes</title>
+      <link>http://www.ifconfig.it/hugo/post/docker-volumes/</link>
+      <pubDate>Tue, 12 May 2015 17:00:19 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/docker-volumes/</guid>
+      <description>
+
+&lt;p&gt;In the &lt;a href=&#34;http://www.ifconfig.it/wordpress/2015/05/docker-installsw/&#34;&gt;last post&lt;/a&gt; we saw that any filesystem change inside a &lt;a href=&#34;https://www.docker.com/&#34;&gt;docker&lt;/a&gt; container is lost if not commited to the image.&lt;/p&gt;
+
+&lt;p&gt;What if we want to share data between containers?&lt;/p&gt;
+
+&lt;p&gt;We can use Docker&amp;rsquo;s &lt;a href=&#34;https://docs.docker.com/userguide/dockervolumes/&#34;&gt;Data Volumes&lt;/a&gt; and &lt;a href=&#34;https://docs.docker.com/userguide/dockervolumes/&#34;&gt;Data Volume Containers&lt;/a&gt;.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h2 id=&#34;data-volumes-or-data-volume-containers&#34;&gt;Data Volumes or Data Volume Containers?&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Data Volumes&lt;/strong&gt; feature allows us to mount a local directory from the host inside a container. That looks good but somehow it breaks the concept of isolation between host and container.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Data Volume Containers&lt;/strong&gt; create a new container that will store data between container, maintaining the isoltaion between host and containers.&lt;/p&gt;
+
+&lt;p&gt;For the sake of simplicity I&amp;rsquo;ll use Data Volumes in the next examples even if I agree Data Volume Containers are a better way to manage containers data (&lt;a href=&#34;https://medium.com/@ramangupta/why-docker-data-containers-are-good-589b3c6c749e&#34;&gt;READ THIS&lt;/a&gt;).&lt;/p&gt;
+
+&lt;h2 id=&#34;use-data-volumes&#34;&gt;Use Data Volumes&lt;/h2&gt;
+
+&lt;p&gt;To use Data Volumes just add a few options when starting the container:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;mkdir dockervolume
+echo &amp;quot;test123&amp;quot; &amp;gt; ./dockervolume/test.txt
+
+docker run -i -t -v /root/dockervolume:/volume ubuntuplus /bin/bash
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Verify the directory is accessible from inside the container:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;root@f4dddb24eb83:/# ls /volume/
+test.txt
+root@f4dddb24eb83:/# cat /volume/test.txt 
+test123
+root@f4dddb24eb83:/#
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Apply some changes to the file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;root@f4dddb24eb83:/# echo &amp;quot;test456&amp;quot; &amp;gt;&amp;gt; /volume/test.txt                                                      
+root@f4dddb24eb83:/# cat /volume/test.txt                                                                    
+test123
+test456
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now leave the container with &lt;strong&gt;CTRL+P CTRL+Q&lt;/strong&gt; and verify the changes were applied to the host filesystem:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;root@ubuntusrv:~# cat ./dockervolume/test.txt 
+test123
+test456
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Great! When can now move on to the next post about Docker networking. Stay tuned!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Docker: Install software inside a container</title>
+      <link>http://www.ifconfig.it/hugo/post/docker-installsw/</link>
+      <pubDate>Thu, 07 May 2015 17:00:38 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/docker-installsw/</guid>
+      <description>
+
+&lt;p&gt;In the &lt;a href=&#34;http://www.ifconfig.it/wordpress/2015/05/docker-introduction/&#34;&gt;first&lt;/a&gt; post of this series we left with a running Ubuntu 15.04 container.&lt;/p&gt;
+
+&lt;p&gt;Now it&amp;rsquo;s time to install software inside the container.&lt;/p&gt;
+
+&lt;p&gt;A container is &amp;ldquo;stateless&amp;rdquo;, meaning any file change inside a container is lost when the container is closed, including software installations.&lt;/p&gt;
+
+&lt;h2 id=&#34;install-software&#34;&gt;Install software&lt;/h2&gt;
+
+&lt;p&gt;To install software inside a container any method supported for the Linux distribution is fine.&lt;/p&gt;
+
+&lt;p&gt;I usually install Python 2.7, iftop, htop, tmux so let&amp;rsquo;s run a container:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;docker run -i -t ubuntu:15.04 /bin/bash
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And install the software via apt-get:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;apt-get install python2.7 iftop htop tmux
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;commit-changes&#34;&gt;Commit changes&lt;/h2&gt;
+
+&lt;p&gt;To permanently apply the chanches a commit operation is needed.&lt;/p&gt;
+
+&lt;p&gt;List running containers:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+1d622f185fe4        ubuntu:15.04        &amp;quot;/bin/bash&amp;quot;         27 minutes ago      Up 27 minutes     
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then create a new image form the running container plus the changes:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;docker commit 1d622f185fe4 ubuntuplus
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The new image &lt;em&gt;ubuntuplus&lt;/em&gt; is listed now in the available images:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;root@ubuntusrv:~# docker images 
+REPOSITORY          TAG                 IMAGE ID            CREATED              VIRTUAL SIZE
+ubuntuplus          latest              2239649107a5        5 seconds ago        184.5 MB
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Verify everything went fine starting a container from the new image and running the new software:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;docker run -i -t ubuntuplus /bin/bash
+
+root@ubuntusrv:~# docker run -i -t ubuntuplus /bin/bash
+root@68e94fb88ad7:/# python2.7 
+Python 2.7.9 (default, Apr  2 2015, 15:33:21) 
+[GCC 4.9.2] on linux2
+Type &amp;quot;help&amp;quot;, &amp;quot;copyright&amp;quot;, &amp;quot;credits&amp;quot; or &amp;quot;license&amp;quot; for more information.
+&amp;gt;&amp;gt;&amp;gt; 
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Good! Now we&amp;rsquo;re ready to move on to the next step: Volumes. Stay tuned!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Introduction to Docker</title>
+      <link>http://www.ifconfig.it/hugo/post/docker-introduction/</link>
+      <pubDate>Mon, 04 May 2015 17:00:31 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/docker-introduction/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;https://www.docker.com/&#34;&gt;Docker&lt;/a&gt; and more generic &lt;a href=&#34;https://linuxcontainers.org/&#34;&gt;Linux containers technology&lt;/a&gt; are a hot topic these days. The &lt;a href=&#34;https://www.docker.com/&#34;&gt;website&lt;/a&gt; says &amp;ldquo;for developers and sysadmins&amp;rdquo;, I am neither of the two but I can still find some useful applications for containers as a &lt;a href=&#34;http://www.netengday.net/&#34;&gt;Network Engineer&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s start from the basics.&lt;/p&gt;
+
+&lt;h2 id=&#34;install-docker-and-first-run&#34;&gt;Install docker and first run&lt;/h2&gt;
+
+&lt;p&gt;We can apt-get to install docker on Ubuntu Linux:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;apt-get install docker.io 
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now start docker service:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;service docker start
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;That was easy.&lt;/p&gt;
+
+&lt;p&gt;Now we can download an Ubuntu 15.04 container from the &lt;a href=&#34;https://registry.hub.docker.com/_/ubuntu/&#34;&gt;official Ubuntu repository&lt;/a&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;docker pull ubuntu:15.04
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;It will take some time, that&amp;rsquo;s about 130MB.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;Pulling repository ubuntu
+Status: Downloaded newer image for ubuntu:15.04
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Check if the new image is available in the local images list:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;docker images
+
+REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+ubuntu              vivid               bd94ae587483        17 hours ago        131.3 MB
+ubuntu              vivid-20150427      bd94ae587483        17 hours ago        131.3 MB
+ubuntu              15.04               bd94ae587483        17 hours ago        131.3 MB
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Run the container and start bash inside of it:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;docker run -i -t ubuntu:15.04 /bin/bash
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;em&gt;(to exit the container without stopping it: CTRL+P CTRL+Q)&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Notice che command prompt changes:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;root@c7466ae4d0b1
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Good, whe&amp;rsquo;re inside the container now!&lt;/p&gt;
+
+&lt;p&gt;A container lives as long it is runnig the process used to start it, in this case &amp;ldquo;/bin/bash&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;If you type &amp;ldquo;exit&amp;rdquo; now the container would be killed.&lt;/p&gt;
+
+&lt;p&gt;To leave the container without closing it type&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt; CTRL+P CTRL+Q
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I close this first post about container with some&amp;hellip;&lt;/p&gt;
+
+&lt;h2 id=&#34;useful-docker-commands&#34;&gt;Useful docker commands&lt;/h2&gt;
+
+&lt;p&gt;List available images:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;docker images
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;List all running containers:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;docker ps
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Kill a container:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;docker kill CONTAINER_ID
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Connect to a container:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;docker attach CONTAINER_ID
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;More commands in the &lt;a href=&#34;https://docs.docker.com/userguide/&#34;&gt;Docker User Guide&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;In the next post I&amp;rsquo;ll show you some more advanced Docker configurations and how to add software to a Docker image. Stay tuned!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>NeDi and Observium/LibreNMS</title>
+      <link>http://www.ifconfig.it/hugo/post/nedi2observium/</link>
+      <pubDate>Wed, 26 Nov 2014 21:48:38 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/nedi2observium/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;http://www.nedi.ch/&#34;&gt;NeDi&lt;/a&gt; and &lt;a href=&#34;http://www.observium.org&#34;&gt;Observium&lt;/a&gt; are two of my favourites network monitoring tools.&lt;/p&gt;
+
+&lt;p&gt;I do like to deploy both, they complete each other and since they&amp;rsquo;re free there is no need to choose. The only problem with the use of two tools is the &lt;strong&gt;integration&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Observium has a &lt;a href=&#34;http://www.observium.org/wiki/FAQs#Why_can.27t_I_add_my_device_by_its_IP_address.3F_.2F_Why_do_I_need_valid_hostnames_and_DNS.3F&#34;&gt;limitation&lt;/a&gt; with host discovery: a device can be discovered only by name and that name must be resolved to an IP via DNS or hosts file. Since most of my customers don&amp;rsquo;t register network devices on DNS that means manually populate &lt;em&gt;/etc/hosts file&lt;/em&gt;. On the other hand NeDi doesn&amp;rsquo;t have this limitation and has a &lt;strong&gt;strong network/discovery&lt;/strong&gt; mechanism.&lt;/p&gt;
+
+&lt;p&gt;Can we make them to work together? Of course, that&amp;rsquo;s open source!&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h1 id=&#34;installation&#34;&gt;Installation&lt;/h1&gt;
+
+&lt;p&gt;NeDi and Observium installation processes are well explained &lt;a href=&#34;http://www.nedi.ch/installation/&#34;&gt;here&lt;/a&gt; and &lt;a href=&#34;http://www.observium.org/wiki/Installation&#34;&gt;here&lt;/a&gt;, just follow the instructions, they work fine.&lt;/p&gt;
+
+&lt;h1 id=&#34;customization&#34;&gt;Customization&lt;/h1&gt;
+
+&lt;p&gt;I&amp;rsquo;ve modified &lt;em&gt;/var/nedi/nedi.conf&lt;/em&gt; to include only the address ranges of my managed devices:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;netfilter      ^10\.5\.|^10\.16\.0\.|^192\.168\.20\.
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and &lt;em&gt;/var/nedi/seedlist&lt;/em&gt; whit a list of devices/communities that will be used as a seed for the discovery process in the format:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;ip  community1,community2
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For the sake of simplicity I just run two virtual hosts on Apache2, NeDi runs on port 80, Observium runs on port 81, edit &lt;em&gt;/etc/apache2/sites-enabled/000-default&lt;/em&gt; as follows:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;&amp;lt;VirtualHost *:80&amp;gt;
+        ServerAdmin webmaster@localhost
+
+        DocumentRoot /var/nedi/html
+        &amp;lt;Directory /&amp;gt;
+                Options FollowSymLinks
+                AllowOverride None
+        &amp;lt;/Directory&amp;gt;
+        &amp;lt;Directory /var/www/&amp;gt;
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride None
+                Order allow,deny
+                allow from all
+        &amp;lt;/Directory&amp;gt;
+
+        ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/
+        &amp;lt;Directory &amp;quot;/usr/lib/cgi-bin&amp;quot;&amp;gt;
+                AllowOverride None
+                Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch
+                Order allow,deny
+                Allow from all
+        &amp;lt;/Directory&amp;gt;
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+
+        # Possible values include: debug, info, notice, warn, error, crit,
+        # alert, emerg.
+        LogLevel warn
+
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+&amp;lt;/VirtualHost&amp;gt;
+
+&amp;lt;VirtualHost *:81&amp;gt;
+  DocumentRoot /opt/observium/html/
+  ServerName  observium.domain.com
+  CustomLog /opt/observium/logs/access_log combined
+  ErrorLog /opt/observium/logs/error_log
+  &amp;lt;Directory &amp;quot;/opt/observium/html/&amp;quot;&amp;gt;
+    AllowOverride All
+    Options FollowSymLinks MultiViews
+  &amp;lt;/Directory&amp;gt;
+&amp;lt;/VirtualHost&amp;gt;
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;integration&#34;&gt;Integration&lt;/h1&gt;
+
+&lt;p&gt;The integration between the two tools is meant to take advantage of the discovery performed by NeDi to polulate &lt;em&gt;/etc/hosts&lt;/em&gt; file and then feed the discovery process of Observium.&lt;/p&gt;
+
+&lt;h1 id=&#34;step-by-step&#34;&gt;Step by step&lt;/h1&gt;
+
+&lt;h2 id=&#34;where-is-the-data&#34;&gt;Where is the data?&lt;/h2&gt;
+
+&lt;p&gt;NeDi stores all the information on a MySQL database. A quick look on the tables and we can see how to extract the devices information:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;/usr/bin/mysql -uroot -pPASSWORD -B -e &amp;quot;select devip,device from devices&amp;quot; nedi 
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Replace &lt;em&gt;PASSWORD&lt;/em&gt; with the password you typed during the software installation.&lt;/p&gt;
+
+&lt;p&gt;Tweak this extraction a little bit to clean the list:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;filter lines that don&amp;rsquo;t begin with a number in range [1-9], that means no valid IP address was discovered via CDP/LDP&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;remove some chars (slash,spaces) that Observium doesn&amp;rsquo;t like in hostnames with &lt;em&gt;sed&lt;/em&gt; commands&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;uniform all the device names in uppercase chars&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If your device hostnames have other chars that don&amp;rsquo;t work well with Observium just add more &lt;em&gt;sed&lt;/em&gt; to the script.&lt;/p&gt;
+
+&lt;p&gt;This is the final result:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;/usr/bin/mysql -uroot -pPASSWORD -B -e &amp;quot;select devip,device,readcomm from devices&amp;quot; nedi | grep &amp;quot;^[1-9]&amp;quot; |sed -e &#39;s/ /_/g&#39; | sed -e &#39;s/\//_/g&#39; | sort | tr &#39;[:lower:]&#39; &#39;[:upper:]&#39;
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;ip-format&#34;&gt;IP format&lt;/h2&gt;
+
+&lt;p&gt;NeDi stores IP addresses in undotted decimal format, we need to convert them to dotted decimal to use them.&lt;/p&gt;
+
+&lt;p&gt;We can use Python for that, let&amp;rsquo;s create &lt;em&gt;/root/undotteddecimaltoip.py&lt;/em&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;#!/usr/bin/env python
+
+import sys
+inFile = sys.argv[1]
+#outFile = sys.argv[2]
+
+def int_to_dqn(st):
+    &amp;quot;&amp;quot;&amp;quot;
+    Convert integer to dotted quad notation
+    &amp;quot;&amp;quot;&amp;quot;
+    st = &amp;quot;%08x&amp;quot; % (st)
+    return &amp;quot;%i.%i.%i.%i&amp;quot; % (int(st[0:2],16),int(st[2:4],16),int(st[4:6],16),int(st[6:8],16))
+
+f = open(inFile,&amp;quot;r&amp;quot;)
+for line in f:
+        values = line.split(&amp;quot;\t&amp;quot;)
+        print int_to_dqn(int(values[0]))+&amp;quot; &amp;quot;+values[1].rstrip().replace(&amp;quot; &amp;quot;,&amp;quot;_&amp;quot;)
+f.close()
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Test it running:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;/root/undotteddecimaltoip.py /tmp/nedidevicelist.txt
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can see now all the IP addresses are now in dotted decimal format.  &lt;/p&gt;
+
+&lt;h2 id=&#34;populate-etc-hosts-file&#34;&gt;Populate /etc/hosts file&lt;/h2&gt;
+
+&lt;p&gt;Now we can put together the Python script we just created and a few bash commands to update the hosts file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;if [ -f &amp;quot;/etc/hosts.original&amp;quot; ]
+then
+        cat /etc/hosts.original &amp;gt; /etc/hosts
+else
+        cp /etc/hosts /etc/hosts.original
+fi
+
+/root/undotteddecimaltoip.py /tmp/nedidevicelist.txt &amp;gt;&amp;gt; /etc/hosts
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Notice that the original &lt;em&gt;hosts&lt;/em&gt; files is maintained, if we need to enter lines that shouldn&amp;rsquo;t be lost just edit &lt;em&gt;/etc/hosts.original&lt;/em&gt; file.  &lt;/p&gt;
+
+&lt;h2 id=&#34;add-devices-to-observium&#34;&gt;Add devices to Observium&lt;/h2&gt;
+
+&lt;p&gt;We can finally use the data from NeDi to add devices to Observium:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;while IFS=$&#39;\t&#39; read ip name comm
+do
+echo -e &amp;quot;NOW ADDING DEVICE $name&amp;quot;
+/opt/observium/add_device.php $name $comm
+done &amp;lt; /tmp/nedidevicelist.txt
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Notice that &lt;em&gt;$comm&lt;/em&gt; is the actual community NeDi used to discover the devices, even if in &lt;em&gt;seedlist&lt;/em&gt; more than one was specified.&lt;/p&gt;
+
+&lt;h2 id=&#34;put-it-all-together&#34;&gt;Put it all together&lt;/h2&gt;
+
+&lt;p&gt;This is the final script:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;#!/bin/bash
+/usr/bin/mysql -uroot -pPASSWORD -B -e &amp;quot;select devip,device,readcomm from devices&amp;quot; nedi | grep &amp;quot;^[1-9]&amp;quot; |sed -e &#39;s/ /_/g&#39; | sed -e &#39;s/\//_/g&#39; | sort | tr &#39;[:lower:]&#39; &#39;[:upper:]&#39; &amp;gt; /tmp/nedilist.txt
+
+if [ -f &amp;quot;/etc/hosts.original&amp;quot; ]
+then
+        cat /etc/hosts.original &amp;gt; /etc/hosts
+else
+        cp /etc/hosts /etc/hosts.original
+fi
+
+/root/undotteddecimaltoip.py /tmp/nedidevicelist.txt &amp;gt;&amp;gt; /etc/hosts
+
+while IFS=$&#39;\t&#39; read ip name comm
+do
+echo -e &amp;quot;NOW ADDING DEVICE $name&amp;quot;
+/opt/observium/add_device.php $name $comm
+done &amp;lt; /tmp/nedidevicelist.txt
+
+/opt/observium/discovery.php -h new &amp;gt;&amp;gt; /dev/null 2&amp;gt;&amp;amp;1
+/opt/observium//poller.php -h all  &amp;gt;&amp;gt; /dev/null 2&amp;gt;&amp;amp;1
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now just remember to add to cron the correct files to perform auto discovery with NeDi and then feed Observium again to keep them updated.&lt;/p&gt;
+
+&lt;h2 id=&#34;verify&#34;&gt;Verify&lt;/h2&gt;
+
+&lt;p&gt;How can we verify it worked? One simple way could be to extract the device list from NeDi and from Observium and see if they match:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;/usr/bin/mysql -uroot -pPASSWORD -B -e &amp;quot;select device from devices&amp;quot; nedi | sed -e &#39;s/ /_/g&#39; | sed -e &#39;s/\//_/g&#39; | sort | tr &#39;[:lower:]&#39; &#39;[:upper:]&#39; &amp;gt; /tmp/nedilist.txt
+/usr/bin/mysql -uroot -pPASSWORD -B -e &amp;quot;select hostname from devices&amp;quot; observium | sed -e &#39;s/ /_/g&#39; | sed -e &#39;s/\//_/g&#39; | sort | grep -v &amp;quot;^AP&amp;quot; | tr &#39;[:lower:]&#39; &#39;[:upper:]&#39; &amp;gt; /tmp/observiumlist.txt
+diff /tmp/observiumlist.txt /tmp/nedilist.txt
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If the list in Observium is shorter check if any hostname contains a symbol that can&amp;rsquo;t be read by Observium.&lt;/p&gt;
+
+&lt;h1 id=&#34;see-the-result&#34;&gt;See the result&lt;/h1&gt;
+
+&lt;p&gt;Open a browser to port 80, login and go to Devices&amp;ndash;&amp;gt;List&amp;ndash;&amp;gt;Show to se all the devices discovered by NEDI.&lt;/p&gt;
+
+&lt;p&gt;Open a browser to port 81 to see the Observium interface and check all the devices.&lt;/p&gt;
+
+&lt;p&gt;Nice!&lt;/p&gt;
+
+&lt;h1 id=&#34;wrap-up&#34;&gt;Wrap up&lt;/h1&gt;
+
+&lt;p&gt;Open source software has many advantages, in this particular case it allowed me to integrate two different software in one solution. Fell free to suggest improvements to the script in the comments, I consider this just a &lt;a href=&#34;http://en.wikipedia.org/wiki/Proof_of_concept&#34;&gt;POC&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;WARNING&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;I&amp;rsquo;m not a systems engineer or a programmer&lt;/strong&gt;, use my code &lt;strong&gt;at your own risk&lt;/strong&gt;, I take &lt;strong&gt;no responsibility&lt;/strong&gt; for any damage caused by any of the script shown.&lt;/p&gt;
+
+&lt;h1 id=&#34;update-20160109-from-observium-to-librenms&#34;&gt;UPDATE 20160109 - from Observium to LibreNMS&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.observium.org/&#34;&gt;Observium&lt;/a&gt; has been forked to &lt;a href=&#34;http://www.librenms.org/&#34;&gt;LibreNMS&lt;/a&gt; due to &lt;a href=&#34;http://libertysys.com.au/blog/observium-and-gpl&#34;&gt;different views&lt;/a&gt; about &lt;a href=&#34;http://www.gnu.org/licenses/gpl-3.0.en.html&#34;&gt;GPL licensing&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Installation of both is quite easy, just follow the instructions on each website.&lt;/p&gt;
+
+&lt;p&gt;I updated my scripts to work with LibreNMS:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;#!/bin/bash
+
+\//_/g&#39; | sort | grep -v &amp;quot;^AP&amp;quot; | tr &#39;[:lower:]&#39; &#39;[:upper:]&#39; &amp;gt; /tmp/nedilist.txt
+
+PASSWORD=$1
+
+/usr/bin/mysql -uroot -p$PASSWORD -B -e &amp;quot;select devip,device,readcomm from devices&amp;quot; nedi | grep &amp;quot;^[1-9]&amp;quot; |sed -e
+ &#39;s/ /_/g&#39; | sed -e &#39;s/\//_/g&#39; | sort | tr &#39;[:lower:]&#39; &#39;[:upper:]&#39; &amp;gt; /tmp/nedidevicelist.txt
+
+if [ -f &amp;quot;/etc/hosts.original&amp;quot; ]
+then
+        cat /etc/hosts.original &amp;gt; /etc/hosts
+else
+        cp /etc/hosts /etc/hosts.original
+fi
+
+/root/undotteddecimaltoip.py /tmp/nedidevicelist.txt &amp;gt;&amp;gt; /etc/hosts
+
+while IFS=$&#39;\t&#39; read ip name comm
+do
+echo -e &amp;quot;NOW ADDING DEVICE $name&amp;quot;
+/opt/librenms/addhost.php $name ${comm,,} v2c
+done &amp;lt; /tmp/nedidevicelist.txt
+
+# DISCOVER AN POLL
+/opt/librenms/discovery.php -h new &amp;gt;&amp;gt; /dev/null 2&amp;gt;&amp;amp;1
+/opt/librenms/poller.php -h all  &amp;gt;&amp;gt; /dev/null 2&amp;gt;&amp;amp;1
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In case you need/want to clean the LibreNMS database:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;#!/bin/bash
+while IFS=&#39;&#39; read -r line || [[ -n &amp;quot;$line&amp;quot; ]]; do
+echo REMOVING HOST $line
+/opt/librenms/delhost.php $line
+done &amp;lt; &amp;lt;(/usr/bin/mysql -uroot -p$1 -B -e &amp;quot;select hostname from devices&amp;quot; librenms)
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

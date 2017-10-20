@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ntp on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/ntp/</link>
+    <description>Recent content in Ntp on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Tue, 05 Mar 2013 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/ntp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Recipe: NTP server/client with auth</title>
+      <link>https://www.ifconfig.it/hugo/post/ntp_auth/</link>
+      <pubDate>Tue, 05 Mar 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/ntp_auth/</guid>
+      <description>NTP client / server with authentication
+SERVER CONFIG
+ntp authentication-key 1 md5 0802657D2A36 7
+ntp master 5
+CLIENT CONFIG
+ntp authentication-key 1 md5 1531223F2705 7 ntp authenticate ntp trusted-key 1 ntp server 10.0.12.1 key 1
+Notes: the client authenticates the time source, server must have the key.</description>
+    </item>
+    
+  </channel>
+</rss>

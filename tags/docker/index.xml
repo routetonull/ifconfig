@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/docker/</link>
+    <description>Recent content in Docker on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Mon, 25 May 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Docker join the dots</title>
+      <link>https://www.ifconfig.it/hugo/post/2015-05-25-docker-join-the-dots/</link>
+      <pubDate>Mon, 25 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2015-05-25-docker-join-the-dots/</guid>
+      <description>This post is part of a series about Docker, including:
+ Docker Introduction
+ Docker: Install software inside a container
+ Docker Volumes
+ Docker Networking - bridge container to host NIC
+  We started with the basics and moved on with adding software, using volumes and then bridging a container to the network.
+As a said I&amp;rsquo;m neither a developer or a system administrator, I work as Network Engineer so I&amp;rsquo;m not the main target for Docker but I found it very useful for a specific need and now it&amp;rsquo;s time to join the dots.</description>
+    </item>
+    
+    <item>
+      <title>Docker networking bridge to host NIC</title>
+      <link>https://www.ifconfig.it/hugo/post/2015-05-18-docker-networking-bridge/</link>
+      <pubDate>Mon, 18 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2015-05-18-docker-networking-bridge/</guid>
+      <description>This post is part of a series about Docker, including:
+ Docker Introduction
+ Docker: Install software inside a container
+ Docker Volumes
+  Today we&amp;rsquo;ll see Docker networking with a very specific target in mind: bridge container to the host network.
+This isn&amp;rsquo;t supposed to be the way of work of containers: a container should be created to run a single application so container networking, from the point of view of a Network Engineer, is essentialy a Port Address Translation with a firewall exception.</description>
+    </item>
+    
+    <item>
+      <title>Docker Volumes</title>
+      <link>https://www.ifconfig.it/hugo/post/2015-05-12-docker-volumes/</link>
+      <pubDate>Tue, 12 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2015-05-12-docker-volumes/</guid>
+      <description>In the last post we saw that any filesystem change inside a docker container is lost if not commited to the image.
+What if we want to share data between containers?
+We can use Docker&amp;rsquo;s Data Volumes and Data Volume Containers.
+Data Volumes or Data Volume Containers? Data Volumes feature allows us to mount a local directory from the host inside a container. That looks good but somehow it breaks the concept of isolation between host and container.</description>
+    </item>
+    
+    <item>
+      <title>Docker Install software inside a container</title>
+      <link>https://www.ifconfig.it/hugo/post/2015-05-07-docker-installsw/</link>
+      <pubDate>Thu, 07 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2015-05-07-docker-installsw/</guid>
+      <description>In the first post of this series we left with a running Ubuntu 15.04 container.
+Now it&amp;rsquo;s time to install software inside the container.
+A container is &amp;ldquo;stateless&amp;rdquo;, meaning any file change inside a container is lost when the container is closed, including software installations.
+Install software To install software inside a container any method supported for the Linux distribution is fine.
+I usually install Python 2.7, iftop, htop, tmux so let&amp;rsquo;s run a container:</description>
+    </item>
+    
+    <item>
+      <title>Introduction to Docker</title>
+      <link>https://www.ifconfig.it/hugo/post/2015-05-04-docker-introduction/</link>
+      <pubDate>Mon, 04 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2015-05-04-docker-introduction/</guid>
+      <description>Docker and more generic Linux containers technology are a hot topic these days. The website says &amp;ldquo;for developers and sysadmins&amp;rdquo;, I am neither of the two but I can still find some useful applications for containers as a Network Engineer.
+Let&amp;rsquo;s start from the basics.
+Install docker and first run We can apt-get to install docker on Ubuntu Linux:
+apt-get install docker.io  Now start docker service:
+service docker start  That was easy.</description>
+    </item>
+    
+  </channel>
+</rss>

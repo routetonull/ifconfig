@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Work on IFCONFIG.IT </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>http://www.ifconfig.it/hugo/categories/work/</link>
+    <language>en-us</language>
+    
+    
+    <updated>Sun, 13 Dec 2015 07:31:13 &#43;0000</updated>
+    
+    <item>
+      <title>Obsessive Efficiency Disorder</title>
+      <link>http://www.ifconfig.it/hugo/post/obsessive-efficiency-disorder/</link>
+      <pubDate>Sun, 13 Dec 2015 07:31:13 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/obsessive-efficiency-disorder/</guid>
+      <description>
+
+&lt;p&gt;I read &lt;a href=&#34;https://ma.ttias.be/obsessive-efficiency-disorder/&#34;&gt;this&lt;/a&gt; blog post from &lt;a href=&#34;https://ma.ttias.be/contact/&#34;&gt;Mattias Geniar&lt;/a&gt; and I think he gave a name of a concept I had in my mind from years.&lt;/p&gt;
+
+&lt;p&gt;It started a while ago when I tried to find a more efficient ways to do my daily work and it got bigger and bigger up to be almost an&amp;hellip; obsession.&lt;/p&gt;
+
+&lt;p&gt;Obsession is actually a negative word related do some sort of mental disorder. Let&amp;rsquo;s say OED could be considered more about automation of boring stuff to be more efficient, a sort of &lt;a href=&#34;https://en.wikipedia.org/wiki/Kaizen&#34;&gt;Kaizen&lt;/a&gt; applied to IT.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2015/12/2000px-Kaizen-2.svg1_-300x150.png&#34; alt=&#34;2000px-Kaizen-2.svg[1]&#34; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  
+&gt; 
+&gt; Don&#39;t spend your time doing work a well-trained monkey could do
+&gt; 
+&gt; 
+&lt;/blockquote&gt;
+
+&lt;p&gt;We can think automation as training the monkey to do our job, we just don&amp;rsquo;t want to be &lt;a href=&#34;https://www.nanog.org/meetings/nanog49/presentations/Sunday/Automating_Configuration_n49.pdf&#34;&gt;HEROES&lt;/a&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2015/12/hero-300x221.png&#34; alt=&#34;hero&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;As &lt;a href=&#34;http://fourhourworkweek.com/blog/&#34;&gt;Tim Ferriss&lt;/a&gt; said:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  
+&gt; 
+&gt; Focus on productivity instead of being busy
+&gt; 
+&gt; 
+&lt;/blockquote&gt;
+
+&lt;p&gt;So that&amp;rsquo;s the point, productivity over busy appearance.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-dark-side&#34;&gt;The dark side&lt;/h2&gt;
+
+&lt;p&gt;OED can be used at our own advantage but can be stressful for people working in team. Inefficiency is hard to bear if you are used to move at a faster pace, some zen helps and be patient ;-)&lt;/p&gt;
+
+&lt;h2 id=&#34;wrap-up&#34;&gt;Wrap up&lt;/h2&gt;
+
+&lt;p&gt;This is just the start of a series of blog posts about automation, efficiency and general improvement related to my work as Network Engineer and a computer/tablet/smartphone user.&lt;/p&gt;
+
+&lt;p&gt;Feel free to share your experiences or tools, there&amp;rsquo;s always room for improvement in the OED world ;-)&lt;/p&gt;
+
+&lt;p&gt;Stay tuned!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>VMware VCP5-DCV for a network engineer</title>
+      <link>http://www.ifconfig.it/hugo/post/vcp5dcv/</link>
+      <pubDate>Fri, 11 Dec 2015 22:03:27 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/vcp5dcv/</guid>
+      <description>
+
+&lt;p&gt;Today I passed exam &lt;strong&gt;VCP550&lt;/strong&gt; and got &lt;a href=&#34;https://mylearn.vmware.com/mgrReg/plan.cfm?plan=12457&amp;amp;ui=www_cert=www&#34;&gt;&lt;strong&gt;VMware VCP5-DCV&lt;/strong&gt;&lt;/a&gt; certification.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2015/12/vcp-dcv.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;exam-preparation&#34;&gt;Exam preparation&lt;/h2&gt;
+
+&lt;p&gt;For exam preparation I attended the official training that is mandatory to access the exam. The printed material provided with the training is good enough but I integrated with the great &lt;a href=&#34;http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118661141.html&#34;&gt;Mastering VMware vSphere 5.5&lt;/a&gt; by &lt;a href=&#34;http://blog.scottlowe.org/&#34;&gt;Scott Lowe&lt;/a&gt;. The &lt;a href=&#34;https://pubs.vmware.com/vsphere-55/index.jsp&#34;&gt;official documentation&lt;/a&gt; available online for free.&lt;/p&gt;
+
+&lt;p&gt;I had some hands-on experience with VSphere, did some installations myself and supported some trouble tickets so even if I don&amp;rsquo;t work every day with VSphere I have a decent knowledge on the topic.&lt;/p&gt;
+
+&lt;p&gt;For the practice labs I used my trusty &lt;a href=&#34;http://n40l.wikia.com/wiki/HP_MicroServer_N40L_Wiki&#34;&gt;HP Microserver N40L&lt;/a&gt; with a &lt;a href=&#34;http://vsphere-land.com/tag/home-lab&#34;&gt;nested lab&lt;/a&gt;. It takes some minutes to start but I can easily run 2 ESXi hosts and a vCenter Appliance plus a Linux VM for iSCSI shared storage.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-exam&#34;&gt;The Exam&lt;/h2&gt;
+
+&lt;p&gt;I found the exam quite long but questions were very clear and well explained, VMware put a good effort to make the exam hard but fair. I skipped some question and had to think through some others, many were quite easy if you have a good grasp of the products.&lt;/p&gt;
+
+&lt;h2 id=&#34;why-vcp-for-a-network-engineer&#34;&gt;Why VCP for a Network Engineer?&lt;/h2&gt;
+
+&lt;p&gt;Because I&amp;rsquo;m a generalist as &lt;a href=&#34;http://www.networkworld.com/article/3012318/leadership-management/why-you-need-to-hire-it-generalists.html&#34;&gt;defined by Thor Olavsrud from NetworkWorld&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I want to be able to talk with VMware professionals and understand what they say and how their needs interact with the network I manage or design. And I&amp;rsquo;m curious.&lt;/p&gt;
+
+&lt;p&gt;Networking is not just about moving IP packets anymore. I don&amp;rsquo;t want use use buzz words but what SDN is teaching to network professionals today is that the devices we manage and networks we design must go up to L7.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Next-Generation_Firewall&#34;&gt;Next gen firewalls&lt;/a&gt;, &lt;a href=&#34;https://en.wikipedia.org/wiki/Overlay_network&#34;&gt;overlay networks&lt;/a&gt;, traffic type and directions analysis in a datacenter, &lt;a href=&#34;http://www.cisco.com/c/en/us/solutions/enterprise-networks/intelligent-wan/index.html&#34;&gt;IWAN&lt;/a&gt;, SDN, virtualization&amp;hellip; all these technologies require a broader understanting of applications, traffic flows and what is carried by the network.&lt;/p&gt;
+
+&lt;p&gt;I don&amp;rsquo;t want to blame developers, servery guys or other professionals but I see the Network Engineer as the best profile to manage all the components of the IT infrastructure.&lt;/p&gt;
+
+&lt;p&gt;Years of &lt;a href=&#34;https://www.google.com/search?q=blame+the+network&amp;amp;oq=blame+the+network&amp;amp;aqs=chrome..69i57j0l2.2258j0j1&amp;amp;sourceid=chrome&amp;amp;es_sm=93&amp;amp;ie=UTF-8&#34;&gt;pointed fingers&lt;/a&gt; and &lt;a href=&#34;http://www.itblame.com/&#34;&gt;blame game&lt;/a&gt; from the other IT roles forced Network Engineers to understand all the elements of the IT company so we already have a broad view of the IT world, now it&amp;rsquo;s time to use it for our own career.&lt;/p&gt;
+
+&lt;h2 id=&#34;my-2-cents&#34;&gt;My 2 cents&lt;/h2&gt;
+
+&lt;p&gt;IT Generalist will be an actual job role soon or maybe we should just be brave and call us IT Architects.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Exam passed: HP2-Z31 - Creating HP Software-defined Networks</title>
+      <link>http://www.ifconfig.it/hugo/post/exam-passed-hp2-z31-creating-hp-software-defined-networks/</link>
+      <pubDate>Fri, 31 Jul 2015 18:57:39 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/exam-passed-hp2-z31-creating-hp-software-defined-networks/</guid>
+      <description>&lt;p&gt;As a holder of many technical certifications every few months I have to renew some.&lt;/p&gt;
+
+&lt;p&gt;When possible I try to renew the certifications with a new track instead of doing the newer version of the exam I&amp;rsquo;ve already done.&lt;/p&gt;
+
+&lt;p&gt;This time was the turn of &lt;a href=&#34;http://pro-networking-h17007.external.hp.com/ph/en/training/certifications/technical/ase-network-infrastructure.aspx&#34;&gt;HP ASE - Network Infrastructure 2011&lt;/a&gt; to be renewed as &lt;a href=&#34;http://h10120.www1.hp.com/expertone/datacard/UpgradePath/ASE-FlxNetIntV1-u2&#34;&gt;HP ASE - FlexNetwork Integrator V1&lt;/a&gt; and &lt;a href=&#34;http://h10120.www1.hp.com/expertone/datacard/UpgradePath/ASE-FlxNetArcV2-u1&#34;&gt;HP ASE - FlexNetwork Architect V2&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Four exams are availale to upgrade, I choose &lt;a href=&#34;http://h10120.www1.hp.com/expertone/datacard/Exam/HP2-Z31&#34;&gt;HP2-Z31 - Creating HP Software-defined Networks&lt;/a&gt; because I hear a lot about SDN but I had not the opportunity to explore this topic yet.&lt;/p&gt;
+
+&lt;p&gt;To prepare the exam I used the &lt;a href=&#34;https://h30590.www3.hp.com/product/Creating+HP+Software-Defined+Networks+HP2-Z31+and+HP0-Y51-eBook-11378&#34;&gt;official study guide from HP Press&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The book is well written, very clear and complete, I needed to search some topics on &lt;a href=&#34;http://lmgtfy.com/?q=openflow&#34;&gt;Google&lt;/a&gt; just a few times for a better understanding of the concepts.&lt;/p&gt;
+
+&lt;p&gt;There&amp;rsquo;s no need to say that the manual focuses on the &lt;a href=&#34;http://h17007.www1.hp.com/us/en/networking/products/network-management/HP_VAN_SDN_Controller_Software/index.aspx#.VbtnivntlBc&#34;&gt;HP VAN SDN Controller Software&lt;/a&gt; but all the core topics about how &lt;a href=&#34;https://www.opennetworking.org/&#34;&gt;OpenFlow&lt;/a&gt; and an OpenFlow enabled switch works are useful for any vendor.&lt;/p&gt;
+
+&lt;p&gt;I really liked the final chapter about &lt;a href=&#34;http://mininet.org/&#34;&gt;Mininet&lt;/a&gt; and how to use it to do labs with OpenFlow.&lt;/p&gt;
+
+&lt;p&gt;I recommend &lt;a href=&#34;https://h30590.www3.hp.com/product/Creating+HP+Software-Defined+Networks+HP2-Z31+and+HP0-Y51-eBook-11378&#34;&gt;this book&lt;/a&gt; to those interested in SDN and want a good starting point to explore the topics.&lt;/p&gt;
+
+&lt;p&gt;Enjoy.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>HP switches: copy configuration between different device models</title>
+      <link>http://www.ifconfig.it/hugo/post/hp-switches-copy-config/</link>
+      <pubDate>Sat, 27 Sep 2014 07:58:48 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/hp-switches-copy-config/</guid>
+      <description>
+
+&lt;p&gt;A couple of days ago I did a planned software upgrade of an HP5406zl.&lt;/p&gt;
+
+&lt;p&gt;Since the installed firmware version was quite old it was not possible to update directly to the latest release, an upgrade path must be followed:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://pbs.twimg.com/media/BySgMiJCYAEIy7h.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This is how it went:&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2014/09/20140924_163756.jpg&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2014/09/20140924_163756-1024x576.jpg&#34; alt=&#34;hp upgrade bad&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;A faulty flash killed the switch so it was replaced with a spare part, an HP5412zl, the same switch but with twelve modules instead of six.&lt;/p&gt;
+
+&lt;h2 id=&#34;problem&#34;&gt;Problem&lt;/h2&gt;
+
+&lt;p&gt;Copy the old config to the new switch caused a &amp;ldquo;wrong file&amp;rdquo; error message.&lt;/p&gt;
+
+&lt;h2 id=&#34;how-to-fix&#34;&gt;How to fix&lt;/h2&gt;
+
+&lt;p&gt;The switch configuration file starts with a definition of the model.&lt;/p&gt;
+
+&lt;p&gt;This is on a 5406zl:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;; J8697A Configuration Editor; Created on release #K.15.14.0007
+; Ver #05:18.7f.ff.3f.ef:4d
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And this on a 5412zl:&lt;/p&gt;
+
+&lt;p&gt;; J8698A Configuration Editor; Created on release #K.15.10.0009&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;; Ver #03:03.1f.ef:f0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Just replace those two lines with the correct model and the configuration will be loaded correctly.&lt;/p&gt;
+
+&lt;h2 id=&#34;lesson-learned&#34;&gt;Lesson learned&lt;/h2&gt;
+
+&lt;p&gt;Always backup the configuration before any change or software upgrade. This single step, skipped by many network engineers, saved me so many times.&lt;/p&gt;
+
+&lt;p&gt;Be ready for the worse. My company has spare parts for almost all the devices installed to customers, this HP5412zl has enough modules and features to replace most switches we install so it&amp;rsquo;s good to know it&amp;rsquo;s there just in case.&lt;/p&gt;
+
+&lt;h2 id=&#34;how-it-ended&#34;&gt;How it ended&lt;/h2&gt;
+
+&lt;p&gt;HP replaced the switch (lifetime warranty for the FTW!), I did the upgrade in a test environment, copied the configuration and put it back where it belongs.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Cisco Live! Europe 2013</title>
+      <link>http://www.ifconfig.it/hugo/post/cleur2013/</link>
+      <pubDate>Thu, 28 Feb 2013 14:26:28 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/cleur2013/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://www.ciscolive.com/emea/&#34;&gt;Cisco Live! Europe&lt;/a&gt;: I&amp;rsquo;m in!&lt;/p&gt;
+
+&lt;p&gt;First time here, the impression is like being in the &lt;a href=&#34;http://en.wikipedia.org/wiki/Willy_Wonka&#34;&gt;Willy Wonka&lt;/a&gt; chocolate factory with the big difference you can touch everything without disappear.&lt;/p&gt;
+
+&lt;p&gt;As my job is not focused on a single technology I&amp;rsquo;m registered to many different sessions, from WiFi to Security, from FCoE to Routing/Switching.&lt;/p&gt;
+
+&lt;p&gt;A longer review will follow. It&amp;rsquo;ll be a long week.&lt;/p&gt;
+
+&lt;p&gt;_ &lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/03/cleur2013.jpg&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/03/cleur2013-225x300.jpg&#34; alt=&#34;cleur2013&#34; /&gt;&lt;/a&gt;_&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ebook: Your Route to Cisco Career Success by Kevin Wallace</title>
+      <link>http://www.ifconfig.it/hugo/post/cisco_career_wallace/</link>
+      <pubDate>Sun, 02 Dec 2012 10:12:49 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/cisco_career_wallace/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://www.amazon.com/Route-Cisco-Career-Success-ebook/dp/B00AE98WCA/&#34;&gt;Your Route to Cisco Career Success&lt;/a&gt;  by &lt;a href=&#34;http://www.ciscopress.com/authors/bio.asp?a=12552dc0-b342-48c4-99df-957824d2c2c6&#34;&gt;Kevin Wallace&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;A free ebook from Amazon/Kindle about the strategy to prepare for a brilliant career in networking.&lt;/p&gt;
+
+&lt;p&gt;UPDATE: the book was free just for a limited amount of time (I got the link from Twitter).&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Alcatel-Lucent Certified Field Expert</title>
+      <link>http://www.ifconfig.it/hugo/post/acfe/</link>
+      <pubDate>Thu, 22 Nov 2012 18:40:20 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/acfe/</guid>
+      <description>&lt;p&gt;After one week of training in Milan and passing the exam I&amp;rsquo;ve added an Alcatel-Lucent certification to my c.v.:&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;&lt;a href=&#34;http://enterprise.alcatel-lucent.com/?dept=TrainingandSupport&amp;amp;page=Matrix&#34;&gt;Alcatel-Lucent Certified Field Expert - ACFE - OmniSwitch R6/R6&lt;/a&gt;&amp;ldquo;&lt;/p&gt;
+
+&lt;p&gt;OmniSwitch have some proprietary features, like mobile vlans, that may be very useful in some deployments. The new &lt;a href=&#34;http://enterprise.alcatel-lucent.com/?product=OmniSwitch10K&amp;amp;page=documents&#34;&gt;10K&lt;/a&gt; platform with MC-LAG and other featuers seems great as core switch.&lt;/p&gt;
+
+&lt;p&gt;The bright side of working for a system integrator is the opportunity to &lt;del&gt;mess&lt;/del&gt; &lt;del&gt;play&lt;/del&gt; work with many different vendors and accumulate experience with many devices. On the other hand it&amp;rsquo;s hard to be confident with all the different CLI. I can say that with Cisco I feel at home, with other devices I use &lt;a href=&#34;http://evernote.com&#34;&gt;Evernote&lt;/a&gt; to keep many config templates so I have the right tools when needed.&lt;/p&gt;
+
+&lt;p&gt;Now it&amp;rsquo;s time to focus on CCIE lab exam preparation again.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>My job</title>
+      <link>http://www.ifconfig.it/hugo/post/my-job/</link>
+      <pubDate>Fri, 16 Jul 2010 17:55:11 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/my-job/</guid>
+      <description>&lt;p&gt;Sometimes it hard to explain to wife/friends/family what my job is. First of all NO, &lt;a href=&#34;http://www.thinkgeek.com/tshirts-apparel/unisex/frustrations/388b/&#34;&gt;I won’t fix your computer&lt;/a&gt;!&lt;/p&gt;
+
+&lt;p&gt;Well, I spend days in cold and noisy places, typing strange commands on my PC and plugging cables here and there.. is it clear now???&lt;/p&gt;
+
+&lt;p&gt;[gallery link=&amp;ldquo;file&amp;rdquo; columns=&amp;ldquo;2&amp;rdquo;]&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Life?</title>
+      <link>http://www.ifconfig.it/hugo/post/life/</link>
+      <pubDate>Mon, 24 May 2010 17:59:15 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/life/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2011/12/page6_blog_entry358-life.png&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2011/12/page6_blog_entry358-life-300x255.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

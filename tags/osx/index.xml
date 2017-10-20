@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Osx on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/osx/</link>
+    <description>Recent content in Osx on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Tue, 11 Jan 2011 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/osx/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>OSX as Syslog server</title>
+      <link>https://www.ifconfig.it/hugo/post/2011-01-11-osx-as-syslog-server/</link>
+      <pubDate>Tue, 11 Jan 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2011-01-11-osx-as-syslog-server/</guid>
+      <description>How to keep track of logs of a Cisco router using OSX? Easy task!
+Enable syslog listener on OSX:
+instructions here
+add this line to /etc/syslog.conf
+local7.* /var/log/cisco.log
+enable logging on the router:
+logging facility local7 ! ip address of iMac logging 10.0.0.1
+install the Syslog Widget and configure it to check file /var/log/cisco.log.
+Use GeekTool if you prefer to view logs on the desktop.</description>
+    </item>
+    
+  </channel>
+</rss>

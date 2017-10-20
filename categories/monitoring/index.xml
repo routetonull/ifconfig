@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Monitoring on IFCONFIG.IT </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>http://www.ifconfig.it/hugo/categories/monitoring/</link>
+    <language>en-us</language>
+    
+    
+    <updated>Mon, 01 Feb 2016 15:00:46 &#43;0000</updated>
+    
+    <item>
+      <title>OED tools: Pushover</title>
+      <link>http://www.ifconfig.it/hugo/post/oed-tools-pushover/</link>
+      <pubDate>Mon, 01 Feb 2016 15:00:46 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/oed-tools-pushover/</guid>
+      <description>
+
+&lt;h2 id=&#34;the-problem&#34;&gt;The problem&lt;/h2&gt;
+
+&lt;p&gt;In my last post about Linux &lt;strong&gt;at&lt;/strong&gt; command I talked about notifications on my mobile.&lt;/p&gt;
+
+&lt;p&gt;In most of my automation scripts I prefer notifications to come to my mobile instead of via email or SMS (really? in 2015?) because:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;it is always with me&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;I check it thousands times a day (I know you too ;-) )&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;it is a preferred channel - a specific app just for that&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;the-automation&#34;&gt;The automation&lt;/h2&gt;
+
+&lt;p&gt;There&amp;rsquo;re many notification services available today for free or minimal cost. When I needed it, after evaluating a few solutions, I chose &lt;a href=&#34;https://pushover.net/&#34;&gt;Pushover&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Main advantages of Pushover:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;no monthly fees&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://pushover.net/faq#overview-limits&#34;&gt;7500 messages per month&lt;/a&gt; - much more than I needed so far&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;API available for &lt;a href=&#34;https://pushover.net/faq#library&#34;&gt;most programming languages&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;client available for many platforms&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://pushover.net/assets/pushover-header-a9ea3145e3754dffe333ae155b25731d.png&#34; alt=&#34;pushover logo&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;For bash scripts I call a Python script &lt;strong&gt;sendpush.py&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;h1 id=&#34;usr-bin-python&#34;&gt;!/usr/bin/python&lt;/h1&gt;
+
+&lt;p&gt;&amp;rdquo;&amp;rsquo; last change: 20151203 notify to pushover &amp;ldquo;&amp;rsquo;&lt;/p&gt;
+
+&lt;p&gt;import commands import httplib, urllib import sys&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;def sendPush(messageText):
+        conn = httplib.HTTPSConnection(&amp;quot;api.pushover.net:443&amp;quot;)
+        conn.request(&amp;quot;POST&amp;quot;, &amp;quot;/1/messages.json&amp;quot;,
+        urllib.urlencode({
+                &amp;quot;token&amp;quot;: &amp;quot;REPLACE_WITH_YOUR_TOKEN&amp;quot;,
+                &amp;quot;user&amp;quot;: &amp;quot;REPLACE_WITH_YOUR_USER&amp;quot;,
+                &amp;quot;message&amp;quot;: messageText,
+        }), { &amp;quot;Content-type&amp;quot;: &amp;quot;application/x-www-form-urlencoded&amp;quot; })
+        conn.getresponse()
+
+def main():
+        sendPush(sys.argv[1])
+
+main()
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Usually I set a notification when the script starts, ends and a final one with a check of the expected output.&lt;/p&gt;
+
+&lt;p&gt;I had positive experiences with Pushover so far, messages always arrived on time and never got lost in the path so I&amp;rsquo;m not actively looking for a replacement (not very &lt;a href=&#34;https://en.wikipedia.org/wiki/Kaizen&#34;&gt;Kaizen&lt;/a&gt;&amp;hellip;) but suggestions are welcome.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>NeDi and Observium/LibreNMS</title>
+      <link>http://www.ifconfig.it/hugo/post/nedi2observium/</link>
+      <pubDate>Wed, 26 Nov 2014 21:48:38 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/nedi2observium/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;http://www.nedi.ch/&#34;&gt;NeDi&lt;/a&gt; and &lt;a href=&#34;http://www.observium.org&#34;&gt;Observium&lt;/a&gt; are two of my favourites network monitoring tools.&lt;/p&gt;
+
+&lt;p&gt;I do like to deploy both, they complete each other and since they&amp;rsquo;re free there is no need to choose. The only problem with the use of two tools is the &lt;strong&gt;integration&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Observium has a &lt;a href=&#34;http://www.observium.org/wiki/FAQs#Why_can.27t_I_add_my_device_by_its_IP_address.3F_.2F_Why_do_I_need_valid_hostnames_and_DNS.3F&#34;&gt;limitation&lt;/a&gt; with host discovery: a device can be discovered only by name and that name must be resolved to an IP via DNS or hosts file. Since most of my customers don&amp;rsquo;t register network devices on DNS that means manually populate &lt;em&gt;/etc/hosts file&lt;/em&gt;. On the other hand NeDi doesn&amp;rsquo;t have this limitation and has a &lt;strong&gt;strong network/discovery&lt;/strong&gt; mechanism.&lt;/p&gt;
+
+&lt;p&gt;Can we make them to work together? Of course, that&amp;rsquo;s open source!&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h1 id=&#34;installation&#34;&gt;Installation&lt;/h1&gt;
+
+&lt;p&gt;NeDi and Observium installation processes are well explained &lt;a href=&#34;http://www.nedi.ch/installation/&#34;&gt;here&lt;/a&gt; and &lt;a href=&#34;http://www.observium.org/wiki/Installation&#34;&gt;here&lt;/a&gt;, just follow the instructions, they work fine.&lt;/p&gt;
+
+&lt;h1 id=&#34;customization&#34;&gt;Customization&lt;/h1&gt;
+
+&lt;p&gt;I&amp;rsquo;ve modified &lt;em&gt;/var/nedi/nedi.conf&lt;/em&gt; to include only the address ranges of my managed devices:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;netfilter      ^10\.5\.|^10\.16\.0\.|^192\.168\.20\.
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and &lt;em&gt;/var/nedi/seedlist&lt;/em&gt; whit a list of devices/communities that will be used as a seed for the discovery process in the format:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;ip  community1,community2
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For the sake of simplicity I just run two virtual hosts on Apache2, NeDi runs on port 80, Observium runs on port 81, edit &lt;em&gt;/etc/apache2/sites-enabled/000-default&lt;/em&gt; as follows:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;&amp;lt;VirtualHost *:80&amp;gt;
+        ServerAdmin webmaster@localhost
+
+        DocumentRoot /var/nedi/html
+        &amp;lt;Directory /&amp;gt;
+                Options FollowSymLinks
+                AllowOverride None
+        &amp;lt;/Directory&amp;gt;
+        &amp;lt;Directory /var/www/&amp;gt;
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride None
+                Order allow,deny
+                allow from all
+        &amp;lt;/Directory&amp;gt;
+
+        ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/
+        &amp;lt;Directory &amp;quot;/usr/lib/cgi-bin&amp;quot;&amp;gt;
+                AllowOverride None
+                Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch
+                Order allow,deny
+                Allow from all
+        &amp;lt;/Directory&amp;gt;
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+
+        # Possible values include: debug, info, notice, warn, error, crit,
+        # alert, emerg.
+        LogLevel warn
+
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+&amp;lt;/VirtualHost&amp;gt;
+
+&amp;lt;VirtualHost *:81&amp;gt;
+  DocumentRoot /opt/observium/html/
+  ServerName  observium.domain.com
+  CustomLog /opt/observium/logs/access_log combined
+  ErrorLog /opt/observium/logs/error_log
+  &amp;lt;Directory &amp;quot;/opt/observium/html/&amp;quot;&amp;gt;
+    AllowOverride All
+    Options FollowSymLinks MultiViews
+  &amp;lt;/Directory&amp;gt;
+&amp;lt;/VirtualHost&amp;gt;
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;integration&#34;&gt;Integration&lt;/h1&gt;
+
+&lt;p&gt;The integration between the two tools is meant to take advantage of the discovery performed by NeDi to polulate &lt;em&gt;/etc/hosts&lt;/em&gt; file and then feed the discovery process of Observium.&lt;/p&gt;
+
+&lt;h1 id=&#34;step-by-step&#34;&gt;Step by step&lt;/h1&gt;
+
+&lt;h2 id=&#34;where-is-the-data&#34;&gt;Where is the data?&lt;/h2&gt;
+
+&lt;p&gt;NeDi stores all the information on a MySQL database. A quick look on the tables and we can see how to extract the devices information:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;/usr/bin/mysql -uroot -pPASSWORD -B -e &amp;quot;select devip,device from devices&amp;quot; nedi 
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Replace &lt;em&gt;PASSWORD&lt;/em&gt; with the password you typed during the software installation.&lt;/p&gt;
+
+&lt;p&gt;Tweak this extraction a little bit to clean the list:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;filter lines that don&amp;rsquo;t begin with a number in range [1-9], that means no valid IP address was discovered via CDP/LDP&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;remove some chars (slash,spaces) that Observium doesn&amp;rsquo;t like in hostnames with &lt;em&gt;sed&lt;/em&gt; commands&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;uniform all the device names in uppercase chars&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If your device hostnames have other chars that don&amp;rsquo;t work well with Observium just add more &lt;em&gt;sed&lt;/em&gt; to the script.&lt;/p&gt;
+
+&lt;p&gt;This is the final result:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;/usr/bin/mysql -uroot -pPASSWORD -B -e &amp;quot;select devip,device,readcomm from devices&amp;quot; nedi | grep &amp;quot;^[1-9]&amp;quot; |sed -e &#39;s/ /_/g&#39; | sed -e &#39;s/\//_/g&#39; | sort | tr &#39;[:lower:]&#39; &#39;[:upper:]&#39;
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;ip-format&#34;&gt;IP format&lt;/h2&gt;
+
+&lt;p&gt;NeDi stores IP addresses in undotted decimal format, we need to convert them to dotted decimal to use them.&lt;/p&gt;
+
+&lt;p&gt;We can use Python for that, let&amp;rsquo;s create &lt;em&gt;/root/undotteddecimaltoip.py&lt;/em&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;#!/usr/bin/env python
+
+import sys
+inFile = sys.argv[1]
+#outFile = sys.argv[2]
+
+def int_to_dqn(st):
+    &amp;quot;&amp;quot;&amp;quot;
+    Convert integer to dotted quad notation
+    &amp;quot;&amp;quot;&amp;quot;
+    st = &amp;quot;%08x&amp;quot; % (st)
+    return &amp;quot;%i.%i.%i.%i&amp;quot; % (int(st[0:2],16),int(st[2:4],16),int(st[4:6],16),int(st[6:8],16))
+
+f = open(inFile,&amp;quot;r&amp;quot;)
+for line in f:
+        values = line.split(&amp;quot;\t&amp;quot;)
+        print int_to_dqn(int(values[0]))+&amp;quot; &amp;quot;+values[1].rstrip().replace(&amp;quot; &amp;quot;,&amp;quot;_&amp;quot;)
+f.close()
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Test it running:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;/root/undotteddecimaltoip.py /tmp/nedidevicelist.txt
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can see now all the IP addresses are now in dotted decimal format.  &lt;/p&gt;
+
+&lt;h2 id=&#34;populate-etc-hosts-file&#34;&gt;Populate /etc/hosts file&lt;/h2&gt;
+
+&lt;p&gt;Now we can put together the Python script we just created and a few bash commands to update the hosts file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;if [ -f &amp;quot;/etc/hosts.original&amp;quot; ]
+then
+        cat /etc/hosts.original &amp;gt; /etc/hosts
+else
+        cp /etc/hosts /etc/hosts.original
+fi
+
+/root/undotteddecimaltoip.py /tmp/nedidevicelist.txt &amp;gt;&amp;gt; /etc/hosts
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Notice that the original &lt;em&gt;hosts&lt;/em&gt; files is maintained, if we need to enter lines that shouldn&amp;rsquo;t be lost just edit &lt;em&gt;/etc/hosts.original&lt;/em&gt; file.  &lt;/p&gt;
+
+&lt;h2 id=&#34;add-devices-to-observium&#34;&gt;Add devices to Observium&lt;/h2&gt;
+
+&lt;p&gt;We can finally use the data from NeDi to add devices to Observium:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;while IFS=$&#39;\t&#39; read ip name comm
+do
+echo -e &amp;quot;NOW ADDING DEVICE $name&amp;quot;
+/opt/observium/add_device.php $name $comm
+done &amp;lt; /tmp/nedidevicelist.txt
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Notice that &lt;em&gt;$comm&lt;/em&gt; is the actual community NeDi used to discover the devices, even if in &lt;em&gt;seedlist&lt;/em&gt; more than one was specified.&lt;/p&gt;
+
+&lt;h2 id=&#34;put-it-all-together&#34;&gt;Put it all together&lt;/h2&gt;
+
+&lt;p&gt;This is the final script:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;#!/bin/bash
+/usr/bin/mysql -uroot -pPASSWORD -B -e &amp;quot;select devip,device,readcomm from devices&amp;quot; nedi | grep &amp;quot;^[1-9]&amp;quot; |sed -e &#39;s/ /_/g&#39; | sed -e &#39;s/\//_/g&#39; | sort | tr &#39;[:lower:]&#39; &#39;[:upper:]&#39; &amp;gt; /tmp/nedilist.txt
+
+if [ -f &amp;quot;/etc/hosts.original&amp;quot; ]
+then
+        cat /etc/hosts.original &amp;gt; /etc/hosts
+else
+        cp /etc/hosts /etc/hosts.original
+fi
+
+/root/undotteddecimaltoip.py /tmp/nedidevicelist.txt &amp;gt;&amp;gt; /etc/hosts
+
+while IFS=$&#39;\t&#39; read ip name comm
+do
+echo -e &amp;quot;NOW ADDING DEVICE $name&amp;quot;
+/opt/observium/add_device.php $name $comm
+done &amp;lt; /tmp/nedidevicelist.txt
+
+/opt/observium/discovery.php -h new &amp;gt;&amp;gt; /dev/null 2&amp;gt;&amp;amp;1
+/opt/observium//poller.php -h all  &amp;gt;&amp;gt; /dev/null 2&amp;gt;&amp;amp;1
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now just remember to add to cron the correct files to perform auto discovery with NeDi and then feed Observium again to keep them updated.&lt;/p&gt;
+
+&lt;h2 id=&#34;verify&#34;&gt;Verify&lt;/h2&gt;
+
+&lt;p&gt;How can we verify it worked? One simple way could be to extract the device list from NeDi and from Observium and see if they match:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;/usr/bin/mysql -uroot -pPASSWORD -B -e &amp;quot;select device from devices&amp;quot; nedi | sed -e &#39;s/ /_/g&#39; | sed -e &#39;s/\//_/g&#39; | sort | tr &#39;[:lower:]&#39; &#39;[:upper:]&#39; &amp;gt; /tmp/nedilist.txt
+/usr/bin/mysql -uroot -pPASSWORD -B -e &amp;quot;select hostname from devices&amp;quot; observium | sed -e &#39;s/ /_/g&#39; | sed -e &#39;s/\//_/g&#39; | sort | grep -v &amp;quot;^AP&amp;quot; | tr &#39;[:lower:]&#39; &#39;[:upper:]&#39; &amp;gt; /tmp/observiumlist.txt
+diff /tmp/observiumlist.txt /tmp/nedilist.txt
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If the list in Observium is shorter check if any hostname contains a symbol that can&amp;rsquo;t be read by Observium.&lt;/p&gt;
+
+&lt;h1 id=&#34;see-the-result&#34;&gt;See the result&lt;/h1&gt;
+
+&lt;p&gt;Open a browser to port 80, login and go to Devices&amp;ndash;&amp;gt;List&amp;ndash;&amp;gt;Show to se all the devices discovered by NEDI.&lt;/p&gt;
+
+&lt;p&gt;Open a browser to port 81 to see the Observium interface and check all the devices.&lt;/p&gt;
+
+&lt;p&gt;Nice!&lt;/p&gt;
+
+&lt;h1 id=&#34;wrap-up&#34;&gt;Wrap up&lt;/h1&gt;
+
+&lt;p&gt;Open source software has many advantages, in this particular case it allowed me to integrate two different software in one solution. Fell free to suggest improvements to the script in the comments, I consider this just a &lt;a href=&#34;http://en.wikipedia.org/wiki/Proof_of_concept&#34;&gt;POC&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;WARNING&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;I&amp;rsquo;m not a systems engineer or a programmer&lt;/strong&gt;, use my code &lt;strong&gt;at your own risk&lt;/strong&gt;, I take &lt;strong&gt;no responsibility&lt;/strong&gt; for any damage caused by any of the script shown.&lt;/p&gt;
+
+&lt;h1 id=&#34;update-20160109-from-observium-to-librenms&#34;&gt;UPDATE 20160109 - from Observium to LibreNMS&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.observium.org/&#34;&gt;Observium&lt;/a&gt; has been forked to &lt;a href=&#34;http://www.librenms.org/&#34;&gt;LibreNMS&lt;/a&gt; due to &lt;a href=&#34;http://libertysys.com.au/blog/observium-and-gpl&#34;&gt;different views&lt;/a&gt; about &lt;a href=&#34;http://www.gnu.org/licenses/gpl-3.0.en.html&#34;&gt;GPL licensing&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Installation of both is quite easy, just follow the instructions on each website.&lt;/p&gt;
+
+&lt;p&gt;I updated my scripts to work with LibreNMS:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;#!/bin/bash
+
+\//_/g&#39; | sort | grep -v &amp;quot;^AP&amp;quot; | tr &#39;[:lower:]&#39; &#39;[:upper:]&#39; &amp;gt; /tmp/nedilist.txt
+
+PASSWORD=$1
+
+/usr/bin/mysql -uroot -p$PASSWORD -B -e &amp;quot;select devip,device,readcomm from devices&amp;quot; nedi | grep &amp;quot;^[1-9]&amp;quot; |sed -e
+ &#39;s/ /_/g&#39; | sed -e &#39;s/\//_/g&#39; | sort | tr &#39;[:lower:]&#39; &#39;[:upper:]&#39; &amp;gt; /tmp/nedidevicelist.txt
+
+if [ -f &amp;quot;/etc/hosts.original&amp;quot; ]
+then
+        cat /etc/hosts.original &amp;gt; /etc/hosts
+else
+        cp /etc/hosts /etc/hosts.original
+fi
+
+/root/undotteddecimaltoip.py /tmp/nedidevicelist.txt &amp;gt;&amp;gt; /etc/hosts
+
+while IFS=$&#39;\t&#39; read ip name comm
+do
+echo -e &amp;quot;NOW ADDING DEVICE $name&amp;quot;
+/opt/librenms/addhost.php $name ${comm,,} v2c
+done &amp;lt; /tmp/nedidevicelist.txt
+
+# DISCOVER AN POLL
+/opt/librenms/discovery.php -h new &amp;gt;&amp;gt; /dev/null 2&amp;gt;&amp;amp;1
+/opt/librenms/poller.php -h all  &amp;gt;&amp;gt; /dev/null 2&amp;gt;&amp;amp;1
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In case you need/want to clean the LibreNMS database:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;#!/bin/bash
+while IFS=&#39;&#39; read -r line || [[ -n &amp;quot;$line&amp;quot; ]]; do
+echo REMOVING HOST $line
+/opt/librenms/delhost.php $line
+done &amp;lt; &amp;lt;(/usr/bin/mysql -uroot -p$1 -B -e &amp;quot;select hostname from devices&amp;quot; librenms)
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Wonky Wisp, Smokeping and AWS free tier</title>
+      <link>http://www.ifconfig.it/hugo/post/wonky-wisp-smokeping-and-aws-free-tier/</link>
+      <pubDate>Mon, 15 Apr 2013 20:35:11 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/wonky-wisp-smokeping-and-aws-free-tier/</guid>
+      <description>&lt;p&gt;My home network is connected to the Internet via radio bridge. The reason is ADSL services were not available a couple of years ago, now it is but since the radio bridge is cheap and works (most of the time) I really don&amp;rsquo;t care to change.&lt;/p&gt;
+
+&lt;p&gt;Some time ago I started to notice downtime of the Internet connection, I sent a few emails to the wisp but the answer was always the same: &amp;ldquo;we don&amp;rsquo;t see a problem right now&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;That was quite clear, I can send the email only if the Internet connection is active! Their time to react is very slow so I needed a tool to monitor my connection and a server to do it.&lt;/p&gt;
+
+&lt;p&gt;My first choice of tool to monitor connections is &lt;a href=&#34;http://oss.oetiker.ch/smokeping/&#34;&gt;Smokeping&lt;/a&gt;. I use it to monitor not only link latency and packet loss but also DNS, Radius and other services response time. It&amp;rsquo;s very easy to configure and the graphs are very clear.&lt;/p&gt;
+
+&lt;p&gt;But where could I install Smokeping? &lt;a href=&#34;http://aws.amazon.com/free/&#34;&gt;Amazon AWS Free Usage Tier&lt;/a&gt; seemed the perfect choice! Amazon offers a micro istance for free for 12 months, read &lt;a href=&#34;http://aws.amazon.com/free/faqs/&#34;&gt;FAQ&lt;/a&gt; for details.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/04/aws_free_tier.png&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/04/aws_free_tier-300x208.png&#34; alt=&#34;aws_free_tier&#34; /&gt;&lt;/a&gt;So I&amp;rsquo;ve registered and installed a Debian 32 bit &lt;a href=&#34;https://aws.amazon.com/amis&#34;&gt;AMI&lt;/a&gt;. The entire operation took me less than 15 minutes.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;I was quite surprised I can access my server via SSH using the provided keys, somehow I&amp;rsquo;ve expected to access the server through a proprietary shell or front end.&lt;/p&gt;
+
+&lt;p&gt;The next step is to to install smokeping with &amp;ldquo;aptitute install smokeping&amp;rdquo; and I&amp;rsquo;m ready to configure it.&lt;/p&gt;
+
+&lt;p&gt;I did just a basic configuration, what I needed was to check the reachability of my home router and the next hop that is the radio bridge:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/04/smoke_aws.png&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/04/smoke_aws-300x125.png&#34; alt=&#34;smoke_aws&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The only configuration I&amp;rsquo;ve added to Smokeping is an action to perform a traceroute and log it when more than half of the packets are lost.&lt;/p&gt;
+
+&lt;p&gt;Add this to /etc/smokeping/config.d/Alerts&lt;/p&gt;
+
+&lt;blockquote&gt;+ totalloss
+type = loss
+pattern = &gt;50%
+to = |/bin/traceroute.bin
+comment = lost half packets&lt;/blockquote&gt;
+
+&lt;p&gt;and set the alert in the host section in /etc/smokeping/config.d/Targets&lt;/p&gt;
+
+&lt;blockquote&gt;++ NEXT-HOP
+menu = NEXT-HOP
+title = NEXT-HOP 94.xx.xx.xx
+host = 94.xx.xx.xx
+alerts = totalloss&lt;/blockquote&gt;
+
+&lt;p&gt;The script _/bin/traceroute.bin_ is very simple:&lt;/p&gt;
+
+&lt;blockquote&gt;date &gt;&gt; /var/log/trace
+tracepath -b 94.xx.xx.xx &gt;&gt; /var/log/trace&lt;/blockquote&gt;
+
+&lt;p&gt;When the network goes down now I can see where the problem is and &lt;del&gt;complain&lt;/del&gt; send a detailed email to the WISP.&lt;/p&gt;
+
+&lt;p&gt;So did they solve the problem? Of course not! The Wisp backbone is made by both fiber and wireless bridges, looks like they have an issue with a link but just don&amp;rsquo;t care or know how to fix it.&lt;/p&gt;
+
+&lt;p&gt;The conclusion is my Internet connection is still wonky, but at least I had the opportunity to understand a little bit more what AWS is and to play with a quite interesting technology for free thanks to Amazon.&lt;/p&gt;
+
+&lt;p&gt;I hope they&amp;rsquo;ll keep it free even after the first 12 months, the micro instance is micro but big enough for many small tasks.&lt;/p&gt;
+
+&lt;p&gt;HTH&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Monitor Cisco router UPTIME with Nagios and Cacti</title>
+      <link>http://www.ifconfig.it/hugo/post/monitor-cisco-router-uptime-with-nagios-and-cacti/</link>
+      <pubDate>Sat, 31 Mar 2012 15:19:56 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/monitor-cisco-router-uptime-with-nagios-and-cacti/</guid>
+      <description>&lt;p&gt;On a customer&amp;rsquo;s network we noticed that the Internet facing router reboots because of a software error. We stumbled on this issue  by chance, just because one of the reboots was during a videoconference. Nobody noticed the problem before and they really don&amp;rsquo;t know if the problem was there since the installation of the router a couple of years ago. They have Nagios running to monitor the network, so I&amp;rsquo;ve configured it to monitor the router uptime too.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s really and easy task, just monitor the correct OID.&lt;/p&gt;
+
+&lt;blockquote&gt;define service {
+service_description cisco uptime
+use generic-service
+host_name router_saiv
+check_command check_cisco_uptime!.1.3.6.1.6.3.10.2.1.3.0!public!1801:!950:
+}
+
+
+
+define command{
+command_name check_cisco_uptime
+command_line $USER1$/check_snmp -H $HOSTADDRESS$ -o $ARG1$ -C $ARG2$ -w $ARG3$ -c $ARG4$
+}&lt;/blockquote&gt;
+
+&lt;p&gt;and set a proper range on Nagios as shown &lt;a href=&#34;http://nagiosplug.sourceforge.net/developer-guidelines.html#THRESHOLDFORMAT&#34;&gt;HERE&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;This is the final result:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2012/03/routeruptime-300x26.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;A cool Cacti graph can be useful too, the procedure is well described &lt;a href=&#34;http://forums.cacti.net/viewtopic.php?f=2&amp;amp;t=41109&#34;&gt;HERE&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Monitoring is a big topic and an important part is to decide what to monitor, device&amp;rsquo;s uptime should be always included.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Network Weathermap</title>
+      <link>http://www.ifconfig.it/hugo/post/network-weathermap/</link>
+      <pubDate>Sat, 25 Feb 2012 09:26:27 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/network-weathermap/</guid>
+      <description>&lt;p&gt;Weathermap is a network visualisation tool, to take data you already have and show you an overview of your network in map form.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.network-weathermap.com/&#34;&gt;&lt;img src=&#34;http://www.network-weathermap.com/manual/0.96a/howto.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Smoke Ping</title>
+      <link>http://www.ifconfig.it/hugo/post/smoke-ping/</link>
+      <pubDate>Tue, 23 Mar 2010 18:01:50 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/smoke-ping/</guid>
+      <description>&lt;p&gt;SmokePing keeps track of your network latency:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Best of breed latency visualisation.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Interactive graph explorer.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Wide range of latency measurment plugins.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Master/Slave System for distributed measurement.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Highly configurable alerting system.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Live Latency Charts with the most &amp;lsquo;interesting&amp;rsquo; graphs.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Free and OpenSource Software written in Perl written by Tobi Oetiker, the creator of MRTG and RRDtool&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://oss.oetiker.ch/smokeping/&#34;&gt;LINK&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

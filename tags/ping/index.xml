@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ping on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/ping/</link>
+    <description>Recent content in Ping on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Fri, 11 May 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/ping/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>TCPing</title>
+      <link>https://www.ifconfig.it/hugo/post/tcping/</link>
+      <pubDate>Fri, 11 May 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/tcping/</guid>
+      <description>tcping.exe is a small console application that operates similarly to &amp;lsquo;ping&amp;rsquo;, however it works over a tcp port.
+License: GPL - Platforms: Win XP, Vista 7
+When I have to test if a TCP connection works, like when configuring a NAT or ACL rule, usually I telnet the specific port. TCPing allows to keep the &amp;ldquo;ping&amp;rdquo; active on the port to check when the rule works:</description>
+    </item>
+    
+  </channel>
+</rss>

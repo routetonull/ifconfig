@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Wifi on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/wifi/</link>
+    <description>Recent content in Wifi on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Mon, 04 Apr 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/wifi/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>WiFi security 4 dummies</title>
+      <link>https://www.ifconfig.it/hugo/post/2016-04-04-wifisec4dummies/</link>
+      <pubDate>Mon, 04 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2016-04-04-wifisec4dummies/</guid>
+      <description>Customer site, their security policy for WiFi is an SSID with a secret PSK: the IT manager type the password on my PC to allow me to access the network.
+Maybe he&amp;rsquo;s not aware of my keylogger or that the password con be easily retrieved in cleartext. Let&amp;rsquo;s see how.
+Windows 10: retrieve the WiFi PSK in cleartext Show a list of all WiFi profiles configured on the PC:</description>
+    </item>
+    
+    <item>
+      <title>WLPC 2015 @ Berlin</title>
+      <link>https://www.ifconfig.it/hugo/post/2015-10-30-wlpc-2015-berlin/</link>
+      <pubDate>Fri, 30 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2015-10-30-wlpc-2015-berlin/</guid>
+      <description>For the second year in a row I attended Wireless Lan Professionals Conference Europe, this time in Berlin.
+Location The choice of location this time was much better, last year I went to Maastrich through Brussels, most people didn&amp;rsquo;t liked it since it&amp;rsquo;s not easy to reach.
+The sessions Session quality is high, mostly vendor neutral, speakers are well prepared and willing to share their knowledge and experiences.
+Last year there were more sessions splitted in two different rooms.</description>
+    </item>
+    
+    <item>
+      <title>Meraki CMNA</title>
+      <link>https://www.ifconfig.it/hugo/post/2015-03-04-cmna/</link>
+      <pubDate>Wed, 04 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2015-03-04-cmna/</guid>
+      <description>Today I&amp;rsquo;ve attended a Meraki technical training course at Cisco offices.
+The training was organized in short presentations of product features followed by hands-on labs based on all the products available today.
+I was suprised to find not only people from small companies or system integrators but more that 50% of the attendees were from Cisco Gold Partners sent to evaluate the products for &amp;ldquo;managed network&amp;rdquo; services. Cloud managed network gear is quite a hot topic today and I expect many projects in the future will involve this kind of solutions.</description>
+    </item>
+    
+    <item>
+      <title>Wireless LAN Professionals Conference Europe</title>
+      <link>https://www.ifconfig.it/hugo/post/2014-10-18-wlcpeu/</link>
+      <pubDate>Sat, 18 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2014-10-18-wlcpeu/</guid>
+      <description>Last week I had the opportunity to attend the first Wireless LAN Professionals Conference in Europe.
+Wireless is an important part of my job, I designed and managed more than a few wireless networks installations and I know there are many challenges involved, I felt I needed to increase my knowledge so I had pretty high expectations from this event.
+The schedule included two tracks of 8 sessions each and ten &amp;ldquo;Ten Talks&amp;rdquo; in one day and a half.</description>
+    </item>
+    
+    <item>
+      <title>Antenna radiation pattern, law of sines, free space propagation loss</title>
+      <link>https://www.ifconfig.it/hugo/post/2013-04-20-wifi-law-of-sines/</link>
+      <pubDate>Sat, 20 Apr 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2013-04-20-wifi-law-of-sines/</guid>
+      <description>I work with WiFi more than I admit to myself and now that I have more time to study outside the CCIE R&amp;amp;S blueprint boundaries it&amp;rsquo;s time to focus on other technologies.
+I&amp;rsquo;ve been involved in an interesting high density WiFi project and after a successfull deployment there&amp;rsquo;re some things I&amp;rsquo;d like to check. As Cisco partner my company had support for the network design from the same team involved in London Olympics and Cisco Live!</description>
+    </item>
+    
+    <item>
+      <title>CCIEWireless blog and Youtube Channel</title>
+      <link>https://www.ifconfig.it/hugo/post/cciewireless-blog/</link>
+      <pubDate>Mon, 08 Oct 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/cciewireless-blog/</guid>
+      <description>A great blog and Youtube channel with a lot of resources for Cisco Wireless:
+[youtube]http://www.youtube.com/watch?v=y6gxNMo3CW4&amp;amp;list=UUm3YBBhcJRokmAD1LaJg3hQ&amp;amp;index=1&amp;amp;feature=plcp[/youtube]</description>
+    </item>
+    
+  </channel>
+</rss>

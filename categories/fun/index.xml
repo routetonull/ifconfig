@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Fun on IFCONFIG.IT </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>http://www.ifconfig.it/hugo/categories/fun/</link>
+    <language>en-us</language>
+    
+    
+    <updated>Fri, 27 Jul 2012 07:00:15 &#43;0000</updated>
+    
+    <item>
+      <title>System Administrator Appreciation Day</title>
+      <link>http://www.ifconfig.it/hugo/post/system-administrator-appreciation-day/</link>
+      <pubDate>Fri, 27 Jul 2012 07:00:15 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/system-administrator-appreciation-day/</guid>
+      <description>
+
+&lt;p&gt;Today is &lt;a href=&#34;http://en.wikipedia.org/wiki/System_Administrator_Appreciation_Day&#34;&gt;system administrator appreciation day&lt;/a&gt;. Don&amp;rsquo;t forget to show your appreciation to youy SysAdmin (on Network Admin).&lt;/p&gt;
+
+&lt;h2 id=&#34;link-http-sysadminday-com&#34;&gt;&lt;a href=&#34;http://sysadminday.com/&#34;&gt;LINK&lt;/a&gt;&lt;/h2&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

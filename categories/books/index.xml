@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Books on IFCONFIG.IT </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>http://www.ifconfig.it/hugo/categories/books/</link>
+    <language>en-us</language>
+    
+    
+    <updated>Fri, 31 Jul 2015 18:57:39 &#43;0000</updated>
+    
+    <item>
+      <title>Exam passed: HP2-Z31 - Creating HP Software-defined Networks</title>
+      <link>http://www.ifconfig.it/hugo/post/exam-passed-hp2-z31-creating-hp-software-defined-networks/</link>
+      <pubDate>Fri, 31 Jul 2015 18:57:39 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/exam-passed-hp2-z31-creating-hp-software-defined-networks/</guid>
+      <description>&lt;p&gt;As a holder of many technical certifications every few months I have to renew some.&lt;/p&gt;
+
+&lt;p&gt;When possible I try to renew the certifications with a new track instead of doing the newer version of the exam I&amp;rsquo;ve already done.&lt;/p&gt;
+
+&lt;p&gt;This time was the turn of &lt;a href=&#34;http://pro-networking-h17007.external.hp.com/ph/en/training/certifications/technical/ase-network-infrastructure.aspx&#34;&gt;HP ASE - Network Infrastructure 2011&lt;/a&gt; to be renewed as &lt;a href=&#34;http://h10120.www1.hp.com/expertone/datacard/UpgradePath/ASE-FlxNetIntV1-u2&#34;&gt;HP ASE - FlexNetwork Integrator V1&lt;/a&gt; and &lt;a href=&#34;http://h10120.www1.hp.com/expertone/datacard/UpgradePath/ASE-FlxNetArcV2-u1&#34;&gt;HP ASE - FlexNetwork Architect V2&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Four exams are availale to upgrade, I choose &lt;a href=&#34;http://h10120.www1.hp.com/expertone/datacard/Exam/HP2-Z31&#34;&gt;HP2-Z31 - Creating HP Software-defined Networks&lt;/a&gt; because I hear a lot about SDN but I had not the opportunity to explore this topic yet.&lt;/p&gt;
+
+&lt;p&gt;To prepare the exam I used the &lt;a href=&#34;https://h30590.www3.hp.com/product/Creating+HP+Software-Defined+Networks+HP2-Z31+and+HP0-Y51-eBook-11378&#34;&gt;official study guide from HP Press&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The book is well written, very clear and complete, I needed to search some topics on &lt;a href=&#34;http://lmgtfy.com/?q=openflow&#34;&gt;Google&lt;/a&gt; just a few times for a better understanding of the concepts.&lt;/p&gt;
+
+&lt;p&gt;There&amp;rsquo;s no need to say that the manual focuses on the &lt;a href=&#34;http://h17007.www1.hp.com/us/en/networking/products/network-management/HP_VAN_SDN_Controller_Software/index.aspx#.VbtnivntlBc&#34;&gt;HP VAN SDN Controller Software&lt;/a&gt; but all the core topics about how &lt;a href=&#34;https://www.opennetworking.org/&#34;&gt;OpenFlow&lt;/a&gt; and an OpenFlow enabled switch works are useful for any vendor.&lt;/p&gt;
+
+&lt;p&gt;I really liked the final chapter about &lt;a href=&#34;http://mininet.org/&#34;&gt;Mininet&lt;/a&gt; and how to use it to do labs with OpenFlow.&lt;/p&gt;
+
+&lt;p&gt;I recommend &lt;a href=&#34;https://h30590.www3.hp.com/product/Creating+HP+Software-Defined+Networks+HP2-Z31+and+HP0-Y51-eBook-11378&#34;&gt;this book&lt;/a&gt; to those interested in SDN and want a good starting point to explore the topics.&lt;/p&gt;
+
+&lt;p&gt;Enjoy.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Debian Administrator&#39;s Handbook</title>
+      <link>http://www.ifconfig.it/hugo/post/debian-administrators-handbook/</link>
+      <pubDate>Fri, 01 Jun 2012 21:33:53 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/debian-administrators-handbook/</guid>
+      <description>&lt;p&gt;A nice and free manual to manage Debian:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Accessible to all, this book teaches the essentials to anyone who wants to become an effective and independent Debian GNU/Linux administrator.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://debian-handbook.info/&#34;&gt;http://debian-handbook.info/&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Hacking work</title>
+      <link>http://www.ifconfig.it/hugo/post/hacking-work/</link>
+      <pubDate>Tue, 07 Dec 2010 17:34:46 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/hacking-work/</guid>
+      <description>&lt;p&gt;“Breaking stupid rules for smart results.”&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.hackingwork.com/&#34;&gt;LINK&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

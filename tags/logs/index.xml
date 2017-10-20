@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Logs on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/logs/</link>
+    <description>Recent content in Logs on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Tue, 02 Sep 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/logs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Log analysis GUI tools</title>
+      <link>https://www.ifconfig.it/hugo/post/log-analysis-gui-tools/</link>
+      <pubDate>Tue, 02 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/log-analysis-gui-tools/</guid>
+      <description>Log analysis is important to both troubleshoot and understand network devices behaviour.
+Tail/less/grep are great tools that can help to filter and search hundreds or thousands lines of logs.
+If you prefer a GUI there are a couple of alternatives that can fit well.
+For windows users only Log Expert is a great choice with many features but it is not developed since 2012.
+[Log Expert](http://www.log-expert.de/) is a Windows tail program (a GUI replacement for the Unix tail command).</description>
+    </item>
+    
+  </channel>
+</rss>

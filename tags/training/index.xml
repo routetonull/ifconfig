@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Training on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/training/</link>
+    <description>Recent content in Training on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 27 Nov 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/training/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Cisco Nexus 9000 training DCINX9K</title>
+      <link>https://www.ifconfig.it/hugo/post/2014-11-27-dcinx9k/</link>
+      <pubDate>Thu, 27 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2014-11-27-dcinx9k/</guid>
+      <description>This week I attended a two days training of Cisco DCINX9K.
+The training is focused on Cisco Nexus 9000 switches in NX-OS mode.
+NX9K can run two different software images, the full ACI image with all the cool SDN stuff and the traditional NS-OX image with some cool features like Python, Rest API, VX-LAN and more.
+Now it&amp;rsquo;s time to improve my Python skills and borrow a couple of boxes to do some labs.</description>
+    </item>
+    
+    <item>
+      <title>Cisco DCUCI training</title>
+      <link>https://www.ifconfig.it/hugo/post/cisco-dcuci-training/</link>
+      <pubDate>Mon, 28 Nov 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/cisco-dcuci-training/</guid>
+      <description>This week I&amp;rsquo;m attending Cisco DCUCI course in Milan. I have no experience on blade servers or Cisco UC plaftorm and it&amp;rsquo;ll be a great opportunity to learn new topics and move another step towards the datacenter.
+I&amp;rsquo;ve prepared for this course watching Cisco PEC videos and reading the two must-read books from Silvano Gai:
+ I/O Consolidation in the Data Center
+ Cisco Unified Computing System (UCS)
+  Cisco provides an emulator for the Cisco UCS , available only to Partners.</description>
+    </item>
+    
+  </channel>
+</rss>

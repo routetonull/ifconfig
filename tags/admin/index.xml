@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Admin on ifconfig.it</title>
+    <link>http://www.ifconfig.it/hugo/tags/admin/</link>
+    <description>Recent content in Admin on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 05 Jun 2014 21:15:58 +0000</lastBuildDate>
+    <atom:link href="http://www.ifconfig.it/hugo/tags/admin/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>CCIE renewed</title>
+      <link>http://www.ifconfig.it/hugo/post/cciersrenew2014/</link>
+      <pubDate>Thu, 05 Jun 2014 21:15:58 +0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/cciersrenew2014/</guid>
+      <description>&lt;p&gt;In the very last day of availability of the  CCIE v4 350-001 written exam I&amp;rsquo;ve renewed my CCIE for a couple of years more:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2014/07/ccie_exam_renew_2014.png&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2014/07/ccie_exam_renew_2014-1024x38.png&#34; alt=&#34;ccie_exam_renew_2014&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;My plan was to recertify with another track - Wireless or Security - but life happens and I took the easy path and did R&amp;amp;S again.&lt;/p&gt;
+
+&lt;p&gt; I&amp;rsquo;ve passed the same written exam 3 times. The first time in 2010, followed by a failed lab attempt in 2011. Then I did it again  in 2012 and &lt;a href=&#34;http://www.ifconfig.it/wordpress/2013/03/ccie38619/&#34;&gt;passed the lab exam&lt;/a&gt; in 2013.&lt;/p&gt;
+
+&lt;p&gt;The first time I&amp;rsquo;ve complained about the quality of the images in the exam, they look like scanned images from a fax printed with a 300dpi printer. The second time the images quality was better but the questions were unclear, hard to understand. I can say the third time the exam was quite better, no question looked strange or unexpected but while some topics were deeply tested other were completely ignored. The  CCIE R&amp;amp;S written blueprint is quite long, even with a 100 questions exam is not easy to test all topics.&lt;/p&gt;
+
+&lt;p&gt;Now my CCIE is safe until March 19th 2017 so I&amp;rsquo;ve plenty of time to study other certifications. It&amp;rsquo;ll be hard to prepare the written exam again in 3 year so I&amp;rsquo;m likely to do another track for real this time. Another CCIE lab? That&amp;rsquo;s not in my plans, I&amp;rsquo;ve spent so much time and energy for the R&amp;amp;S and I don&amp;rsquo;t think my career would get any improvement from a second CCIE.&lt;/p&gt;
+
+&lt;p&gt;Good luck to anyone taking R&amp;amp;S v5 written exam!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dcuci on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/dcuci/</link>
+    <description>Recent content in Dcuci on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 21 Dec 2011 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/dcuci/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Certified in Cisco Data Center Support for UC Specialist</title>
+      <link>https://www.ifconfig.it/hugo/post/certified-in-cisco-data-center-support-for-uc-specialist/</link>
+      <pubDate>Wed, 21 Dec 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/certified-in-cisco-data-center-support-for-uc-specialist/</guid>
+      <description>Today I passed Cisco 642-983 DCUCI exam and it was a surprise to see two certifications on my Cisco curriculum:
+Cisco Unified Computing Technology Support Specialist
+and
+Cisco Data Center Support for UC Specialist
+The next step would be &amp;ldquo;Cisco Data Center Unified Computing Support Specialist&amp;rdquo; but since VCP is a requirement and is not in my plans I have to skip that cert.</description>
+    </item>
+    
+  </channel>
+</rss>

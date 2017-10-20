@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Awk on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/awk/</link>
+    <description>Recent content in Awk on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Fri, 04 Sep 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/awk/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>AWK and Cisco WLC</title>
+      <link>https://www.ifconfig.it/hugo/post/awkwlc/</link>
+      <pubDate>Fri, 04 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/awkwlc/</guid>
+      <description>When you see an hacker movie you see people typing on the keyboard very fast. Actually the toughest the hacker is the faster he types very long commands and all of them work the first time.
+Want to impress friends and colleagues? Type HERE ;-)
+More experienced network engineers, as I learn during my CCIE studies, type in a [text language=&amp;ldquo;editor&amp;rdquo;][/text]2 then copy/paste on the CLI.
+This approach make easier to spot typos, faster to reuse configuration snippets and to change portions of configuration and more.</description>
+    </item>
+    
+    <item>
+      <title>Cisco WLC roaming debug &#43; gawk &#43; sed</title>
+      <link>https://www.ifconfig.it/hugo/post/wlc-logs-and-sed/</link>
+      <pubDate>Tue, 14 May 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/wlc-logs-and-sed/</guid>
+      <description>Quite often I have to debug a wireless client roaming across lighweight Cisco APs to confirm it moves between APs as expected in the network design.
+On the WLC the command is &amp;ldquo;debug client MAC&amp;rdquo;. The command shows all the events related to the specific client including:
+Reassociation received from mobile on AP 00:23:ab:ba:YY:XX that means client moved to the AP with radio MAC 00:23:ab:ba:YY:XX. Since I&amp;rsquo;ve named all the APs and and I&amp;rsquo;ve a map with all the positions, I&amp;rsquo;d like to see the names in the debug instead of MAC.</description>
+    </item>
+    
+  </channel>
+</rss>

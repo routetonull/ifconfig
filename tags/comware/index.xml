@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Comware on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/comware/</link>
+    <description>Recent content in Comware on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 05 Jan 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/comware/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>HP Comware 7 simulator</title>
+      <link>https://www.ifconfig.it/hugo/post/2014-01-05-simware/</link>
+      <pubDate>Sun, 05 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2014-01-05-simware/</guid>
+      <description>Many network vendors are publishing simulators to the community. A simulator can be a way to complete a training or can be used for a PoC.
+GNS3 maybe is the most famous emulator while others like eNSP for Huawei, Cisco&amp;rsquo;s VIRL, Juniper Junosphere are available or will be available soon.
+The big name missing so far was HP. Last December HP announced on Linkedin the availability of a simulator for Comware platform:</description>
+    </item>
+    
+  </channel>
+</rss>

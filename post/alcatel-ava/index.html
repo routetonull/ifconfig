@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.16-DEV" />
+
+  <title>Alcatel switches Auto Vlan Assignement &middot; ifconfig.it</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.ifconfig.it/hugoimg/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://www.ifconfig.it/hugo/">ifconfig.it</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/tags/"><i class='fa fa-list fa-fw'></i>Tags</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/gp_ifconfig" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/gpaolo" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/routetonull" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Alcatel switches Auto Vlan Assignement</h1>
+  <h2></h2>
+</div>
+<div class="content">
+  
+
+<p>Switch configuration includes many tasks, some of them are just boring and error prone.</p>
+
+<p>Vlan port assignment on access switches, excited huh? There can be many vlans (clients, printers, access-point, security cameras and more) and it may not be easy to plan the assignments before the actual installation.</p>
+
+<p><img src="http://www.ifconfig.it/images/meme_ava-300x193.jpg" alt="meme_ava" /></p>
+
+<!-- more -->
+
+<p>No my friend! In this installation I was lucky enough to deal with Alcatel switches that have a great feature: auto vlan assignments without the hassle of 802.1x authentication and Radius attributes or mac-auth.</p>
+
+<h2 id="configuration:e3995c961bb842d7265e2e051893bec4">Configuration</h2>
+
+<p>How to configure the access ports:</p>
+
+<pre><code>Vlan 999 port default 1/1-8
+Vlan port mobile 1/1-8
+Vlan port 1/1-8 default vlan restore disable
+Vlan port 1/1-8 default vlan enable
+</code></pre>
+
+<p>Then we define the vlan rules, in my case based on the mac-address ranges (not real mac ranges shown):</p>
+
+<pre><code>vlan 2 mac range 22:22:22:0:0:0 22:22:22:ff:ff:ff
+vlan 3 ma range 33:33:33:0:0:0 33:33:33:ff:ff:ff
+vlan 4 mac range 44:44:44:0:0:0 44:44:44:ff:ff:ff
+vlan 5 mac range 55:55:55:0:0:0 55:55:55:ff:ff:ff
+</code></pre>
+
+<p>When a client connects to a mobile port and its mac address is in one range its traffic will be assigned to the corresponding VLAN.</p>
+
+<p>If the MAC address is not in any of the ranges client traffic will be assigned to vlan 999.</p>
+
+<h2 id="trunks:e3995c961bb842d7265e2e051893bec4">Trunks?</h2>
+
+<p>The installation includes many access points, some of them are configured to local switch the traffic, that means client traffic is not tunneled to the controller but sent tagged on the AP port based on the SSID/VLAN mapping.</p>
+
+<p>Can mobile ports work in this case? Of course they can!</p>
+
+<p>The concept is: if a mobile port receives tagged traffic with a VLAN ID that has mobile-tag enabled, the VLAN is added to the mobile port dynamically and the traffic will be forwarded to the correct VLAN.</p>
+
+<p>Enable mobile tag on a vlan:</p>
+
+<pre><code>vlan 2 mobile-tag enable
+vlan 3 mobile-tag enable
+vlan 4 mobile-tag enable
+vlan 5 mobile-tag enable
+</code></pre>
+
+<p>The result: an AP is connected to a mobile port of the switch, it matches a mac range so it is assigned to the wireless management VLAN. Client traffic is encapsulated by the AP in 802.1q frames, the mobile port receives the tagged traffic and forwards it like a trunk.</p>
+
+<h2 id="wrap-up:e3995c961bb842d7265e2e051893bec4"> Wrap-up</h2>
+
+<p>An installation that could have been time-consuming and error-prone now with the use of mobile ports becomes dynamic, does not require a detailed low-level design anymore and installers can connect the devices in any port without any intervention by the network administrator.</p>
+
+<p>Vlan rules are just one of the many options that can be used to match client traffic, DHCP, IP, protocol are other options available.</p>
+
+<p>Other vendors may have similar proprietary features, I did it on Alcatel OS6450 family switches, they worked for me.</p>
+
+</div>
+
+</div>
+</div>
+<script src="https://www.ifconfig.it/hugojs/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10670358-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

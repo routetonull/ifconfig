@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.16-DEV" />
+
+  <title>HE IPv6 tunnel broker and certification &middot; ifconfig.it</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.ifconfig.it/hugoimg/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://www.ifconfig.it/hugo/">ifconfig.it</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/tags/"><i class='fa fa-list fa-fw'></i>Tags</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/gp_ifconfig" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/gpaolo" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/routetonull" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>HE IPv6 tunnel broker and certification</h1>
+  <h2></h2>
+</div>
+<div class="content">
+  
+
+<p>IPv6 is the evolution that everybody know must be done one day but not today.</p>
+
+<p>Unike the <a href="http://en.wikipedia.org/wiki/Year_2000_problem">Millenniun Bug</a> that had a clear deadline, IPv6 adoption is a topic that I often discuss with clients but nobody is really willing to do it, even in a test environment.</p>
+
+<p>I studied IPv6 in many Cisco certifications but since they&rsquo;re focused on the infrastructure side of the network, I plan to do some labs myself in the next months.</p>
+
+<p>Since my ISP don&rsquo;t support native IPv6 connection (even if they like to put an &ldquo;IPv6 ready&rdquo; logo in their website) I had to use a tunnel to connect to the IPv6 Internet.</p>
+
+<p><a href="http://he.net/">Hurricane Electric</a> provides free IPv6 tunnels and have a nice and free <a href="https://ipv6.he.net/certification/cert-main.php">IPv6 Certification program</a> that is a good starting point.</p>
+
+<!-- more -->
+
+<h2 id="tunnel-setup:66d9f3358c52e53c1277c70ac5d60710">Tunnel Setup</h2>
+
+<p>The first step is to create a tunnel to HE, on their website you can find templates for many platforms and OSs, I did it in my Cisco home router:</p>
+
+<pre><code>interface Tunnel6
+ description Hurricane Electric IPv6 Tunnel Broker
+ no ip address
+ load-interval 30
+ ipv6 address 2001:X:X:X::X/64
+ ipv6 enable
+ keepalive 10 3
+ tunnel source X.X.X.X
+ tunnel destination X.X.X.X
+ tunnel mode ipv6ip
+end
+</code></pre>
+
+<h2 id="enable-ra:66d9f3358c52e53c1277c70ac5d60710">Enable RA</h2>
+
+<p>The next step is to enable Route Advertisements so the clients can get an IPv6 prefix and gateway:</p>
+
+<pre><code>interface Vlan1
+ ipv6 address 2001:X:X:X::X/64
+ ipv6 nd ra interval 10
+</code></pre>
+
+<h2 id="client-configuration:66d9f3358c52e53c1277c70ac5d60710">Client Configuration</h2>
+
+<p>I use both Windows and Linux OS. On the windows side we just have to enable IPv6 in the network card properties. For Debian just add this line</p>
+
+<pre><code>iface eth0 inet6 auto
+</code></pre>
+
+<p>to</p>
+
+<pre><code>/etc/network/interfaces
+</code></pre>
+
+<p>and restart network services</p>
+
+<pre><code>services networking reload
+</code></pre>
+
+<p>Check IPv6 address with ipconfig / ifconfig.</p>
+
+<h2 id="dns-server:66d9f3358c52e53c1277c70ac5d60710">DNS server</h2>
+
+<p>On our clients we need to setup a IPV6 DNS server, <a href="https://developers.google.com/speed/public-dns/docs/using">Google</a> is kind enough to provide it fo us:</p>
+
+<pre><code>2001:4860:4860::8888
+
+
+
+
+2001:4860:4860::8844
+</code></pre>
+
+<h2 id="test-connectivity:66d9f3358c52e53c1277c70ac5d60710">Test connectivity</h2>
+
+<p>We should be able now to access some IPv6 enabled websites, <a href="http://www.kame.net/">watch the dancing Kame</a>, telnet towel.blinkenlights.nl or see the Star Wars traceroute:</p>
+
+<pre><code>traceroute6 -m 255 obiwan.scrye.net
+</code></pre>
+
+<h2 id="nginx-web-server:66d9f3358c52e53c1277c70ac5d60710">NGINX web server</h2>
+
+<p>A fast way to test IPv6 on local network is to install <a href="http://nginx.org/">NGINX</a> web server and configure it to listen IPv6 removin the # from line</p>
+
+<pre><code>listen   [::]:80;
+</code></pre>
+
+<p>in file</p>
+
+<pre><code>/etc/nginx/sites-available
+</code></pre>
+
+<p>So now we have a small IPv6 lab running, enjoy!</p>
+
+<p>“You can either do a planned, careful migration, or you can do it in a panic, and you should know full well that panicking is more expensive.”
+Martin Levy, director of IPv6 strategy for Hurricane Electric</p>
+
+<p>As a footnote, I spent some time doing the HE IPv6 certification,  even if it has no official recognition it could be fun.</p>
+
+<p><img src="http://www.ifconfig.it/images/he-300x234.png" alt="he" /></p>
+
+</div>
+
+</div>
+</div>
+<script src="https://www.ifconfig.it/hugojs/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10670358-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

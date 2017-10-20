@@ -1,0 +1,1453 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Networking on IFCONFIG.IT </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>http://www.ifconfig.it/hugo/categories/networking/</link>
+    <language>en-us</language>
+    
+    
+    <updated>Sat, 11 Jun 2016 13:55:00 &#43;0000</updated>
+    
+    <item>
+      <title>Cisco ASA and Office 365</title>
+      <link>http://www.ifconfig.it/hugo/post/asaoffice365/</link>
+      <pubDate>Sat, 11 Jun 2016 13:55:00 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/asaoffice365/</guid>
+      <description>
+
+&lt;p&gt;Office 365 is widely used between many customers. Some of them happen to manage all the Internet connections through a &lt;a href=&#34;http://www.cisco.com/c/en/us/products/security/adaptive-security-appliance-asa-software/index.html&#34;&gt;Cisco ASA&lt;/a&gt;, not the fancy &lt;a href=&#34;http://www.cisco.com/c/en/us/products/security/asa-firepower-services/index.html&#34;&gt;ASA-X with Firepower&lt;/a&gt;, just the plain old 5510.&lt;/p&gt;
+
+&lt;p&gt;I was asked to allow Office 365 traffic, looks easy huh?&lt;/p&gt;
+
+&lt;h2 id=&#34;step-1-know-your-enemy&#34;&gt;Step 1: know your enemy&lt;/h2&gt;
+
+&lt;p&gt;After some Google-fu I found Microsoft kindly provides an update list of the IP/subnet/URLs necessary to access various services including Office 365, Lync, OneNOte etc.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s just a matter to add them on ASA.&lt;/p&gt;
+
+&lt;h2 id=&#34;step-2-the-lazy-approach-a-k-a-if-you-think-you-ll-do-it-more-than-once-automate-it&#34;&gt;Step 2: the lazy approach A.K.A. if you think you&amp;rsquo;ll do it more than once automate it!&lt;/h2&gt;
+
+&lt;p&gt;I must admit the first time (a few weeks ago) I did it via bash with a little help from sed and awk.&lt;/p&gt;
+
+&lt;p&gt;The problem is the list is updated quite often and the process required some manual steps (and I don&amp;rsquo;t remember where I saved the original script ;-) ) so I moved to Python this time.&lt;/p&gt;
+
+&lt;p&gt;With a few Google searches and the usual trial&amp;amp;error approach I reached my goal in less than 30m: a &lt;a href=&#34;https://en.wikipedia.org/wiki/Minimum_viable_product&#34;&gt;MVP&lt;/a&gt; that works and allows me to reach the final result &amp;ndash;&amp;gt; an happy customer.&lt;/p&gt;
+
+&lt;p&gt;You can see and download the script from my &lt;a href=&#34;https://github.com/routetonull/various/blob/master/o3652asa.py&#34;&gt;github&lt;/a&gt; account.&lt;/p&gt;
+
+&lt;h2 id=&#34;wrap-up&#34;&gt;Wrap up&lt;/h2&gt;
+
+&lt;p&gt;I know the code is not elegant but it works, I don&amp;rsquo;t plan to spend more time on it soon since I&amp;rsquo;ve other priorities but feel free to use and improve it and share with the community.&lt;/p&gt;
+
+&lt;p&gt;Enjoy!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Cisco WLC roaming troubleshooting scripts</title>
+      <link>http://www.ifconfig.it/hugo/post/wlcroamingscripts/</link>
+      <pubDate>Wed, 18 May 2016 15:40:47 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/wlcroamingscripts/</guid>
+      <description>
+
+&lt;p&gt;As it often happens, everything begins with a call from a customer with a problem.&lt;/p&gt;
+
+&lt;p&gt;The problem is related to WiFi roaming in a warehouse with clients disconnecting from RDP sessions. The clients are industrial PCs installed on forklifts that move quite fast (and dangerously).&lt;/p&gt;
+
+&lt;h2 id=&#34;second-rule-of-troubleshooting-measure&#34;&gt;Second rule of troubleshooting: measure&lt;/h2&gt;
+
+&lt;p&gt;As the first rule is &lt;strong&gt;clearly identify the problem&lt;/strong&gt;, I skip to the second one.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;How can we measure roaming problems?&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;On Cisco WLC we can debug clients (up to 10 a the same time) and look for &amp;ldquo;Association&amp;rdquo; messages.&lt;/p&gt;
+
+&lt;p&gt;When a client roams correctly between APs we should see only &lt;strong&gt;RE&lt;/strong&gt;association messages. If the client for any reason drops the connection while moving it will start a new connetions sending an Association request to the AP.&lt;/p&gt;
+
+&lt;p&gt;But how many Association messages are too many? How can we check if some clients are associating/reassociating more than others?&lt;/p&gt;
+
+&lt;p&gt;Association messages are part of the behaviour of a normal WiFi network so it critical to distinguish what&amp;rsquo;s &lt;em&gt;normal&lt;/em&gt; from what&amp;rsquo;s a &lt;em&gt;problem&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;get-the-logs&#34;&gt;Get the logs&lt;/h3&gt;
+
+&lt;p&gt;We start getting the logs. Connect to WLC, debug up to 10 clients identified by MAC address, logs to a file. Easy huh?&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;debug client 7c:5c:f8:4a:79:82 7c:5c:f8:4a:7e:82 7c:5c:f8:4a:73:8d 7c:5c:f8:4a:7e:7d 7c:5c:f8:4a:7e:aa 7c:5c:f8:4b:9e:43 7c:5c:f8:4a:7e:41 7c:5c:f8:4a:7c:f7 7c:5c:f8:4a:7c:f7 7c:5c:f8:4a:7d:e2
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;count-the-messages&#34;&gt;Count the messages&lt;/h3&gt;
+
+&lt;p&gt;NOTE: I work on a Windows machine with some GNU tools installed so you can easily port these scripts on Linux/OSX. Feel free to send me a MacBookAir if you need my support on OSX ;-)&lt;/p&gt;
+
+&lt;p&gt;Association messages format:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;*apfMsConnTask_1: May 13 13:30:26.883: 7c:5c:f8:4a:7c:f7 Association received from mobile on BSSID 00:08:2f:fa:dc:b0
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Reassociation message format:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;*apfMsConnTask_7: May 13 13:25:48.487: 7c:5c:f8:4a:7e:41 Reassociation received from mobile on BSSID e0:89:9d:d2:31:e0
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now lets white a script that counts &lt;strong&gt;Association messages per AP&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;@echo off
+:loop
+cls
+echo ASSOCIATION EVENTS PER AP
+time /T
+grep &amp;quot; Association received&amp;quot; wlc_243_20160513.log | gawk &amp;quot;{print $12}&amp;quot; | sort | uniq -c | sort /R
+sleep 5
+goto loop
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In the output we see a list of APs (BSSIDs) ordered by the number of Association messages they received from one of our 10 debugged clients.&lt;/p&gt;
+
+&lt;p&gt;Since I named all my APs I prefer to replace the BSSIDs with AP names.&lt;/p&gt;
+
+&lt;p&gt;Create a sed script with a good name - I chose ap2name.sed&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;s/00:08:2f:4b:yy:xx/APB058/g
+s/1c:de:a7:1a:yy:xx/APD057/g
+s/1c:de:a7:1a:yy:xx/APD069/g
+s/1c:de:a7:1a:yy:xx/APA062/g
+s/00:08:2f:fa:yy:xx/APE068/g
+s/1c:de:a7:1a:yy:xx/APC053/g
+s/1c:de:a7:1a:yy:xx/APA064/g
+s/1c:de:a7:1a:yy:xx/APD055/g
+s/00:08:2f:fa:yy:xx/APA063/g
+s/dc:eb:94:11:yy:xx/APC071/g
+s/00:08:2f:fa:yy:xx/APC051/g
+s/00:08:2f:fa:yy:xx/APE067/g
+s/1c:de:a7:1a:yy:xx/APC054/g
+s/1c:de:a7:1a:yy:xx/APC052/g
+s/00:08:2f:fa:yy:xx/APB061/g
+s/00:08:2f:fa:yy:xx/APD070/g
+s/00:08:2f:fa:yy:xx/APD059/g
+s/00:08:2f:fa:yy:xx/APA065/g
+s/0c:27:24:0f:yy:xx/AP1410/g
+s/00:08:2f:fa:yy:xx/APE066/g
+s/1c:de:a7:1a:yy:xx/APD056/g
+s/0c:68:03:5f:yy:xx/AP1810/g
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Add it at the end of the grep command to see AP names instead of the mac address:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;@echo off
+:loop
+cls
+echo ASSOCIATION EVENTS PER AP
+time /T
+grep &amp;quot; Association received&amp;quot; wlc_243_20160513.log | gawk &amp;quot;{print $12}&amp;quot; | sort | uniq -c | sort /R | sed -f ap2name.sed
+sleep 5
+goto loop
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The output looks better now:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;ASSOCIATION PER AP
+07:55
+ 14 APA062
+ 14 APA063
+ 14 APD059
+  9 APB060
+  9 APC051
+  9 APB058
+  8 APC053
+  7 APB061
+  5 APC071
+  4 APD057
+  4 APA064
+  4 APC052
+  4 APE068
+  3 APD069
+  3 APD055
+  3 APD056
+  3 APC054
+  3 APD070
+  1 APA065
+  1 APE066
+  1 APE067
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With the same method we can count &lt;strong&gt;Reassociation messages per AP&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;@echo off
+:loop
+cls
+ECHO REASSOCIATION EVENTS PER AP
+time /T
+grep &amp;quot; Reassociation&amp;quot; wlc_243_20160513.log | gawk &amp;quot;{print $12}&amp;quot; | sort | uniq -c | sort /R | sed -f ap2name.sed
+sleep 5
+goto loop
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now focus on the clients, let&amp;rsquo;s count &lt;strong&gt;Association messages per client&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;@echo off
+:loop
+cls
+echo ASSOCIATION EVENTS PER CLIENT
+time /T
+grep &amp;quot; Association received&amp;quot; wlc_243_20160513.log | gawk &amp;quot;{print $5}&amp;quot; | sort | uniq -c | sort /R
+sleep 5
+goto loop
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And finally &lt;strong&gt;Reassociation messages per client&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;@echo off
+:loop
+cls
+echo REASSOCIATION EVENTS PER CLIENT
+time /T
+grep &amp;quot; Reassociation&amp;quot; wlc_243_20160513.log | gawk &amp;quot;{print $5}&amp;quot; | sort | uniq -c | sort /R | sed -f ap2name.sed
+sleep 5
+goto loop
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This is the final result:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/images/ap_batch_output.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;understand-the-output&#34;&gt;Understand the output&lt;/h3&gt;
+
+&lt;p&gt;What we see now is a good view of which clients and APs have more &lt;strong&gt;Association events&lt;/strong&gt;, that may be an indicator that they are not roaming correctly.&lt;/p&gt;
+
+&lt;p&gt;In the &lt;strong&gt;Association events per AP&lt;/strong&gt; output we can identify which APs are getting more association messages, possibly meaning clients moving towards that AP experience a coverage hole and a disconnection.&lt;/p&gt;
+
+&lt;h3 id=&#34;fix-the-problem&#34;&gt;Fix the problem&lt;/h3&gt;
+
+&lt;p&gt;I can&amp;rsquo;t really talk about how to fix the problem because it depends on your WiFi network design, AP placement, antennas in use, noise floor, interferers&amp;hellip; I just want to show you the results.&lt;/p&gt;
+
+&lt;p&gt;Before:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/images/ap-reass.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;After:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/images/ap-ass.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You see almost no Association messages while clients move around, it is a good sign roaming is working fine.&lt;/p&gt;
+
+&lt;h3 id=&#34;wrap-up&#34;&gt;Wrap up&lt;/h3&gt;
+
+&lt;p&gt;Use the counters _&lt;a href=&#34;https://en.wikipedia.org/wiki/Grain_of_salt&#34;&gt;cum granus salis&lt;/a&gt;_, their meaning really depends on your infrastructure, the position of the APs and how the clients move.&lt;/p&gt;
+
+&lt;p&gt;Sometimes you get many Associations on an AP that is the first one the clients connect to in the morning and that&amp;rsquo;s not a problem.&lt;/p&gt;
+
+&lt;p&gt;It is possible that an AP that receives many Associations request is workig perfectly fine but the previous one is the row is not correctly positioned or has the wrong settins so that&amp;rsquo;s the one causing roaming problems.&lt;/p&gt;
+
+&lt;p&gt;I strongly advise anybody who installs/manages WiFi network to study &lt;a href=&#34;https://www.cwnp.com/certifications/cwna&#34;&gt;CWNA&lt;/a&gt; for a better undestanding.&lt;/p&gt;
+
+&lt;p&gt;Enjoy!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Drop and bogons list on Cisco router</title>
+      <link>http://www.ifconfig.it/hugo/post/dropbogons/</link>
+      <pubDate>Mon, 28 Mar 2016 15:33:40 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/dropbogons/</guid>
+      <description>
+
+&lt;p&gt;The &lt;a href=&#34;https://www.eff.org/cyberspace-independence&#34;&gt;Cyberspace&lt;/a&gt; a.k.a. the &lt;a href=&#34;https://www.youtube.com/watch?v=iDbyYGrswtg&#34;&gt;Internet&lt;/a&gt; is full of &lt;a href=&#34;http://www.usanetwork.com/mrrobot&#34;&gt;bad guys&lt;/a&gt; wanting to mess with our computers right?&lt;/p&gt;
+
+&lt;p&gt;Of course everyone of us have a firewall configured with proper access and inspection rules, don&amp;rsquo;t ya?&lt;/p&gt;
+
+&lt;p&gt;Spamhaus and Team Cymru can help providing list of known bad IPs and subnets that should be filtered in our networks.&lt;/p&gt;
+
+&lt;h2 id=&#34;spamhaus-drop-list&#34;&gt;Spamhaus DROP list&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://www.spamhaus.org/images/dropadvisory.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &#34;DROP (Don&#39;t Route Or Peer) and EDROP are advisory &#34;drop all traffic&#34; lists, consisting of netblocks that are &#34;hijacked&#34; or leased by professional spam or cyber-crime operations (used for dissemination of malware, trojan downloaders, botnet controllers). The DROP and EDROP lists are a tiny subset of the SBL, designed for use by firewalls and routing equipment to filter out the malicious traffic from these netblocks.&#34;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Spamhaus DROP and EDRP lists can be downloaded from &lt;a href=&#34;https://www.spamhaus.org/drop/&#34;&gt;HERE&lt;/a&gt;, updated hourly.&lt;/p&gt;
+
+&lt;h2 id=&#34;team-cymru-bogon-list&#34;&gt;Team Cymru Bogon List&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.team-cymru.org/images/main-logo.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &#34;A bogon prefix is a route that should never appear in the Internet routing table&#34; so let&#39;s filter thos.
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.team-cymru.org/bogon-reference.html&#34;&gt;Team Cymru bogons list&lt;/a&gt; can be downloaded &lt;a href=&#34;http://www.team-cymru.org/Services/Bogons/fullbogons-ipv4.txt&#34;&gt;HERE&lt;/a&gt;, it is updated every four hours.&lt;/p&gt;
+
+&lt;h2 id=&#34;apply-on-cisco-router&#34;&gt;Apply on Cisco router&lt;/h2&gt;
+
+&lt;h3 id=&#34;drop-list&#34;&gt;DROP list&lt;/h3&gt;
+
+&lt;p&gt;First this we do is to download the DROP list in plain text from:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;wget https://www.spamhaus.org/drop/drop.lasso     
+wget https://www.spamhaus.org/drop/edrop.txt
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then we need some script magic to convert to the familiar Cisco sintax.&lt;/p&gt;
+
+&lt;p&gt;Create a sed script file called &lt;strong&gt;subnet2wildmask.sed&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;s/\/0/ 255.255.255.255/
+s/\/1/ 127.255.255.255/
+s/\/2/ 63.255.255.255/
+s/\/3/ 31.255.255.255/
+s/\/4/ 15.255.255.255/
+s/\/5/ 7.255.255.255/
+s/\/6/ 3.255.255.255/
+s/\/7/ 1.255.255.255/
+s/\/8/ 0.255.255.255/
+s/\/9/ 0.127.255.255/
+s/\/10/ 0.63.255.255/
+s/\/11/ 0.31.255.255/
+s/\/12/ 0.15.255.255/
+s/\/13/ 0.7.255.255/
+s/\/14/ 0.3.255.255/
+s/\/15/ 0.1.255.255/
+s/\/16/ 0.0.255.255/
+s/\/17/ 0.0.127.255/
+s/\/18/ 0.0.63.255/
+s/\/19/ 0.0.31.255/
+s/\/20/ 0.0.15.255/
+s/\/21/ 0.0.7.255/
+s/\/22/ 0.0.3.255/
+s/\/23/ 0.0.1.255/
+s/\/24/ 0.0.0.255/
+s/\/25/ 0.0.0.127/
+s/\/26/ 0.0.0.63/
+s/\/27/ 0.0.0.31/
+s/\/28/ 0.0.0.15/
+s/\/29/ 0.0.0.7/
+s/\/30/ 0.0.0.3/
+s/\/31/ 0.0.0.1/
+s/\/32/ 0.0.0.0/
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then create the router commands running these scripts:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;echo &amp;quot;ip access-list extended DROP.OUT&amp;quot; &amp;gt; DROP.OUT
+cat drop.lasso | grep -v &amp;quot;^;&amp;quot; | awk &#39;BEGIN {FS=&amp;quot; ; &amp;quot;} ; { print $1}&#39; | sed -f subnet2wildmask.sed | awk &#39;{ print &amp;quot;permit ip any &amp;quot;$1&amp;quot; &amp;quot;$2}&#39; &amp;gt;&amp;gt; DROP.OUT
+
+echo &amp;quot;ip access-list extended DROP.IN&amp;quot; &amp;gt; DROP.IN
+cat drop.lasso | grep -v &amp;quot;^;&amp;quot; | awk &#39;BEGIN {FS=&amp;quot; ; &amp;quot;} ; { print $1}&#39; | sed -f subnet2wildmask.sed | awk &#39;{ print &amp;quot;permit ip &amp;quot;$1&amp;quot; &amp;quot;$2&amp;quot; any&amp;quot;}&#39; &amp;gt;&amp;gt; DROP.IN
+
+echo &amp;quot;ip access-list extended EDROP.OUT&amp;quot; &amp;gt; EDROP.OUT
+cat edrop.txt | grep -v &amp;quot;^;&amp;quot; | awk &#39;BEGIN {FS=&amp;quot; ; &amp;quot;} ; { print $1}&#39; | sed -f subnet2wildmask.sed | awk &#39;{ print &amp;quot;permit ip any &amp;quot;$1&amp;quot; &amp;quot;$2}&#39; &amp;gt;&amp;gt; EDROP.OUT
+
+echo &amp;quot;ip access-list extended EDROP.IN&amp;quot; &amp;gt; EDROP.IN
+cat edrop.txt | grep -v &amp;quot;^;&amp;quot; | awk &#39;BEGIN {FS=&amp;quot; ; &amp;quot;} ; { print $1}&#39; | sed -f subnet2wildmask.sed | awk &#39;{ print &amp;quot;permit ip &amp;quot;$1&amp;quot; &amp;quot;$2&amp;quot; any&amp;quot;}&#39; &amp;gt;&amp;gt; EDROP.IN
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;bogon-list&#34;&gt;BOGON list&lt;/h3&gt;
+
+&lt;p&gt;Get the list:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;wget http://www.team-cymru.org/Services/Bogons/fullbogons-ipv4.txt
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Convert subnet mask to wildcard mask and create Cisco commands:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;echo &amp;quot;ip access-list extended BOGONS.IN&amp;quot; &amp;gt; BOGONS.IN
+cat fullbogons-ipv4.txt | grep -v &amp;quot;^#&amp;quot; | sed -f subnet2wildmask.sed | awk &#39;{ print &amp;quot;permit ip &amp;quot;$1&amp;quot; &amp;quot;$2&amp;quot; any&amp;quot;}&#39; &amp;gt;&amp;gt; BOGONS.IN
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note: bogons filters should be only appliend inbound (from public to private network).&lt;/p&gt;
+
+&lt;h3 id=&#34;apply-lists-on-cisco-s-zone-based-firewall&#34;&gt;Apply lists on Cisco&amp;rsquo;s Zone Based Firewall&lt;/h3&gt;
+
+&lt;p&gt;We have 6 files now with all the commands necessary to create the access lists on the router:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;DROP.IN&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;DROP.OUT&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;EDROP.IN&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;EDROP.OUT&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;BOGONS.IN&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Just copy&amp;amp;paste the commands on CLI.&lt;/p&gt;
+
+&lt;p&gt;You may have noticed that the commands are all permits. The reason is I use &lt;a href=&#34;http://www.cisco.com/c/en/us/support/docs/security/ios-firewall/98628-zone-design-guide.html&#34;&gt;Zone Based Firewall&lt;/a&gt; on my router with a policy like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;policy-map type inspect LAN2WAN 
+    class type inspect DROP.OUT
+        drop 
+    class type inspect EDROP.OUT
+        drop
+    class type inspect LAN
+        inspect 
+    class class-default
+        drop
+
+policy-map type inspect WAN2LAN
+    class type inspect BOGONS.IN
+        drop 
+    class type inspect DROP.IN
+        drop 
+    class type inspect EDROP.IN
+        drop
+    class type inspect WAN2LAN
+        pass
+    class class-default
+        drop
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I&amp;rsquo;ll not dig in the details of ZBFW configuration, if you&amp;rsquo;re interested grab a copy of &lt;a href=&#34;http://www.amazon.com/gp/product/B000P28WP8?ie=UTF8&amp;amp;tag=cisioshinandt-20&amp;amp;linkCode=as2&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=B000P28WP8&#34;&gt;this excellent book&lt;/a&gt; written by &lt;a href=&#34;http://blog.ipspace.net/2006/11/deploying-zone-based-firewalls.html&#34;&gt;Ivan&lt;/a&gt; and you&amp;rsquo;ll be good.&lt;/p&gt;
+
+&lt;h2 id=&#34;what-s-next&#34;&gt;What&amp;rsquo;s next&lt;/h2&gt;
+
+&lt;p&gt;Since DROP and bogons lists change over time I&amp;rsquo;ll see how they work and maybe implement some sort of update automation with &lt;a href=&#34;https://github.com/ktbyers/netmiko&#34;&gt;Python/Netmiko&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;wrap-up&#34;&gt;Wrap up&lt;/h2&gt;
+
+&lt;p&gt;DROP and bogons lists should be applied on Tier 1 routers. We&amp;rsquo;re not supposed to see traffic matching those access-lists, this is more a test and a &amp;ldquo;better safe than sorry&amp;rdquo; configuration not something I expect to see on the &lt;a href=&#34;http://csrc.nist.gov/publications/PubsSPs.html&#34;&gt;NIST Guidelines on Firewalls and Firewall Policy&lt;/a&gt; so please think about it before applying on production routers.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;FINAL NOTES:&lt;/strong&gt; the access lists may be too long, check your device&amp;rsquo;s data sheet to be sure it can support them or enable the compression of config:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;ROUTER(config)#service compress-config
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>OED Tools: NetSetMan</title>
+      <link>http://www.ifconfig.it/hugo/post/oed-tools-netsetman/</link>
+      <pubDate>Mon, 21 Dec 2015 15:00:13 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/oed-tools-netsetman/</guid>
+      <description>
+
+&lt;h2 id=&#34;the-problem&#34;&gt;The problem&lt;/h2&gt;
+
+&lt;p&gt;I manage many networks and quite often I work at customer site.&lt;/p&gt;
+
+&lt;p&gt;For every site I need and IP address, gateway, Wi-Fi network, sometimes proxy, a printer and many other unique network settings.&lt;/p&gt;
+
+&lt;p&gt;Change IP address on Windows is a process that takes too much time and many clicks.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-automation&#34;&gt;The automation&lt;/h2&gt;
+
+&lt;p&gt;I used to use &lt;a href=&#34;https://technet.microsoft.com/it-it/library/cc770948(v=ws.10).aspx&#34;&gt;netsh&lt;/a&gt; scripts to do that but it was hard to maintain.&lt;/p&gt;
+
+&lt;p&gt;The OED solution: &lt;a href=&#34;http://www.netsetman.com/en/pro&#34;&gt;NETSETMAN&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This software allows to change many network parameters, browser proxy, printer, smtp server, run custom scripts and set many other parameters.&lt;/p&gt;
+
+&lt;p&gt;NetSetMan has a &lt;a href=&#34;http://www.netsetman.com/en/freeware&#34;&gt;free edition&lt;/a&gt; for personal usage with some feature limitations, I bought the &lt;a href=&#34;http://www.netsetman.com/en/pro&#34;&gt;Pro Edition&lt;/a&gt; it definitely worth the price.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.netsetman.com/img/netsetman-pro.png&#34; alt=&#34;enter image description here&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Quick config: SSL VPN on Cisco IOS via CLI</title>
+      <link>http://www.ifconfig.it/hugo/post/quick-config-ssl-vpn-on-cisco-ios-via-cli/</link>
+      <pubDate>Mon, 03 Aug 2015 12:15:32 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/quick-config-ssl-vpn-on-cisco-ios-via-cli/</guid>
+      <description>&lt;p&gt;Platform: CISCO2921 IOS version: 15.3(3)M5&lt;/p&gt;
+
+&lt;p&gt;Load the anyconnect package on the flash of the router and configure anyconnect client package:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;crypto vpn anyconnect flash0:/webvpn/anyconnect-win-4.1.04011-k9.pkg sequence 1
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Create a virtual template, that&amp;rsquo;s the interface the VPN clients will attach to:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;interface Virtual-Template1
+  ip address 172.31.255.254 255.255.255.0
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Create a local pool to assign IP addresses to VPN clients:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;ip local pool SSLVPN_POOL 172.31.255.1 172.31.255.100
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Enable https on the router:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;ip http secure-server
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Get trustpoint name:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;sh run | i crypto.*trustpoint
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In this example we use local authentication for VPN clients:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;aaa authentication login default local
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now configure webvpn. Custom names are UPPERCASE&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;webvpn gateway GATEWAY_NAME
+ ! PUBLIC IP ADDRESS OF THE VPN GATEWAY
+ ip address X.X.X.X port 443  
+ http-redirect port 80
+ ssl trustpoint TRUSTPOINT_NAME
+ inservice
+ !
+webvpn context SSLVPN
+ virtual-template 1
+ aaa authentication list default
+ gateway GATEWAY_NAME
+ !
+ ssl authenticate verify all
+ inservice
+ !
+ policy group SSLVPN_GRP
+   functions svc-enabled
+   functions svc-required
+   svc address-pool &amp;quot;SSLVPN_POOL&amp;quot; netmask 255.255.255.0
+   !LOCAL NETWORK TO INCLUDE IN SPLIT TUNNEL
+   svc split include 10.153.0.0 255.255.224.0
+   default-group-policy SSLVPN_GRP
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now connect the VPN client:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2015/08/anyconn1.png&#34; alt=&#34;statistics&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2015/08/anyconn2.png&#34; alt=&#34;routedetails&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;What we see on the router:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2015/08/anyconn3.png&#34; alt=&#34;show webvpn session context all&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Enjoy.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Exam passed: HP2-Z31 - Creating HP Software-defined Networks</title>
+      <link>http://www.ifconfig.it/hugo/post/exam-passed-hp2-z31-creating-hp-software-defined-networks/</link>
+      <pubDate>Fri, 31 Jul 2015 18:57:39 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/exam-passed-hp2-z31-creating-hp-software-defined-networks/</guid>
+      <description>&lt;p&gt;As a holder of many technical certifications every few months I have to renew some.&lt;/p&gt;
+
+&lt;p&gt;When possible I try to renew the certifications with a new track instead of doing the newer version of the exam I&amp;rsquo;ve already done.&lt;/p&gt;
+
+&lt;p&gt;This time was the turn of &lt;a href=&#34;http://pro-networking-h17007.external.hp.com/ph/en/training/certifications/technical/ase-network-infrastructure.aspx&#34;&gt;HP ASE - Network Infrastructure 2011&lt;/a&gt; to be renewed as &lt;a href=&#34;http://h10120.www1.hp.com/expertone/datacard/UpgradePath/ASE-FlxNetIntV1-u2&#34;&gt;HP ASE - FlexNetwork Integrator V1&lt;/a&gt; and &lt;a href=&#34;http://h10120.www1.hp.com/expertone/datacard/UpgradePath/ASE-FlxNetArcV2-u1&#34;&gt;HP ASE - FlexNetwork Architect V2&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Four exams are availale to upgrade, I choose &lt;a href=&#34;http://h10120.www1.hp.com/expertone/datacard/Exam/HP2-Z31&#34;&gt;HP2-Z31 - Creating HP Software-defined Networks&lt;/a&gt; because I hear a lot about SDN but I had not the opportunity to explore this topic yet.&lt;/p&gt;
+
+&lt;p&gt;To prepare the exam I used the &lt;a href=&#34;https://h30590.www3.hp.com/product/Creating+HP+Software-Defined+Networks+HP2-Z31+and+HP0-Y51-eBook-11378&#34;&gt;official study guide from HP Press&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The book is well written, very clear and complete, I needed to search some topics on &lt;a href=&#34;http://lmgtfy.com/?q=openflow&#34;&gt;Google&lt;/a&gt; just a few times for a better understanding of the concepts.&lt;/p&gt;
+
+&lt;p&gt;There&amp;rsquo;s no need to say that the manual focuses on the &lt;a href=&#34;http://h17007.www1.hp.com/us/en/networking/products/network-management/HP_VAN_SDN_Controller_Software/index.aspx#.VbtnivntlBc&#34;&gt;HP VAN SDN Controller Software&lt;/a&gt; but all the core topics about how &lt;a href=&#34;https://www.opennetworking.org/&#34;&gt;OpenFlow&lt;/a&gt; and an OpenFlow enabled switch works are useful for any vendor.&lt;/p&gt;
+
+&lt;p&gt;I really liked the final chapter about &lt;a href=&#34;http://mininet.org/&#34;&gt;Mininet&lt;/a&gt; and how to use it to do labs with OpenFlow.&lt;/p&gt;
+
+&lt;p&gt;I recommend &lt;a href=&#34;https://h30590.www3.hp.com/product/Creating+HP+Software-Defined+Networks+HP2-Z31+and+HP0-Y51-eBook-11378&#34;&gt;this book&lt;/a&gt; to those interested in SDN and want a good starting point to explore the topics.&lt;/p&gt;
+
+&lt;p&gt;Enjoy.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>SecureCRT and Python</title>
+      <link>http://www.ifconfig.it/hugo/post/scrtpython/</link>
+      <pubDate>Mon, 01 Jun 2015 21:00:49 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/scrtpython/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://www.vandyke.com/products/securecrt/&#34;&gt;SecureCRT&lt;/a&gt; is one of my favourite tools, today I had a chance to use it in a way I didn&amp;rsquo;t expected.&lt;/p&gt;
+
+&lt;p&gt;A customer called with a problem: he has a radio bridge that sometimes loses connection with the remote unit. The workaround is to reload the base unit. The process is manual, he monitors the radio bridge status and reload when required.&lt;/p&gt;
+
+&lt;p&gt;Since the radio bridge is not business critical he doesn&amp;rsquo;t have budget to replace tha radio bridge or troubleshoot the problem, the request was to automate the check/reload process.&lt;/p&gt;
+
+&lt;p&gt;I checked the available tools: no Linux servers, no monitoring, no management platform&amp;hellip; just a Windows server and&amp;hellip; &lt;a href=&#34;http://www.vandyke.com/products/securecrt/&#34;&gt;SecureCRT&lt;/a&gt;!&lt;/p&gt;
+
+&lt;p&gt;A quick look on &lt;a href=&#34;http://www.vandyke.com/products/securecrt/&#34;&gt;SecureCRT&lt;/a&gt; website confirmed that it supports &lt;a href=&#34;http://www.vandyke.com/products/securecrt/scripts.html&#34;&gt;scripting&lt;/a&gt; with &lt;a href=&#34;https://www.python.org/&#34;&gt;Python&lt;/a&gt;, VBScript, Jscript and PerlScript. I&amp;rsquo;m familiar with &lt;a href=&#34;https://www.python.org/&#34;&gt;Python&lt;/a&gt; so it is my choice.&lt;/p&gt;
+
+&lt;p&gt;The idea is simple:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;connect to the remote device via &lt;a href=&#34;https://tools.ietf.org/html/rfc854&#34;&gt;telnet&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;verify the radio bridge is up&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;reload the device if radio bridge is down&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The script with comments is quite self explanatory:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;# $language = &amp;quot;Python&amp;quot;
+# $interface = &amp;quot;1.0&amp;quot;
+
+# Website: www.ifconfig.it
+# License: https://creativecommons.org/licenses/by-sa/4.0/legalcode
+
+def main():
+
+    # CONNECTION DATA
+    hostIP = &amp;quot;X.X.X.X&amp;quot;
+    username = &amp;quot;myUsername&amp;quot;
+    password = &amp;quot;myPassword&amp;quot;
+    enablePassword = &amp;quot;myEnablePassword&amp;quot;
+    prompt = &amp;quot;#&amp;quot;
+
+    # PARAMETERS
+    command = &amp;quot;sh dot11 associations&amp;quot;
+    searchString = &amp;quot;6cfa.8923.beef&amp;quot;
+    reloadCommand = &amp;quot;reload in 1 reason REMOTE_NOT_FOUND&amp;quot;
+
+    # LOGIN STRINGS
+    loginStrings = [&amp;quot;Username&amp;quot;,&amp;quot;Password:&amp;quot;,&amp;quot;&amp;gt;&amp;quot;,&amp;quot;Password:&amp;quot;]
+    sendString = [username,password,&amp;quot;enable&amp;quot;,enablePassword]
+
+    crt.Screen.Synchronous = True
+
+    # CONNECT TO REMOTE DEVICE  
+    crt.Session.Connect(&amp;quot;/telnet &amp;quot;+hostIP)
+
+    # AUTHENTICATE PROCESS
+
+    if (crt.Session.Connected):
+
+        i=0
+        for string in loginStrings:
+            crt.Screen.WaitForString(string)
+            crt.Screen.Send(sendString[i]+&amp;quot;\r&amp;quot;)
+            i = i+1
+
+        crt.Screen.WaitForString(prompt)
+        crt.Screen.Send(&amp;quot;term len 0&amp;quot;+&amp;quot;\r&amp;quot;)
+
+        crt.Screen.WaitForString(prompt)
+
+        # EXECUTE VERIFICATION COMMAND AND GET OUTPUT
+        crt.Screen.Send(command+&amp;quot;\r&amp;quot;)
+
+        crt.Screen.IgnoreEscape = True
+
+        result = crt.Screen.ReadString(prompt)
+        result.strip()
+
+        crt.Screen.IgnoreEscape = False
+
+        #SEARCH STRING IN OUTPUT
+
+        if searchString not in result:
+            #crt.Dialog.MessageBox(&amp;quot;FOUND STRING&amp;quot;)
+        #else:
+            #crt.Dialog.MessageBox(&amp;quot;STRING NOT FOUND&amp;quot;)
+            crt.Screen.Send(&amp;quot;\r&amp;quot;)
+            crt.Screen.WaitForString(prompt)
+            crt.Screen.Send(reloadCommand+&amp;quot;\r&amp;quot;)
+
+        # EXIT THE SESSION
+        crt.Screen.Send(&amp;quot;\r&amp;quot;)
+        crt.Screen.WaitForString(prompt)
+        crt.Screen.Send(&amp;quot;exit&amp;quot;+&amp;quot;\r&amp;quot;)    
+
+        crt.Screen.Synchronous = False
+
+main()
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This script is scheduled to run every 30 minutes on the Windows server using this sintax:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;&amp;quot;c:\Program Files\SecureCRT\securecrt.exe&amp;quot; /script c:\script\checkRadioBridge.py
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I&amp;rsquo;d have prefered a better implementation on a Linux machine but this works so far, the customer is happy and I learnt something new: &lt;a href=&#34;http://en.wikipedia.org/wiki/Win-win_game&#34;&gt;win-win&lt;/a&gt;!&lt;/p&gt;
+
+&lt;p&gt;Useful links:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://forums.vandyke.com/forumdisplay.php?f=14&#34;&gt;VanDyke scripting forum&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://learnpythonthehardway.org/&#34;&gt;LearnPythonTheHardWay&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Docker: join the dots</title>
+      <link>http://www.ifconfig.it/hugo/post/docker-join-the-dots/</link>
+      <pubDate>Mon, 25 May 2015 17:00:18 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/docker-join-the-dots/</guid>
+      <description>
+
+&lt;p&gt;This post is part of a series about Docker, including:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/2015/05/docker-introduction/&#34;&gt;Docker Introduction&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://wp.me/p4biGi-o0&#34;&gt;Docker: Install software inside a container&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://wp.me/p4biGi-o5&#34;&gt;Docker Volumes&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://wp.me/p4biGi-o9&#34;&gt;Docker Networking - bridge container to host NIC&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We &lt;a href=&#34;(http://www.ifconfig.it/wordpress/2015/05/docker-introduction/)&#34;&gt;started&lt;/a&gt; with the basics and moved on with &lt;a href=&#34;http://wp.me/p4biGi-o0&#34;&gt;adding software&lt;/a&gt;, using &lt;a href=&#34;http://wp.me/p4biGi-o5&#34;&gt;volumes&lt;/a&gt; and then &lt;a href=&#34;(http://wp.me/p4biGi-o9)&#34;&gt;bridging a container to the network&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;As a said I&amp;rsquo;m neither a developer or a system administrator, I work as Network Engineer so I&amp;rsquo;m not the main target for Docker but I found it very useful for a specific need and now it&amp;rsquo;s time to &lt;a href=&#34;https://www.youtube.com/watch?v=UF8uR6Z6KLc&#34;&gt;join the dots&lt;/a&gt;.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;Here&amp;rsquo;s the story. I do wireless networks with &lt;a href=&#34;https://en.wikipedia.org/wiki/Captive_portal&#34;&gt;captive portals&lt;/a&gt;. I know &lt;a href=&#34;https://twitter.com/keithrparsons/status/539935622811492352&#34;&gt;some pleople&lt;/a&gt; think captive portals are bad and I agree in some way, but they have a purpose.&lt;/p&gt;
+
+&lt;p&gt;For those who don&amp;rsquo;t know what a captive portal is: it is a VM or an appliance that captures the client traffic, redirects it to a web authentication portal, requests valid credentials that allow the user to access the internet.&lt;/p&gt;
+
+&lt;p&gt;Long story short, how can we test a captive portal scalabilty?&lt;/p&gt;
+
+&lt;p&gt;We can configure it and see how it behaves under load of real clients (reactive) or find a way to &amp;ldquo;simulate&amp;rdquo; many clients and test in lab environment.&lt;/p&gt;
+
+&lt;p&gt;Yes it would be easier just to read and trust the vendor datasheet but we all know vendors sometimes are not so accurate with the published values so my approach is &lt;a href=&#34;http://en.wikipedia.org/wiki/Trust,_but_verify&#34;&gt;trust but verify&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Note: the captive portal is often used for wireless clients but it can just listen on a specific VLAN so load tests can be done with wired clients.&lt;/p&gt;
+
+&lt;h2 id=&#34;first-try-vms&#34;&gt;First try: VMs&lt;/h2&gt;
+
+&lt;p&gt;I first tried to use &lt;a href=&#34;https://www.virtualbox.org/&#34;&gt;VirtualBox&lt;/a&gt; and clone a VM many times. Even with some scripting this solution was little scalable and required lots of resources.&lt;/p&gt;
+
+&lt;p&gt;I need to simulate at least 500 clients per host and scale up to few thousands in the future.&lt;/p&gt;
+
+&lt;h2 id=&#34;second-try-docker&#34;&gt;Second try: Docker&lt;/h2&gt;
+
+&lt;p&gt;On my second try I used &lt;a href=&#34;https://hub.docker.com&#34;&gt;Docker&lt;/a&gt;. I notice this technology thanks to &lt;a href=&#34;http://www.twitter.com&#34;&gt;Twitter&lt;/a&gt; and saw a big potential for my purpose.&lt;/p&gt;
+
+&lt;h1 id=&#34;join-the-dots-the-final-solution&#34;&gt;Join the dots: the final solution&lt;/h1&gt;
+
+&lt;p&gt;If you read all the &lt;a href=&#34;(http://www.ifconfig.it/wordpress/2015/05/docker-introduction/)&#34;&gt;previous posts&lt;/a&gt; you can see now how the dots join all toghether: I run multiple &lt;a href=&#34;https://hub.docker.com&#34;&gt;Docker&lt;/a&gt; containers on a host, &lt;a href=&#34;http://wp.me/p4biGi-o9&#34;&gt;bridge&lt;/a&gt; them to the host NIC using &lt;a href=&#34;http://openvswitch.org/&#34;&gt;Open vSwitch&lt;/a&gt;, run a &lt;a href=&#34;https://www.python.org&#34;&gt;Python&lt;/a&gt;+&lt;a href=&#34;https://pypi.python.org/pypi/mechanize&#34;&gt;Mechanize&lt;/a&gt; script stored in a shared &lt;a href=&#34;http://wp.me/p4biGi-o9&#34;&gt;Volume&lt;/a&gt; that does a login on the Captive Portal and then simulate Internet access from the client simply with &lt;a href=&#34;http://en.wikipedia.org/wiki/CURL&#34;&gt;curl&lt;/a&gt; and a list of websites.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Advantages:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;little overhead on the host&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&amp;ldquo;real&amp;rdquo; network access, Captive Portal need to see different MAC addressed to do its magic&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;scalable performance: I can run containers on multiple hosts for a real &lt;a href=&#34;http://en.wikipedia.org/wiki/Scalability&#34;&gt;scale-out&lt;/a&gt; solution&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;manageable: the scripts are stored on a shared &lt;a href=&#34;http://wp.me/p4biGi-o9&#34;&gt;Volume&lt;/a&gt; so it&amp;rsquo;s easy to make changes&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;reusable: a few changes on the login the script allows to test different portals&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;easy to start: a simple bash loop starts as many container are neede, host performances are the only limit (more on that later)&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;the-start-script&#34;&gt;The start script&lt;/h2&gt;
+
+&lt;p&gt;This is the start script used to run multiple containers:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;#! /bin/bash 
+# start.sh
+# runs multiple container
+for i in {0..$1}
+do
+./pipework/pipework ovsbr0 $(docker run --privileged -i -t --net=&amp;quot;none&amp;quot; -v /root/dockervolume:/volume -d ubuntuplus /bin/bash /volume/runthis.sh) dhcp  
+done
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;the-kill-script&#34;&gt;The kill script&lt;/h2&gt;
+
+&lt;p&gt;This is the kill script, used to kill all the containers:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;#! /bin/bash
+# dockerkillall.sh
+# kill all the containers
+while read containerID
+do
+docker kill $containerID 
+done &amp;lt; &amp;lt;(docker ps -q)
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;the-ovs-clean-script&#34;&gt;The OVS clean script&lt;/h2&gt;
+
+&lt;p&gt;This command removes all the Oper vSwitch ports except the ports used to bridge the switch itself.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;ovs-vsctl show | grep Interface.*veth | sed &#39;s/&amp;quot;//g&#39; | awk &#39;{ cmd= &amp;quot;ovs-vsctl del-port &amp;quot;$2 ; system(cmd) }&#39;
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;limitations&#34;&gt;Limitations&lt;/h2&gt;
+
+&lt;p&gt;The only limit I foud so far is the time it takes to start a new container and run the custom startup script. On my PC &lt;a href=&#34;http://www.dell.com/us/business/p/latitude-e5550-laptop/pd&#34;&gt;(Dell Latitude E5550, i5 CPU, 16GM RAM)&lt;/a&gt; it takes about a hour to start 300 containers.&lt;/p&gt;
+
+&lt;p&gt;I didn&amp;rsquo;t had a chance to test it on a server hardware so I don&amp;rsquo;t know how if more powerful hardware can speed-up the process or it&amp;rsquo;s a software limitation that gets little advantage of faster CPUs. I&amp;rsquo;ll update this post with my finding later.&lt;/p&gt;
+
+&lt;h1 id=&#34;wrap-up&#34;&gt;Wrap Up&lt;/h1&gt;
+
+&lt;p&gt;I hope you enjoyed my posts about Docker. My target was to share a very specific use case that maybe isn&amp;rsquo;t the purpose of the techonology but I found very useful and easy to implement.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Docker: networking - bridge to host NIC</title>
+      <link>http://www.ifconfig.it/hugo/post/docker-networking-bridge/</link>
+      <pubDate>Mon, 18 May 2015 17:00:51 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/docker-networking-bridge/</guid>
+      <description>
+
+&lt;p&gt;This post is part of a series about Docker, including:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/2015/05/docker-introduction/&#34;&gt;Docker Introduction&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://wp.me/p4biGi-o0&#34;&gt;Docker: Install software inside a container&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://wp.me/p4biGi-o5&#34;&gt;Docker Volumes&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Today we&amp;rsquo;ll see &lt;a href=&#34;https://docs.docker.com/articles/networking/&#34;&gt;Docker networking&lt;/a&gt; with a very specific target in mind: bridge container to the host network.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;This isn&amp;rsquo;t supposed to be the way of work of containers: a container should be created to run a single application so container networking, from the point of view of a &lt;a href=&#34;http://www.netengday.net/&#34;&gt;Network Engineer&lt;/a&gt;, is essentialy a &lt;a href=&#34;http://it.wikipedia.org/wiki/Port_Address_Translation&#34;&gt;Port Address Translation&lt;/a&gt; with a firewall exception.&lt;/p&gt;
+
+&lt;p&gt;I know that&amp;rsquo;s a strong simplification, you cand find lot of good explanation about Docker networking on &lt;a href=&#34;http://www.slideshare.net/search/slideshow?searchfrom=header&amp;amp;q=docker+networking&#34;&gt;Slideshare&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Different methods to connect a Docker container to the network can be found &lt;a href=&#34;http://blog.oddbit.com/2014/08/11/four-ways-to-connect-a-docker/&#34;&gt;HERE&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;docker-networking&#34;&gt;Docker Networking&lt;/h2&gt;
+
+&lt;p&gt;When you install Docker on a Linux host in creates a new interface called &lt;strong&gt;docker0&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Every container&amp;rsquo;s eth0 interface is connected to an internal &amp;ldquo;host-only&amp;rdquo; interface that could be accessed via the PAT/Firewall exception mentioned before.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;root@1d622f185fe4:/# ifconfig
+eth0      Link encap:Ethernet  HWaddr 02:42:ac:11:00:03  
+      inet addr:172.17.0.3  Bcast:0.0.0.0  Mask:255.255.0.0
+      inet6 addr: fe80::42:acff:fe11:3/64 Scope:Link
+      UP BROADCAST RUNNING  MTU:1500  Metric:1
+      RX packets:31567 errors:0 dropped:0 overruns:0 frame:0
+      TX packets:19482 errors:0 dropped:0 overruns:0 carrier:0
+      collisions:0 txqueuelen:0 
+      RX bytes:49245829 (49.2 MB)  TX bytes:1366148 (1.3 MB)
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note: the Ubuntu image hasn&amp;rsquo;t ifconfig installed, install it executing:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;apt-get install net-tools
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;bridging&#34;&gt;Bridging&lt;/h2&gt;
+
+&lt;p&gt;On the Docker documentation about bridging the &lt;a href=&#34;(https://docs.docker.com/articles/networking/#bridge-building)&#34;&gt;suggested method&lt;/a&gt; is to use &lt;a href=&#34;http://linux.die.net/man/8/brctl&#34;&gt;Linux bridge&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;A better method is show below.&lt;/p&gt;
+
+&lt;h1 id=&#34;open-vswitch-and-pipework&#34;&gt;Open vSwitch and Pipework&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://openvswitch.org/&#34;&gt;Open vSwitch&lt;/a&gt; (shortened OVS) is an open source multilayer software switch that support many well-known features, including bridging.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s see how it can be used with Docker to bridge a container to the local network.&lt;/p&gt;
+
+&lt;p&gt;Install Open vSwitch on host:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;apt-get install openvswitch-switch openvswitch-common
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Verify OVS is correctly installed:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;root@ubuntusrv:~# ovs-vsctl show
+f9018860-275f-49e5-a6a8-5d9baf2df7b7
+ovs_version: &amp;quot;2.3.1&amp;quot;
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Create a bridge interface and add host&amp;rsquo;s eth0 to the bridge:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;ovs-vsctl add-br ovsbr0; ovs-vsctl add-port ovsbr0 eth0; dhclient ovsbr0; service networking restart
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; network connection to the host may be lost. In my case I was connected remotely via SSH to the host and executing all the commands in a single line the connection wasn&amp;rsquo;t lost.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note2:&lt;/strong&gt; to delete the previous configuration run&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;ovs-vsctl del-port eth0; ovs-vsctl del-br ovsbr0; service networking restart
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This is the final configuration of the Open vSwitch:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;ovs-vsctl show
+
+Bridge &amp;quot;ovsbr0&amp;quot;
+    Port &amp;quot;eth0&amp;quot;
+        Interface &amp;quot;eth0&amp;quot;
+    Port &amp;quot;ovsbr0&amp;quot;
+        Interface &amp;quot;ovsbr0&amp;quot;
+            type: internal
+ovs_version: &amp;quot;2.3.1&amp;quot;
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The OVS named &lt;strong&gt;ovsbr0&lt;/strong&gt; now has just two ports, one external &lt;strong&gt;eth0&lt;/strong&gt; and one internal &lt;strong&gt;ovsbr0&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now we just need to create the Docker containers with an interface bridged to the internal vSwitch interface ovsbr0. To do that &lt;a href=&#34;https://github.com/jpetazzo/pipework&#34;&gt;Pipework&lt;/a&gt; helps a lot.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Install pipework&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Pipework is a script that can automate many Docker and OVS configurations, check &lt;a href=&#34;https://github.com/jpetazzo/pipework&#34;&gt;documentation&lt;/a&gt; for details.&lt;/p&gt;
+
+&lt;p&gt;To install Pipework on the host machine run:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;git clone https://github.com/jpetazzo/pipework.git
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In our case we want to start a container with a bridged interface and assign it an IP address from a DHCP server in the same subnet of the host.&lt;/p&gt;
+
+&lt;p&gt;This is the command to run:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;./pipework/pipework ovsbr0 $(docker run -i -t --net=&amp;quot;none&amp;quot; -d ubuntuplus /bin/bash) dhcp
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now attach to the container and verify the network interface configuration:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;root@b30fcf44858f:/# ifconfig
+eth1  Link encap:Ethernet  HWaddr 3a:05:56:81:f4:eb  
+      inet addr:10.1.0.18  Bcast:10.1.0.255  Mask:255.255.255.0
+      inet6 addr: fe80::3805:56ff:fe81:f4eb/64 Scope:Link
+      UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+      RX packets:221 errors:0 dropped:0 overruns:0 frame:0
+      TX packets:11 errors:0 dropped:0 overruns:0 carrier:0
+      collisions:0 txqueuelen:1000 
+      RX bytes:19161 (19.1 KB)  TX bytes:1674 (1.6 KB)
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Great! 10.1.0.0/24 is my network. Verify on the &lt;a href=&#34;http://www.tcpipguide.com/free/t_TCPIPDynamicHostConfigurationProtocolDHCP.htm&#34;&gt;DHCP&lt;/a&gt; server (a &lt;a href=&#34;www.cisco.com&#34;&gt;Cisco&lt;/a&gt; router)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;sh ip dhcp binding 10.1.0.18
+IP address          Client-ID/              Lease expiration        Type
+                Hardware address/
+                User name
+10.1.0.18           3a05.5681.f4eb          May 13 2015 02:26 PM    Automatic
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Notice in the DHCP output the real &lt;a href=&#34;http://www.tcpipguide.com/free/t_DataLinkLayerLayer2.htm&#34;&gt;MAC address&lt;/a&gt; of the container.&lt;/p&gt;
+
+&lt;p&gt;This is the configuration of the OVS&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;ovs-vsctl show
+
+Bridge &amp;quot;ovsbr0&amp;quot;
+    Port &amp;quot;eth0&amp;quot;
+        Interface &amp;quot;eth0&amp;quot;
+    Port &amp;quot;veth1pl13142&amp;quot;
+        Interface &amp;quot;veth1pl13142&amp;quot;
+    Port &amp;quot;ovsbr0&amp;quot;
+        Interface &amp;quot;ovsbr0&amp;quot;
+            type: internal
+ovs_version: &amp;quot;2.3.1&amp;quot;
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Notice the new port &lt;em&gt;veth1pl13142&lt;/em&gt; associtated to the running container.&lt;/p&gt;
+
+&lt;p&gt;Stay tuned for the next post of the Docker series where I&amp;rsquo;ll join the dots to show you my final goal, the actual reason I&amp;rsquo;ve started to use Docker.&lt;/p&gt;
+
+&lt;p&gt;A few notes.&lt;/p&gt;
+
+&lt;h2 id=&#34;cleaning-ovs&#34;&gt;Cleaning OVS&lt;/h2&gt;
+
+&lt;p&gt;When the container is killed the OVS port isn&amp;rsquo;t removed. After some time the OVS could have many unused ports. To clean the ports I wrote this simple scripts:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;ovs-vsctl show | grep Interface.*veth | sed &#39;s/&amp;quot;//g&#39; | awk &#39;{ cmd= &amp;quot;ovs-vsctl del-port &amp;quot;$2 ; system(cmd) }&#39;
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;container-to-ovs-port-map&#34;&gt;Container to OVS port map&lt;/h2&gt;
+
+&lt;p&gt;I still haven&amp;rsquo;t found a working script to map an OVS port to a container but &lt;a href=&#34;http://ewen.mcneill.gen.nz/blog/entry/2014-10-12-finding-docker-containers-connection-to-openvswitch/&#34;&gt;THIS&lt;/a&gt; looks like a good start. Any help would be appreciated.&lt;/p&gt;
+
+&lt;p&gt;That&amp;rsquo;s it&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Quick tool: PingInfoView</title>
+      <link>http://www.ifconfig.it/hugo/post/quick-tool-pinginfoview/</link>
+      <pubDate>Sat, 25 Apr 2015 07:33:32 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/quick-tool-pinginfoview/</guid>
+      <description>&lt;p&gt;Quick tool: &lt;a href=&#34;http://www.nirsoft.net/utils/multiple_ping_tool.html&#34;&gt;PingInfoView&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;_&lt;a href=&#34;http://www.nirsoft.net/utils/multiple_ping_tool.html&#34;&gt;PingInfoView&lt;/a&gt; is a small utility that allows you to easily ping multiple host names and IP addresses, and watch the result in one table. It automatically ping to all hosts every number of seconds that you specify, and displays the number of succeed and failed pings, as well as the average ping time._&lt;/p&gt;
+
+&lt;p&gt;OS: Windows&lt;/p&gt;
+
+&lt;p&gt;License: freeware&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.nirsoft.net/utils/pinginfoview.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;How I use it&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I find it particularly useful during network migrations to check if all the hosts are available before and after. Host ip addresses in my docs are usually in an spreadsheet file so a quick copy&amp;amp;paste in &lt;a href=&#34;http://www.nirsoft.net/utils/multiple_ping_tool.html&#34;&gt;PingInfoView&lt;/a&gt; is all I need.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Quick script: backup multiple Alcatel Omniswitch configuration files</title>
+      <link>http://www.ifconfig.it/hugo/post/qs-bck-alomniftp/</link>
+      <pubDate>Thu, 26 Mar 2015 21:27:55 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/qs-bck-alomniftp/</guid>
+      <description>&lt;p&gt;A quick &lt;a href=&#34;http://en.wikibooks.org/wiki/Windows_Batch_Scripting&#34;&gt;batch script&lt;/a&gt; I did to backup configuration files of multiple &lt;a href=&#34;http://enterprise.alcatel-lucent.com/?product=EnterpriseProducts&amp;amp;page=directory&amp;amp;active=1#&#34;&gt;Alcatel Omniswitch&lt;/a&gt; via FTP.&lt;/p&gt;
+
+&lt;p&gt;All files are named &lt;em&gt;boot.cfg&lt;/em&gt; so the script renames each file appending the IP address.&lt;/p&gt;
+
+&lt;p&gt;Create a file with all the IP of switches to backup - iplist.txt&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;10.10.29.10
+10.12.29.10
+10.14.29.10
+10.14.29.11
+10.14.29.12
+10.14.29.13
+10.14.29.14
+10.14.29.15
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Create a FTP script to login and backup the configuration file - ftp.scr&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Note: user admin password switch are defaults on Omniswitch&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;admin
+switch
+cd ..
+cd working
+get boot.cfg
+quit
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Create the actual script file - getconfig.bat&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;for /f &amp;quot;tokens=*&amp;quot; %%i in (iplist.txt) do (
+echo %%i
+ftp -s:ftp.scr %%i
+ren boot.cfg boot.cfg-%%i )
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now run the script and see the magic happen.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Meraki CMNA</title>
+      <link>http://www.ifconfig.it/hugo/post/cmna/</link>
+      <pubDate>Wed, 04 Mar 2015 21:39:29 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/cmna/</guid>
+      <description>&lt;p&gt;Today I&amp;rsquo;ve attended a &lt;a href=&#34;https://meraki.cisco.com/&#34;&gt;Meraki&lt;/a&gt; technical training course at &lt;a href=&#34;http://www.cisco.com/&#34;&gt;Cisco&lt;/a&gt; offices.&lt;/p&gt;
+
+&lt;p&gt;The training was organized in short presentations of product features followed by hands-on labs based on all the products available today.&lt;/p&gt;
+
+&lt;p&gt;I was suprised to find not only people from small companies or system integrators but more that 50% of the attendees were from Cisco Gold Partners sent to evaluate the products for &amp;ldquo;managed network&amp;rdquo; services. Cloud managed network gear is quite a hot topic today and I expect many projects in the future will involve this kind of solutions.&lt;/p&gt;
+
+&lt;p&gt;Included in the trainig day there is a complimentary Meraki demo kit (and t-shirt) that includes:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;1 LIC-MX64-SEC-3YR Meraki MX64 Advanced Security License and Support, 3 Years&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;1 MS220-8P-HW Meraki MS220-8P L2 Cloud Managed 8 Port GigE 124W PoE Switch&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;1 LIC-MS220-8P-3YR Meraki MS220-8P Enterprise License and Support, 3 Year&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;1 MX64-HW Meraki MX64 Cloud Managed Security Appliance&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;1 LIC-ENT-3YR Meraki MR Enterprise Cloud Controller License, 3 Years&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;1 MR32-HW Meraki MR32 Cloud Managed AP&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;That&amp;rsquo;s enough hardware to test many features and to do some POC for interested customers.&lt;/p&gt;
+
+&lt;p&gt;Thanks Meraki for both the training and the demo kit!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2015/04/meraki-cmna-signature.jpeg&#34; alt=&#34;Alt&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ethernet Economiser aka RJ45 splitter</title>
+      <link>http://www.ifconfig.it/hugo/post/rj45splitter/</link>
+      <pubDate>Fri, 28 Nov 2014 13:22:10 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/rj45splitter/</guid>
+      <description>&lt;p&gt;Just a quick post since I speak with many network engineers and I notice some confusion about this topic.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Are all 4 pairs of an Cat5e cable used?&lt;/em&gt; The answer is.. &lt;em&gt;it depends&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;For gigabit speed 1000T &lt;a href=&#34;http://en.wikipedia.org/wiki/Gigabit_Ethernet#1000BASE-T&#34;&gt;all four pairs are used&lt;/a&gt;. If 100TX speed is enough we can of course split the cable and double the connections without pulling more cables:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2014/11/rj45splitter.gif&#34; alt=&#34;RJ45 splitter&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In my specific case I&amp;rsquo;ve used a single cable drop in the garage to connect a humidity/temperature to a &lt;a href=&#34;http://en.wikipedia.org/wiki/1-Wire&#34;&gt;1wire&lt;/a&gt; bus sensor while allowing a future connection of an ethernet device.&lt;/p&gt;
+
+&lt;p&gt;HTH&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Cisco Nexus 9000 training DCINX9K</title>
+      <link>http://www.ifconfig.it/hugo/post/dcinx9k/</link>
+      <pubDate>Thu, 27 Nov 2014 15:26:27 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/dcinx9k/</guid>
+      <description>&lt;p&gt;This week I attended a two days training of Cisco &lt;strong&gt;&lt;a href=&#34;http://www.fireflycom.net/?cmd=course&amp;amp;id=DCINX9K&#34;&gt;DCINX9K&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The training is focused on Cisco Nexus 9000 switches in NX-OS mode.&lt;/p&gt;
+
+&lt;p&gt;NX9K can run two different software images, the full ACI image with all the cool SDN stuff and the traditional NS-OX image with some cool features like &lt;a href=&#34;http://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus9000/sw/6-x/programmability/guide/b_Cisco_Nexus_9000_Series_NX-OS_Programmability_Guide.html&#34;&gt;Python&lt;/a&gt;, Rest API, VX-LAN and more.&lt;/p&gt;
+
+&lt;p&gt;Now it&amp;rsquo;s time to improve my Python skills and borrow a couple of boxes to do some labs.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m quite excited of the convergence of Virtualization, Networking and Python, feels like &lt;strong&gt;&lt;a href=&#34;http://news.stanford.edu/news/2005/june15/jobs-061505.html&#34;&gt;joining the dots&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/hugo/wordpress/wp-content/uploads/2014/11/wpid-20141127_160712.jpg&#34; alt=&#34;Alt&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>NeDi and Observium/LibreNMS</title>
+      <link>http://www.ifconfig.it/hugo/post/nedi2observium/</link>
+      <pubDate>Wed, 26 Nov 2014 21:48:38 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/nedi2observium/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;http://www.nedi.ch/&#34;&gt;NeDi&lt;/a&gt; and &lt;a href=&#34;http://www.observium.org&#34;&gt;Observium&lt;/a&gt; are two of my favourites network monitoring tools.&lt;/p&gt;
+
+&lt;p&gt;I do like to deploy both, they complete each other and since they&amp;rsquo;re free there is no need to choose. The only problem with the use of two tools is the &lt;strong&gt;integration&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Observium has a &lt;a href=&#34;http://www.observium.org/wiki/FAQs#Why_can.27t_I_add_my_device_by_its_IP_address.3F_.2F_Why_do_I_need_valid_hostnames_and_DNS.3F&#34;&gt;limitation&lt;/a&gt; with host discovery: a device can be discovered only by name and that name must be resolved to an IP via DNS or hosts file. Since most of my customers don&amp;rsquo;t register network devices on DNS that means manually populate &lt;em&gt;/etc/hosts file&lt;/em&gt;. On the other hand NeDi doesn&amp;rsquo;t have this limitation and has a &lt;strong&gt;strong network/discovery&lt;/strong&gt; mechanism.&lt;/p&gt;
+
+&lt;p&gt;Can we make them to work together? Of course, that&amp;rsquo;s open source!&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h1 id=&#34;installation&#34;&gt;Installation&lt;/h1&gt;
+
+&lt;p&gt;NeDi and Observium installation processes are well explained &lt;a href=&#34;http://www.nedi.ch/installation/&#34;&gt;here&lt;/a&gt; and &lt;a href=&#34;http://www.observium.org/wiki/Installation&#34;&gt;here&lt;/a&gt;, just follow the instructions, they work fine.&lt;/p&gt;
+
+&lt;h1 id=&#34;customization&#34;&gt;Customization&lt;/h1&gt;
+
+&lt;p&gt;I&amp;rsquo;ve modified &lt;em&gt;/var/nedi/nedi.conf&lt;/em&gt; to include only the address ranges of my managed devices:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;netfilter      ^10\.5\.|^10\.16\.0\.|^192\.168\.20\.
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and &lt;em&gt;/var/nedi/seedlist&lt;/em&gt; whit a list of devices/communities that will be used as a seed for the discovery process in the format:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;ip  community1,community2
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For the sake of simplicity I just run two virtual hosts on Apache2, NeDi runs on port 80, Observium runs on port 81, edit &lt;em&gt;/etc/apache2/sites-enabled/000-default&lt;/em&gt; as follows:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;&amp;lt;VirtualHost *:80&amp;gt;
+        ServerAdmin webmaster@localhost
+
+        DocumentRoot /var/nedi/html
+        &amp;lt;Directory /&amp;gt;
+                Options FollowSymLinks
+                AllowOverride None
+        &amp;lt;/Directory&amp;gt;
+        &amp;lt;Directory /var/www/&amp;gt;
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride None
+                Order allow,deny
+                allow from all
+        &amp;lt;/Directory&amp;gt;
+
+        ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/
+        &amp;lt;Directory &amp;quot;/usr/lib/cgi-bin&amp;quot;&amp;gt;
+                AllowOverride None
+                Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch
+                Order allow,deny
+                Allow from all
+        &amp;lt;/Directory&amp;gt;
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+
+        # Possible values include: debug, info, notice, warn, error, crit,
+        # alert, emerg.
+        LogLevel warn
+
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+&amp;lt;/VirtualHost&amp;gt;
+
+&amp;lt;VirtualHost *:81&amp;gt;
+  DocumentRoot /opt/observium/html/
+  ServerName  observium.domain.com
+  CustomLog /opt/observium/logs/access_log combined
+  ErrorLog /opt/observium/logs/error_log
+  &amp;lt;Directory &amp;quot;/opt/observium/html/&amp;quot;&amp;gt;
+    AllowOverride All
+    Options FollowSymLinks MultiViews
+  &amp;lt;/Directory&amp;gt;
+&amp;lt;/VirtualHost&amp;gt;
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;integration&#34;&gt;Integration&lt;/h1&gt;
+
+&lt;p&gt;The integration between the two tools is meant to take advantage of the discovery performed by NeDi to polulate &lt;em&gt;/etc/hosts&lt;/em&gt; file and then feed the discovery process of Observium.&lt;/p&gt;
+
+&lt;h1 id=&#34;step-by-step&#34;&gt;Step by step&lt;/h1&gt;
+
+&lt;h2 id=&#34;where-is-the-data&#34;&gt;Where is the data?&lt;/h2&gt;
+
+&lt;p&gt;NeDi stores all the information on a MySQL database. A quick look on the tables and we can see how to extract the devices information:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;/usr/bin/mysql -uroot -pPASSWORD -B -e &amp;quot;select devip,device from devices&amp;quot; nedi 
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Replace &lt;em&gt;PASSWORD&lt;/em&gt; with the password you typed during the software installation.&lt;/p&gt;
+
+&lt;p&gt;Tweak this extraction a little bit to clean the list:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;filter lines that don&amp;rsquo;t begin with a number in range [1-9], that means no valid IP address was discovered via CDP/LDP&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;remove some chars (slash,spaces) that Observium doesn&amp;rsquo;t like in hostnames with &lt;em&gt;sed&lt;/em&gt; commands&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;uniform all the device names in uppercase chars&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If your device hostnames have other chars that don&amp;rsquo;t work well with Observium just add more &lt;em&gt;sed&lt;/em&gt; to the script.&lt;/p&gt;
+
+&lt;p&gt;This is the final result:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;/usr/bin/mysql -uroot -pPASSWORD -B -e &amp;quot;select devip,device,readcomm from devices&amp;quot; nedi | grep &amp;quot;^[1-9]&amp;quot; |sed -e &#39;s/ /_/g&#39; | sed -e &#39;s/\//_/g&#39; | sort | tr &#39;[:lower:]&#39; &#39;[:upper:]&#39;
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;ip-format&#34;&gt;IP format&lt;/h2&gt;
+
+&lt;p&gt;NeDi stores IP addresses in undotted decimal format, we need to convert them to dotted decimal to use them.&lt;/p&gt;
+
+&lt;p&gt;We can use Python for that, let&amp;rsquo;s create &lt;em&gt;/root/undotteddecimaltoip.py&lt;/em&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;#!/usr/bin/env python
+
+import sys
+inFile = sys.argv[1]
+#outFile = sys.argv[2]
+
+def int_to_dqn(st):
+    &amp;quot;&amp;quot;&amp;quot;
+    Convert integer to dotted quad notation
+    &amp;quot;&amp;quot;&amp;quot;
+    st = &amp;quot;%08x&amp;quot; % (st)
+    return &amp;quot;%i.%i.%i.%i&amp;quot; % (int(st[0:2],16),int(st[2:4],16),int(st[4:6],16),int(st[6:8],16))
+
+f = open(inFile,&amp;quot;r&amp;quot;)
+for line in f:
+        values = line.split(&amp;quot;\t&amp;quot;)
+        print int_to_dqn(int(values[0]))+&amp;quot; &amp;quot;+values[1].rstrip().replace(&amp;quot; &amp;quot;,&amp;quot;_&amp;quot;)
+f.close()
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Test it running:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;/root/undotteddecimaltoip.py /tmp/nedidevicelist.txt
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can see now all the IP addresses are now in dotted decimal format.  &lt;/p&gt;
+
+&lt;h2 id=&#34;populate-etc-hosts-file&#34;&gt;Populate /etc/hosts file&lt;/h2&gt;
+
+&lt;p&gt;Now we can put together the Python script we just created and a few bash commands to update the hosts file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;if [ -f &amp;quot;/etc/hosts.original&amp;quot; ]
+then
+        cat /etc/hosts.original &amp;gt; /etc/hosts
+else
+        cp /etc/hosts /etc/hosts.original
+fi
+
+/root/undotteddecimaltoip.py /tmp/nedidevicelist.txt &amp;gt;&amp;gt; /etc/hosts
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Notice that the original &lt;em&gt;hosts&lt;/em&gt; files is maintained, if we need to enter lines that shouldn&amp;rsquo;t be lost just edit &lt;em&gt;/etc/hosts.original&lt;/em&gt; file.  &lt;/p&gt;
+
+&lt;h2 id=&#34;add-devices-to-observium&#34;&gt;Add devices to Observium&lt;/h2&gt;
+
+&lt;p&gt;We can finally use the data from NeDi to add devices to Observium:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;while IFS=$&#39;\t&#39; read ip name comm
+do
+echo -e &amp;quot;NOW ADDING DEVICE $name&amp;quot;
+/opt/observium/add_device.php $name $comm
+done &amp;lt; /tmp/nedidevicelist.txt
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Notice that &lt;em&gt;$comm&lt;/em&gt; is the actual community NeDi used to discover the devices, even if in &lt;em&gt;seedlist&lt;/em&gt; more than one was specified.&lt;/p&gt;
+
+&lt;h2 id=&#34;put-it-all-together&#34;&gt;Put it all together&lt;/h2&gt;
+
+&lt;p&gt;This is the final script:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;#!/bin/bash
+/usr/bin/mysql -uroot -pPASSWORD -B -e &amp;quot;select devip,device,readcomm from devices&amp;quot; nedi | grep &amp;quot;^[1-9]&amp;quot; |sed -e &#39;s/ /_/g&#39; | sed -e &#39;s/\//_/g&#39; | sort | tr &#39;[:lower:]&#39; &#39;[:upper:]&#39; &amp;gt; /tmp/nedilist.txt
+
+if [ -f &amp;quot;/etc/hosts.original&amp;quot; ]
+then
+        cat /etc/hosts.original &amp;gt; /etc/hosts
+else
+        cp /etc/hosts /etc/hosts.original
+fi
+
+/root/undotteddecimaltoip.py /tmp/nedidevicelist.txt &amp;gt;&amp;gt; /etc/hosts
+
+while IFS=$&#39;\t&#39; read ip name comm
+do
+echo -e &amp;quot;NOW ADDING DEVICE $name&amp;quot;
+/opt/observium/add_device.php $name $comm
+done &amp;lt; /tmp/nedidevicelist.txt
+
+/opt/observium/discovery.php -h new &amp;gt;&amp;gt; /dev/null 2&amp;gt;&amp;amp;1
+/opt/observium//poller.php -h all  &amp;gt;&amp;gt; /dev/null 2&amp;gt;&amp;amp;1
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now just remember to add to cron the correct files to perform auto discovery with NeDi and then feed Observium again to keep them updated.&lt;/p&gt;
+
+&lt;h2 id=&#34;verify&#34;&gt;Verify&lt;/h2&gt;
+
+&lt;p&gt;How can we verify it worked? One simple way could be to extract the device list from NeDi and from Observium and see if they match:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;/usr/bin/mysql -uroot -pPASSWORD -B -e &amp;quot;select device from devices&amp;quot; nedi | sed -e &#39;s/ /_/g&#39; | sed -e &#39;s/\//_/g&#39; | sort | tr &#39;[:lower:]&#39; &#39;[:upper:]&#39; &amp;gt; /tmp/nedilist.txt
+/usr/bin/mysql -uroot -pPASSWORD -B -e &amp;quot;select hostname from devices&amp;quot; observium | sed -e &#39;s/ /_/g&#39; | sed -e &#39;s/\//_/g&#39; | sort | grep -v &amp;quot;^AP&amp;quot; | tr &#39;[:lower:]&#39; &#39;[:upper:]&#39; &amp;gt; /tmp/observiumlist.txt
+diff /tmp/observiumlist.txt /tmp/nedilist.txt
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If the list in Observium is shorter check if any hostname contains a symbol that can&amp;rsquo;t be read by Observium.&lt;/p&gt;
+
+&lt;h1 id=&#34;see-the-result&#34;&gt;See the result&lt;/h1&gt;
+
+&lt;p&gt;Open a browser to port 80, login and go to Devices&amp;ndash;&amp;gt;List&amp;ndash;&amp;gt;Show to se all the devices discovered by NEDI.&lt;/p&gt;
+
+&lt;p&gt;Open a browser to port 81 to see the Observium interface and check all the devices.&lt;/p&gt;
+
+&lt;p&gt;Nice!&lt;/p&gt;
+
+&lt;h1 id=&#34;wrap-up&#34;&gt;Wrap up&lt;/h1&gt;
+
+&lt;p&gt;Open source software has many advantages, in this particular case it allowed me to integrate two different software in one solution. Fell free to suggest improvements to the script in the comments, I consider this just a &lt;a href=&#34;http://en.wikipedia.org/wiki/Proof_of_concept&#34;&gt;POC&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;WARNING&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;I&amp;rsquo;m not a systems engineer or a programmer&lt;/strong&gt;, use my code &lt;strong&gt;at your own risk&lt;/strong&gt;, I take &lt;strong&gt;no responsibility&lt;/strong&gt; for any damage caused by any of the script shown.&lt;/p&gt;
+
+&lt;h1 id=&#34;update-20160109-from-observium-to-librenms&#34;&gt;UPDATE 20160109 - from Observium to LibreNMS&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.observium.org/&#34;&gt;Observium&lt;/a&gt; has been forked to &lt;a href=&#34;http://www.librenms.org/&#34;&gt;LibreNMS&lt;/a&gt; due to &lt;a href=&#34;http://libertysys.com.au/blog/observium-and-gpl&#34;&gt;different views&lt;/a&gt; about &lt;a href=&#34;http://www.gnu.org/licenses/gpl-3.0.en.html&#34;&gt;GPL licensing&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Installation of both is quite easy, just follow the instructions on each website.&lt;/p&gt;
+
+&lt;p&gt;I updated my scripts to work with LibreNMS:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;#!/bin/bash
+
+\//_/g&#39; | sort | grep -v &amp;quot;^AP&amp;quot; | tr &#39;[:lower:]&#39; &#39;[:upper:]&#39; &amp;gt; /tmp/nedilist.txt
+
+PASSWORD=$1
+
+/usr/bin/mysql -uroot -p$PASSWORD -B -e &amp;quot;select devip,device,readcomm from devices&amp;quot; nedi | grep &amp;quot;^[1-9]&amp;quot; |sed -e
+ &#39;s/ /_/g&#39; | sed -e &#39;s/\//_/g&#39; | sort | tr &#39;[:lower:]&#39; &#39;[:upper:]&#39; &amp;gt; /tmp/nedidevicelist.txt
+
+if [ -f &amp;quot;/etc/hosts.original&amp;quot; ]
+then
+        cat /etc/hosts.original &amp;gt; /etc/hosts
+else
+        cp /etc/hosts /etc/hosts.original
+fi
+
+/root/undotteddecimaltoip.py /tmp/nedidevicelist.txt &amp;gt;&amp;gt; /etc/hosts
+
+while IFS=$&#39;\t&#39; read ip name comm
+do
+echo -e &amp;quot;NOW ADDING DEVICE $name&amp;quot;
+/opt/librenms/addhost.php $name ${comm,,} v2c
+done &amp;lt; /tmp/nedidevicelist.txt
+
+# DISCOVER AN POLL
+/opt/librenms/discovery.php -h new &amp;gt;&amp;gt; /dev/null 2&amp;gt;&amp;amp;1
+/opt/librenms/poller.php -h all  &amp;gt;&amp;gt; /dev/null 2&amp;gt;&amp;amp;1
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In case you need/want to clean the LibreNMS database:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;#!/bin/bash
+while IFS=&#39;&#39; read -r line || [[ -n &amp;quot;$line&amp;quot; ]]; do
+echo REMOVING HOST $line
+/opt/librenms/delhost.php $line
+done &amp;lt; &amp;lt;(/usr/bin/mysql -uroot -p$1 -B -e &amp;quot;select hostname from devices&amp;quot; librenms)
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

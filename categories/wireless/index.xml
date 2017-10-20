@@ -1,0 +1,691 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Wireless on IFCONFIG.IT </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>http://www.ifconfig.it/hugo/categories/wireless/</link>
+    <language>en-us</language>
+    
+    
+    <updated>Wed, 18 May 2016 15:40:47 &#43;0000</updated>
+    
+    <item>
+      <title>Cisco WLC roaming troubleshooting scripts</title>
+      <link>http://www.ifconfig.it/hugo/post/wlcroamingscripts/</link>
+      <pubDate>Wed, 18 May 2016 15:40:47 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/wlcroamingscripts/</guid>
+      <description>
+
+&lt;p&gt;As it often happens, everything begins with a call from a customer with a problem.&lt;/p&gt;
+
+&lt;p&gt;The problem is related to WiFi roaming in a warehouse with clients disconnecting from RDP sessions. The clients are industrial PCs installed on forklifts that move quite fast (and dangerously).&lt;/p&gt;
+
+&lt;h2 id=&#34;second-rule-of-troubleshooting-measure&#34;&gt;Second rule of troubleshooting: measure&lt;/h2&gt;
+
+&lt;p&gt;As the first rule is &lt;strong&gt;clearly identify the problem&lt;/strong&gt;, I skip to the second one.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;How can we measure roaming problems?&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;On Cisco WLC we can debug clients (up to 10 a the same time) and look for &amp;ldquo;Association&amp;rdquo; messages.&lt;/p&gt;
+
+&lt;p&gt;When a client roams correctly between APs we should see only &lt;strong&gt;RE&lt;/strong&gt;association messages. If the client for any reason drops the connection while moving it will start a new connetions sending an Association request to the AP.&lt;/p&gt;
+
+&lt;p&gt;But how many Association messages are too many? How can we check if some clients are associating/reassociating more than others?&lt;/p&gt;
+
+&lt;p&gt;Association messages are part of the behaviour of a normal WiFi network so it critical to distinguish what&amp;rsquo;s &lt;em&gt;normal&lt;/em&gt; from what&amp;rsquo;s a &lt;em&gt;problem&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;get-the-logs&#34;&gt;Get the logs&lt;/h3&gt;
+
+&lt;p&gt;We start getting the logs. Connect to WLC, debug up to 10 clients identified by MAC address, logs to a file. Easy huh?&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;debug client 7c:5c:f8:4a:79:82 7c:5c:f8:4a:7e:82 7c:5c:f8:4a:73:8d 7c:5c:f8:4a:7e:7d 7c:5c:f8:4a:7e:aa 7c:5c:f8:4b:9e:43 7c:5c:f8:4a:7e:41 7c:5c:f8:4a:7c:f7 7c:5c:f8:4a:7c:f7 7c:5c:f8:4a:7d:e2
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;count-the-messages&#34;&gt;Count the messages&lt;/h3&gt;
+
+&lt;p&gt;NOTE: I work on a Windows machine with some GNU tools installed so you can easily port these scripts on Linux/OSX. Feel free to send me a MacBookAir if you need my support on OSX ;-)&lt;/p&gt;
+
+&lt;p&gt;Association messages format:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;*apfMsConnTask_1: May 13 13:30:26.883: 7c:5c:f8:4a:7c:f7 Association received from mobile on BSSID 00:08:2f:fa:dc:b0
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Reassociation message format:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;*apfMsConnTask_7: May 13 13:25:48.487: 7c:5c:f8:4a:7e:41 Reassociation received from mobile on BSSID e0:89:9d:d2:31:e0
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now lets white a script that counts &lt;strong&gt;Association messages per AP&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;@echo off
+:loop
+cls
+echo ASSOCIATION EVENTS PER AP
+time /T
+grep &amp;quot; Association received&amp;quot; wlc_243_20160513.log | gawk &amp;quot;{print $12}&amp;quot; | sort | uniq -c | sort /R
+sleep 5
+goto loop
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In the output we see a list of APs (BSSIDs) ordered by the number of Association messages they received from one of our 10 debugged clients.&lt;/p&gt;
+
+&lt;p&gt;Since I named all my APs I prefer to replace the BSSIDs with AP names.&lt;/p&gt;
+
+&lt;p&gt;Create a sed script with a good name - I chose ap2name.sed&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;s/00:08:2f:4b:yy:xx/APB058/g
+s/1c:de:a7:1a:yy:xx/APD057/g
+s/1c:de:a7:1a:yy:xx/APD069/g
+s/1c:de:a7:1a:yy:xx/APA062/g
+s/00:08:2f:fa:yy:xx/APE068/g
+s/1c:de:a7:1a:yy:xx/APC053/g
+s/1c:de:a7:1a:yy:xx/APA064/g
+s/1c:de:a7:1a:yy:xx/APD055/g
+s/00:08:2f:fa:yy:xx/APA063/g
+s/dc:eb:94:11:yy:xx/APC071/g
+s/00:08:2f:fa:yy:xx/APC051/g
+s/00:08:2f:fa:yy:xx/APE067/g
+s/1c:de:a7:1a:yy:xx/APC054/g
+s/1c:de:a7:1a:yy:xx/APC052/g
+s/00:08:2f:fa:yy:xx/APB061/g
+s/00:08:2f:fa:yy:xx/APD070/g
+s/00:08:2f:fa:yy:xx/APD059/g
+s/00:08:2f:fa:yy:xx/APA065/g
+s/0c:27:24:0f:yy:xx/AP1410/g
+s/00:08:2f:fa:yy:xx/APE066/g
+s/1c:de:a7:1a:yy:xx/APD056/g
+s/0c:68:03:5f:yy:xx/AP1810/g
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Add it at the end of the grep command to see AP names instead of the mac address:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;@echo off
+:loop
+cls
+echo ASSOCIATION EVENTS PER AP
+time /T
+grep &amp;quot; Association received&amp;quot; wlc_243_20160513.log | gawk &amp;quot;{print $12}&amp;quot; | sort | uniq -c | sort /R | sed -f ap2name.sed
+sleep 5
+goto loop
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The output looks better now:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;ASSOCIATION PER AP
+07:55
+ 14 APA062
+ 14 APA063
+ 14 APD059
+  9 APB060
+  9 APC051
+  9 APB058
+  8 APC053
+  7 APB061
+  5 APC071
+  4 APD057
+  4 APA064
+  4 APC052
+  4 APE068
+  3 APD069
+  3 APD055
+  3 APD056
+  3 APC054
+  3 APD070
+  1 APA065
+  1 APE066
+  1 APE067
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With the same method we can count &lt;strong&gt;Reassociation messages per AP&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;@echo off
+:loop
+cls
+ECHO REASSOCIATION EVENTS PER AP
+time /T
+grep &amp;quot; Reassociation&amp;quot; wlc_243_20160513.log | gawk &amp;quot;{print $12}&amp;quot; | sort | uniq -c | sort /R | sed -f ap2name.sed
+sleep 5
+goto loop
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now focus on the clients, let&amp;rsquo;s count &lt;strong&gt;Association messages per client&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;@echo off
+:loop
+cls
+echo ASSOCIATION EVENTS PER CLIENT
+time /T
+grep &amp;quot; Association received&amp;quot; wlc_243_20160513.log | gawk &amp;quot;{print $5}&amp;quot; | sort | uniq -c | sort /R
+sleep 5
+goto loop
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And finally &lt;strong&gt;Reassociation messages per client&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;@echo off
+:loop
+cls
+echo REASSOCIATION EVENTS PER CLIENT
+time /T
+grep &amp;quot; Reassociation&amp;quot; wlc_243_20160513.log | gawk &amp;quot;{print $5}&amp;quot; | sort | uniq -c | sort /R | sed -f ap2name.sed
+sleep 5
+goto loop
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This is the final result:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/images/ap_batch_output.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;understand-the-output&#34;&gt;Understand the output&lt;/h3&gt;
+
+&lt;p&gt;What we see now is a good view of which clients and APs have more &lt;strong&gt;Association events&lt;/strong&gt;, that may be an indicator that they are not roaming correctly.&lt;/p&gt;
+
+&lt;p&gt;In the &lt;strong&gt;Association events per AP&lt;/strong&gt; output we can identify which APs are getting more association messages, possibly meaning clients moving towards that AP experience a coverage hole and a disconnection.&lt;/p&gt;
+
+&lt;h3 id=&#34;fix-the-problem&#34;&gt;Fix the problem&lt;/h3&gt;
+
+&lt;p&gt;I can&amp;rsquo;t really talk about how to fix the problem because it depends on your WiFi network design, AP placement, antennas in use, noise floor, interferers&amp;hellip; I just want to show you the results.&lt;/p&gt;
+
+&lt;p&gt;Before:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/images/ap-reass.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;After:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/images/ap-ass.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You see almost no Association messages while clients move around, it is a good sign roaming is working fine.&lt;/p&gt;
+
+&lt;h3 id=&#34;wrap-up&#34;&gt;Wrap up&lt;/h3&gt;
+
+&lt;p&gt;Use the counters _&lt;a href=&#34;https://en.wikipedia.org/wiki/Grain_of_salt&#34;&gt;cum granus salis&lt;/a&gt;_, their meaning really depends on your infrastructure, the position of the APs and how the clients move.&lt;/p&gt;
+
+&lt;p&gt;Sometimes you get many Associations on an AP that is the first one the clients connect to in the morning and that&amp;rsquo;s not a problem.&lt;/p&gt;
+
+&lt;p&gt;It is possible that an AP that receives many Associations request is workig perfectly fine but the previous one is the row is not correctly positioned or has the wrong settins so that&amp;rsquo;s the one causing roaming problems.&lt;/p&gt;
+
+&lt;p&gt;I strongly advise anybody who installs/manages WiFi network to study &lt;a href=&#34;https://www.cwnp.com/certifications/cwna&#34;&gt;CWNA&lt;/a&gt; for a better undestanding.&lt;/p&gt;
+
+&lt;p&gt;Enjoy!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>WLPC 2015 @ Berlin</title>
+      <link>http://www.ifconfig.it/hugo/post/wlpc-2015-berlin/</link>
+      <pubDate>Fri, 30 Oct 2015 21:31:57 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/wlpc-2015-berlin/</guid>
+      <description>
+
+&lt;p&gt;For the &lt;a href=&#34;http://www.ifconfig.it/wordpress/2014/10/wlcpeu/‎&#34;&gt;second year&lt;/a&gt; in a row I attended &lt;a href=&#34;http://www.wlanpros.com/&#34;&gt;Wireless Lan Professionals&lt;/a&gt; Conference Europe, this time in &lt;a href=&#34;http://berlin2015.wlanprosconference.com/&#34;&gt;Berlin&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;location&#34;&gt;Location&lt;/h3&gt;
+
+&lt;p&gt;The choice of location this time was much better, last year I went to Maastrich through Brussels, most people didn&amp;rsquo;t liked it since it&amp;rsquo;s not easy to reach.&lt;/p&gt;
+
+&lt;h3 id=&#34;the-sessions&#34;&gt;The sessions&lt;/h3&gt;
+
+&lt;p&gt;Session quality is high, mostly vendor neutral, speakers are well prepared and willing to share their knowledge and experiences.&lt;/p&gt;
+
+&lt;p&gt;Last year there were more sessions splitted in two different rooms. Looks like it&amp;rsquo;s hard to find speakers in Europe. No surprise nobody from Cisco was officially presenting a session but I spotted some attending.&lt;/p&gt;
+
+&lt;h3 id=&#34;the-bag&#34;&gt;The bag&lt;/h3&gt;
+
+&lt;p&gt;Last year&amp;rsquo;s &lt;a href=&#34;http://berlin2015.wlanprosconference.com/#sponsors&#34;&gt;attendee bag&lt;/a&gt; was richer, Ekahau just gave a hat but no software of wireless adapters, nothing from Metageek, an AP from Aruba (I still didn&amp;rsquo;t received it). I&amp;rsquo;m happy I&amp;rsquo;ve attended last year&amp;rsquo;s edition with more good stuff.&lt;/p&gt;
+
+&lt;h3 id=&#34;the-overall-exeperience&#34;&gt;The overall exeperience&lt;/h3&gt;
+
+&lt;p&gt;This was just the second edition of the event but for some reason it looked smaller, I saw a lot of enthusiasm from the attendance and most of the speakers but it was less enjoyable than last year&amp;rsquo;s.&lt;/p&gt;
+
+&lt;p&gt;I don&amp;rsquo;t think it&amp;rsquo;s a fault of the organizers, you can see they have passion for the topics and worked hard for the organization, maybe it&amp;rsquo;s just because Europe is not US so it&amp;rsquo;s hard to get more speakers to come. Maybe it&amp;rsquo;s a matter of european&amp;rsquo;s approach, there are less people blogging or willing to share, many are not active on Twitter. European engineers should improve on that aspect.&lt;/p&gt;
+
+&lt;p&gt;What I liked most? Meeting other wireless engineers. Ok, I&amp;rsquo;m not a 100% wireless engineer, I work for a system integrator and wireless is just a part of my job but on top of all the technical knowledge it was great to share experiences, meet people and learn something interesting in front of a good german beer.&lt;/p&gt;
+
+&lt;h3 id=&#34;the-hard-question-question&#34;&gt;The hard question question&lt;/h3&gt;
+
+&lt;p&gt;Do I plan to attend again next year? (if there will be another edition in Europe)&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m not sure. With many IT events during the year I&amp;rsquo;ll check both the bag and the speakers before the registration. the &lt;a href=&#34;https://vimeo.com/search?q=wlpc&#34;&gt;videos are recorded and available online for free&lt;/a&gt; so maybe it could be enough for me.&lt;/p&gt;
+
+&lt;p&gt;Unless they&amp;rsquo;ll do in Spain of course! ;-) /jk&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Meraki CMNA</title>
+      <link>http://www.ifconfig.it/hugo/post/cmna/</link>
+      <pubDate>Wed, 04 Mar 2015 21:39:29 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/cmna/</guid>
+      <description>&lt;p&gt;Today I&amp;rsquo;ve attended a &lt;a href=&#34;https://meraki.cisco.com/&#34;&gt;Meraki&lt;/a&gt; technical training course at &lt;a href=&#34;http://www.cisco.com/&#34;&gt;Cisco&lt;/a&gt; offices.&lt;/p&gt;
+
+&lt;p&gt;The training was organized in short presentations of product features followed by hands-on labs based on all the products available today.&lt;/p&gt;
+
+&lt;p&gt;I was suprised to find not only people from small companies or system integrators but more that 50% of the attendees were from Cisco Gold Partners sent to evaluate the products for &amp;ldquo;managed network&amp;rdquo; services. Cloud managed network gear is quite a hot topic today and I expect many projects in the future will involve this kind of solutions.&lt;/p&gt;
+
+&lt;p&gt;Included in the trainig day there is a complimentary Meraki demo kit (and t-shirt) that includes:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;1 LIC-MX64-SEC-3YR Meraki MX64 Advanced Security License and Support, 3 Years&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;1 MS220-8P-HW Meraki MS220-8P L2 Cloud Managed 8 Port GigE 124W PoE Switch&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;1 LIC-MS220-8P-3YR Meraki MS220-8P Enterprise License and Support, 3 Year&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;1 MX64-HW Meraki MX64 Cloud Managed Security Appliance&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;1 LIC-ENT-3YR Meraki MR Enterprise Cloud Controller License, 3 Years&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;1 MR32-HW Meraki MR32 Cloud Managed AP&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;That&amp;rsquo;s enough hardware to test many features and to do some POC for interested customers.&lt;/p&gt;
+
+&lt;p&gt;Thanks Meraki for both the training and the demo kit!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2015/04/meraki-cmna-signature.jpeg&#34; alt=&#34;Alt&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Wireless LAN Professionals Conference Europe</title>
+      <link>http://www.ifconfig.it/hugo/post/wlcpeu/</link>
+      <pubDate>Sat, 18 Oct 2014 09:13:48 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/wlcpeu/</guid>
+      <description>
+
+&lt;p&gt;Last week I had the opportunity to attend the first &lt;strong&gt;&lt;a href=&#34;http://www.wlanprosconference.com/&#34;&gt;Wireless LAN Professionals Conference&lt;/a&gt;&lt;/strong&gt; in Europe.&lt;/p&gt;
+
+&lt;p&gt;Wireless is an important part of my job, I designed and managed more than a few wireless networks installations and I know there are many challenges involved, I felt I needed to increase my knowledge so I had pretty high expectations from this event.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://assets.amuniversal.com/22e412106cba01301d46001dd8b71c47&#34; alt=&#34;ALT&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The schedule included two tracks of 8 sessions each and ten &amp;ldquo;Ten Talks&amp;rdquo; in one day and a half.&lt;/p&gt;
+
+&lt;p&gt;There are many aspects of the event that I really liked.&lt;/p&gt;
+
+&lt;h2 id=&#34;it-is-not-a-vendor-event&#34;&gt;It is not a vendor event&lt;/h2&gt;
+
+&lt;p&gt;Of course vendors were present, many speakers work for a vendors. The good part is the sessions were not just presentation of products but wireless concepts, best practices, installation advices, protocol behaviour that can be applied to any vendor, &lt;a href=&#34;http://www.ieee802.org/11/&#34;&gt;802.11&lt;/a&gt; is a standard right?&lt;/p&gt;
+
+&lt;h2 id=&#34;the-attendee-bag&#34;&gt;The attendee bag&lt;/h2&gt;
+
+&lt;p&gt;Every attendee of the conference receive a bag with many gadgets (AP, survey software, spectrum analyzer) that worth the price of the conference itself. That can be a strong argument for an employee to get the authorization from a manager to attend the event and in my case I use these material to study and do some test labs.&lt;/p&gt;
+
+&lt;h2 id=&#34;social&#34;&gt;Social&lt;/h2&gt;
+
+&lt;p&gt;Why attend an event like this in person instead of just watching the videos later? Simply because we need face-by-face conversations to share experiences, to know we&amp;rsquo;re not alone fighting for a proper design and survey, technology can&amp;rsquo;t replace human interactions.&lt;/p&gt;
+
+&lt;p&gt;Of course the event has its &lt;a href=&#34;https://twitter.com/search?q=%23WLPC_EU&amp;amp;src=typd&#34;&gt;Twitter hastag&lt;/a&gt; and many discussions are very interesting but connecting a Twitter account to an actual face and voice really makes a difference to me.&lt;/p&gt;
+
+&lt;h2 id=&#34;wrap-up&#34;&gt;Wrap up&lt;/h2&gt;
+
+&lt;p&gt;It was great to attend &lt;a href=&#34;http://www.wlanprosconference.com/&#34;&gt;WLCP&lt;/a&gt; and of course I&amp;rsquo;ll do my best to attend again to this event. I took a lot of notes during the sessions and added many wireless professionals to my list in Twitter.&lt;/p&gt;
+
+&lt;p&gt;My job is not focused on wifi only so I don&amp;rsquo;t expect to reach the level of expertise of other attendees but it was good to know that I did pretty well in my installations so far, that is a big motivation to keep studying &lt;a href=&#34;http://www.cwnp.com/&#34;&gt;CWNP&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;See you next year in WLCP!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>CWNA</title>
+      <link>http://www.ifconfig.it/hugo/post/cwna-2/</link>
+      <pubDate>Sun, 04 May 2014 16:58:55 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/cwna-2/</guid>
+      <description>
+
+&lt;p&gt;Last week I passed PW0-105 exam and obtained the &lt;a href=&#34;https://www.cwnp.com/certifications/cwna/&#34;&gt;CWNA&lt;/a&gt; certification:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2014/05/cwna-300x231.png&#34; alt=&#34;cwna&#34; /&gt;&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;I work with wireless network since 2005, I began installing some SoHo APs and in the last few years I designed and deployed many bigger networks, some of which are challenging high density environments.&lt;/p&gt;
+
+&lt;p&gt;I read many&lt;a href=&#34;http://www.cisco.com/c/en/us/solutions/enterprise/design-zone-mobility/index.html&#34;&gt; Cisco documents&lt;/a&gt; about wifi design and in &lt;a href=&#34;http://www.ifconfig.it/wordpress/2014/02/cleur2014/&#34;&gt;this year&amp;rsquo;s Cisco Live&lt;/a&gt; I attended many session related to wifi. After passing &lt;a href=&#34;http://www.ifconfig.it/wordpress/2014/02/ccna-wireless/&#34;&gt;CCNA-W&lt;/a&gt; I didn&amp;rsquo;t felt confident enough, I know how to design, install and troubleshoot a wireless network but I wanted to have a deeper knowledge of the technologies involved ant how the protocols work.&lt;/p&gt;
+
+&lt;p&gt;That&amp;rsquo;s the reason why I started the &lt;a href=&#34;https://www.cwnp.com&#34;&gt;CWNP&lt;/a&gt; path that one day may lead me to &lt;a href=&#34;https://www.cwnp.com/certifications/cwne&#34;&gt;CWNE&lt;/a&gt;. Wifi is growing fast and event if CCIE Wireless is very tempting I work with many vendors and I prefer a vendor agnostic approach.&lt;/p&gt;
+
+&lt;p&gt;My advice for any network engineer who works with wireless it to take this exam or at least read the &lt;a href=&#34;https://www.cwnp.com/product/cwnasg/&#34;&gt;study guide&lt;/a&gt; that is clear and well written.&lt;/p&gt;
+
+&lt;h4 id=&#34;useful-links-for-wifi-in-general&#34;&gt;Useful links for wifi in general&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.cisco.com/c/en/us/solutions/enterprise/design-zone-mobility/index.html&#34;&gt;Cisco Design Zone for Mobility&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://wlanbook.com/&#34;&gt;WLAN Book&lt;/a&gt;  offers no cost tips, analysis, and tools related to WLAN products and technologies&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.wlanpros.com/&#34;&gt;WLAN Pros&lt;/a&gt; by Keith Parsons&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://vimeo.com/keithrparsons&#34;&gt;Videos of WLAN Pro 2014 conference&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://community.arubanetworks.com/t5/Aruba-Validated-Reference-Design/tkb-p/ArubaVDRs&#34;&gt;Aruba Validated Reference Design Guides&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://wirelessdefence.org/&#34;&gt;Wirelessdefence.org&lt;/a&gt; - A Wireless LAN (WLAN) security site provided for 802.11 (aka Wireless, aka WI-FI) - Security Auditors and Penetration Testers.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.qsl.net/pa2ohh/jsffield.htm &#34;&gt;Free Space Path Loss Calculator&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.wi-fi.org/certified-products-search&#34;&gt;The Wi-Fi CERTIFIED™ Product Finder provides a real-time list of Wi-Fi CERTIFIED products in a variety of categories. &lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.theruckusroom.net/&#34;&gt;The Ruckus Room&lt;/a&gt;&lt;/p&gt;
+
+&lt;h5 id=&#34;security&#34;&gt;Security&lt;/h5&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.pcisecuritystandards.org/pdfs/PCI_DSS_Wireless_Guidelines.pdf&#34;&gt;PCI Wireless Guidelines&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.sans.org/security-resources/policies/wireless.php&#34;&gt;SANS Wireless Security Policy Templates&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://csrc.nist.gov/publications/PubsTC.html#Communications%20&amp;amp; Wireless&#34;&gt;NIST Security&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>AirPcap</title>
+      <link>http://www.ifconfig.it/hugo/post/airpcap/</link>
+      <pubDate>Mon, 28 Apr 2014 13:06:27 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/airpcap/</guid>
+      <description>
+
+&lt;p&gt;Wireless traffic packet capture is not easy as wired traffic. Linux and OSX have several solutions but if you&amp;rsquo;re stuck with Windows the first problem is to find a compatible adapter.&lt;/p&gt;
+
+&lt;p&gt;My choice is &lt;a href=&#34;http://www.riverbed.com/products-solutions/products/network-performance-management/wireshark-enhancement-products/Wireless-Traffic-Packet-Capture.html&#34;&gt;AirPcap&lt;/a&gt;, fully compatible with Wireshark and very esay to install.&lt;/p&gt;
+
+&lt;h2 id=&#34;install-and-setup&#34;&gt;Install and setup&lt;/h2&gt;
+
+&lt;p&gt;Download and install &lt;a href=&#34;http://www.wireshark.org/&#34;&gt;Wireshark&lt;/a&gt; and &lt;a href=&#34;https://support.riverbed.com/content/support/software/cascade/airpcap.html&#34;&gt;AirPcap drivers&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Using AirPcap Control Panel, set the channel to listen. Each adapter can listen one channel ad time, that&amp;rsquo;s why there&amp;rsquo;re bundles with 3 adapters if you use channel 1,6,11 in your WLAN.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2014/04/airpcap_control_panel.png&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2014/04/airpcap_control_panel-300x248.png&#34; alt=&#34;airpcap_control_panel&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Start Wireshark. If the WiFi network uses WPA or WEP encryption set the keys, instructions &lt;a href=&#34;http://wiki.wireshark.org/HowToDecrypt802.11&#34;&gt;HERE&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Notice that Wireshark can&amp;rsquo;t decrypt Enterprise mode WPA/WPA2.&lt;/p&gt;
+
+&lt;p&gt;Now you cant start to capture WiFi traffic selecting AirPcap interface. The list of supported display filters for 802.11 is &lt;a href=&#34;http://www.wireshark.org/docs/dfref/w/wlan.html&#34;&gt;HERE&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>CCNA-Wireless</title>
+      <link>http://www.ifconfig.it/hugo/post/ccna-wireless/</link>
+      <pubDate>Sat, 01 Feb 2014 10:59:14 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/ccna-wireless/</guid>
+      <description>&lt;p&gt;I took advantage of my participation at &lt;a href=&#34;http://www.ifconfig.it/wordpress/2014/02/cleur2014/&#34;&gt;Cisco Live 2014&lt;/a&gt; to book a free Cisco exam &lt;a href=&#34;http://www.cisco.com/web/learning/exams/list/iuwne.html&#34;&gt;IUWNE&lt;/a&gt;. I passed with a strict margin but a pass is a pass right?&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2014/02/CCNA_wireless_large.jpg&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2014/02/CCNA_wireless_large.jpg&#34; alt=&#34;CCNA_wireless_large&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ve prepared the exam with the &lt;a href=&#34;http://www.ciscopress.com/store/ccna-wireless-640-722-iuwne-quick-reference-9781587133152&#34;&gt;Cisco Press Quick Reference&lt;/a&gt; since many topics are familiar to me and I didn&amp;rsquo;t hat the time to read the full &lt;a href=&#34;http://www.ciscopress.com/store/ccna-wireless-official-exam-certification-guide-ccna-9781587202117&#34;&gt;Exam Certification Guide&lt;/a&gt; that is quite old (2008).&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Cisco WLC roaming debug &#43; gawk &#43; sed</title>
+      <link>http://www.ifconfig.it/hugo/post/wlc-logs-and-sed/</link>
+      <pubDate>Tue, 14 May 2013 15:18:05 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/wlc-logs-and-sed/</guid>
+      <description>&lt;p&gt;Quite often I have to debug a wireless client roaming across lighweight Cisco APs to confirm it moves between APs as expected in the network design.&lt;/p&gt;
+
+&lt;p&gt;On the WLC the command is &amp;ldquo;debug client MAC&amp;rdquo;. The command shows all the events related to the specific client including:&lt;/p&gt;
+
+&lt;blockquote&gt;Reassociation received from mobile on AP 00:23:ab:ba:YY:XX&lt;/blockquote&gt;
+
+&lt;p&gt;that means client moved to the AP with radio MAC 00:23:ab:ba:YY:XX. Since I&amp;rsquo;ve named all the APs and and I&amp;rsquo;ve a map with all the positions, I&amp;rsquo;d like to see the names in the debug instead of MAC. Lastest WLC release (7.4.100) still shows only MAC so it&amp;rsquo;s time to fix that.&lt;/p&gt;
+
+&lt;p&gt;This site has 33 APs connected to this controller. The first step is to create file with a list containing AP NAME,MAC. See below hot to get the data:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/03/aplist.png&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/03/aplist-300x107.png&#34; alt=&#34;aplist&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;We name this file &amp;ldquo;aplist.txt&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;We can use &lt;a href=&#34;http://www.gnu.org/software/sed/&#34;&gt;sed&lt;/a&gt; to replace the mac address with the name, with a command like this:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+&gt; 
+&gt; sed -e &#34;s/00:14:f2:aa:bb:cc/G057/g&#34;
+&gt; 
+&gt; &lt;/blockquote&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;Since copy/paste is not a proper way to do things, we ca use &lt;a href=&#34;http://www.gnu.org/software/gawk/&#34;&gt;gawk&lt;/a&gt; to create all the sed lines we need.&lt;/p&gt;
+
+&lt;p&gt;With just a single awk line we read the aplist.txt file and write all the required sed commands:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+&gt; 
+&gt; awk &#39;BEGIN { FS=&#34;,&#34; } { print &#34;s/&#34; $2 &#34;/&#34; $1&#34;/g&#34;}&#39; aplist.txt &gt; sost.sed
+&gt; 
+&gt; &lt;/blockquote&gt;
+
+&lt;p&gt;The result is a file with one line with the correct sed command for each AP NAME/MAC couple.&lt;/p&gt;
+
+&lt;p&gt;So now the action begins. We connect via SSH to the controller and send all the output to /tmp/wlc.log:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+&gt; 
+&gt; ssh 10.106.0.10 | tee /tmp/wlc.log
+&gt; 
+&gt; &lt;/blockquote&gt;
+
+&lt;p&gt;My advice is to disable the ssh inactivity timeout on the WLC with:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+&gt; 
+&gt; config sessions timeout 0
+&gt; 
+&gt; 
+
+&gt; 
+&gt; &lt;/blockquote&gt;
+
+&lt;p&gt;Then enable the client debug with:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+&gt; 
+&gt; debug client 84:00:d2:aa:bb:cc
+&gt; 
+&gt; &lt;/blockquote&gt;
+
+&lt;p&gt;Now it&amp;rsquo;s time to manipulate the output. In another shell we exec:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+&gt; 
+&gt; tail -f /tmp/wlc.log | grep &#34;association &#34; | sed -f sost.sed
+&gt; 
+&gt; &lt;/blockquote&gt;
+
+&lt;p&gt;So now the log from WLC becomes:&lt;/p&gt;
+
+&lt;blockquote&gt;Reassociation received from mobile on AP APxx&lt;/blockquote&gt;
+
+&lt;p&gt;That&amp;rsquo;s quite easier to read, don&amp;rsquo;t you think?&lt;/p&gt;
+
+&lt;p&gt;Tech tip: if you see &amp;ldquo;association&amp;rdquo; in the logs it means the roaming didn&amp;rsquo;t worked and the client disconnected. If you see &amp;ldquo;Reassociation&amp;rdquo; the roaming worked fine.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m sure that after the effort to write those scripts the next WLC release will show both ap name and mac in the logs but I enjoyed the opportunity to learn more about sed and awk, two very powerful tools.&lt;/p&gt;
+
+&lt;p&gt;HTH&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Antenna radiation pattern, law of sines, free space propagation loss</title>
+      <link>http://www.ifconfig.it/hugo/post/wifi-law-of-sines/</link>
+      <pubDate>Sat, 20 Apr 2013 15:55:01 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/wifi-law-of-sines/</guid>
+      <description>&lt;p&gt;I work with WiFi more than I admit to myself and now that I have more time to study outside the CCIE R&amp;amp;S blueprint boundaries it&amp;rsquo;s time to focus on other technologies.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ve been involved in an interesting high density WiFi project and after a successfull deployment there&amp;rsquo;re some things I&amp;rsquo;d like to check. As Cisco partner my company had support for the network design from the same team involved in London Olympics and Cisco Live! so it was a great opportunity to learn a lot.&lt;/p&gt;
+
+&lt;p&gt;The first topic I want to explore is antenna radiation pattern and what it means for network coverage.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s start with an example. &lt;a href=&#34;http://www.cisco.com/en/US/prod/collateral/wireless/ps5678/ps11983/data_sheet_c78-686782.html&#34;&gt;Cisco Aironet 3600&lt;/a&gt; has a wide &lt;a href=&#34;http://www.cisco.com/en/US/prod/collateral/wireless/ps7183/ps469/at_a_glance_c45-513837.pdf&#34;&gt;choice of antennas&lt;/a&gt;. Let&amp;rsquo;s say we choose to use &lt;a href=&#34;http://www.cisco.com/en/US/docs/wireless/antenna/installation/guide/ant2566p4w.pdf&#34;&gt;AIR-ANT2566P4W-R&lt;/a&gt; mounted in a 10 meters ceiling pointing down to cover a big hall like a fairground.&lt;/p&gt;
+
+&lt;p&gt;How can we calculate the coverage area on the ground (where the clients are) and the expected signal power? We need this data to plan where the APs will be installed and how many APs we&amp;rsquo;ll need to cover the area.&lt;/p&gt;
+
+&lt;p&gt;WARNING: math involved!&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;The first factor to consider is &amp;ldquo;free space loss&amp;rdquo;: the radio signal loses power then travelling through space, the amount of power is based on the distance and the frequency.&lt;/p&gt;
+
+&lt;p&gt;The formula is &lt;a href=&#34;http://www.radio-electronics.com/info/propagation/path-loss/free-space-formula-equation.php&#34;&gt;HERE&lt;/a&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/04/fspl_formula.png&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/04/fspl_formula-300x65.png&#34; alt=&#34;fspl_formula&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/04/fspl_formula2.png&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/04/fspl_formula2-300x52.png&#34; alt=&#34;fspl_formula2&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;If we apply the formula using 10 meters, a frequency of 2440Mhz (around the middle of 802.11g range) and an antenna gain of 6dBi we get a just litte more than &lt;strong&gt;54dB&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;The maximum &lt;a href=&#34;http://en.wikipedia.org/wiki/Equivalent_isotropically_radiated_power&#34;&gt;EIRP&lt;/a&gt; permitted in Europe for 2,4Ghz is 20 dBm.&lt;/p&gt;
+
+&lt;p&gt;That meas we expect to measure a signal power of  &lt;strong&gt;20 - 54 = -34 dBm&lt;/strong&gt; when we are just under of the antenna at a distance of 10 meters.&lt;/p&gt;
+
+&lt;p&gt;But what if we move around? This is where the radiation pattern must be checked.&lt;/p&gt;
+
+&lt;p&gt;I recommend to read &amp;ldquo;&lt;a href=&#34;http://www.cisco.com/en/US/prod/collateral/wireless/ps7183/ps469/prod_white_paper0900aecd806a1a3e.html&#34;&gt;Antenna Patterns and Their Meaning&lt;/a&gt;&amp;rdquo; before going further.&lt;/p&gt;
+
+&lt;p&gt;What&amp;rsquo;s the pattern of our antenna? We can find it in the antenna &lt;a href=&#34;http://www.cisco.com/en/US/docs/wireless/antenna/installation/guide/ant2566p4w.pdf&#34;&gt;Data Sheet&lt;/a&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/04/radiation_pattern.png&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/04/radiation_pattern-300x96.png&#34; alt=&#34;radiation_pattern&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s start with the Azimuth Plane and 2,4GHz band.&lt;/p&gt;
+
+&lt;p&gt;This is the planned physical installation:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/04/triangle.png&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/04/triangle-210x300.png&#34; alt=&#34;triangle&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;From the data sheet we know the angle at the top is 105 degrees and the ceiling height is 10 meters. We need to know the base of the triangle. The good part is trigonometry helps us and the &lt;a href=&#34;http://en.wikipedia.org/wiki/Law_of_sines&#34;&gt;Law of sines&lt;/a&gt; tells us the triangle has a base of 26 meters.&lt;/p&gt;
+
+&lt;p&gt;That means we expect to read -37dBm when we&amp;rsquo;re 14 meters away from the AP on the Azimuth plane. The same formula tells us we read the same power from 7 meteres on the Elevation plane.&lt;/p&gt;
+
+&lt;p&gt;So on the groud we can track a rectangle 26 meters wide and 14 meters tall where the expected signal  power is at least -37dBm. A lower signal expectation would mean a bigger area.&lt;/p&gt;
+
+&lt;p&gt;Now it&amp;rsquo;s easy to place our APs to cover all the area (notice the picture show circles, replace it with rectangles).&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/04/ap_placement.png&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/04/ap_placement-300x295.png&#34; alt=&#34;ap_placement&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Many factors are involved in WiFi network design, in this post I just started to play with some numbers and concepts, hope you enjoy.&lt;/p&gt;
+
+&lt;p&gt;Documents to read:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.cisco.com/web/strategy/docs/education/cisco_wlan_design_guide.pdf&#34;&gt;Cisco High Density WiFi Design&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.cisco.com/en/US/prod/collateral/wireless/ps7183/ps469/prod_white_paper0900aecd806a1a3e.html&#34;&gt;Antenna Patterns and their Meaning&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Wonky Wisp, Smokeping and AWS free tier</title>
+      <link>http://www.ifconfig.it/hugo/post/wonky-wisp-smokeping-and-aws-free-tier/</link>
+      <pubDate>Mon, 15 Apr 2013 20:35:11 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/wonky-wisp-smokeping-and-aws-free-tier/</guid>
+      <description>&lt;p&gt;My home network is connected to the Internet via radio bridge. The reason is ADSL services were not available a couple of years ago, now it is but since the radio bridge is cheap and works (most of the time) I really don&amp;rsquo;t care to change.&lt;/p&gt;
+
+&lt;p&gt;Some time ago I started to notice downtime of the Internet connection, I sent a few emails to the wisp but the answer was always the same: &amp;ldquo;we don&amp;rsquo;t see a problem right now&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;That was quite clear, I can send the email only if the Internet connection is active! Their time to react is very slow so I needed a tool to monitor my connection and a server to do it.&lt;/p&gt;
+
+&lt;p&gt;My first choice of tool to monitor connections is &lt;a href=&#34;http://oss.oetiker.ch/smokeping/&#34;&gt;Smokeping&lt;/a&gt;. I use it to monitor not only link latency and packet loss but also DNS, Radius and other services response time. It&amp;rsquo;s very easy to configure and the graphs are very clear.&lt;/p&gt;
+
+&lt;p&gt;But where could I install Smokeping? &lt;a href=&#34;http://aws.amazon.com/free/&#34;&gt;Amazon AWS Free Usage Tier&lt;/a&gt; seemed the perfect choice! Amazon offers a micro istance for free for 12 months, read &lt;a href=&#34;http://aws.amazon.com/free/faqs/&#34;&gt;FAQ&lt;/a&gt; for details.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/04/aws_free_tier.png&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/04/aws_free_tier-300x208.png&#34; alt=&#34;aws_free_tier&#34; /&gt;&lt;/a&gt;So I&amp;rsquo;ve registered and installed a Debian 32 bit &lt;a href=&#34;https://aws.amazon.com/amis&#34;&gt;AMI&lt;/a&gt;. The entire operation took me less than 15 minutes.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;I was quite surprised I can access my server via SSH using the provided keys, somehow I&amp;rsquo;ve expected to access the server through a proprietary shell or front end.&lt;/p&gt;
+
+&lt;p&gt;The next step is to to install smokeping with &amp;ldquo;aptitute install smokeping&amp;rdquo; and I&amp;rsquo;m ready to configure it.&lt;/p&gt;
+
+&lt;p&gt;I did just a basic configuration, what I needed was to check the reachability of my home router and the next hop that is the radio bridge:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/04/smoke_aws.png&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/04/smoke_aws-300x125.png&#34; alt=&#34;smoke_aws&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The only configuration I&amp;rsquo;ve added to Smokeping is an action to perform a traceroute and log it when more than half of the packets are lost.&lt;/p&gt;
+
+&lt;p&gt;Add this to /etc/smokeping/config.d/Alerts&lt;/p&gt;
+
+&lt;blockquote&gt;+ totalloss
+type = loss
+pattern = &gt;50%
+to = |/bin/traceroute.bin
+comment = lost half packets&lt;/blockquote&gt;
+
+&lt;p&gt;and set the alert in the host section in /etc/smokeping/config.d/Targets&lt;/p&gt;
+
+&lt;blockquote&gt;++ NEXT-HOP
+menu = NEXT-HOP
+title = NEXT-HOP 94.xx.xx.xx
+host = 94.xx.xx.xx
+alerts = totalloss&lt;/blockquote&gt;
+
+&lt;p&gt;The script _/bin/traceroute.bin_ is very simple:&lt;/p&gt;
+
+&lt;blockquote&gt;date &gt;&gt; /var/log/trace
+tracepath -b 94.xx.xx.xx &gt;&gt; /var/log/trace&lt;/blockquote&gt;
+
+&lt;p&gt;When the network goes down now I can see where the problem is and &lt;del&gt;complain&lt;/del&gt; send a detailed email to the WISP.&lt;/p&gt;
+
+&lt;p&gt;So did they solve the problem? Of course not! The Wisp backbone is made by both fiber and wireless bridges, looks like they have an issue with a link but just don&amp;rsquo;t care or know how to fix it.&lt;/p&gt;
+
+&lt;p&gt;The conclusion is my Internet connection is still wonky, but at least I had the opportunity to understand a little bit more what AWS is and to play with a quite interesting technology for free thanks to Amazon.&lt;/p&gt;
+
+&lt;p&gt;I hope they&amp;rsquo;ll keep it free even after the first 12 months, the micro instance is micro but big enough for many small tasks.&lt;/p&gt;
+
+&lt;p&gt;HTH&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>CCIEWireless blog and Youtube Channel</title>
+      <link>http://www.ifconfig.it/hugo/post/cciewireless-blog/</link>
+      <pubDate>Mon, 08 Oct 2012 21:42:34 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/cciewireless-blog/</guid>
+      <description>&lt;p&gt;A great &lt;a href=&#34;http://wirelessccie.blogspot.it/&#34;&gt;blog&lt;/a&gt; and Youtube channel with a lot of resources for Cisco Wireless:&lt;/p&gt;
+
+&lt;p&gt;[youtube]&lt;a href=&#34;http://www.youtube.com/watch?v=y6gxNMo3CW4&amp;amp;list=UUm3YBBhcJRokmAD1LaJg3hQ&amp;amp;index=1&amp;amp;feature=plcp&#34;&gt;http://www.youtube.com/watch?v=y6gxNMo3CW4&amp;amp;list=UUm3YBBhcJRokmAD1LaJg3hQ&amp;amp;index=1&amp;amp;feature=plcp&lt;/a&gt;[/youtube]&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>inSSIDer</title>
+      <link>http://www.ifconfig.it/hugo/post/inssider/</link>
+      <pubDate>Wed, 02 May 2012 09:22:42 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/inssider/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://www.metageek.net/products/inssider/&#34;&gt;inSSIDer&lt;/a&gt; is a free tool to monitor and troubleshoot WiFi networks. Even if it isn&amp;rsquo;t as complete as other solutions like &lt;a href=&#34;http://www.metageek.net/products/chanalyzer/&#34;&gt;Chanalyzer &lt;/a&gt;or &lt;a href=&#34;http://www.flukenetworks.com/enterprise-network/wlan-security-and-analysis&#34;&gt;AirMagnet&lt;/a&gt; it can be used as a first step to check the channels usage, power levels and the mac addresses of the APs.&lt;/p&gt;
+
+&lt;p&gt;Download it for free on the &lt;a href=&#34;http://www.metageek.net/products/inssider/&#34;&gt;MetaGeek.com&lt;/a&gt; website.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

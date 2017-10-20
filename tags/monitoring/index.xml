@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Monitoring on ifconfig.it</title>
+    <link>http://www.ifconfig.it/hugo/tags/monitoring/</link>
+    <description>Recent content in Monitoring on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Tue, 23 Mar 2010 18:01:50 +0000</lastBuildDate>
+    <atom:link href="http://www.ifconfig.it/hugo/tags/monitoring/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Smoke Ping</title>
+      <link>http://www.ifconfig.it/hugo/post/smoke-ping/</link>
+      <pubDate>Tue, 23 Mar 2010 18:01:50 +0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/smoke-ping/</guid>
+      <description>&lt;p&gt;SmokePing keeps track of your network latency:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Best of breed latency visualisation.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Interactive graph explorer.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Wide range of latency measurment plugins.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Master/Slave System for distributed measurement.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Highly configurable alerting system.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Live Latency Charts with the most &amp;lsquo;interesting&amp;rsquo; graphs.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Free and OpenSource Software written in Perl written by Tobi Oetiker, the creator of MRTG and RRDtool&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://oss.oetiker.ch/smokeping/&#34;&gt;LINK&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

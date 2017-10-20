@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pppoe on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/pppoe/</link>
+    <description>Recent content in Pppoe on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 27 Aug 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/pppoe/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>MTU</title>
+      <link>https://www.ifconfig.it/hugo/post/mtu-fun/</link>
+      <pubDate>Wed, 27 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/mtu-fun/</guid>
+      <description>Today I had a chat about MTU with a customer. MTU is my second favorite topic for tech talks in front of the coffee machine, STP is still the first because there are so many misconceptions about it. Even QoS is funny, people has many creative ideas and expectations from it.
+Let&amp;rsquo;s talk about MTU. Everything begun today from a ping (it&amp;rsquo;s italian in the screenshot, but you know the output by heart right?</description>
+    </item>
+    
+    <item>
+      <title>PPPoE peer IP address</title>
+      <link>https://www.ifconfig.it/hugo/post/pppoe-peer-ip-address/</link>
+      <pubDate>Sun, 13 Mar 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/pppoe-peer-ip-address/</guid>
+      <description>Quick note on PPPoE address assignment.
+!!!!! IPCP !!!!!
+!!!!! CLIENT
+interface Dialer1 ip address negotiated encapsulation ppp dialer pool 1 dialer idle-timeout 0 dialer persistent end
+!!!!! SERVER
+ip dhcp-server 10.0.12.1 interface Virtual-Template10 ip address 10.0.32.2 255.255.255.0 peer default ip address dhcp end
+!!!!! DHCP !!!!!
+!!!!! CLIENT
+interface Dialer1 ip address dhcp encapsulation ppp dialer pool 1 dialer idle-timeout 0 dialer persistent end
+!!!!! SERVER
+interface Virtual-Template10 ip address 10.</description>
+    </item>
+    
+  </channel>
+</rss>

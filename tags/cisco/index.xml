@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cisco on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/cisco/</link>
+    <description>Recent content in Cisco on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Tue, 17 Oct 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/cisco/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>NFD16 day two - Cisco Project Starship a.k.a. Intersight</title>
+      <link>https://www.ifconfig.it/hugo/post/nfd16day2ciscostartship/</link>
+      <pubDate>Tue, 17 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/nfd16day2ciscostartship/</guid>
+      <description>Day two of NFD16 with Cisco. The presentation was split in two parts. First part for Intersight, second part for Tetration.
+I&amp;rsquo;ll post here just a few thoughts about Intersight.
+Merakify all the servers! What&amp;rsquo;s Cisco Intersight? If you&amp;rsquo;re familiar with cloud-managed devices like Meraki the concept is quite similar.
+A Cisco server runs the Device Connector client that links to a central management portal that runs on Cisco DC SaaS.</description>
+    </item>
+    
+    <item>
+      <title>TAC Security Workshop - Poland</title>
+      <link>https://www.ifconfig.it/hugo/post/cisco-tac-workshop-krakow/</link>
+      <pubDate>Sat, 29 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/cisco-tac-workshop-krakow/</guid>
+      <description>This week I attended and event organized by Cisco TAC in Krakow.
+I&amp;rsquo;ve been in may Cisco events (Live, PVT, Pint etc.) but It was the first time for me at a TAC workshop and I was curious about it.
+The Agenda Agenda was clear: tree days with TAC engineers presenting best practices for installation and configuration with a clear focus on troubleshooting methods and tools.
+I was not disappointed by the contents: marketing was reduced to minimum, all the presenters were skilled TAC engineers and all the sessions were very detailed.</description>
+    </item>
+    
+    <item>
+      <title>Cisco Live Europe 2017 Berlin</title>
+      <link>https://www.ifconfig.it/hugo/post/cleur2017/</link>
+      <pubDate>Tue, 28 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/cleur2017/</guid>
+      <description>It&amp;rsquo;s time for CLEUR again, for the second year in Berlin, that&amp;rsquo;s 5 years in a row and I still get excited when the date arrives.
+I won&amp;rsquo;t repeat many consideration&amp;rsquo;s I&amp;rsquo;ve already made last year.
+This year my main focus was security, I attended many FirePower, AMP and FTD sessions. General routing/switching and wireless are topics I can see in other partner events or learn by myself watching recordings later.</description>
+    </item>
+    
+    <item>
+      <title>Cisco ASA boot problem</title>
+      <link>https://www.ifconfig.it/hugo/post/asa_restore_failed_image/</link>
+      <pubDate>Wed, 03 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/asa_restore_failed_image/</guid>
+      <description>Cisco ASA memory problem
+ASA doesn&amp;rsquo;t boot:
+Launching BootLoader... Default configuration file contains 1 entry. Searching / for images to boot. Loading /asa825-k8.bin... Booting...  Press ESC to interrupt boot:
+Use BREAK or ESC to interrupt boot. Use SPACE to begin boot immediately.  We&amp;rsquo;re now in rommon:
+rommon #0&amp;gt;  Check variables:
+rommon #3&amp;gt; set ROMMON Variable Settings: ADDRESS=0.0.0.0 SERVER=0.0.0.0 GATEWAY=0.0.0.0 PORT=Ethernet0/0 VLAN=untagged IMAGE= CONFIG= LINKTIMEOUT=20 PKTTIMEOUT=4 RETRY=20  Config network parameters.</description>
+    </item>
+    
+    <item>
+      <title>Drop and bogons list on Cisco router</title>
+      <link>https://www.ifconfig.it/hugo/post/2016-03-28-dropbogons/</link>
+      <pubDate>Mon, 28 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2016-03-28-dropbogons/</guid>
+      <description>The Cyberspace a.k.a. the Internet is full of bad guys wanting to mess with our computers right?
+Of course everyone of us have a firewall configured with proper access and inspection rules, don&amp;rsquo;t ya?
+Spamhaus and Team Cymru can help providing list of known bad IPs and subnets that should be filtered in our networks.
+Spamhaus DROP list  &amp;ldquo;DROP (Don&amp;rsquo;t Route Or Peer) and EDROP are advisory &amp;ldquo;drop all traffic&amp;rdquo; lists, consisting of netblocks that are &amp;ldquo;hijacked&amp;rdquo; or leased by professional spam or cyber-crime operations (used for dissemination of malware, trojan downloaders, botnet controllers).</description>
+    </item>
+    
+    <item>
+      <title>Cisco Live 2016 Europe</title>
+      <link>https://www.ifconfig.it/hugo/post/2016-02-21-cleur2016/</link>
+      <pubDate>Sun, 21 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2016-02-21-cleur2016/</guid>
+      <description>Hi CLEUR! This year, for the fourth year in a row, I&amp;rsquo;ve attended Cisco Live Europe.
+I&amp;rsquo;ve earned the &amp;ldquo;Netvet&amp;rdquo; status, that means my name was on the wall before the keynote, ain&amp;rsquo;t that great? ;-)
+Aesthetics apart, this year&amp;rsquo;s event was the biggest I&amp;rsquo;ve attended so far, twelve thousands people in a huge venue (for European standards) and a lot of sessions available.
+Here&amp;rsquo;s my recap of the event.</description>
+    </item>
+    
+    <item>
+      <title>Welcome 2016 Cisco Champions</title>
+      <link>https://www.ifconfig.it/hugo/post/2016-01-29-ciscochampion2016/</link>
+      <pubDate>Fri, 29 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2016-01-29-ciscochampion2016/</guid>
+      <description>With a good amount of surprise I&amp;rsquo;ve been nominated Cisco Champion for 2016:
+
+ Because of your impactful and valuable contributions to the IT community, you have been chosen out of hundreds of nominees to be part of the 2016 Cisco Champion program. Congratulations!
+ Cisco Champion resources Communities
+Twitter list</description>
+    </item>
+    
+    <item>
+      <title>Simple Cisco switch inventory with bash and snmp</title>
+      <link>https://www.ifconfig.it/hugo/post/2015-12-02-simple-cisco-switch-inventory-with-bash-and-snmp/</link>
+      <pubDate>Wed, 02 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2015-12-02-simple-cisco-switch-inventory-with-bash-and-snmp/</guid>
+      <description>Scripts, usually I write some because I don&amp;rsquo;t like repetitive tasks and I&amp;rsquo;m lazy, meaning I prefer automation over useless hard work.
+Don&amp;rsquo;t know where I found this quote but I like it:
+Don&#39;t spend your time doing work a well-trained monkey could do.  Today&amp;rsquo;s request was quite simple: get model and serial number from a bunch of Cisco switches.
+I now NEDI, Observium and LibreNMS can do that but I preferred to write a quick script I could use as a one shot tool instead of a complete software solution.</description>
+    </item>
+    
+    <item>
+      <title>Quick config: SSL VPN on Cisco IOS via CLI</title>
+      <link>https://www.ifconfig.it/hugo/post/2015-08-03-quick-config-ssl-vpn-on-cisco-ios-via-cli/</link>
+      <pubDate>Mon, 03 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2015-08-03-quick-config-ssl-vpn-on-cisco-ios-via-cli/</guid>
+      <description>Platform: CISCO2921 IOS version: 15.3(3)M5
+Load the anyconnect package on the flash of the router and configure anyconnect client package (be patient, this may take a while&amp;hellip;):
+crypto vpn anyconnect flash0:/webvpn/anyconnect-win-4.1.04011-k9.pkg sequence 1 SSLVPN Package SSL-VPN-Client (seq:1): installed successfully  Create a virtual template, that&amp;rsquo;s the interface the VPN clients will attach to:
+interface Virtual-Template1 ip address 172.31.255.254 255.255.255.0  Create a local pool to assign IP addresses to VPN clients:</description>
+    </item>
+    
+    <item>
+      <title>Meraki CMNA</title>
+      <link>https://www.ifconfig.it/hugo/post/2015-03-04-cmna/</link>
+      <pubDate>Wed, 04 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2015-03-04-cmna/</guid>
+      <description>Today I&amp;rsquo;ve attended a Meraki technical training course at Cisco offices.
+The training was organized in short presentations of product features followed by hands-on labs based on all the products available today.
+I was suprised to find not only people from small companies or system integrators but more that 50% of the attendees were from Cisco Gold Partners sent to evaluate the products for &amp;ldquo;managed network&amp;rdquo; services. Cloud managed network gear is quite a hot topic today and I expect many projects in the future will involve this kind of solutions.</description>
+    </item>
+    
+    <item>
+      <title>Cisco Nexus 9000 training DCINX9K</title>
+      <link>https://www.ifconfig.it/hugo/post/2014-11-27-dcinx9k/</link>
+      <pubDate>Thu, 27 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2014-11-27-dcinx9k/</guid>
+      <description>This week I attended a two days training of Cisco DCINX9K.
+The training is focused on Cisco Nexus 9000 switches in NX-OS mode.
+NX9K can run two different software images, the full ACI image with all the cool SDN stuff and the traditional NS-OX image with some cool features like Python, Rest API, VX-LAN and more.
+Now it&amp;rsquo;s time to improve my Python skills and borrow a couple of boxes to do some labs.</description>
+    </item>
+    
+    <item>
+      <title>MTU</title>
+      <link>https://www.ifconfig.it/hugo/post/mtu-fun/</link>
+      <pubDate>Wed, 27 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/mtu-fun/</guid>
+      <description>Today I had a chat about MTU with a customer. MTU is my second favorite topic for tech talks in front of the coffee machine, STP is still the first because there are so many misconceptions about it. Even QoS is funny, people has many creative ideas and expectations from it.
+Let&amp;rsquo;s talk about MTU. Everything begun today from a ping (it&amp;rsquo;s italian in the screenshot, but you know the output by heart right?</description>
+    </item>
+    
+    <item>
+      <title>MTU on Nexus switches, CDP and vCenter</title>
+      <link>https://www.ifconfig.it/hugo/post/2014-04-09-nxmtucdp/</link>
+      <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2014-04-09-nxmtucdp/</guid>
+      <description>Some time ago I&amp;rsquo;ve installed the new core switches for a customer: a couple of Nexus 7000, a couple of 5000 and twelve Nexus 2232TM, Virtual port channels, VLANs, Radius auth and so on.. all the usual configs a good network engineer does.
+
+Since the Nexus 5000 are connected to an iSCSI storage I&amp;rsquo;ve configured Jumbo frames.
+Customer called complaining that MTU isn&amp;rsquo;t correctly set and I must fix it.</description>
+    </item>
+    
+    <item>
+      <title>Cisco Live 2014 Milan</title>
+      <link>https://www.ifconfig.it/hugo/post/2014-02-01-cleur2014/</link>
+      <pubDate>Sat, 01 Feb 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2014-02-01-cleur2014/</guid>
+      <description>Last week I had the opportunity to attend Cisco Live in Milan. This is my second time at Cisco Live, I&amp;rsquo;ve been in London last year.
+Some people still doesn&amp;rsquo;t know what Cisco Live is. Is it an event for pre-sales? A technical training? A party with free beer for nerds? I can say it is it all and much more.
+At Cisco Live you have the opportunity to participate in very deep technical sessions, some with hands-on labs, and to talk with the smartest guys in Cisco.</description>
+    </item>
+    
+    <item>
+      <title>Cisco WLC roaming debug &#43; gawk &#43; sed</title>
+      <link>https://www.ifconfig.it/hugo/post/wlc-logs-and-sed/</link>
+      <pubDate>Tue, 14 May 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/wlc-logs-and-sed/</guid>
+      <description>Quite often I have to debug a wireless client roaming across lighweight Cisco APs to confirm it moves between APs as expected in the network design.
+On the WLC the command is &amp;ldquo;debug client MAC&amp;rdquo;. The command shows all the events related to the specific client including:
+Reassociation received from mobile on AP 00:23:ab:ba:YY:XX that means client moved to the AP with radio MAC 00:23:ab:ba:YY:XX. Since I&amp;rsquo;ve named all the APs and and I&amp;rsquo;ve a map with all the positions, I&amp;rsquo;d like to see the names in the debug instead of MAC.</description>
+    </item>
+    
+    <item>
+      <title>My CCIE experience</title>
+      <link>https://www.ifconfig.it/hugo/post/my-ccie-experience/</link>
+      <pubDate>Tue, 09 Apr 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/my-ccie-experience/</guid>
+      <description>In really enjoyed to read all the blog post of people passing the CCIE lab exam over the years. I&amp;rsquo;ve found the stories very inspirational so now it&amp;rsquo;s time for me to give back.
+I started working as a system engineer in 2001 supporting Microsoft Windows 2000 client and server for a bank. I had the opportunity to work with some network engineers for a project and being intrigued by the new world I started to study what seemed to be the right choice for the moment: Cisco CCNA.</description>
+    </item>
+    
+    <item>
+      <title>Cisco certifications: download PDF and order additional printed copies</title>
+      <link>https://www.ifconfig.it/hugo/post/ciscocertsorder/</link>
+      <pubDate>Fri, 29 Mar 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/ciscocertsorder/</guid>
+      <description>I noticed that not everybody knows how to download Cisco certs PDF files or order additional printed copies. Just open this link, login with your Cisco credentials and enter the menu &amp;ldquo;Certification Fulfillment&amp;rdquo;.
+An additional CCIE plaque costs 150USD, paper certs cost 15USD.
+
+HTH</description>
+    </item>
+    
+    <item>
+      <title>Recipe: NTP server/client with auth</title>
+      <link>https://www.ifconfig.it/hugo/post/ntp_auth/</link>
+      <pubDate>Tue, 05 Mar 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/ntp_auth/</guid>
+      <description>NTP client / server with authentication
+SERVER CONFIG
+ntp authentication-key 1 md5 0802657D2A36 7
+ntp master 5
+CLIENT CONFIG
+ntp authentication-key 1 md5 1531223F2705 7 ntp authenticate ntp trusted-key 1 ntp server 10.0.12.1 key 1
+Notes: the client authenticates the time source, server must have the key.</description>
+    </item>
+    
+    <item>
+      <title>Cisco Live! Europe 2013</title>
+      <link>https://www.ifconfig.it/hugo/post/2013-02-28-cleur2013/</link>
+      <pubDate>Thu, 28 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2013-02-28-cleur2013/</guid>
+      <description>Cisco Live! Europe: I&amp;rsquo;m in!
+First time here, the impression is like being in the Willy Wonka chocolate factory with the big difference you can touch everything without disappear.
+As my job is not focused on a single technology I&amp;rsquo;m registered to many different sessions, from WiFi to Security, from FCoE to Routing/Switching.
+A longer review will follow. It&amp;rsquo;ll be a long week.
+_ _</description>
+    </item>
+    
+    <item>
+      <title>CCIEWireless blog and Youtube Channel</title>
+      <link>https://www.ifconfig.it/hugo/post/cciewireless-blog/</link>
+      <pubDate>Mon, 08 Oct 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/cciewireless-blog/</guid>
+      <description>A great blog and Youtube channel with a lot of resources for Cisco Wireless:
+[youtube]http://www.youtube.com/watch?v=y6gxNMo3CW4&amp;amp;list=UUm3YBBhcJRokmAD1LaJg3hQ&amp;amp;index=1&amp;amp;feature=plcp[/youtube]</description>
+    </item>
+    
+    <item>
+      <title>File prompt quiet</title>
+      <link>https://www.ifconfig.it/hugo/post/2012-10-02-file-prompt-quiet/</link>
+      <pubDate>Tue, 02 Oct 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2012-10-02-file-prompt-quiet/</guid>
+      <description>When a router config is saved with
+copy run start  IOS asks for a destination filename:
+RTR#copy running-config startup-config Destination filename [startup-config]? Building configuration... [OK]  To bypass the request and use the default name startup-config do this:
+RTR(config)#file prompt quiet  And then again
+copy run start  will not require the filename:
+RTR#copy run start Building configuration... [OK]  This command may be useful inside EEM scripts that can&amp;rsquo;t run intecartive commands.</description>
+    </item>
+    
+    <item>
+      <title>Cisco Catalyst 3560 and 3750 QoS Simplified... Seriously! by Kevin Wallace</title>
+      <link>https://www.ifconfig.it/hugo/post/cisco-catalyst-3560-and-3750-qos-simplified-seriously-by-kevin-wallace/</link>
+      <pubDate>Sun, 16 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/cisco-catalyst-3560-and-3750-qos-simplified-seriously-by-kevin-wallace/</guid>
+      <description>[youtube]http://www.youtube.com/watch?v=6UJZBeK_JCs&amp;amp;feature=youtu.be[/youtube]</description>
+    </item>
+    
+    <item>
+      <title>OSPF Forward Address</title>
+      <link>https://www.ifconfig.it/hugo/post/2012-09-16-quick-notes-ospf-forward-address/</link>
+      <pubDate>Sun, 16 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2012-09-16-quick-notes-ospf-forward-address/</guid>
+      <description>OSPF Forward Address (FA):
+ works like BGP next-hop for OSPF external routes
+ advertised only if next-hop is on a not-passive and multiaccess interface
+ if there&amp;rsquo;s not a route to FA address, route is not installed
+ FA = 0.0.0.0 &amp;ndash;&amp;gt; cost to ABR
+ FA &amp;lt;&amp;gt; 0.0.0.0 &amp;ndash;&amp;gt; cost to FA address
+ NSSA &amp;ndash;&amp;gt; FA is ASBR IP &amp;ndash;&amp;gt; remove FA with &amp;ldquo;area 1 nssa no-summary translate type7 suppress-fa&amp;rdquo;</description>
+    </item>
+    
+    <item>
+      <title>How to change a L2L VPN peer IP on Cisco ASA 8.3(2)4</title>
+      <link>https://www.ifconfig.it/hugo/post/2012-05-29-asavpnpeeripchange/</link>
+      <pubDate>Tue, 29 May 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2012-05-29-asavpnpeeripchange/</guid>
+      <description>Today a customer called to change the IP address of a L2L VPN peer on his Cisco ASA 8.3(2)4.
+The task can be divided in 3 steps:
+1) Get the VPN password. It should be written somewhere in the network documentation, as stated by rule 7, but you know, password sometimes just get lost.
+2) Find and update crypto map
+asa# sh run | b peer 1.1.1.1  You should get a line like</description>
+    </item>
+    
+    <item>
+      <title>Copy files to ASA via SCP</title>
+      <link>https://www.ifconfig.it/hugo/post/2012-04-12-copy-files-to-asa-via-scp/</link>
+      <pubDate>Thu, 12 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2012-04-12-copy-files-to-asa-via-scp/</guid>
+      <description>Sometimes it can be useful to copy files to and from a Cisco ASA Firewall via SCP.
+To enable SCP just type:
+ssh scopy enable  </description>
+    </item>
+    
+    <item>
+      <title>ASA - show vpn pre shared key in cleartext</title>
+      <link>https://www.ifconfig.it/hugo/post/asa-show-vpn-pre-shared-key-in-cleartext/</link>
+      <pubDate>Thu, 05 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/asa-show-vpn-pre-shared-key-in-cleartext/</guid>
+      <description>Forgot the PSK of a VPN on a Cisco ASA? With this command you can see all the passwords in clear:
+more system:running-configuration</description>
+    </item>
+    
+    <item>
+      <title>Monitor Cisco router UPTIME with Nagios and Cacti</title>
+      <link>https://www.ifconfig.it/hugo/post/monitor-cisco-router-uptime-with-nagios-and-cacti/</link>
+      <pubDate>Sat, 31 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/monitor-cisco-router-uptime-with-nagios-and-cacti/</guid>
+      <description>On a customer&amp;rsquo;s network we noticed that the Internet facing router reboots because of a software error. We stumbled on this issue by chance, just because one of the reboots was during a videoconference. Nobody noticed the problem before and they really don&amp;rsquo;t know if the problem was there since the installation of the router a couple of years ago. They have Nagios running to monitor the network, so I&amp;rsquo;ve configured it to monitor the router uptime too.</description>
+    </item>
+    
+    <item>
+      <title>Certified in Cisco Data Center Support for UC Specialist</title>
+      <link>https://www.ifconfig.it/hugo/post/certified-in-cisco-data-center-support-for-uc-specialist/</link>
+      <pubDate>Wed, 21 Dec 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/certified-in-cisco-data-center-support-for-uc-specialist/</guid>
+      <description>Today I passed Cisco 642-983 DCUCI exam and it was a surprise to see two certifications on my Cisco curriculum:
+Cisco Unified Computing Technology Support Specialist
+and
+Cisco Data Center Support for UC Specialist
+The next step would be &amp;ldquo;Cisco Data Center Unified Computing Support Specialist&amp;rdquo; but since VCP is a requirement and is not in my plans I have to skip that cert.</description>
+    </item>
+    
+    <item>
+      <title>Cisco DCUCI training</title>
+      <link>https://www.ifconfig.it/hugo/post/cisco-dcuci-training/</link>
+      <pubDate>Mon, 28 Nov 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/cisco-dcuci-training/</guid>
+      <description>This week I&amp;rsquo;m attending Cisco DCUCI course in Milan. I have no experience on blade servers or Cisco UC plaftorm and it&amp;rsquo;ll be a great opportunity to learn new topics and move another step towards the datacenter.
+I&amp;rsquo;ve prepared for this course watching Cisco PEC videos and reading the two must-read books from Silvano Gai:
+ I/O Consolidation in the Data Center
+ Cisco Unified Computing System (UCS)
+  Cisco provides an emulator for the Cisco UCS , available only to Partners.</description>
+    </item>
+    
+    <item>
+      <title>Certified in CCNP Security</title>
+      <link>https://www.ifconfig.it/hugo/post/2011-11-23-certified-in-ccnp-security/</link>
+      <pubDate>Wed, 23 Nov 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2011-11-23-certified-in-ccnp-security/</guid>
+      <description>Today I passed this Cisco exam: (642-647) Deploying Cisco ASA VPN Solutions v1.0 (VPN) and my CCSP certification is now updated to the new CCNP(Security).
+I&amp;rsquo;ve prepared the exam on the Cisco Press Official Cert Guide. The exam was not very hard, probably because I work on Pix/Asa platforms since 2007. The guide is very complete and actually I&amp;rsquo;ve re-learned some topics and how to deploy SSL and WebVPN in a better way, easyer to manage and to scale.</description>
+    </item>
+    
+    <item>
+      <title>PPPoE peer IP address</title>
+      <link>https://www.ifconfig.it/hugo/post/pppoe-peer-ip-address/</link>
+      <pubDate>Sun, 13 Mar 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/pppoe-peer-ip-address/</guid>
+      <description>Quick note on PPPoE address assignment.
+!!!!! IPCP !!!!!
+!!!!! CLIENT
+interface Dialer1 ip address negotiated encapsulation ppp dialer pool 1 dialer idle-timeout 0 dialer persistent end
+!!!!! SERVER
+ip dhcp-server 10.0.12.1 interface Virtual-Template10 ip address 10.0.32.2 255.255.255.0 peer default ip address dhcp end
+!!!!! DHCP !!!!!
+!!!!! CLIENT
+interface Dialer1 ip address dhcp encapsulation ppp dialer pool 1 dialer idle-timeout 0 dialer persistent end
+!!!!! SERVER
+interface Virtual-Template10 ip address 10.</description>
+    </item>
+    
+    <item>
+      <title>Autoinstall - Frame Relay</title>
+      <link>https://www.ifconfig.it/hugo/post/autoinstall-frame-relay/</link>
+      <pubDate>Thu, 03 Mar 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/autoinstall-frame-relay/</guid>
+      <description>First of all: autoinstall works only on the first serial interface of the router, don&amp;rsquo;t forget it.
+This is the topology for the small lab:
+R1 is a TFTP server, it stores R3 configuration in flash.
+R3 has no configuration.
+R2 interface is configured as follow:
+``
+interface Serial1/0 ip address 10.0.23.2 255.255.255.0 &amp;lt;strong&amp;gt; ip helper-address 1.1.1.1&amp;lt;/strong&amp;gt; encapsulation frame-relay ip ospf network broadcast ip ospf 1 area 0 serial restart-delay 0 frame-relay map ip 10.</description>
+    </item>
+    
+    <item>
+      <title>Autoinstall - LAN</title>
+      <link>https://www.ifconfig.it/hugo/post/autoinstall-lan/</link>
+      <pubDate>Thu, 03 Mar 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/autoinstall-lan/</guid>
+      <description>Autoinstall is a quite interesting topic, it deserves some labbing.
+Start from the DOC-CD as usual, we focus on the LAN implementation first.
+You can find HERE the flowchart of the autoinstall process.
+This guide is quite clear too:
+AutoInstall Using DHCP for LAN Interfaces
+This is the topology we&amp;rsquo;ll use:
+R1 and R2 will start without configuration.
+R3 is the DHCP server that provides TFTP informations to R1 and R2.</description>
+    </item>
+    
+    <item>
+      <title>RMON and MIB</title>
+      <link>https://www.ifconfig.it/hugo/post/quick-tip-rmon-and-mib/</link>
+      <pubDate>Wed, 02 Mar 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/quick-tip-rmon-and-mib/</guid>
+      <description>RMON is generally an easy task, can be tricky but usually on CCIE workbooks the task are fair. The hardest part for me is to find the MIB to monitor.
+This is the task: monitor interface Vlan1, send a trap if it receives more than 100 packets every 30 seconds, send a trap if it goes under 50 packets every 30 seconds.
+First step: find Vlan1 ifindex.
+R#sh snmp mib ifmib ifindex Vlan99: Ifindex = 10 Virtual-Access2: Ifindex = 13 FastEthernet4: Ifindex = 5 FastEthernet0: Ifindex = 1 FastEthernet2: Ifindex = 3 Loopback0: Ifindex = 12 Null0: Ifindex = 6 Virtual-Access1: Ifindex = 11 &amp;lt;strong&amp;gt;Vlan1: Ifindex = 7&amp;lt;/strong&amp;gt; Virtual-Template1: Ifindex = 9 NVI0: Ifindex = 8 FastEthernet1: Ifindex = 2 FastEthernet3: Ifindex = 4  So Vlan1 has ifIndex value 7.</description>
+    </item>
+    
+    <item>
+      <title>Conditional Debug</title>
+      <link>https://www.ifconfig.it/hugo/post/2011-03-01-conditional-debug/</link>
+      <pubDate>Tue, 01 Mar 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2011-03-01-conditional-debug/</guid>
+      <description>Conditional debugging is used to filter debugging messages:
+R#debug condition ? application Application called called number calling calling card card glbp interface group interface interface ip IP address mac-address MAC address match-list apply the match-list standby interface group username username vcid VC ID vlan vlan voice-port voice-port number xconnect Xconnect conditional debugging on segment pair  A quick example: filter RIP events only for interface Serial1/1.
+We just need to enable a debug condition for interface S1/1:</description>
+    </item>
+    
+    <item>
+      <title>SNMP v3</title>
+      <link>https://www.ifconfig.it/hugo/post/snmp-v3/</link>
+      <pubDate>Tue, 01 Mar 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/snmp-v3/</guid>
+      <description>Snmp v3 is described in many RFC, like RFC3414 and so on.
+History and security of the various SNMP versions are easy to find and well known, let&amp;rsquo;s focus on configuration.
+SNMPv3 can work in three ways:
+ noAuthNoPriv
+ authNoPriv
+ authPriv
+  For the tests I use a Cisco871 as snmp-server and a OSX computer to walk the MIBs.
+noAuthNoPriv No authorization, no encryption
+Router configuration;
+R(config)#snmp-server view noAuthNoPriv internet included R(config)#snmp-server user user1 noAuthNoPriv v3 R(config)#snmp-server group noAuthNoPriv v3 noauth read noAuthNoPriv  Query from OSX:</description>
+    </item>
+    
+  </channel>
+</rss>

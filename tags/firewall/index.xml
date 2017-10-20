@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Firewall on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/firewall/</link>
+    <description>Recent content in Firewall on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 03 Aug 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/firewall/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Cisco ASA boot problem</title>
+      <link>https://www.ifconfig.it/hugo/post/asa_restore_failed_image/</link>
+      <pubDate>Wed, 03 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/asa_restore_failed_image/</guid>
+      <description>Cisco ASA memory problem
+ASA doesn&amp;rsquo;t boot:
+Launching BootLoader... Default configuration file contains 1 entry. Searching / for images to boot. Loading /asa825-k8.bin... Booting...  Press ESC to interrupt boot:
+Use BREAK or ESC to interrupt boot. Use SPACE to begin boot immediately.  We&amp;rsquo;re now in rommon:
+rommon #0&amp;gt;  Check variables:
+rommon #3&amp;gt; set ROMMON Variable Settings: ADDRESS=0.0.0.0 SERVER=0.0.0.0 GATEWAY=0.0.0.0 PORT=Ethernet0/0 VLAN=untagged IMAGE= CONFIG= LINKTIMEOUT=20 PKTTIMEOUT=4 RETRY=20  Config network parameters.</description>
+    </item>
+    
+  </channel>
+</rss>

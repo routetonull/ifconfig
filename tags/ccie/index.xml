@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ccie on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/ccie/</link>
+    <description>Recent content in Ccie on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 05 Jun 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/ccie/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CCIE renewed</title>
+      <link>https://www.ifconfig.it/hugo/post/2014-06-05-cciersrenew2014/</link>
+      <pubDate>Thu, 05 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2014-06-05-cciersrenew2014/</guid>
+      <description>In the very last day of availability of the CCIE v4 350-001 written exam I&amp;rsquo;ve renewed my CCIE for a couple of years more:
+
+My plan was to recertify with another track - Wireless or Security - but life happens and I took the easy path and did R&amp;amp;S again.
+I&amp;rsquo;ve passed the same written exam 3 times. The first time in 2010, followed by a failed lab attempt in 2011.</description>
+    </item>
+    
+    <item>
+      <title>CCIE plaque</title>
+      <link>https://www.ifconfig.it/hugo/post/ccieplaque/</link>
+      <pubDate>Fri, 03 May 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/ccieplaque/</guid>
+      <description>Got mail from Cisco:</description>
+    </item>
+    
+    <item>
+      <title>My CCIE experience</title>
+      <link>https://www.ifconfig.it/hugo/post/my-ccie-experience/</link>
+      <pubDate>Tue, 09 Apr 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/my-ccie-experience/</guid>
+      <description>In really enjoyed to read all the blog post of people passing the CCIE lab exam over the years. I&amp;rsquo;ve found the stories very inspirational so now it&amp;rsquo;s time for me to give back.
+I started working as a system engineer in 2001 supporting Microsoft Windows 2000 client and server for a bank. I had the opportunity to work with some network engineers for a project and being intrigued by the new world I started to study what seemed to be the right choice for the moment: Cisco CCNA.</description>
+    </item>
+    
+    <item>
+      <title>CCIE #38619</title>
+      <link>https://www.ifconfig.it/hugo/post/2013-03-20-ccie38619/</link>
+      <pubDate>Wed, 20 Mar 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2013-03-20-ccie38619/</guid>
+      <description>I&amp;rsquo;ve passed the CCIE R&amp;amp;S lab exam yesterday in Brussels, results arrived this morning:
+[]
+[]</description>
+    </item>
+    
+    <item>
+      <title>CCIE lab numbers, preallocation myth, certification value.</title>
+      <link>https://www.ifconfig.it/hugo/post/ccie-lab-numbers/</link>
+      <pubDate>Sun, 10 Mar 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/ccie-lab-numbers/</guid>
+      <description>Cisco stopped to publish CCIE statistics some time ago but in Cisco Live presentations we can find some slides like this:
+
+Based on this numbers the math is simple: TOTAL CCIE 
+26634 
+%   RS 
+17320 
+65,03%   SEC 
+3794 
+14,24%   SP 
+2885 
+10,83%   VOICE 
+2291 
+8,60%   SAN 
+170</description>
+    </item>
+    
+    <item>
+      <title>CCIEWireless blog and Youtube Channel</title>
+      <link>https://www.ifconfig.it/hugo/post/cciewireless-blog/</link>
+      <pubDate>Mon, 08 Oct 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/cciewireless-blog/</guid>
+      <description>A great blog and Youtube channel with a lot of resources for Cisco Wireless:
+[youtube]http://www.youtube.com/watch?v=y6gxNMo3CW4&amp;amp;list=UUm3YBBhcJRokmAD1LaJg3hQ&amp;amp;index=1&amp;amp;feature=plcp[/youtube]</description>
+    </item>
+    
+    <item>
+      <title>Cisco Catalyst 3560 and 3750 QoS Simplified... Seriously! by Kevin Wallace</title>
+      <link>https://www.ifconfig.it/hugo/post/cisco-catalyst-3560-and-3750-qos-simplified-seriously-by-kevin-wallace/</link>
+      <pubDate>Sun, 16 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/cisco-catalyst-3560-and-3750-qos-simplified-seriously-by-kevin-wallace/</guid>
+      <description>[youtube]http://www.youtube.com/watch?v=6UJZBeK_JCs&amp;amp;feature=youtu.be[/youtube]</description>
+    </item>
+    
+    <item>
+      <title>OSPF Forward Address</title>
+      <link>https://www.ifconfig.it/hugo/post/2012-09-16-quick-notes-ospf-forward-address/</link>
+      <pubDate>Sun, 16 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2012-09-16-quick-notes-ospf-forward-address/</guid>
+      <description>OSPF Forward Address (FA):
+ works like BGP next-hop for OSPF external routes
+ advertised only if next-hop is on a not-passive and multiaccess interface
+ if there&amp;rsquo;s not a route to FA address, route is not installed
+ FA = 0.0.0.0 &amp;ndash;&amp;gt; cost to ABR
+ FA &amp;lt;&amp;gt; 0.0.0.0 &amp;ndash;&amp;gt; cost to FA address
+ NSSA &amp;ndash;&amp;gt; FA is ASBR IP &amp;ndash;&amp;gt; remove FA with &amp;ldquo;area 1 nssa no-summary translate type7 suppress-fa&amp;rdquo;</description>
+    </item>
+    
+    <item>
+      <title>INE CCIE R&amp;S bootcamp – 2nd week</title>
+      <link>https://www.ifconfig.it/hugo/post/ine-ccie-rs-bootcamp-2nd-week/</link>
+      <pubDate>Sun, 02 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/ine-ccie-rs-bootcamp-2nd-week/</guid>
+      <description>After the first week of the INE bootcamp I spent the weekend relaxing a bit and reviewing the topics on the doc-cd.
+The second week confimed the high level of this training, long hours and Brian Dennis showing us a lot of scenarios and how to spot a problem before it happens instead of just troubleshooting it later.
+My favorite days were MPLS and Multicast, followed by redistribution and OeR but I must say that I found in every single day something new.</description>
+    </item>
+    
+    <item>
+      <title>INE CCIE R&amp;S bootcamp - 1st week done</title>
+      <link>https://www.ifconfig.it/hugo/post/2012-08-25-ine_bootcamp_2012_1/</link>
+      <pubDate>Sat, 25 Aug 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2012-08-25-ine_bootcamp_2012_1/</guid>
+      <description>I spent this week in London attending the first part INE CCIE R&amp;amp;S 10days bootcamp with Brian Dennis. I stay in London for the weekend to review some topics and be ready for the second part next week.
+The bootcamp runs from 9AM to 8PM and it&amp;rsquo;s all hands on, no videos, no slides, no workbook to follow line-by-line, there&amp;rsquo;re just Brian, the console and the diagrams he does on the fly to explain the topology and the processes involved.</description>
+    </item>
+    
+    <item>
+      <title>CCIE R&amp;S, not this time.</title>
+      <link>https://www.ifconfig.it/hugo/post/2011-06-27-ccie-rs-not-this-time/</link>
+      <pubDate>Mon, 27 Jun 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2011-06-27-ccie-rs-not-this-time/</guid>
+      <description>I didn&amp;rsquo;t pass the CCIE R&amp;amp;S Lab exam today in Brussels. This was my first attempt.
+I have to improve my troubleshooting skills and go deeper in some technologies but I think I can do it.
+I don&amp;rsquo;t have plans for the next attempt yet, there&amp;rsquo;re other personal projects that will take most of my free time in the next months. Maybe it&amp;rsquo;ll take a while but I don&amp;rsquo;t give up.</description>
+    </item>
+    
+    <item>
+      <title>Guide to CCIE Lab Locations Brussels</title>
+      <link>https://www.ifconfig.it/hugo/post/2011-06-20-guide-to-ccie-lab-locations-brussels/</link>
+      <pubDate>Mon, 20 Jun 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2011-06-20-guide-to-ccie-lab-locations-brussels/</guid>
+      <description>A video shot by Marko Milivojevic from IPExpert showing the Cisco HQ in Brussels, famous for being the european site of CCIE lab exams.
+  </description>
+    </item>
+    
+  </channel>
+</rss>

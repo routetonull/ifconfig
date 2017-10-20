@@ -1,0 +1,875 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Python on IFCONFIG.IT </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>http://www.ifconfig.it/hugo/categories/python/</link>
+    <language>en-us</language>
+    
+    
+    <updated>Sat, 11 Jun 2016 13:55:00 &#43;0000</updated>
+    
+    <item>
+      <title>Cisco ASA and Office 365</title>
+      <link>http://www.ifconfig.it/hugo/post/asaoffice365/</link>
+      <pubDate>Sat, 11 Jun 2016 13:55:00 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/asaoffice365/</guid>
+      <description>
+
+&lt;p&gt;Office 365 is widely used between many customers. Some of them happen to manage all the Internet connections through a &lt;a href=&#34;http://www.cisco.com/c/en/us/products/security/adaptive-security-appliance-asa-software/index.html&#34;&gt;Cisco ASA&lt;/a&gt;, not the fancy &lt;a href=&#34;http://www.cisco.com/c/en/us/products/security/asa-firepower-services/index.html&#34;&gt;ASA-X with Firepower&lt;/a&gt;, just the plain old 5510.&lt;/p&gt;
+
+&lt;p&gt;I was asked to allow Office 365 traffic, looks easy huh?&lt;/p&gt;
+
+&lt;h2 id=&#34;step-1-know-your-enemy&#34;&gt;Step 1: know your enemy&lt;/h2&gt;
+
+&lt;p&gt;After some Google-fu I found Microsoft kindly provides an update list of the IP/subnet/URLs necessary to access various services including Office 365, Lync, OneNOte etc.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s just a matter to add them on ASA.&lt;/p&gt;
+
+&lt;h2 id=&#34;step-2-the-lazy-approach-a-k-a-if-you-think-you-ll-do-it-more-than-once-automate-it&#34;&gt;Step 2: the lazy approach A.K.A. if you think you&amp;rsquo;ll do it more than once automate it!&lt;/h2&gt;
+
+&lt;p&gt;I must admit the first time (a few weeks ago) I did it via bash with a little help from sed and awk.&lt;/p&gt;
+
+&lt;p&gt;The problem is the list is updated quite often and the process required some manual steps (and I don&amp;rsquo;t remember where I saved the original script ;-) ) so I moved to Python this time.&lt;/p&gt;
+
+&lt;p&gt;With a few Google searches and the usual trial&amp;amp;error approach I reached my goal in less than 30m: a &lt;a href=&#34;https://en.wikipedia.org/wiki/Minimum_viable_product&#34;&gt;MVP&lt;/a&gt; that works and allows me to reach the final result &amp;ndash;&amp;gt; an happy customer.&lt;/p&gt;
+
+&lt;p&gt;You can see and download the script from my &lt;a href=&#34;https://github.com/routetonull/various/blob/master/o3652asa.py&#34;&gt;github&lt;/a&gt; account.&lt;/p&gt;
+
+&lt;h2 id=&#34;wrap-up&#34;&gt;Wrap up&lt;/h2&gt;
+
+&lt;p&gt;I know the code is not elegant but it works, I don&amp;rsquo;t plan to spend more time on it soon since I&amp;rsquo;ve other priorities but feel free to use and improve it and share with the community.&lt;/p&gt;
+
+&lt;p&gt;Enjoy!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>OED tools: Pushover</title>
+      <link>http://www.ifconfig.it/hugo/post/oed-tools-pushover/</link>
+      <pubDate>Mon, 01 Feb 2016 15:00:46 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/oed-tools-pushover/</guid>
+      <description>
+
+&lt;h2 id=&#34;the-problem&#34;&gt;The problem&lt;/h2&gt;
+
+&lt;p&gt;In my last post about Linux &lt;strong&gt;at&lt;/strong&gt; command I talked about notifications on my mobile.&lt;/p&gt;
+
+&lt;p&gt;In most of my automation scripts I prefer notifications to come to my mobile instead of via email or SMS (really? in 2015?) because:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;it is always with me&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;I check it thousands times a day (I know you too ;-) )&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;it is a preferred channel - a specific app just for that&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;the-automation&#34;&gt;The automation&lt;/h2&gt;
+
+&lt;p&gt;There&amp;rsquo;re many notification services available today for free or minimal cost. When I needed it, after evaluating a few solutions, I chose &lt;a href=&#34;https://pushover.net/&#34;&gt;Pushover&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Main advantages of Pushover:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;no monthly fees&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://pushover.net/faq#overview-limits&#34;&gt;7500 messages per month&lt;/a&gt; - much more than I needed so far&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;API available for &lt;a href=&#34;https://pushover.net/faq#library&#34;&gt;most programming languages&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;client available for many platforms&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://pushover.net/assets/pushover-header-a9ea3145e3754dffe333ae155b25731d.png&#34; alt=&#34;pushover logo&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;For bash scripts I call a Python script &lt;strong&gt;sendpush.py&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;h1 id=&#34;usr-bin-python&#34;&gt;!/usr/bin/python&lt;/h1&gt;
+
+&lt;p&gt;&amp;rdquo;&amp;rsquo; last change: 20151203 notify to pushover &amp;ldquo;&amp;rsquo;&lt;/p&gt;
+
+&lt;p&gt;import commands import httplib, urllib import sys&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;def sendPush(messageText):
+        conn = httplib.HTTPSConnection(&amp;quot;api.pushover.net:443&amp;quot;)
+        conn.request(&amp;quot;POST&amp;quot;, &amp;quot;/1/messages.json&amp;quot;,
+        urllib.urlencode({
+                &amp;quot;token&amp;quot;: &amp;quot;REPLACE_WITH_YOUR_TOKEN&amp;quot;,
+                &amp;quot;user&amp;quot;: &amp;quot;REPLACE_WITH_YOUR_USER&amp;quot;,
+                &amp;quot;message&amp;quot;: messageText,
+        }), { &amp;quot;Content-type&amp;quot;: &amp;quot;application/x-www-form-urlencoded&amp;quot; })
+        conn.getresponse()
+
+def main():
+        sendPush(sys.argv[1])
+
+main()
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Usually I set a notification when the script starts, ends and a final one with a check of the expected output.&lt;/p&gt;
+
+&lt;p&gt;I had positive experiences with Pushover so far, messages always arrived on time and never got lost in the path so I&amp;rsquo;m not actively looking for a replacement (not very &lt;a href=&#34;https://en.wikipedia.org/wiki/Kaizen&#34;&gt;Kaizen&lt;/a&gt;&amp;hellip;) but suggestions are welcome.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>OED Tolls: Linux &#34;at&#34;</title>
+      <link>http://www.ifconfig.it/hugo/post/oed-tolls-linux-at/</link>
+      <pubDate>Thu, 28 Jan 2016 15:00:53 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/oed-tolls-linux-at/</guid>
+      <description>
+
+&lt;p&gt;Another post on Linux commands, short and simple but very useful: &lt;a href=&#34;http://linux.die.net/man/1/at&#34;&gt;at&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-problem&#34;&gt;The problem&lt;/h2&gt;
+
+&lt;p&gt;As IT pros we are all comfortable with the &lt;a href=&#34;http://itsm.certification.info/cw.html&#34;&gt;change window&lt;/a&gt; concept.&lt;/p&gt;
+
+&lt;p&gt;This window usually opens at night or during the week-end and sometimes the change actually just requires a few commands on a Linux machine.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-automation&#34;&gt;The automation&lt;/h2&gt;
+
+&lt;p&gt;The &lt;a href=&#34;http://linux.die.net/man/1/at&#34;&gt;at&lt;/a&gt; command allows to schedule a command or script to be run at a specific time.&lt;/p&gt;
+
+&lt;p&gt;Usually I use it to run &lt;a href=&#34;https://www.python.org/&#34;&gt;Python&lt;/a&gt; scripts with notifications on my mobile (more on that on another post) before and after so I know:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;the script has run&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;the commands were executed&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;the output was expected&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A simple alarm clock in the night for a quick check of the notifications, if everything was right my change window lasts just a few minutes.&lt;/p&gt;
+
+&lt;p&gt;Sleep well ;-)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>SecureCRT and Python</title>
+      <link>http://www.ifconfig.it/hugo/post/scrtpython/</link>
+      <pubDate>Mon, 01 Jun 2015 21:00:49 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/scrtpython/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://www.vandyke.com/products/securecrt/&#34;&gt;SecureCRT&lt;/a&gt; is one of my favourite tools, today I had a chance to use it in a way I didn&amp;rsquo;t expected.&lt;/p&gt;
+
+&lt;p&gt;A customer called with a problem: he has a radio bridge that sometimes loses connection with the remote unit. The workaround is to reload the base unit. The process is manual, he monitors the radio bridge status and reload when required.&lt;/p&gt;
+
+&lt;p&gt;Since the radio bridge is not business critical he doesn&amp;rsquo;t have budget to replace tha radio bridge or troubleshoot the problem, the request was to automate the check/reload process.&lt;/p&gt;
+
+&lt;p&gt;I checked the available tools: no Linux servers, no monitoring, no management platform&amp;hellip; just a Windows server and&amp;hellip; &lt;a href=&#34;http://www.vandyke.com/products/securecrt/&#34;&gt;SecureCRT&lt;/a&gt;!&lt;/p&gt;
+
+&lt;p&gt;A quick look on &lt;a href=&#34;http://www.vandyke.com/products/securecrt/&#34;&gt;SecureCRT&lt;/a&gt; website confirmed that it supports &lt;a href=&#34;http://www.vandyke.com/products/securecrt/scripts.html&#34;&gt;scripting&lt;/a&gt; with &lt;a href=&#34;https://www.python.org/&#34;&gt;Python&lt;/a&gt;, VBScript, Jscript and PerlScript. I&amp;rsquo;m familiar with &lt;a href=&#34;https://www.python.org/&#34;&gt;Python&lt;/a&gt; so it is my choice.&lt;/p&gt;
+
+&lt;p&gt;The idea is simple:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;connect to the remote device via &lt;a href=&#34;https://tools.ietf.org/html/rfc854&#34;&gt;telnet&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;verify the radio bridge is up&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;reload the device if radio bridge is down&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The script with comments is quite self explanatory:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;# $language = &amp;quot;Python&amp;quot;
+# $interface = &amp;quot;1.0&amp;quot;
+
+# Website: www.ifconfig.it
+# License: https://creativecommons.org/licenses/by-sa/4.0/legalcode
+
+def main():
+
+    # CONNECTION DATA
+    hostIP = &amp;quot;X.X.X.X&amp;quot;
+    username = &amp;quot;myUsername&amp;quot;
+    password = &amp;quot;myPassword&amp;quot;
+    enablePassword = &amp;quot;myEnablePassword&amp;quot;
+    prompt = &amp;quot;#&amp;quot;
+
+    # PARAMETERS
+    command = &amp;quot;sh dot11 associations&amp;quot;
+    searchString = &amp;quot;6cfa.8923.beef&amp;quot;
+    reloadCommand = &amp;quot;reload in 1 reason REMOTE_NOT_FOUND&amp;quot;
+
+    # LOGIN STRINGS
+    loginStrings = [&amp;quot;Username&amp;quot;,&amp;quot;Password:&amp;quot;,&amp;quot;&amp;gt;&amp;quot;,&amp;quot;Password:&amp;quot;]
+    sendString = [username,password,&amp;quot;enable&amp;quot;,enablePassword]
+
+    crt.Screen.Synchronous = True
+
+    # CONNECT TO REMOTE DEVICE  
+    crt.Session.Connect(&amp;quot;/telnet &amp;quot;+hostIP)
+
+    # AUTHENTICATE PROCESS
+
+    if (crt.Session.Connected):
+
+        i=0
+        for string in loginStrings:
+            crt.Screen.WaitForString(string)
+            crt.Screen.Send(sendString[i]+&amp;quot;\r&amp;quot;)
+            i = i+1
+
+        crt.Screen.WaitForString(prompt)
+        crt.Screen.Send(&amp;quot;term len 0&amp;quot;+&amp;quot;\r&amp;quot;)
+
+        crt.Screen.WaitForString(prompt)
+
+        # EXECUTE VERIFICATION COMMAND AND GET OUTPUT
+        crt.Screen.Send(command+&amp;quot;\r&amp;quot;)
+
+        crt.Screen.IgnoreEscape = True
+
+        result = crt.Screen.ReadString(prompt)
+        result.strip()
+
+        crt.Screen.IgnoreEscape = False
+
+        #SEARCH STRING IN OUTPUT
+
+        if searchString not in result:
+            #crt.Dialog.MessageBox(&amp;quot;FOUND STRING&amp;quot;)
+        #else:
+            #crt.Dialog.MessageBox(&amp;quot;STRING NOT FOUND&amp;quot;)
+            crt.Screen.Send(&amp;quot;\r&amp;quot;)
+            crt.Screen.WaitForString(prompt)
+            crt.Screen.Send(reloadCommand+&amp;quot;\r&amp;quot;)
+
+        # EXIT THE SESSION
+        crt.Screen.Send(&amp;quot;\r&amp;quot;)
+        crt.Screen.WaitForString(prompt)
+        crt.Screen.Send(&amp;quot;exit&amp;quot;+&amp;quot;\r&amp;quot;)    
+
+        crt.Screen.Synchronous = False
+
+main()
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This script is scheduled to run every 30 minutes on the Windows server using this sintax:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;&amp;quot;c:\Program Files\SecureCRT\securecrt.exe&amp;quot; /script c:\script\checkRadioBridge.py
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I&amp;rsquo;d have prefered a better implementation on a Linux machine but this works so far, the customer is happy and I learnt something new: &lt;a href=&#34;http://en.wikipedia.org/wiki/Win-win_game&#34;&gt;win-win&lt;/a&gt;!&lt;/p&gt;
+
+&lt;p&gt;Useful links:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://forums.vandyke.com/forumdisplay.php?f=14&#34;&gt;VanDyke scripting forum&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://learnpythonthehardway.org/&#34;&gt;LearnPythonTheHardWay&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Docker: join the dots</title>
+      <link>http://www.ifconfig.it/hugo/post/docker-join-the-dots/</link>
+      <pubDate>Mon, 25 May 2015 17:00:18 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/docker-join-the-dots/</guid>
+      <description>
+
+&lt;p&gt;This post is part of a series about Docker, including:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/2015/05/docker-introduction/&#34;&gt;Docker Introduction&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://wp.me/p4biGi-o0&#34;&gt;Docker: Install software inside a container&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://wp.me/p4biGi-o5&#34;&gt;Docker Volumes&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://wp.me/p4biGi-o9&#34;&gt;Docker Networking - bridge container to host NIC&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We &lt;a href=&#34;(http://www.ifconfig.it/wordpress/2015/05/docker-introduction/)&#34;&gt;started&lt;/a&gt; with the basics and moved on with &lt;a href=&#34;http://wp.me/p4biGi-o0&#34;&gt;adding software&lt;/a&gt;, using &lt;a href=&#34;http://wp.me/p4biGi-o5&#34;&gt;volumes&lt;/a&gt; and then &lt;a href=&#34;(http://wp.me/p4biGi-o9)&#34;&gt;bridging a container to the network&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;As a said I&amp;rsquo;m neither a developer or a system administrator, I work as Network Engineer so I&amp;rsquo;m not the main target for Docker but I found it very useful for a specific need and now it&amp;rsquo;s time to &lt;a href=&#34;https://www.youtube.com/watch?v=UF8uR6Z6KLc&#34;&gt;join the dots&lt;/a&gt;.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;Here&amp;rsquo;s the story. I do wireless networks with &lt;a href=&#34;https://en.wikipedia.org/wiki/Captive_portal&#34;&gt;captive portals&lt;/a&gt;. I know &lt;a href=&#34;https://twitter.com/keithrparsons/status/539935622811492352&#34;&gt;some pleople&lt;/a&gt; think captive portals are bad and I agree in some way, but they have a purpose.&lt;/p&gt;
+
+&lt;p&gt;For those who don&amp;rsquo;t know what a captive portal is: it is a VM or an appliance that captures the client traffic, redirects it to a web authentication portal, requests valid credentials that allow the user to access the internet.&lt;/p&gt;
+
+&lt;p&gt;Long story short, how can we test a captive portal scalabilty?&lt;/p&gt;
+
+&lt;p&gt;We can configure it and see how it behaves under load of real clients (reactive) or find a way to &amp;ldquo;simulate&amp;rdquo; many clients and test in lab environment.&lt;/p&gt;
+
+&lt;p&gt;Yes it would be easier just to read and trust the vendor datasheet but we all know vendors sometimes are not so accurate with the published values so my approach is &lt;a href=&#34;http://en.wikipedia.org/wiki/Trust,_but_verify&#34;&gt;trust but verify&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Note: the captive portal is often used for wireless clients but it can just listen on a specific VLAN so load tests can be done with wired clients.&lt;/p&gt;
+
+&lt;h2 id=&#34;first-try-vms&#34;&gt;First try: VMs&lt;/h2&gt;
+
+&lt;p&gt;I first tried to use &lt;a href=&#34;https://www.virtualbox.org/&#34;&gt;VirtualBox&lt;/a&gt; and clone a VM many times. Even with some scripting this solution was little scalable and required lots of resources.&lt;/p&gt;
+
+&lt;p&gt;I need to simulate at least 500 clients per host and scale up to few thousands in the future.&lt;/p&gt;
+
+&lt;h2 id=&#34;second-try-docker&#34;&gt;Second try: Docker&lt;/h2&gt;
+
+&lt;p&gt;On my second try I used &lt;a href=&#34;https://hub.docker.com&#34;&gt;Docker&lt;/a&gt;. I notice this technology thanks to &lt;a href=&#34;http://www.twitter.com&#34;&gt;Twitter&lt;/a&gt; and saw a big potential for my purpose.&lt;/p&gt;
+
+&lt;h1 id=&#34;join-the-dots-the-final-solution&#34;&gt;Join the dots: the final solution&lt;/h1&gt;
+
+&lt;p&gt;If you read all the &lt;a href=&#34;(http://www.ifconfig.it/wordpress/2015/05/docker-introduction/)&#34;&gt;previous posts&lt;/a&gt; you can see now how the dots join all toghether: I run multiple &lt;a href=&#34;https://hub.docker.com&#34;&gt;Docker&lt;/a&gt; containers on a host, &lt;a href=&#34;http://wp.me/p4biGi-o9&#34;&gt;bridge&lt;/a&gt; them to the host NIC using &lt;a href=&#34;http://openvswitch.org/&#34;&gt;Open vSwitch&lt;/a&gt;, run a &lt;a href=&#34;https://www.python.org&#34;&gt;Python&lt;/a&gt;+&lt;a href=&#34;https://pypi.python.org/pypi/mechanize&#34;&gt;Mechanize&lt;/a&gt; script stored in a shared &lt;a href=&#34;http://wp.me/p4biGi-o9&#34;&gt;Volume&lt;/a&gt; that does a login on the Captive Portal and then simulate Internet access from the client simply with &lt;a href=&#34;http://en.wikipedia.org/wiki/CURL&#34;&gt;curl&lt;/a&gt; and a list of websites.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Advantages:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;little overhead on the host&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&amp;ldquo;real&amp;rdquo; network access, Captive Portal need to see different MAC addressed to do its magic&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;scalable performance: I can run containers on multiple hosts for a real &lt;a href=&#34;http://en.wikipedia.org/wiki/Scalability&#34;&gt;scale-out&lt;/a&gt; solution&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;manageable: the scripts are stored on a shared &lt;a href=&#34;http://wp.me/p4biGi-o9&#34;&gt;Volume&lt;/a&gt; so it&amp;rsquo;s easy to make changes&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;reusable: a few changes on the login the script allows to test different portals&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;easy to start: a simple bash loop starts as many container are neede, host performances are the only limit (more on that later)&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;the-start-script&#34;&gt;The start script&lt;/h2&gt;
+
+&lt;p&gt;This is the start script used to run multiple containers:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;#! /bin/bash 
+# start.sh
+# runs multiple container
+for i in {0..$1}
+do
+./pipework/pipework ovsbr0 $(docker run --privileged -i -t --net=&amp;quot;none&amp;quot; -v /root/dockervolume:/volume -d ubuntuplus /bin/bash /volume/runthis.sh) dhcp  
+done
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;the-kill-script&#34;&gt;The kill script&lt;/h2&gt;
+
+&lt;p&gt;This is the kill script, used to kill all the containers:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;#! /bin/bash
+# dockerkillall.sh
+# kill all the containers
+while read containerID
+do
+docker kill $containerID 
+done &amp;lt; &amp;lt;(docker ps -q)
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;the-ovs-clean-script&#34;&gt;The OVS clean script&lt;/h2&gt;
+
+&lt;p&gt;This command removes all the Oper vSwitch ports except the ports used to bridge the switch itself.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;ovs-vsctl show | grep Interface.*veth | sed &#39;s/&amp;quot;//g&#39; | awk &#39;{ cmd= &amp;quot;ovs-vsctl del-port &amp;quot;$2 ; system(cmd) }&#39;
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;limitations&#34;&gt;Limitations&lt;/h2&gt;
+
+&lt;p&gt;The only limit I foud so far is the time it takes to start a new container and run the custom startup script. On my PC &lt;a href=&#34;http://www.dell.com/us/business/p/latitude-e5550-laptop/pd&#34;&gt;(Dell Latitude E5550, i5 CPU, 16GM RAM)&lt;/a&gt; it takes about a hour to start 300 containers.&lt;/p&gt;
+
+&lt;p&gt;I didn&amp;rsquo;t had a chance to test it on a server hardware so I don&amp;rsquo;t know how if more powerful hardware can speed-up the process or it&amp;rsquo;s a software limitation that gets little advantage of faster CPUs. I&amp;rsquo;ll update this post with my finding later.&lt;/p&gt;
+
+&lt;h1 id=&#34;wrap-up&#34;&gt;Wrap Up&lt;/h1&gt;
+
+&lt;p&gt;I hope you enjoyed my posts about Docker. My target was to share a very specific use case that maybe isn&amp;rsquo;t the purpose of the techonology but I found very useful and easy to implement.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Cisco Nexus 9000 training DCINX9K</title>
+      <link>http://www.ifconfig.it/hugo/post/dcinx9k/</link>
+      <pubDate>Thu, 27 Nov 2014 15:26:27 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/dcinx9k/</guid>
+      <description>&lt;p&gt;This week I attended a two days training of Cisco &lt;strong&gt;&lt;a href=&#34;http://www.fireflycom.net/?cmd=course&amp;amp;id=DCINX9K&#34;&gt;DCINX9K&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The training is focused on Cisco Nexus 9000 switches in NX-OS mode.&lt;/p&gt;
+
+&lt;p&gt;NX9K can run two different software images, the full ACI image with all the cool SDN stuff and the traditional NS-OX image with some cool features like &lt;a href=&#34;http://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus9000/sw/6-x/programmability/guide/b_Cisco_Nexus_9000_Series_NX-OS_Programmability_Guide.html&#34;&gt;Python&lt;/a&gt;, Rest API, VX-LAN and more.&lt;/p&gt;
+
+&lt;p&gt;Now it&amp;rsquo;s time to improve my Python skills and borrow a couple of boxes to do some labs.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m quite excited of the convergence of Virtualization, Networking and Python, feels like &lt;strong&gt;&lt;a href=&#34;http://news.stanford.edu/news/2005/june15/jobs-061505.html&#34;&gt;joining the dots&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/hugo/wordpress/wp-content/uploads/2014/11/wpid-20141127_160712.jpg&#34; alt=&#34;Alt&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>NeDi and Observium/LibreNMS</title>
+      <link>http://www.ifconfig.it/hugo/post/nedi2observium/</link>
+      <pubDate>Wed, 26 Nov 2014 21:48:38 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/nedi2observium/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;http://www.nedi.ch/&#34;&gt;NeDi&lt;/a&gt; and &lt;a href=&#34;http://www.observium.org&#34;&gt;Observium&lt;/a&gt; are two of my favourites network monitoring tools.&lt;/p&gt;
+
+&lt;p&gt;I do like to deploy both, they complete each other and since they&amp;rsquo;re free there is no need to choose. The only problem with the use of two tools is the &lt;strong&gt;integration&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Observium has a &lt;a href=&#34;http://www.observium.org/wiki/FAQs#Why_can.27t_I_add_my_device_by_its_IP_address.3F_.2F_Why_do_I_need_valid_hostnames_and_DNS.3F&#34;&gt;limitation&lt;/a&gt; with host discovery: a device can be discovered only by name and that name must be resolved to an IP via DNS or hosts file. Since most of my customers don&amp;rsquo;t register network devices on DNS that means manually populate &lt;em&gt;/etc/hosts file&lt;/em&gt;. On the other hand NeDi doesn&amp;rsquo;t have this limitation and has a &lt;strong&gt;strong network/discovery&lt;/strong&gt; mechanism.&lt;/p&gt;
+
+&lt;p&gt;Can we make them to work together? Of course, that&amp;rsquo;s open source!&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h1 id=&#34;installation&#34;&gt;Installation&lt;/h1&gt;
+
+&lt;p&gt;NeDi and Observium installation processes are well explained &lt;a href=&#34;http://www.nedi.ch/installation/&#34;&gt;here&lt;/a&gt; and &lt;a href=&#34;http://www.observium.org/wiki/Installation&#34;&gt;here&lt;/a&gt;, just follow the instructions, they work fine.&lt;/p&gt;
+
+&lt;h1 id=&#34;customization&#34;&gt;Customization&lt;/h1&gt;
+
+&lt;p&gt;I&amp;rsquo;ve modified &lt;em&gt;/var/nedi/nedi.conf&lt;/em&gt; to include only the address ranges of my managed devices:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;netfilter      ^10\.5\.|^10\.16\.0\.|^192\.168\.20\.
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and &lt;em&gt;/var/nedi/seedlist&lt;/em&gt; whit a list of devices/communities that will be used as a seed for the discovery process in the format:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;ip  community1,community2
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For the sake of simplicity I just run two virtual hosts on Apache2, NeDi runs on port 80, Observium runs on port 81, edit &lt;em&gt;/etc/apache2/sites-enabled/000-default&lt;/em&gt; as follows:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;&amp;lt;VirtualHost *:80&amp;gt;
+        ServerAdmin webmaster@localhost
+
+        DocumentRoot /var/nedi/html
+        &amp;lt;Directory /&amp;gt;
+                Options FollowSymLinks
+                AllowOverride None
+        &amp;lt;/Directory&amp;gt;
+        &amp;lt;Directory /var/www/&amp;gt;
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride None
+                Order allow,deny
+                allow from all
+        &amp;lt;/Directory&amp;gt;
+
+        ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/
+        &amp;lt;Directory &amp;quot;/usr/lib/cgi-bin&amp;quot;&amp;gt;
+                AllowOverride None
+                Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch
+                Order allow,deny
+                Allow from all
+        &amp;lt;/Directory&amp;gt;
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+
+        # Possible values include: debug, info, notice, warn, error, crit,
+        # alert, emerg.
+        LogLevel warn
+
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+&amp;lt;/VirtualHost&amp;gt;
+
+&amp;lt;VirtualHost *:81&amp;gt;
+  DocumentRoot /opt/observium/html/
+  ServerName  observium.domain.com
+  CustomLog /opt/observium/logs/access_log combined
+  ErrorLog /opt/observium/logs/error_log
+  &amp;lt;Directory &amp;quot;/opt/observium/html/&amp;quot;&amp;gt;
+    AllowOverride All
+    Options FollowSymLinks MultiViews
+  &amp;lt;/Directory&amp;gt;
+&amp;lt;/VirtualHost&amp;gt;
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;integration&#34;&gt;Integration&lt;/h1&gt;
+
+&lt;p&gt;The integration between the two tools is meant to take advantage of the discovery performed by NeDi to polulate &lt;em&gt;/etc/hosts&lt;/em&gt; file and then feed the discovery process of Observium.&lt;/p&gt;
+
+&lt;h1 id=&#34;step-by-step&#34;&gt;Step by step&lt;/h1&gt;
+
+&lt;h2 id=&#34;where-is-the-data&#34;&gt;Where is the data?&lt;/h2&gt;
+
+&lt;p&gt;NeDi stores all the information on a MySQL database. A quick look on the tables and we can see how to extract the devices information:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;/usr/bin/mysql -uroot -pPASSWORD -B -e &amp;quot;select devip,device from devices&amp;quot; nedi 
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Replace &lt;em&gt;PASSWORD&lt;/em&gt; with the password you typed during the software installation.&lt;/p&gt;
+
+&lt;p&gt;Tweak this extraction a little bit to clean the list:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;filter lines that don&amp;rsquo;t begin with a number in range [1-9], that means no valid IP address was discovered via CDP/LDP&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;remove some chars (slash,spaces) that Observium doesn&amp;rsquo;t like in hostnames with &lt;em&gt;sed&lt;/em&gt; commands&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;uniform all the device names in uppercase chars&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If your device hostnames have other chars that don&amp;rsquo;t work well with Observium just add more &lt;em&gt;sed&lt;/em&gt; to the script.&lt;/p&gt;
+
+&lt;p&gt;This is the final result:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;/usr/bin/mysql -uroot -pPASSWORD -B -e &amp;quot;select devip,device,readcomm from devices&amp;quot; nedi | grep &amp;quot;^[1-9]&amp;quot; |sed -e &#39;s/ /_/g&#39; | sed -e &#39;s/\//_/g&#39; | sort | tr &#39;[:lower:]&#39; &#39;[:upper:]&#39;
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;ip-format&#34;&gt;IP format&lt;/h2&gt;
+
+&lt;p&gt;NeDi stores IP addresses in undotted decimal format, we need to convert them to dotted decimal to use them.&lt;/p&gt;
+
+&lt;p&gt;We can use Python for that, let&amp;rsquo;s create &lt;em&gt;/root/undotteddecimaltoip.py&lt;/em&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;#!/usr/bin/env python
+
+import sys
+inFile = sys.argv[1]
+#outFile = sys.argv[2]
+
+def int_to_dqn(st):
+    &amp;quot;&amp;quot;&amp;quot;
+    Convert integer to dotted quad notation
+    &amp;quot;&amp;quot;&amp;quot;
+    st = &amp;quot;%08x&amp;quot; % (st)
+    return &amp;quot;%i.%i.%i.%i&amp;quot; % (int(st[0:2],16),int(st[2:4],16),int(st[4:6],16),int(st[6:8],16))
+
+f = open(inFile,&amp;quot;r&amp;quot;)
+for line in f:
+        values = line.split(&amp;quot;\t&amp;quot;)
+        print int_to_dqn(int(values[0]))+&amp;quot; &amp;quot;+values[1].rstrip().replace(&amp;quot; &amp;quot;,&amp;quot;_&amp;quot;)
+f.close()
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Test it running:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;/root/undotteddecimaltoip.py /tmp/nedidevicelist.txt
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can see now all the IP addresses are now in dotted decimal format.  &lt;/p&gt;
+
+&lt;h2 id=&#34;populate-etc-hosts-file&#34;&gt;Populate /etc/hosts file&lt;/h2&gt;
+
+&lt;p&gt;Now we can put together the Python script we just created and a few bash commands to update the hosts file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;if [ -f &amp;quot;/etc/hosts.original&amp;quot; ]
+then
+        cat /etc/hosts.original &amp;gt; /etc/hosts
+else
+        cp /etc/hosts /etc/hosts.original
+fi
+
+/root/undotteddecimaltoip.py /tmp/nedidevicelist.txt &amp;gt;&amp;gt; /etc/hosts
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Notice that the original &lt;em&gt;hosts&lt;/em&gt; files is maintained, if we need to enter lines that shouldn&amp;rsquo;t be lost just edit &lt;em&gt;/etc/hosts.original&lt;/em&gt; file.  &lt;/p&gt;
+
+&lt;h2 id=&#34;add-devices-to-observium&#34;&gt;Add devices to Observium&lt;/h2&gt;
+
+&lt;p&gt;We can finally use the data from NeDi to add devices to Observium:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;while IFS=$&#39;\t&#39; read ip name comm
+do
+echo -e &amp;quot;NOW ADDING DEVICE $name&amp;quot;
+/opt/observium/add_device.php $name $comm
+done &amp;lt; /tmp/nedidevicelist.txt
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Notice that &lt;em&gt;$comm&lt;/em&gt; is the actual community NeDi used to discover the devices, even if in &lt;em&gt;seedlist&lt;/em&gt; more than one was specified.&lt;/p&gt;
+
+&lt;h2 id=&#34;put-it-all-together&#34;&gt;Put it all together&lt;/h2&gt;
+
+&lt;p&gt;This is the final script:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;#!/bin/bash
+/usr/bin/mysql -uroot -pPASSWORD -B -e &amp;quot;select devip,device,readcomm from devices&amp;quot; nedi | grep &amp;quot;^[1-9]&amp;quot; |sed -e &#39;s/ /_/g&#39; | sed -e &#39;s/\//_/g&#39; | sort | tr &#39;[:lower:]&#39; &#39;[:upper:]&#39; &amp;gt; /tmp/nedilist.txt
+
+if [ -f &amp;quot;/etc/hosts.original&amp;quot; ]
+then
+        cat /etc/hosts.original &amp;gt; /etc/hosts
+else
+        cp /etc/hosts /etc/hosts.original
+fi
+
+/root/undotteddecimaltoip.py /tmp/nedidevicelist.txt &amp;gt;&amp;gt; /etc/hosts
+
+while IFS=$&#39;\t&#39; read ip name comm
+do
+echo -e &amp;quot;NOW ADDING DEVICE $name&amp;quot;
+/opt/observium/add_device.php $name $comm
+done &amp;lt; /tmp/nedidevicelist.txt
+
+/opt/observium/discovery.php -h new &amp;gt;&amp;gt; /dev/null 2&amp;gt;&amp;amp;1
+/opt/observium//poller.php -h all  &amp;gt;&amp;gt; /dev/null 2&amp;gt;&amp;amp;1
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now just remember to add to cron the correct files to perform auto discovery with NeDi and then feed Observium again to keep them updated.&lt;/p&gt;
+
+&lt;h2 id=&#34;verify&#34;&gt;Verify&lt;/h2&gt;
+
+&lt;p&gt;How can we verify it worked? One simple way could be to extract the device list from NeDi and from Observium and see if they match:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;/usr/bin/mysql -uroot -pPASSWORD -B -e &amp;quot;select device from devices&amp;quot; nedi | sed -e &#39;s/ /_/g&#39; | sed -e &#39;s/\//_/g&#39; | sort | tr &#39;[:lower:]&#39; &#39;[:upper:]&#39; &amp;gt; /tmp/nedilist.txt
+/usr/bin/mysql -uroot -pPASSWORD -B -e &amp;quot;select hostname from devices&amp;quot; observium | sed -e &#39;s/ /_/g&#39; | sed -e &#39;s/\//_/g&#39; | sort | grep -v &amp;quot;^AP&amp;quot; | tr &#39;[:lower:]&#39; &#39;[:upper:]&#39; &amp;gt; /tmp/observiumlist.txt
+diff /tmp/observiumlist.txt /tmp/nedilist.txt
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If the list in Observium is shorter check if any hostname contains a symbol that can&amp;rsquo;t be read by Observium.&lt;/p&gt;
+
+&lt;h1 id=&#34;see-the-result&#34;&gt;See the result&lt;/h1&gt;
+
+&lt;p&gt;Open a browser to port 80, login and go to Devices&amp;ndash;&amp;gt;List&amp;ndash;&amp;gt;Show to se all the devices discovered by NEDI.&lt;/p&gt;
+
+&lt;p&gt;Open a browser to port 81 to see the Observium interface and check all the devices.&lt;/p&gt;
+
+&lt;p&gt;Nice!&lt;/p&gt;
+
+&lt;h1 id=&#34;wrap-up&#34;&gt;Wrap up&lt;/h1&gt;
+
+&lt;p&gt;Open source software has many advantages, in this particular case it allowed me to integrate two different software in one solution. Fell free to suggest improvements to the script in the comments, I consider this just a &lt;a href=&#34;http://en.wikipedia.org/wiki/Proof_of_concept&#34;&gt;POC&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;WARNING&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;I&amp;rsquo;m not a systems engineer or a programmer&lt;/strong&gt;, use my code &lt;strong&gt;at your own risk&lt;/strong&gt;, I take &lt;strong&gt;no responsibility&lt;/strong&gt; for any damage caused by any of the script shown.&lt;/p&gt;
+
+&lt;h1 id=&#34;update-20160109-from-observium-to-librenms&#34;&gt;UPDATE 20160109 - from Observium to LibreNMS&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.observium.org/&#34;&gt;Observium&lt;/a&gt; has been forked to &lt;a href=&#34;http://www.librenms.org/&#34;&gt;LibreNMS&lt;/a&gt; due to &lt;a href=&#34;http://libertysys.com.au/blog/observium-and-gpl&#34;&gt;different views&lt;/a&gt; about &lt;a href=&#34;http://www.gnu.org/licenses/gpl-3.0.en.html&#34;&gt;GPL licensing&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Installation of both is quite easy, just follow the instructions on each website.&lt;/p&gt;
+
+&lt;p&gt;I updated my scripts to work with LibreNMS:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;#!/bin/bash
+
+\//_/g&#39; | sort | grep -v &amp;quot;^AP&amp;quot; | tr &#39;[:lower:]&#39; &#39;[:upper:]&#39; &amp;gt; /tmp/nedilist.txt
+
+PASSWORD=$1
+
+/usr/bin/mysql -uroot -p$PASSWORD -B -e &amp;quot;select devip,device,readcomm from devices&amp;quot; nedi | grep &amp;quot;^[1-9]&amp;quot; |sed -e
+ &#39;s/ /_/g&#39; | sed -e &#39;s/\//_/g&#39; | sort | tr &#39;[:lower:]&#39; &#39;[:upper:]&#39; &amp;gt; /tmp/nedidevicelist.txt
+
+if [ -f &amp;quot;/etc/hosts.original&amp;quot; ]
+then
+        cat /etc/hosts.original &amp;gt; /etc/hosts
+else
+        cp /etc/hosts /etc/hosts.original
+fi
+
+/root/undotteddecimaltoip.py /tmp/nedidevicelist.txt &amp;gt;&amp;gt; /etc/hosts
+
+while IFS=$&#39;\t&#39; read ip name comm
+do
+echo -e &amp;quot;NOW ADDING DEVICE $name&amp;quot;
+/opt/librenms/addhost.php $name ${comm,,} v2c
+done &amp;lt; /tmp/nedidevicelist.txt
+
+# DISCOVER AN POLL
+/opt/librenms/discovery.php -h new &amp;gt;&amp;gt; /dev/null 2&amp;gt;&amp;amp;1
+/opt/librenms/poller.php -h all  &amp;gt;&amp;gt; /dev/null 2&amp;gt;&amp;amp;1
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In case you need/want to clean the LibreNMS database:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;#!/bin/bash
+while IFS=&#39;&#39; read -r line || [[ -n &amp;quot;$line&amp;quot; ]]; do
+echo REMOVING HOST $line
+/opt/librenms/delhost.php $line
+done &amp;lt; &amp;lt;(/usr/bin/mysql -uroot -p$1 -B -e &amp;quot;select hostname from devices&amp;quot; librenms)
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Quick  Python code: Jinja2 and config templates</title>
+      <link>http://www.ifconfig.it/hugo/post/qpc_jinja2/</link>
+      <pubDate>Fri, 11 Apr 2014 11:31:17 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/qpc_jinja2/</guid>
+      <description>
+
+&lt;p&gt;Networking is awesome but some tasks may be quite boring and repetitive. For  new campus network installations a lot of time is used just to put a basic initial configuration template on switches.&lt;/p&gt;
+
+&lt;p&gt;Each vendor has its proprietary method to distribute configs automagically but sometimes the effort to setup the system is simply too much.&lt;/p&gt;
+
+&lt;p&gt;A common practice is to prepare a template in a test environment then copy it changing the IP address, hostname and a few other parameters. That&amp;rsquo;s a manual and error prone procedure.&lt;/p&gt;
+
+&lt;p&gt;I took the chance to write a quick(1) Python script to automate the process and generate the config files reading the data from a csv file and a template.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h2 id=&#34;how-it-works&#34;&gt;How it works?&lt;/h2&gt;
+
+&lt;p&gt;The script reads a csv and a template files and uses &lt;a href=&#34;http://jinja.pocoo.org/&#34;&gt;Jinja2&lt;/a&gt; to create all the single config files.&lt;/p&gt;
+
+&lt;p&gt;How to use it?&lt;/p&gt;
+
+&lt;p&gt;1) create a template using the Jinja2 sintax like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;hostname {{hostname}}
+inte vlan 1
+ip address {{ip}} netmask {{netmask}}
+username {{username}} password {{password}}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Notice the values between &amp;ldquo;{{ }}&amp;rdquo; will be replaced with the values read from the csv file&lt;/p&gt;
+
+&lt;p&gt;2) create a csv file with the values:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# lines starting with # are comments
+#hostname,ip,netmask,username,password
+sw1,10.0.0.1,255.255.255.0,admin,sup3rs3cr3t
+sw2,10.0.0.2,255.255.255.0,admin,sup3rs3cr3t
+sw3,10.0.0.3,255.255.255.0,admin,sup3rs3cr3t
+sw4,10.0.0.4,255.255.255.0,admin,sup3rs3cr3t
+sw5,10.0.0.5,255.255.255.0,admin,sup3rs3cr3t
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;3) Run the script. The parameters are: csv file, template file, directory where the config will be stored:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; python cfgmaker_jinja2.py list.csv template.txt CGFS
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;the-output&#34;&gt;The output&lt;/h2&gt;
+
+&lt;p&gt;The output of the scritp are 5 files in the CFGS folder with all the values:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;hostname sw1
+inte vlan 1
+ip address 10.0.0.1 netmask 255.255.255.0
+username admin password sup3rs3cr3t
+
+hostname sw2
+inte vlan 1
+ip address 10.0.0.2 netmask 255.255.255.0
+username admin password sup3rs3cr3t
+
+hostname sw3
+inte vlan 1
+ip address 10.0.0.3 netmask 255.255.255.0
+username admin password sup3rs3cr3t
+
+hostname sw4
+inte vlan 1
+ip address 10.0.0.4 netmask 255.255.255.0
+username admin password sup3rs3cr3t
+
+hostname sw5
+inte vlan 1
+ip address 10.0.0.5 netmask 255.255.255.0
+username admin password sup3rs3cr3t
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;where-s-the-code&#34;&gt;Where&amp;rsquo;s the code?&lt;/h2&gt;
+
+&lt;p&gt;You can find the source code and the example files in &lt;a href=&#34;https://bitbucket.org/gp_ifconfig&#34;&gt;BitBucket&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;QUICK: just basic input control, no expection handling, poorly documented and optimized. It works for me, use it at your own risk, feel free to improve it.&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Google&#39;s Python Class</title>
+      <link>http://www.ifconfig.it/hugo/post/googles-python-class/</link>
+      <pubDate>Sat, 05 May 2012 18:44:18 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/googles-python-class/</guid>
+      <description>&lt;p&gt;Google provides &lt;a href=&#34;https://code.google.com/intl/it-IT/edu/languages/google-python-class/&#34;&gt;free Python Class&lt;/a&gt; under Creative Commons license.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Python - get module informations</title>
+      <link>http://www.ifconfig.it/hugo/post/python-get-module-informations/</link>
+      <pubDate>Thu, 23 Feb 2012 21:06:26 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/python-get-module-informations/</guid>
+      <description>&lt;p&gt;Learning Python means understand the modules and their functions. Python has some built-in ways to get the documentation that I found very useful as a total beginner.&lt;/p&gt;
+
+&lt;p&gt;The first one is dir(module), to get all the funcions of a module:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+&gt; 
+&gt; C:\Python27&gt;python
+Python 2.7.2 (default, Jun 12 2011, 14:24:46) [MSC v.1500 64 bit (AMD64)] on win32
+Type &#34;help&#34;, &#34;copyright&#34;, &#34;credits&#34; or &#34;license&#34; for more information.
+&gt;&gt;&gt; import ipaddr
+&gt;&gt;&gt; **dir(ipaddr)**
+[&#39;AddressValueError&#39;, &#39;Bytes&#39;, &#39;CollapseAddrList&#39;, &#39;IPAddress&#39;, &#39;IPNetwork&#39;, &#39;IPV4LENGTH&#39;, &#39;IPV6LENGTH&#39;, &#39;IPv4Address&#39;,
+&#39;IPv4Network&#39;, &#39;IPv6Address&#39;, &#39;IPv6Network&#39;, &#39;NetmaskValueError&#39;, &#39;_BaseIP&#39;, &#39;_BaseNet&#39;, &#39;_BaseV4&#39;, &#39;_BaseV6&#39;, &#39;_IPAddrB
+ase&#39;, &#39;__builtins__&#39;, &#39;__doc__&#39;, &#39;__file__&#39;, &#39;__loader__&#39;, &#39;__name__&#39;, &#39;__package__&#39;, &#39;__version__&#39;, &#39;_collapse_address_
+list_recursive&#39;, &#39;_count_righthand_zero_bits&#39;, &#39;_find_address_range&#39;, &#39;_get_prefix_length&#39;, &#39;collapse_address_list&#39;, &#39;ge
+t_mixed_type_key&#39;, &#39;struct&#39;, &#39;summarize_address_range&#39;, &#39;v4_int_to_packed&#39;, &#39;v6_int_to_packed&#39;]
+&gt; 
+&gt; 
+&lt;/blockquote&gt;
+
+&lt;p&gt;To get the documentation of a single function just type the function and append &amp;ldquo;.&lt;strong&gt;doc&lt;/strong&gt;&amp;ldquo;&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+&gt; 
+&gt; &gt;&gt;&gt; **ipaddr.IPNetwork.__doc__**
+&#34;Take an IP string/int and return an object of the correct type.\n\n Args:\n address: A string or integer, the
+IP address. Either IPv4 or\n IPv6 addresses may be supplied; integers less than 2**32 will\n be cons
+idered to be IPv4 by default.\n version: An Integer, if set, don&#39;t try to automatically\n determine what
+the IP address type is. important for things\n like IPNetwork(1), which could be IPv4, &#39;0.0.0.1/32&#39;, or IPv6,\
+n &#39;::1/128&#39;.\n\n Returns:\n An IPv4Network or IPv6Network object.\n\n Raises:\n ValueError:
+if the string passed isn&#39;t either a v4 or a v6\n address. Or if a strict network was requested and a strict\n
+network wasn&#39;t given.\n\n &#34;
+&gt; 
+&gt; 
+&lt;/blockquote&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Python module of the week</title>
+      <link>http://www.ifconfig.it/hugo/post/python-module-of-the-week/</link>
+      <pubDate>Thu, 16 Feb 2012 21:15:15 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/python-module-of-the-week/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://www.doughellmann.com/PyMOTW/&#34;&gt;Python module of the week&lt;/a&gt; by Doug Hellmann is a website (and a &lt;a href=&#34;http://www.amazon.com/dp/0321767349?tag=hellflynet-20&amp;amp;camp=213381&amp;amp;creative=390973&amp;amp;linkCode=as4&amp;amp;creativeASIN=0321767349&amp;amp;adid=1PYV2MB5DCYMN5KQEENN&amp;amp;&amp;amp;ref-refURL=http%3A%2F%2Fwww.doughellmann.com%2FPyMOTW%2F&#34;&gt;book&lt;/a&gt;) with many examples of the use of Python standard library.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Let&#39;s Python!</title>
+      <link>http://www.ifconfig.it/hugo/post/lets-python/</link>
+      <pubDate>Sat, 04 Feb 2012 12:14:23 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/lets-python/</guid>
+      <description>&lt;p&gt;Inspired by the &lt;a href=&#34;http://www.codecademy.com&#34;&gt;CodeAcademy&lt;/a&gt; project, I&amp;rsquo;ve decided to learn a programming language this year. Back in high school I&amp;rsquo;ve learnt &lt;a href=&#34;http://en.wikipedia.org/wiki/Pascal_(programming_language)&#34;&gt;Pascal&lt;/a&gt;, &lt;a href=&#34;http://en.wikipedia.org/wiki/Delphi_programming&#34;&gt;Delphi&lt;/a&gt;, &lt;a href=&#34;http://en.wikipedia.org/wiki/Assembler_programming&#34;&gt;Assembly&lt;/a&gt; and &lt;a href=&#34;http://en.wikipedia.org/wiki/C_(programming_language)&#34;&gt;C&lt;/a&gt; but many years passed so I forgot all the sintax but not the basics.&lt;/p&gt;
+
+&lt;p&gt;What I need is some basic scripting, read and write on a DB, a web interface and integration with network protocols.&lt;/p&gt;
+
+&lt;p&gt;After reading some websites, googling a lot, I choose Python that has a simple sintax, many libraries and is widely used so I think I could get support from many forums available.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m starting from the basics with &lt;a href=&#34;http://learnpythonthehardway.org/&#34;&gt;Learning Python the Hard Way&lt;/a&gt;, a great website with many exercises.&lt;/p&gt;
+
+&lt;p&gt;My plan is to develop good programming skills by the end of the year, I already have some projects in mind so&amp;hellip; let&amp;rsquo;s start!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

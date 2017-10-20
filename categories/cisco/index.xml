@@ -1,0 +1,1279 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Cisco on IFCONFIG.IT </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>http://www.ifconfig.it/hugo/categories/cisco/</link>
+    <language>en-us</language>
+    
+    
+    <updated>Sat, 11 Jun 2016 13:55:00 &#43;0000</updated>
+    
+    <item>
+      <title>Cisco ASA and Office 365</title>
+      <link>http://www.ifconfig.it/hugo/post/asaoffice365/</link>
+      <pubDate>Sat, 11 Jun 2016 13:55:00 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/asaoffice365/</guid>
+      <description>
+
+&lt;p&gt;Office 365 is widely used between many customers. Some of them happen to manage all the Internet connections through a &lt;a href=&#34;http://www.cisco.com/c/en/us/products/security/adaptive-security-appliance-asa-software/index.html&#34;&gt;Cisco ASA&lt;/a&gt;, not the fancy &lt;a href=&#34;http://www.cisco.com/c/en/us/products/security/asa-firepower-services/index.html&#34;&gt;ASA-X with Firepower&lt;/a&gt;, just the plain old 5510.&lt;/p&gt;
+
+&lt;p&gt;I was asked to allow Office 365 traffic, looks easy huh?&lt;/p&gt;
+
+&lt;h2 id=&#34;step-1-know-your-enemy&#34;&gt;Step 1: know your enemy&lt;/h2&gt;
+
+&lt;p&gt;After some Google-fu I found Microsoft kindly provides an update list of the IP/subnet/URLs necessary to access various services including Office 365, Lync, OneNOte etc.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s just a matter to add them on ASA.&lt;/p&gt;
+
+&lt;h2 id=&#34;step-2-the-lazy-approach-a-k-a-if-you-think-you-ll-do-it-more-than-once-automate-it&#34;&gt;Step 2: the lazy approach A.K.A. if you think you&amp;rsquo;ll do it more than once automate it!&lt;/h2&gt;
+
+&lt;p&gt;I must admit the first time (a few weeks ago) I did it via bash with a little help from sed and awk.&lt;/p&gt;
+
+&lt;p&gt;The problem is the list is updated quite often and the process required some manual steps (and I don&amp;rsquo;t remember where I saved the original script ;-) ) so I moved to Python this time.&lt;/p&gt;
+
+&lt;p&gt;With a few Google searches and the usual trial&amp;amp;error approach I reached my goal in less than 30m: a &lt;a href=&#34;https://en.wikipedia.org/wiki/Minimum_viable_product&#34;&gt;MVP&lt;/a&gt; that works and allows me to reach the final result &amp;ndash;&amp;gt; an happy customer.&lt;/p&gt;
+
+&lt;p&gt;You can see and download the script from my &lt;a href=&#34;https://github.com/routetonull/various/blob/master/o3652asa.py&#34;&gt;github&lt;/a&gt; account.&lt;/p&gt;
+
+&lt;h2 id=&#34;wrap-up&#34;&gt;Wrap up&lt;/h2&gt;
+
+&lt;p&gt;I know the code is not elegant but it works, I don&amp;rsquo;t plan to spend more time on it soon since I&amp;rsquo;ve other priorities but feel free to use and improve it and share with the community.&lt;/p&gt;
+
+&lt;p&gt;Enjoy!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Drop and bogons list on Cisco router</title>
+      <link>http://www.ifconfig.it/hugo/post/dropbogons/</link>
+      <pubDate>Mon, 28 Mar 2016 15:33:40 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/dropbogons/</guid>
+      <description>
+
+&lt;p&gt;The &lt;a href=&#34;https://www.eff.org/cyberspace-independence&#34;&gt;Cyberspace&lt;/a&gt; a.k.a. the &lt;a href=&#34;https://www.youtube.com/watch?v=iDbyYGrswtg&#34;&gt;Internet&lt;/a&gt; is full of &lt;a href=&#34;http://www.usanetwork.com/mrrobot&#34;&gt;bad guys&lt;/a&gt; wanting to mess with our computers right?&lt;/p&gt;
+
+&lt;p&gt;Of course everyone of us have a firewall configured with proper access and inspection rules, don&amp;rsquo;t ya?&lt;/p&gt;
+
+&lt;p&gt;Spamhaus and Team Cymru can help providing list of known bad IPs and subnets that should be filtered in our networks.&lt;/p&gt;
+
+&lt;h2 id=&#34;spamhaus-drop-list&#34;&gt;Spamhaus DROP list&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://www.spamhaus.org/images/dropadvisory.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &#34;DROP (Don&#39;t Route Or Peer) and EDROP are advisory &#34;drop all traffic&#34; lists, consisting of netblocks that are &#34;hijacked&#34; or leased by professional spam or cyber-crime operations (used for dissemination of malware, trojan downloaders, botnet controllers). The DROP and EDROP lists are a tiny subset of the SBL, designed for use by firewalls and routing equipment to filter out the malicious traffic from these netblocks.&#34;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Spamhaus DROP and EDRP lists can be downloaded from &lt;a href=&#34;https://www.spamhaus.org/drop/&#34;&gt;HERE&lt;/a&gt;, updated hourly.&lt;/p&gt;
+
+&lt;h2 id=&#34;team-cymru-bogon-list&#34;&gt;Team Cymru Bogon List&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.team-cymru.org/images/main-logo.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &#34;A bogon prefix is a route that should never appear in the Internet routing table&#34; so let&#39;s filter thos.
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.team-cymru.org/bogon-reference.html&#34;&gt;Team Cymru bogons list&lt;/a&gt; can be downloaded &lt;a href=&#34;http://www.team-cymru.org/Services/Bogons/fullbogons-ipv4.txt&#34;&gt;HERE&lt;/a&gt;, it is updated every four hours.&lt;/p&gt;
+
+&lt;h2 id=&#34;apply-on-cisco-router&#34;&gt;Apply on Cisco router&lt;/h2&gt;
+
+&lt;h3 id=&#34;drop-list&#34;&gt;DROP list&lt;/h3&gt;
+
+&lt;p&gt;First this we do is to download the DROP list in plain text from:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;wget https://www.spamhaus.org/drop/drop.lasso     
+wget https://www.spamhaus.org/drop/edrop.txt
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then we need some script magic to convert to the familiar Cisco sintax.&lt;/p&gt;
+
+&lt;p&gt;Create a sed script file called &lt;strong&gt;subnet2wildmask.sed&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;s/\/0/ 255.255.255.255/
+s/\/1/ 127.255.255.255/
+s/\/2/ 63.255.255.255/
+s/\/3/ 31.255.255.255/
+s/\/4/ 15.255.255.255/
+s/\/5/ 7.255.255.255/
+s/\/6/ 3.255.255.255/
+s/\/7/ 1.255.255.255/
+s/\/8/ 0.255.255.255/
+s/\/9/ 0.127.255.255/
+s/\/10/ 0.63.255.255/
+s/\/11/ 0.31.255.255/
+s/\/12/ 0.15.255.255/
+s/\/13/ 0.7.255.255/
+s/\/14/ 0.3.255.255/
+s/\/15/ 0.1.255.255/
+s/\/16/ 0.0.255.255/
+s/\/17/ 0.0.127.255/
+s/\/18/ 0.0.63.255/
+s/\/19/ 0.0.31.255/
+s/\/20/ 0.0.15.255/
+s/\/21/ 0.0.7.255/
+s/\/22/ 0.0.3.255/
+s/\/23/ 0.0.1.255/
+s/\/24/ 0.0.0.255/
+s/\/25/ 0.0.0.127/
+s/\/26/ 0.0.0.63/
+s/\/27/ 0.0.0.31/
+s/\/28/ 0.0.0.15/
+s/\/29/ 0.0.0.7/
+s/\/30/ 0.0.0.3/
+s/\/31/ 0.0.0.1/
+s/\/32/ 0.0.0.0/
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then create the router commands running these scripts:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;echo &amp;quot;ip access-list extended DROP.OUT&amp;quot; &amp;gt; DROP.OUT
+cat drop.lasso | grep -v &amp;quot;^;&amp;quot; | awk &#39;BEGIN {FS=&amp;quot; ; &amp;quot;} ; { print $1}&#39; | sed -f subnet2wildmask.sed | awk &#39;{ print &amp;quot;permit ip any &amp;quot;$1&amp;quot; &amp;quot;$2}&#39; &amp;gt;&amp;gt; DROP.OUT
+
+echo &amp;quot;ip access-list extended DROP.IN&amp;quot; &amp;gt; DROP.IN
+cat drop.lasso | grep -v &amp;quot;^;&amp;quot; | awk &#39;BEGIN {FS=&amp;quot; ; &amp;quot;} ; { print $1}&#39; | sed -f subnet2wildmask.sed | awk &#39;{ print &amp;quot;permit ip &amp;quot;$1&amp;quot; &amp;quot;$2&amp;quot; any&amp;quot;}&#39; &amp;gt;&amp;gt; DROP.IN
+
+echo &amp;quot;ip access-list extended EDROP.OUT&amp;quot; &amp;gt; EDROP.OUT
+cat edrop.txt | grep -v &amp;quot;^;&amp;quot; | awk &#39;BEGIN {FS=&amp;quot; ; &amp;quot;} ; { print $1}&#39; | sed -f subnet2wildmask.sed | awk &#39;{ print &amp;quot;permit ip any &amp;quot;$1&amp;quot; &amp;quot;$2}&#39; &amp;gt;&amp;gt; EDROP.OUT
+
+echo &amp;quot;ip access-list extended EDROP.IN&amp;quot; &amp;gt; EDROP.IN
+cat edrop.txt | grep -v &amp;quot;^;&amp;quot; | awk &#39;BEGIN {FS=&amp;quot; ; &amp;quot;} ; { print $1}&#39; | sed -f subnet2wildmask.sed | awk &#39;{ print &amp;quot;permit ip &amp;quot;$1&amp;quot; &amp;quot;$2&amp;quot; any&amp;quot;}&#39; &amp;gt;&amp;gt; EDROP.IN
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;bogon-list&#34;&gt;BOGON list&lt;/h3&gt;
+
+&lt;p&gt;Get the list:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;wget http://www.team-cymru.org/Services/Bogons/fullbogons-ipv4.txt
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Convert subnet mask to wildcard mask and create Cisco commands:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;echo &amp;quot;ip access-list extended BOGONS.IN&amp;quot; &amp;gt; BOGONS.IN
+cat fullbogons-ipv4.txt | grep -v &amp;quot;^#&amp;quot; | sed -f subnet2wildmask.sed | awk &#39;{ print &amp;quot;permit ip &amp;quot;$1&amp;quot; &amp;quot;$2&amp;quot; any&amp;quot;}&#39; &amp;gt;&amp;gt; BOGONS.IN
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note: bogons filters should be only appliend inbound (from public to private network).&lt;/p&gt;
+
+&lt;h3 id=&#34;apply-lists-on-cisco-s-zone-based-firewall&#34;&gt;Apply lists on Cisco&amp;rsquo;s Zone Based Firewall&lt;/h3&gt;
+
+&lt;p&gt;We have 6 files now with all the commands necessary to create the access lists on the router:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;DROP.IN&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;DROP.OUT&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;EDROP.IN&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;EDROP.OUT&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;BOGONS.IN&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Just copy&amp;amp;paste the commands on CLI.&lt;/p&gt;
+
+&lt;p&gt;You may have noticed that the commands are all permits. The reason is I use &lt;a href=&#34;http://www.cisco.com/c/en/us/support/docs/security/ios-firewall/98628-zone-design-guide.html&#34;&gt;Zone Based Firewall&lt;/a&gt; on my router with a policy like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;policy-map type inspect LAN2WAN 
+    class type inspect DROP.OUT
+        drop 
+    class type inspect EDROP.OUT
+        drop
+    class type inspect LAN
+        inspect 
+    class class-default
+        drop
+
+policy-map type inspect WAN2LAN
+    class type inspect BOGONS.IN
+        drop 
+    class type inspect DROP.IN
+        drop 
+    class type inspect EDROP.IN
+        drop
+    class type inspect WAN2LAN
+        pass
+    class class-default
+        drop
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I&amp;rsquo;ll not dig in the details of ZBFW configuration, if you&amp;rsquo;re interested grab a copy of &lt;a href=&#34;http://www.amazon.com/gp/product/B000P28WP8?ie=UTF8&amp;amp;tag=cisioshinandt-20&amp;amp;linkCode=as2&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=B000P28WP8&#34;&gt;this excellent book&lt;/a&gt; written by &lt;a href=&#34;http://blog.ipspace.net/2006/11/deploying-zone-based-firewalls.html&#34;&gt;Ivan&lt;/a&gt; and you&amp;rsquo;ll be good.&lt;/p&gt;
+
+&lt;h2 id=&#34;what-s-next&#34;&gt;What&amp;rsquo;s next&lt;/h2&gt;
+
+&lt;p&gt;Since DROP and bogons lists change over time I&amp;rsquo;ll see how they work and maybe implement some sort of update automation with &lt;a href=&#34;https://github.com/ktbyers/netmiko&#34;&gt;Python/Netmiko&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;wrap-up&#34;&gt;Wrap up&lt;/h2&gt;
+
+&lt;p&gt;DROP and bogons lists should be applied on Tier 1 routers. We&amp;rsquo;re not supposed to see traffic matching those access-lists, this is more a test and a &amp;ldquo;better safe than sorry&amp;rdquo; configuration not something I expect to see on the &lt;a href=&#34;http://csrc.nist.gov/publications/PubsSPs.html&#34;&gt;NIST Guidelines on Firewalls and Firewall Policy&lt;/a&gt; so please think about it before applying on production routers.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;FINAL NOTES:&lt;/strong&gt; the access lists may be too long, check your device&amp;rsquo;s data sheet to be sure it can support them or enable the compression of config:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;ROUTER(config)#service compress-config
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Cisco Live 2016 Europe</title>
+      <link>http://www.ifconfig.it/hugo/post/cleur2016/</link>
+      <pubDate>Sun, 21 Feb 2016 16:06:43 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/cleur2016/</guid>
+      <description>
+
+&lt;h2 id=&#34;hi-cleur&#34;&gt;Hi CLEUR!&lt;/h2&gt;
+
+&lt;p&gt;This year, for the fourth year in a row, I&amp;rsquo;ve attended &lt;a href=&#34;http://www.ciscolive.com/emea/&#34;&gt;Cisco Live Europe&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ve earned the &amp;ldquo;Netvet&amp;rdquo; status, that means my name was on the wall before the keynote, ain&amp;rsquo;t that great? ;-)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/images/cleur2016-netvet.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Aesthetics apart, this year&amp;rsquo;s event was the biggest I&amp;rsquo;ve attended so far, twelve thousands people in a huge venue (for European standards) and a lot of sessions available.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s my recap of the event.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-venue&#34;&gt;The Venue&lt;/h2&gt;
+
+&lt;p&gt;Berlin messe is big, that&amp;rsquo;s the same location of &lt;a href=&#34;http://b2b.ifa-berlin.com/&#34;&gt;IFA&lt;/a&gt; (the European CES). The sessions where spread across multiple pavilions but they were well interconnected and maps were clear, no problems on that.&lt;/p&gt;
+
+&lt;p&gt;The usual advice for any Cisco Live is: go with comfortable shoes. You&amp;rsquo;ll walk a lot, your fitbit/health tracker will be proud of you!&lt;/p&gt;
+
+&lt;h2 id=&#34;the-sessions&#34;&gt;The Sessions&lt;/h2&gt;
+
+&lt;p&gt;Sessions quality at Cisco Live are simply awesome. They can&amp;rsquo;t replace a full week of training on a specific products of course.&lt;/p&gt;
+
+&lt;p&gt;My feeling about the sessions is they&amp;rsquo;re meant to either go deep on vertical topics (the Deep Dive) or to give a structured approach on a particular technology that will work as a framework for more reading/study.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ve attended as many sessions I could but I left without remorse when I wasn&amp;rsquo;t sure it was useful for me to stay in the room (more on that later).&lt;/p&gt;
+
+&lt;p&gt;All the presentations and session recordings will soon be &lt;a href=&#34;https://www.ciscolive.com/online/connect/search.ww&#34;&gt;available online&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/images/cleur2016-sessions.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;the-people&#34;&gt;The People&lt;/h2&gt;
+
+&lt;p&gt;Cisco Live is about technology of course but one of the aspects I enjoy more every year is making new connections with smart people.&lt;/p&gt;
+
+&lt;p&gt;In my daily work I meet customers, competitors and colleagues, the only contacts outside those are either through &lt;a href=&#34;https://twitter.com/gp_ifconfig&#34;&gt;social networks&lt;/a&gt; or conferences.&lt;/p&gt;
+
+&lt;p&gt;When a session is not very interesting I leave the room and go to World of Solutions or DevNet and wander around looking for interesting products or people.&lt;/p&gt;
+
+&lt;p&gt;I got involved in a chat about ASA with a gal who works in a big MSSP in Sweden and we shared our views about ASA products and the new Firepower integration.&lt;/p&gt;
+
+&lt;p&gt;I had a chance to talk with &lt;a href=&#34;https://twitter.com/tomgilheany&#34;&gt;Tom Gilheany&lt;/a&gt; - Cisco product manager for Security Certifications &amp;amp; training - and got very useful advises about how to update my security skills for the &lt;a href=&#34;http://blogs.cisco.com/security/cisco-firepower-4100-next-generation-firewall?CAMPAIGN=Security&amp;amp;Country_Site=us&amp;amp;POSITION=Social+Media&amp;amp;REFERRING_SITE=Twitter&amp;amp;CREATIVE=CiscoSecurity&#34;&gt;new FirePower products&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;These are just a few examples but I can tell there was plenty of opportunities and even a quick chat with the right person can ha ve very high value.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/images/cleur2016-crowd.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;the-social-network&#34;&gt;The Social Network&lt;/h2&gt;
+
+&lt;p&gt;The only social network I use everyday is the &lt;a href=&#34;https://twitter.com/gp_ifconfig&#34;&gt;Twitter&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;During Cisco Live I shared my thoughts and read the discussion about product announcements and events. For some reason that led me to win the Twitter Challenge ;-)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/images/cleur2016-twitterchallenge.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;the-food&#34;&gt;The Food&lt;/h2&gt;
+
+&lt;p&gt;It is a commonplace that Italians always complain about the food when traveling abroad.&lt;/p&gt;
+
+&lt;p&gt;I gave a negative feedback on Thursday&amp;rsquo;s &amp;ldquo;lunch in a box&amp;rdquo;, I understand the &lt;a href=&#34;https://en.wikipedia.org/wiki/A/B_testing&#34;&gt;A/B testing&lt;/a&gt; approach but I don&amp;rsquo;t appreciate airplane-plastic style food outside an airplane.&lt;/p&gt;
+
+&lt;p&gt;No need of more comments on that point, just enjoy a picture of &lt;a href=&#34;https://en.wikipedia.org/wiki/Currywurst&#34;&gt;Currywurst&lt;/a&gt; ;-)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/images/cleur2016-food.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;final-considerations&#34;&gt;Final considerations&lt;/h2&gt;
+
+&lt;p&gt;I confirm that for many reasons Cisco Live should be in the schedule for any Network Engineer that works with Cisco products (is there really somebody who don&amp;rsquo;t?).&lt;/p&gt;
+
+&lt;p&gt;I hope some day to attend the US edition too to get a chance to see a bigger event and have the opportunity to meet even more Network Engineers to share knowledge and experiences.&lt;/p&gt;
+
+&lt;p&gt;Bye!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/images/me-cleur2016.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/images/cleur2016-bear.jpeg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Welcome 2016 Cisco Champions!</title>
+      <link>http://www.ifconfig.it/hugo/post/ciscochampion2016/</link>
+      <pubDate>Fri, 29 Jan 2016 21:58:20 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/ciscochampion2016/</guid>
+      <description>
+
+&lt;p&gt;With a good amount of surprise I&amp;rsquo;ve been nominated &lt;strong&gt;Cisco Champion&lt;/strong&gt; for 2016:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  
+&gt; 
+&gt; Because of your impactful and valuable contributions to the IT community, you have been chosen out of hundreds of nominees to be part of the 2016 Cisco Champion program. Congratulations!
+&gt; 
+&gt; 
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/images/ciscochampion2016-200.png&#34; alt=&#34;cisco champions logo&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;cisco-champion-resources&#34;&gt;Cisco Champion resources&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://communities.cisco.com/groups/cisco-champions&#34;&gt;Communities&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://twitter.com/CiscoChampion/lists/cisco-champions-2016/members&#34;&gt;Twitter list&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Simple Cisco switch inventory with bash and snmp</title>
+      <link>http://www.ifconfig.it/hugo/post/simple-cisco-switch-inventory-with-bash-and-snmp/</link>
+      <pubDate>Wed, 02 Dec 2015 22:03:55 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/simple-cisco-switch-inventory-with-bash-and-snmp/</guid>
+      <description>
+
+&lt;p&gt;Scripts, usually I write some because I don&amp;rsquo;t like repetitive tasks and I&amp;rsquo;m lazy, meaning I prefer automation over useless hard work.&lt;/p&gt;
+
+&lt;p&gt;Don&amp;rsquo;t know where I found this quote but I like it:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;Don&#39;t spend your time doing work a well-trained monkey could do.
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Today&amp;rsquo;s request was quite simple: get model and serial number from a bunch of Cisco switches.&lt;/p&gt;
+
+&lt;p&gt;I now &lt;a href=&#34;http://nedi.ch/&#34;&gt;NEDI&lt;/a&gt;, &lt;a href=&#34;http://www.observium.org/&#34;&gt;Observium&lt;/a&gt; and &lt;a href=&#34;http://www.librenms.org/&#34;&gt;LibreNMS&lt;/a&gt; can do that but I preferred to write a quick script I could use as a one shot tool instead of a complete software solution.&lt;/p&gt;
+
+&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;/h2&gt;
+
+&lt;p&gt;The script reads from a file that contains a list of IP addresses, all the devices must have a snmp community with read priviledge.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-script&#34;&gt;The Script&lt;/h2&gt;
+
+&lt;p&gt;The script is quite readable: for each line of the input file it does some snmp read operations and print the result when finished.&lt;/p&gt;
+
+&lt;p&gt;Sed commands are used to clean the output of the snmp output.&lt;/p&gt;
+
+&lt;p&gt;Replace variable &lt;strong&gt;community&lt;/strong&gt; with the correct value for your environment.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;#!/bin/bash
+community=MYCOMMUNITY
+while IFS=&#39;&#39; read -r line || [[ -n &amp;quot;$line&amp;quot; ]]; do
+hostname=$(snmpwalk -v 2c -c $community -O v -L n $line 1.3.6.1.4.1.9.2.1.3 | sed &#39;s/^.*://g&#39; | sed &#39;s/&amp;quot;//g&#39;)
+model=$(snmpwalk -v 2c -c $community -O v -L n $line 1.3.6.1.2.1.47.1.1.1.1.13.1001 | sed &#39;s/^.*://g&#39; | sed &#39;s/&amp;quot;//g&#39;)
+serial=$(snmpwalk -v 2c -c $community -O v -L n $line 1.3.6.1.4.1.9.5.1.2.19 | sed &#39;s/^.*://g&#39; | sed &#39;s/&amp;quot;//g&#39;)
+echo -e $line&#39;\t&#39;$hostname&#39;\t&#39;$model&amp;quot;\t&amp;quot;$serial
+done &amp;lt; &amp;quot;$1&amp;quot;
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Launch with:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;./snmpinventory.sh switchlist.txt
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;where file &lt;strong&gt;switchlist.txt&lt;/strong&gt; is a simple list of IP addresses.&lt;/p&gt;
+
+&lt;h2 id=&#34;final-result&#34;&gt;Final result&lt;/h2&gt;
+
+&lt;p&gt;The final result is a list of values separated by a tab os it is easy to copy and paste in a spreadsheet.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;hostname    model   serial
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I added this script to my &lt;a href=&#34;https://github.com/routetonull/snmp_scan&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Enjoy!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>AWK and Cisco WLC</title>
+      <link>http://www.ifconfig.it/hugo/post/awkwlc/</link>
+      <pubDate>Fri, 04 Sep 2015 11:29:33 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/awkwlc/</guid>
+      <description>
+
+&lt;p&gt;When you see an hacker movie you see people typing on the keyboard very fast. Actually the toughest the hacker is the faster he types very long commands and all of them work the first time.&lt;/p&gt;
+
+&lt;p&gt;Want to impress friends and colleagues? Type &lt;a href=&#34;http://hackertyper.net/&#34;&gt;HERE&lt;/a&gt; ;-)&lt;/p&gt;
+
+&lt;p&gt;More experienced network engineers, as I learn during my CCIE studies, type in a [text language=&amp;ldquo;editor&amp;rdquo;][/text]&lt;a href=&#34;https://notepad-plus-plus.org/&#34;&gt;2&lt;/a&gt; then copy/paste on the CLI.&lt;/p&gt;
+
+&lt;p&gt;This approach make easier to spot typos, faster to reuse configuration snippets and to change portions of configuration and more.&lt;/p&gt;
+
+&lt;p&gt;Then comes &lt;a href=&#34;http://www.cisco.com/c/en/us/products/wireless/wireless-lan-controller/index.html&#34;&gt;Cisco WLC&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Do not misunderstand me, I really like the product and after many installations I really appreciate it&amp;rsquo;s reliability and features.&lt;/p&gt;
+
+&lt;p&gt;What I don&amp;rsquo;t like are repetitive tasks and web interface.&lt;/p&gt;
+
+&lt;p&gt;In this post I&amp;rsquo;ll show you how I automate some configurations on WLC&amp;rsquo;s CLI with these &lt;strong&gt;rules&lt;/strong&gt; in mind:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;respect &lt;a href=&#34;https://en.wikipedia.org/wiki/Pareto_principle&#34;&gt;Pareto principle&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;do not use a cannon to kill a mosquito&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;acceptable &lt;a href=&#34;https://en.wikipedia.org/wiki/Learning_curve&#34;&gt;learning curve&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;code reusability, readability and portability&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;script-all-the-things&#34;&gt;Script all the things!&lt;/h1&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;Among the common tasks we usually do on Cisco WLC are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;rename AP&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;set AP antenna gain&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;enable Flexconnect and VLAN support&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I&amp;rsquo;ll show these examples, the scripts are easiliy customizable for any other platform and task.&lt;/p&gt;
+
+&lt;h1 id=&#34;choose-the-right-tool&#34;&gt;Choose the right tool&lt;/h1&gt;
+
+&lt;p&gt;There are many scripting tools available, my choice for this particular use is &lt;a href=&#34;https://en.wikipedia.org/wiki/AWK&#34;&gt;AWK&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;If you know something better just send me a note but keep in mind the rules above.&lt;/p&gt;
+
+&lt;h1 id=&#34;the-scripts&#34;&gt;The scripts&lt;/h1&gt;
+
+&lt;h2 id=&#34;get-the-data&#34;&gt;Get the data&lt;/h2&gt;
+
+&lt;p&gt;Let&amp;rsquo;s start with the most repetitive task when a WLC is first installed: rename APs.&lt;/p&gt;
+
+&lt;p&gt;Usually I do this after all the APs are connected and joined the controller. Get the AP list from the WLC CLI whit these commands:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;config paging disable
+show ap summary
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then copy and paste on your favorite spreadsheet.&lt;/p&gt;
+
+&lt;p&gt;You see all the APs have a name like &lt;em&gt;APxxxx.xxxx.xxxx&lt;/em&gt; where &lt;em&gt;xxxx.xxxx.xxxx&lt;/em&gt; is the MAC address.&lt;/p&gt;
+
+&lt;h2 id=&#34;set-parameters&#34;&gt;Set parameters&lt;/h2&gt;
+
+&lt;p&gt;Now add a second column and type the AP name you want to set according to the naming convention in use.&lt;/p&gt;
+
+&lt;p&gt;If you use external antennas add a third column with the correct gain in dBi.&lt;/p&gt;
+
+&lt;p&gt;Now export the data in a file named &lt;strong&gt;aplist.txt&lt;/strong&gt; values should be separated by a space.&lt;/p&gt;
+
+&lt;p&gt;Your file should look like something like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;AP54a2.7469.6316 AP01
+AP54a2.8458.4666 AP02
+AP54a2.c346.9837 AP03 2.5
+AP54a2.7646.3339 AP04 2.5
+AP54a2.3015.5053 AP05 2.5
+AP54a2.0336.9286 AP06 2.5
+AP54a2.4517.995a AP07 2.5
+AP54a2.1000.8907 AP08 2.5
+AP54a2.5344.3444 AP09 5
+AP54a2.6856.2293 AP10 5
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;first-script-rename-aps&#34;&gt;First script: rename APs&lt;/h2&gt;
+
+&lt;p&gt;Create a file named &lt;strong&gt;wlc_rename_ap.awk&lt;/strong&gt; with this commands:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;# RENAME ACCESS POINTS
+# $1 = old name
+# $2 = new name
+{print &amp;quot;config ap name &amp;quot;,$2,&amp;quot; &amp;quot;,$1}
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now run:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;cat aplist.txt | awk -f wlc_rename_ap.awk 
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The expected output:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;config ap name  AP01   AP54a2.7469.6316
+config ap name  AP02   AP54a2.8458.4666
+config ap name  AP03   AP54a2.c346.9837
+config ap name  AP04   AP54a2.7646.3339
+config ap name  AP05   AP54a2.3015.5053
+config ap name  AP06   AP54a2.0336.9286
+config ap name  AP07   AP54a2.4517.995a
+config ap name  AP08   AP54a2.1000.8907
+config ap name  AP09   AP54a2.5344.3444
+config ap name  AP10   AP54a2.6856.2293
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Good! Now just copy/paste on WLC&amp;rsquo;s CLI and all the APs will have the correct name.&lt;/p&gt;
+
+&lt;h2 id=&#34;second-script-set-ap-antenna-gain&#34;&gt;Second script: set AP antenna gain&lt;/h2&gt;
+
+&lt;p&gt;When the antenna gain is set the value to put is the double of the actual value:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.cisco.com/c/dam/en/us/td/i/200001-300000/200001-210000/207001-208000/207760.tif/_jcr_content/renditions/207760.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Notice also in aplist.txt not all APs have antenna gain set, some have internal antenna.&lt;/p&gt;
+
+&lt;p&gt;I set the same gain for both 802.11b and 802.11a radios because in my case I use dual-band antennas.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s see the script:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;# RENAME ACCESS POINTS
+# $1 = old name
+# $2 = new name
+# $3 =  actual antenna gain
+{if ($3)
+{
+print &amp;quot;config 802.11b disable &amp;quot;$2;
+print &amp;quot;config 802.11b antenna extAntGain &amp;quot;$3*2;
+print &amp;quot;config 802.11b enable &amp;quot;$2;
+print &amp;quot;config 802.11a disable &amp;quot;$2;
+print &amp;quot;config 802.11a antenna extAntGain &amp;quot;$3*2;
+print &amp;quot;config 802.11a enable &amp;quot;$2;
+}}
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The &lt;strong&gt;if&lt;/strong&gt; statement runs the print commands only if the antenna gain is specified.&lt;/p&gt;
+
+&lt;p&gt;The second print command prints twice the value of the gain.&lt;/p&gt;
+
+&lt;p&gt;Check the ouput:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;config 802.11b disable AP03
+config 802.11b antenna extAntGain 5
+config 802.11b enable AP03
+config 802.11a disable AP03
+config 802.11a antenna extAntGain 5
+config 802.11a enable AP03
+config 802.11b disable AP04
+config 802.11b antenna extAntGain 5
+config 802.11b enable AP04
+config 802.11a disable AP04
+config 802.11a antenna extAntGain 5
+config 802.11a enable AP04
+config 802.11b disable AP05
+config 802.11b antenna extAntGain 5
+config 802.11b enable AP05
+config 802.11a disable AP05
+config 802.11a antenna extAntGain 5
+config 802.11a enable AP05
+config 802.11b disable AP06
+config 802.11b antenna extAntGain 5
+config 802.11b enable AP06
+config 802.11a disable AP06
+config 802.11a antenna extAntGain 5
+config 802.11a enable AP06
+config 802.11b disable AP07
+config 802.11b antenna extAntGain 5
+config 802.11b enable AP07
+config 802.11a disable AP07
+config 802.11a antenna extAntGain 5
+config 802.11a enable AP07
+config 802.11b disable AP08
+config 802.11b antenna extAntGain 5
+config 802.11b enable AP08
+config 802.11a disable AP08
+config 802.11a antenna extAntGain 5
+config 802.11a enable AP08
+config 802.11b disable AP09
+config 802.11b antenna extAntGain 10
+config 802.11b enable AP09
+config 802.11a disable AP09
+config 802.11a antenna extAntGain 10
+config 802.11a enable AP09
+config 802.11b disable AP10
+config 802.11b antenna extAntGain 10
+config 802.11b enable AP10
+config 802.11a disable AP10
+config 802.11a antenna extAntGain 10
+config 802.11a enable AP10
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Looks good! APs AP01 and AP02 are not listed as expected, all the gain values are the double of the value in the file.&lt;/p&gt;
+
+&lt;h2 id=&#34;third-script-enable-flexconnect-and-vlan-support&#34;&gt;Third script: enable flexconnect and VLAN support&lt;/h2&gt;
+
+&lt;p&gt;This is very simple, just some commands to disable the AP (required to enable FlexConnect), enable FlexConnect, VLAN support an enable the AP again:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;# ENABLE FLEXCONNECT AND VLAN SUPPORT ON AP
+# $2 = new name
+{
+print &amp;quot;config ap disable &amp;quot;$2;
+print &amp;quot;config ap mode flexconnect &amp;quot;$2;
+print &amp;quot;config ap flexconnect vlan enable &amp;quot;$2;
+print &amp;quot;config ap enable &amp;quot;$2
+}
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The ouput:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;config ap disable AP01
+config ap mode flexconnect AP01
+config ap flexconnect vlan enable AP01
+config ap enable AP01
+config ap disable AP02
+config ap mode flexconnect AP02
+config ap flexconnect vlan enable AP02
+config ap enable AP02
+config ap disable AP03
+config ap mode flexconnect AP03
+config ap flexconnect vlan enable AP03
+config ap enable AP03
+config ap disable AP04
+config ap mode flexconnect AP04
+config ap flexconnect vlan enable AP04
+config ap enable AP04
+config ap disable AP05
+config ap mode flexconnect AP05
+config ap flexconnect vlan enable AP05
+config ap enable AP05
+config ap disable AP06
+config ap mode flexconnect AP06
+config ap flexconnect vlan enable AP06
+config ap enable AP06
+config ap disable AP07
+config ap mode flexconnect AP07
+config ap flexconnect vlan enable AP07
+config ap enable AP07
+config ap disable AP08
+config ap mode flexconnect AP08
+config ap flexconnect vlan enable AP08
+config ap enable AP08
+config ap disable AP09
+config ap mode flexconnect AP09
+config ap flexconnect vlan enable AP09
+config ap enable AP09
+config ap disable AP10
+config ap mode flexconnect AP10
+config ap flexconnect vlan enable AP10
+config ap enable AP10
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;wrap-up&#34;&gt;Wrap up&lt;/h1&gt;
+
+&lt;p&gt;In this post I showed how to reduce the mouse clicks, avoid typing errors and save time.&lt;/p&gt;
+
+&lt;p&gt;AWK is a very powerful tool, I just scratched the surface but as a network engineer I don&amp;rsquo;t want to master it, I just want to be able to use it at my own advantage in the most efficient way.&lt;/p&gt;
+
+&lt;p&gt;I hope you enjoyed this post, please share it if you find it useful and feel free to comment if you find errors or want to add you point of view.&lt;/p&gt;
+
+&lt;h2 id=&#34;useful-links&#34;&gt;Useful links&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.grymoire.com/Unix/Awk.html#TOC&#34;&gt;Awk tutorial on grymoire.com&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.gnu.org/software/gawk/manual/gawk.html&#34;&gt;The GNU Awk User’s Guide&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Cisco ASA: VPN with over overlapping addresses and twice NAT</title>
+      <link>http://www.ifconfig.it/hugo/post/cisco-asa-vpn-with-over-overlapping-addresses-and-twice-nat/</link>
+      <pubDate>Mon, 10 Aug 2015 09:00:28 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/cisco-asa-vpn-with-over-overlapping-addresses-and-twice-nat/</guid>
+      <description>
+
+&lt;p&gt;IP addressing design is a topic that follows every networker from the basic to the architect level of experience.&lt;/p&gt;
+
+&lt;p&gt;Usually we just pick a random range from &lt;a href=&#34;https://tools.ietf.org/html/rfc1918&#34;&gt;RFC1918&lt;/a&gt; and address all the devices.&lt;/p&gt;
+
+&lt;p&gt;But then VPN happens, and with VPN comes the risk of overlapping.&lt;/p&gt;
+
+&lt;p&gt;How do we fix overlapping? With &lt;a href=&#34;2&#34;&gt;NAT&lt;/a&gt; of course!&lt;/p&gt;
+
+&lt;p&gt;In this post I&amp;rsquo;ll show how to use twice NAT to allow VPN connections with overlapping addresses.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;Topology:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2015/08/asa_twicenat_topology.png&#34; alt=&#34;topology&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Constrains:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;to change addressing of any network is not an option&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;no NAT on ASA-REMOTE for the VPN&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Out tools:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Cisco ASA 5510 releas 8.4(2)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://www.cisco.com/c/en/us/td/docs/security/asa/asa84/configuration/guide/asa_84_cli_config/nat_rules.html&#34;&gt;twice nat&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We can see in the topology both local and remote network use addressing 10.99.0.0/24. The local PC2 must reach remote PC1.&lt;/p&gt;
+
+&lt;h1 id=&#34;the-plan&#34;&gt;The plan&lt;/h1&gt;
+
+&lt;p&gt;To fix the overlapping we need to NAT on ASA-NAT both networks to two subnets not used on both sides.&lt;/p&gt;
+
+&lt;p&gt;Network LOCAL LAN 10.99.0.0/24 will be seen as 10.101.0.0/24 from REMOTE LAN.&lt;/p&gt;
+
+&lt;p&gt;Network REMOTE LAN 10.99.0.0/24 will be seen as 10.100.0.0/24 from LOCAL LAN.&lt;/p&gt;
+
+&lt;p&gt;A full network NAT will be used so a host 10.99.0.1 on LOCAL LAN will be natted ad 10.101.0.1 to REMOTE LAN. This is a better choice than nat overload when remote services must be reached.&lt;/p&gt;
+
+&lt;h2 id=&#34;vpn-configuration&#34;&gt;VPN Configuration&lt;/h2&gt;
+
+&lt;p&gt;If you&amp;rsquo;re familiar with VPN configuration on ASA or IOS you know a cryptomap is involved. A cryptomap is an ACL that defines the traffic that will be encrypted and sent to the remote VPN peer.&lt;/p&gt;
+
+&lt;p&gt;In out case the cryptomap on device ASA-NAT will be:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;access-list outside_cryptomap extended permit ip 10.100.0.0 255.255.255.0 10.99.0.0 255.255.255.0  
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This could be quite confunsing, the destination address is the same subnet of the LOCAL LAN, but we&amp;rsquo;ll see why it works (hint: &lt;a href=&#34;https://supportforums.cisco.com/document/132066/asa-nat-83-nat-operation-and-configuration-format-cli&#34;&gt;order of operation&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;VPN configuration on device ASA-NAT:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;crypto ipsec ikev2 ipsec-proposal AES256
+ protocol esp encryption aes-256
+ protocol esp integrity sha-1 md5
+crypto map outside_map 1 match address outside_cryptomap
+crypto map outside_map 1 set peer 192.168.2.2
+crypto map outside_map 1 set ikev2 ipsec-proposal AES256
+crypto map outside_map interface outside
+crypto ikev2 policy 1
+ encryption aes-256
+ integrity sha
+ group 5 2
+ prf sha
+ lifetime seconds 86400
+crypto ikev2 enable outside 
+group-policy GroupPolicy_192.168.2.2 internal
+group-policy GroupPolicy_192.168.2.2 attributes
+ vpn-tunnel-protocol ikev2
+tunnel-group 192.168.2.2 type ipsec-l2l
+tunnel-group 192.168.2.2 general-attributes
+ default-group-policy GroupPolicy_192.168.2.2
+tunnel-group 192.168.2.2 ipsec-attributes
+ ikev2 remote-authentication pre-shared-key cisco123
+ ikev2 local-authentication pre-shared-key cisco123
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;VPN configuration on device ASA-REMOTE:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;crypto ipsec ikev2 ipsec-proposal AES256
+ protocol esp encryption aes-256
+ protocol esp integrity sha-1 md5
+crypto map outside_map 1 match address outside_cryptomap
+crypto map outside_map 1 set peer 192.168.1.1
+crypto map outside_map 1 set ikev2 ipsec-proposal AES256
+crypto map outside_map interface outside
+crypto ikev2 policy 1
+ encryption aes-256
+ integrity sha
+ group 5 2
+ prf sha
+ lifetime seconds 86400
+crypto ikev2 enable outside
+group-policy GroupPolicy_192.168.1.1 internal
+group-policy GroupPolicy_192.168.1.1 attributes
+ vpn-tunnel-protocol ikev2
+tunnel-group 192.168.1.1 type ipsec-l2l
+tunnel-group 192.168.1.1 general-attributes
+ default-group-policy GroupPolicy_192.168.1.1
+tunnel-group 192.168.1.1 ipsec-attributes
+ ikev2 remote-authentication pre-shared-key cisco123
+ ikev2 local-authentication pre-shared-key cisco123
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;nat-configuration&#34;&gt;NAT Configuration&lt;/h2&gt;
+
+&lt;p&gt;All the magic happens on device ASA-NAT.&lt;/p&gt;
+
+&lt;p&gt;First step - create the newtork objects:&lt;/p&gt;
+
+&lt;p&gt;ASA-LAN is the &lt;strong&gt;local network:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;object network ASA-LAN
+  subnet 10.99.0.0 255.255.255.0
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ASA-REMOTE-LAN is the remote &lt;strong&gt;network&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;object network ASA-REMOTE-LAN
+  subnet 10.99.0.0 255.255.255.0
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;em&gt;It is the same as AS-LAN but I used different names fo make the nat command more clear.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;ASA-NATTED-LAN is how the &lt;strong&gt;local network&lt;/strong&gt; is seen from the &lt;strong&gt;remote network:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;object network ASA-NATTED-LAN
+  subnet 10.100.0.0 255.255.255.0
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ASA-NATTED-REMOTE is how the &lt;strong&gt;remote network&lt;/strong&gt; is seen from the &lt;strong&gt;local network:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;object network ASA-NATTED-REMOTE
+  subnet 10.101.0.0 255.255.255.0
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Second step - the NAT command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;nat (inside,outside) source static ASA-LAN ASA-NATTED-LAN destination static ASA-NATTED-REMOTE ASA-REMOTE-LAN net-to-net
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The first part of the command &lt;strong&gt;source&lt;/strong&gt; translates the local network ASA-LAN (10.99.0.0/24) as ASA-NATTED-LAN (10.100.0.0/24) when talking to ASA-NATTED-REMOTE (10.101.0.0/24)&lt;/p&gt;
+
+&lt;p&gt;The second part of the command &lt;strong&gt;destination&lt;/strong&gt; translates the remote network ASA-NATTED-REMOTE (10.101.0.0/24) as ASA-REMOTE (10.99.0.0/24).&lt;/p&gt;
+
+&lt;p&gt;The final result creates a packet with source 10.100.0.0/24 and destination 10.99.0.0/24 that perfectly matches the cryptomap we created so che traffic correctly enters the VPN.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2015/08/asa_twicenat_nat.png&#34; alt=&#34;nat&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;order-of-operations&#34;&gt;Order of operations&lt;/h2&gt;
+
+&lt;p&gt;For a better understanging of the whole process we can use the &lt;strong&gt;packet tracer&lt;/strong&gt; and see the steps.&lt;/p&gt;
+
+&lt;p&gt;The command is:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;ASA-NAT# packet-tracer input inside tcp 10.99.0.1 http 10.101.0.1 http
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I removed some lines for a better output.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;Phase: 1
+Type: ACCESS-LIST
+Result: ALLOW
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In phase 2 the destination IP of the packet is &amp;ldquo;un-natted&amp;rdquo; from 10.101.0.1 to 10.99.0.1.&lt;/p&gt;
+
+&lt;p&gt;Notice: there&amp;rsquo;s no routing involved here, the traffic is diverted to the outside interface by the NAT rule, overriding the routing table.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;Phase: 2
+Type: UN-NAT
+Subtype: static
+Result: ALLOW
+Config:
+nat (inside,outside) source static ASA-LAN ASA-NATTED-LAN destination static ASA-NATTED-REMOTE ASA-LAN
+Additional Information:
+NAT divert to egress interface outside
+Untranslate 10.101.0.1/80 to 10.99.0.1/80
+
+Phase: 3
+Type: IP-OPTIONS
+Result: ALLOW
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In phase 4 the source of the packet is natted from 10.99.0.1 to 10.100.0.1:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;Phase: 4
+Type: NAT
+Subtype:
+Result: ALLOW
+Config:
+nat (inside,outside) source static ASA-LAN ASA-NATTED-LAN destination static ASA-NATTED-REMOTE ASA-LAN
+Additional Information:
+Static translate 10.99.0.1/80 to 10.100.0.1/80
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The traffic matches the cryptomap:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;Phase: 5
+Type: VPN
+Subtype: encrypt
+Result: ALLOW
+Config:
+Additional Information:
+
+Phase: 6
+Type: NAT
+Subtype: rpf-check
+Result: ALLOW
+Config:
+nat (inside,outside) source static ASA-LAN ASA-NATTED-LAN destination static ASA-NATTED-REMOTE ASA-LAN
+Additional Information:
+
+Phase: 7
+Type: VPN
+Subtype: ipsec-tunnel-flow
+Result: ALLOW
+Config:
+Additional Information:
+
+Phase: 8
+Result: ALLOW
+
+Phase: 9
+Type: FLOW-CREATION
+Result: ALLOW
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The final result:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;Result:
+input-interface: inside
+input-status: up
+input-line-status: up
+output-interface: outside
+output-status: up
+output-line-status: up
+Action: allow
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;final-considerations&#34;&gt;Final considerations&lt;/h2&gt;
+
+&lt;p&gt;I want to thank my friend (and happy customer) &lt;a href=&#34;http://www.routereflector.com/&#34;&gt;Andrea&lt;/a&gt; (the creator of &lt;a href=&#34;http://www.unetlab.com/&#34;&gt;Unified Networking Lab&lt;/a&gt;) for the question he sent me that gave me the chance to lab this feature and write this post.&lt;/p&gt;
+
+&lt;p&gt;I use to configure NAT on both firewalls for this kind of overlapping but in this case we wanted to have the same results without any NAT on remote firewall.&lt;/p&gt;
+
+&lt;p&gt;HTH&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Quick config: SSL VPN on Cisco IOS via CLI</title>
+      <link>http://www.ifconfig.it/hugo/post/quick-config-ssl-vpn-on-cisco-ios-via-cli/</link>
+      <pubDate>Mon, 03 Aug 2015 12:15:32 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/quick-config-ssl-vpn-on-cisco-ios-via-cli/</guid>
+      <description>&lt;p&gt;Platform: CISCO2921 IOS version: 15.3(3)M5&lt;/p&gt;
+
+&lt;p&gt;Load the anyconnect package on the flash of the router and configure anyconnect client package:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;crypto vpn anyconnect flash0:/webvpn/anyconnect-win-4.1.04011-k9.pkg sequence 1
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Create a virtual template, that&amp;rsquo;s the interface the VPN clients will attach to:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;interface Virtual-Template1
+  ip address 172.31.255.254 255.255.255.0
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Create a local pool to assign IP addresses to VPN clients:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;ip local pool SSLVPN_POOL 172.31.255.1 172.31.255.100
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Enable https on the router:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;ip http secure-server
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Get trustpoint name:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;sh run | i crypto.*trustpoint
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In this example we use local authentication for VPN clients:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;aaa authentication login default local
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now configure webvpn. Custom names are UPPERCASE&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;webvpn gateway GATEWAY_NAME
+ ! PUBLIC IP ADDRESS OF THE VPN GATEWAY
+ ip address X.X.X.X port 443  
+ http-redirect port 80
+ ssl trustpoint TRUSTPOINT_NAME
+ inservice
+ !
+webvpn context SSLVPN
+ virtual-template 1
+ aaa authentication list default
+ gateway GATEWAY_NAME
+ !
+ ssl authenticate verify all
+ inservice
+ !
+ policy group SSLVPN_GRP
+   functions svc-enabled
+   functions svc-required
+   svc address-pool &amp;quot;SSLVPN_POOL&amp;quot; netmask 255.255.255.0
+   !LOCAL NETWORK TO INCLUDE IN SPLIT TUNNEL
+   svc split include 10.153.0.0 255.255.224.0
+   default-group-policy SSLVPN_GRP
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now connect the VPN client:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2015/08/anyconn1.png&#34; alt=&#34;statistics&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2015/08/anyconn2.png&#34; alt=&#34;routedetails&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;What we see on the router:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2015/08/anyconn3.png&#34; alt=&#34;show webvpn session context all&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Enjoy.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Meraki CMNA</title>
+      <link>http://www.ifconfig.it/hugo/post/cmna/</link>
+      <pubDate>Wed, 04 Mar 2015 21:39:29 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/cmna/</guid>
+      <description>&lt;p&gt;Today I&amp;rsquo;ve attended a &lt;a href=&#34;https://meraki.cisco.com/&#34;&gt;Meraki&lt;/a&gt; technical training course at &lt;a href=&#34;http://www.cisco.com/&#34;&gt;Cisco&lt;/a&gt; offices.&lt;/p&gt;
+
+&lt;p&gt;The training was organized in short presentations of product features followed by hands-on labs based on all the products available today.&lt;/p&gt;
+
+&lt;p&gt;I was suprised to find not only people from small companies or system integrators but more that 50% of the attendees were from Cisco Gold Partners sent to evaluate the products for &amp;ldquo;managed network&amp;rdquo; services. Cloud managed network gear is quite a hot topic today and I expect many projects in the future will involve this kind of solutions.&lt;/p&gt;
+
+&lt;p&gt;Included in the trainig day there is a complimentary Meraki demo kit (and t-shirt) that includes:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;1 LIC-MX64-SEC-3YR Meraki MX64 Advanced Security License and Support, 3 Years&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;1 MS220-8P-HW Meraki MS220-8P L2 Cloud Managed 8 Port GigE 124W PoE Switch&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;1 LIC-MS220-8P-3YR Meraki MS220-8P Enterprise License and Support, 3 Year&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;1 MX64-HW Meraki MX64 Cloud Managed Security Appliance&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;1 LIC-ENT-3YR Meraki MR Enterprise Cloud Controller License, 3 Years&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;1 MR32-HW Meraki MR32 Cloud Managed AP&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;That&amp;rsquo;s enough hardware to test many features and to do some POC for interested customers.&lt;/p&gt;
+
+&lt;p&gt;Thanks Meraki for both the training and the demo kit!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2015/04/meraki-cmna-signature.jpeg&#34; alt=&#34;Alt&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Cisco Nexus 9000 training DCINX9K</title>
+      <link>http://www.ifconfig.it/hugo/post/dcinx9k/</link>
+      <pubDate>Thu, 27 Nov 2014 15:26:27 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/dcinx9k/</guid>
+      <description>&lt;p&gt;This week I attended a two days training of Cisco &lt;strong&gt;&lt;a href=&#34;http://www.fireflycom.net/?cmd=course&amp;amp;id=DCINX9K&#34;&gt;DCINX9K&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The training is focused on Cisco Nexus 9000 switches in NX-OS mode.&lt;/p&gt;
+
+&lt;p&gt;NX9K can run two different software images, the full ACI image with all the cool SDN stuff and the traditional NS-OX image with some cool features like &lt;a href=&#34;http://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus9000/sw/6-x/programmability/guide/b_Cisco_Nexus_9000_Series_NX-OS_Programmability_Guide.html&#34;&gt;Python&lt;/a&gt;, Rest API, VX-LAN and more.&lt;/p&gt;
+
+&lt;p&gt;Now it&amp;rsquo;s time to improve my Python skills and borrow a couple of boxes to do some labs.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m quite excited of the convergence of Virtualization, Networking and Python, feels like &lt;strong&gt;&lt;a href=&#34;http://news.stanford.edu/news/2005/june15/jobs-061505.html&#34;&gt;joining the dots&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/hugo/wordpress/wp-content/uploads/2014/11/wpid-20141127_160712.jpg&#34; alt=&#34;Alt&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>CCIE renewed</title>
+      <link>http://www.ifconfig.it/hugo/post/cciersrenew2014/</link>
+      <pubDate>Thu, 05 Jun 2014 21:15:58 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/cciersrenew2014/</guid>
+      <description>&lt;p&gt;In the very last day of availability of the  CCIE v4 350-001 written exam I&amp;rsquo;ve renewed my CCIE for a couple of years more:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2014/07/ccie_exam_renew_2014.png&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2014/07/ccie_exam_renew_2014-1024x38.png&#34; alt=&#34;ccie_exam_renew_2014&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;My plan was to recertify with another track - Wireless or Security - but life happens and I took the easy path and did R&amp;amp;S again.&lt;/p&gt;
+
+&lt;p&gt; I&amp;rsquo;ve passed the same written exam 3 times. The first time in 2010, followed by a failed lab attempt in 2011. Then I did it again  in 2012 and &lt;a href=&#34;http://www.ifconfig.it/wordpress/2013/03/ccie38619/&#34;&gt;passed the lab exam&lt;/a&gt; in 2013.&lt;/p&gt;
+
+&lt;p&gt;The first time I&amp;rsquo;ve complained about the quality of the images in the exam, they look like scanned images from a fax printed with a 300dpi printer. The second time the images quality was better but the questions were unclear, hard to understand. I can say the third time the exam was quite better, no question looked strange or unexpected but while some topics were deeply tested other were completely ignored. The  CCIE R&amp;amp;S written blueprint is quite long, even with a 100 questions exam is not easy to test all topics.&lt;/p&gt;
+
+&lt;p&gt;Now my CCIE is safe until March 19th 2017 so I&amp;rsquo;ve plenty of time to study other certifications. It&amp;rsquo;ll be hard to prepare the written exam again in 3 year so I&amp;rsquo;m likely to do another track for real this time. Another CCIE lab? That&amp;rsquo;s not in my plans, I&amp;rsquo;ve spent so much time and energy for the R&amp;amp;S and I don&amp;rsquo;t think my career would get any improvement from a second CCIE.&lt;/p&gt;
+
+&lt;p&gt;Good luck to anyone taking R&amp;amp;S v5 written exam!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MTU on Nexus switches, CDP and vCenter</title>
+      <link>http://www.ifconfig.it/hugo/post/nxmtucdp/</link>
+      <pubDate>Wed, 09 Apr 2014 13:06:01 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/nxmtucdp/</guid>
+      <description>&lt;p&gt;Some time ago I&amp;rsquo;ve installed the new core switches for a customer: a couple of Nexus 7000, a couple of 5000 and twelve Nexus 2232TM, Virtual port channels, VLANs, Radius auth and so on.. all the usual configs a good network engineer does.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2014/04/2013-06-20_16-26-15_HDR.jpg&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2014/04/2013-06-20_16-26-15_HDR-225x300.jpg&#34; alt=&#34;2013-06-20_16-26-15_HDR&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Since the Nexus 5000 are connected to an iSCSI storage I&amp;rsquo;ve configured Jumbo frames.&lt;/p&gt;
+
+&lt;p&gt;Customer called complaining that MTU isn&amp;rsquo;t correctly set and I must fix it. The attached a screenshot from vCenter showing &amp;ldquo;MTU: 1500&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2014/04/screenshot_mtublog.png&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2014/04/screenshot_mtublog.png&#34; alt=&#34;screenshot_mtublog&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;This is well documented in &lt;a href=&#34;http://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus5000/sw/qos/513_n2_1/b_Cisco_Nexus_5000_QoS_Config_Guide_513_N2_1/b_Cisco_Nexus_5000_QoS_Config_Guide_513_N2_1_chapter_0101.html#con_1150621&#34;&gt;Cisco Nexus 5000 QOS configuration guide&lt;/a&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;The show interface command always displays 1500 as the MTU. Because the Cisco Nexus device supports different MTUs for different QoS groups, it is not possible to represent the MTU as one value on a per interface level.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;CDP will always show MTU value 1500, the correct command to check the MTU of the interface is:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;kbd&amp;gt;show queuing interface ethernetx/y&amp;lt;/kbd&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>CCNA 10 years!</title>
+      <link>http://www.ifconfig.it/hugo/post/ccna-10-years/</link>
+      <pubDate>Thu, 13 Feb 2014 12:00:24 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/ccna-10-years/</guid>
+      <description>&lt;p&gt;Ten years ago I&amp;rsquo;ve passed my first Cisco exam: CCNA! What was supposed to be just a marginal skill for a junior systems engineer became both my job and my passion.&lt;/p&gt;
+
+&lt;p&gt;Ten years later and 21 Cisco exams later (and a bunch of other vendors), with 2 labs in Brussels, 1 FAIL and 1 PASS, I&amp;rsquo;m still excited about networking and I hope the next ten year will be as valuable and inspired.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2014/02/cisco_exams.png&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2014/02/cisco_exams.png&#34; alt=&#34;cisco_exams&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>CCNA-Wireless</title>
+      <link>http://www.ifconfig.it/hugo/post/ccna-wireless/</link>
+      <pubDate>Sat, 01 Feb 2014 10:59:14 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/ccna-wireless/</guid>
+      <description>&lt;p&gt;I took advantage of my participation at &lt;a href=&#34;http://www.ifconfig.it/wordpress/2014/02/cleur2014/&#34;&gt;Cisco Live 2014&lt;/a&gt; to book a free Cisco exam &lt;a href=&#34;http://www.cisco.com/web/learning/exams/list/iuwne.html&#34;&gt;IUWNE&lt;/a&gt;. I passed with a strict margin but a pass is a pass right?&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2014/02/CCNA_wireless_large.jpg&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2014/02/CCNA_wireless_large.jpg&#34; alt=&#34;CCNA_wireless_large&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ve prepared the exam with the &lt;a href=&#34;http://www.ciscopress.com/store/ccna-wireless-640-722-iuwne-quick-reference-9781587133152&#34;&gt;Cisco Press Quick Reference&lt;/a&gt; since many topics are familiar to me and I didn&amp;rsquo;t hat the time to read the full &lt;a href=&#34;http://www.ciscopress.com/store/ccna-wireless-official-exam-certification-guide-ccna-9781587202117&#34;&gt;Exam Certification Guide&lt;/a&gt; that is quite old (2008).&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Cisco Live 2014 Milan</title>
+      <link>http://www.ifconfig.it/hugo/post/cleur2014/</link>
+      <pubDate>Sat, 01 Feb 2014 10:48:55 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/cleur2014/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2014/02/live14.png&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2014/02/live14.png&#34; alt=&#34;live14&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Last week I had the opportunity to attend Cisco Live in Milan. This is my second time at Cisco Live, I&amp;rsquo;ve been in &lt;a href=&#34;http://www.ifconfig.it/wordpress/2013/02/cleur2013/&#34;&gt;London last year&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Some people still doesn&amp;rsquo;t know what Cisco Live is. Is it an event for pre-sales? A technical training? A party with free beer for nerds? I can say it is it all and much more.&lt;/p&gt;
+
+&lt;p&gt;At Cisco Live you have the opportunity to participate in very deep technical sessions, some with hands-on labs, and to talk with the smartest guys in Cisco. The bigger vendors have an booth where you can see their products and ask questions to their engineers.&lt;/p&gt;
+
+&lt;h2 id=&#34;why-attend-cisco-live&#34;&gt;WHY ATTEND CISCO LIVE?&lt;/h2&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h3 id=&#34;competitive-advantage&#34;&gt;Competitive advantage&lt;/h3&gt;
+
+&lt;p&gt;Information is power. The first sources of information for a network engineer are the product documentation, certification manuals and sometimes blogs/forums/twitter.
+At Cisco Live you have the opportunity to meet members of the BU that created the products and get information and insights before the documentation and best practice are published. That gives you months of advantage over competitors that may reflect in more business opportunities and better deployments that of course results in happier customers.&lt;/p&gt;
+
+&lt;h3 id=&#34;motivation&#34;&gt;Motivation&lt;/h3&gt;
+
+&lt;p&gt;For me Cisco Live is a big boost for motivation. If you work long hours and spend the evenings and sometimes the week-ends reading technical manuals and doing labs you know what I mean. Is it money the ultimate target? I think it isn&amp;rsquo;t, otherwise I would have moved to sales a long time ago ;-)
+Knowledge, the personal satisfaction to see a good design deployed, a problem fixed, a customer happy with our solution are the purpose of our efforts (ok even money counts, but that&amp;rsquo;s not in the first position).
+To spend a week with peers, meeting smart people, touching the newest technologies and seeing how big and competitive this industry is, for me is like charging my network-nerd batteries and be ready for another year of hard work.&lt;/p&gt;
+
+&lt;h3 id=&#34;socialize&#34;&gt;Socialize&lt;/h3&gt;
+
+&lt;p&gt;At Cisco Live I met people I knew on Twitter, some Cisco engineers that wrote the manuals I study. Email, WebEx, phone are great tools but every future contact is more relaxed if you met at least once in person. Networking with people is an important part of human behaviour, I really like this part of the events.&lt;/p&gt;
+
+&lt;h2 id=&#34;what-now&#34;&gt;WHAT NOW?&lt;/h2&gt;
+
+&lt;p&gt;Cisco Live is not a goal but a new start. You leave the session with notes, links to check, new topics to learn, the real work begins when the session ends. The hunger for knowledge is not satisfied but increases, inspired by all the new ideas. This means hours of reading and labbing, the part that any network geek loves, isn&amp;rsquo;t it? ;-)&lt;/p&gt;
+
+&lt;h3 id=&#34;the-ccie-advantage&#34;&gt;THE CCIE ADVANTAGE&lt;/h3&gt;
+
+&lt;p&gt;As a CCIE you have  some advantages when participating at Cisco Live:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;lower fee&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;access to the CCIE lounge area&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;a personalized badge to be recognized - makes a difference when you talk to Cisco engineers and vendors&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;the CCIE dinner - an exclusive event to socialize with other CCIEs&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;some gadgets - a pin, a pen, a 16GB USB key&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;ccie-gadgets-http-www-ifconfig-it-wordpress-wp-content-uploads-2014-02-img-20140128-192157-225x300-jpg&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2014/02/IMG_20140128_192157-225x300.jpg&#34; alt=&#34;CCIE gadgets&#34; /&gt;&lt;/h3&gt;
+
+&lt;h3 id=&#34;advices&#34;&gt;ADVICES&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;wear comfortable shoes: the area is big and you&amp;rsquo;ll walk a lot&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;focus the sessions on &lt;sup&gt;2&lt;/sup&gt;&amp;frasl;&lt;sub&gt;3&lt;/sub&gt; technologies: many sessions have a bigger value when put together as a path&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;skip a sessions if you don&amp;rsquo;t like the first minutes. Walk-in labs and World of Solutions are always there&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Thursday keynote is the best moment to go hunting gadget in WoS ;-)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;take advantage of the free certification exam, book it early - seats are limited&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;schedule a &amp;ldquo;meet the engineer&amp;rdquo; if you want to discuss a topic privately&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;See you next year in Milan, the location will be the Expo 2015, it looks very promising.&lt;/p&gt;
+
+&lt;h3 id=&#34;worlf-of-solution-http-www-ifconfig-it-wordpress-wp-content-uploads-2014-02-20140127-114126-300x225-jpg&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2014/02/20140127_114126-300x225.jpg&#34; alt=&#34;Worlf Of Solution&#34; /&gt;&lt;/h3&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

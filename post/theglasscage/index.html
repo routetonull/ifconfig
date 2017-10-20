@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.26" />
+
+  <title>Are we the last generation of Network Engineers? &middot; ifconfig.it</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.ifconfig.it/hugoimg/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-2507441616057251",
+    enable_page_level_ads: true
+  });
+</script>
+  
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://www.ifconfig.it/hugo/">ifconfig.it</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/tags/"><i class='fa fa-list fa-fw'></i>Tags</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/gp_ifconfig" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/gpboa" target="_blank"><i class="fa fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/gpaolo" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/routetonull" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://keybase.io/bgp" target="_blank"><i class="fa fa-key fa-fw"></i>Keybase</a>
+    </li>
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Are we the last generation of Network Engineers?</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+	<time>Saturday, October 7, 2017
+	</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/books">books</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/automation">automation</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  
+
+<p>Automation is today a word that can be both scaring and exciting at the same time.</p>
+
+<p>The <em>scary part</em> is often related to the question: <strong><a href="https://willrobotstakemyjob.com/">will robots steal my job?</a></strong></p>
+
+<p><a href="https://twitter.com/FedericoPistono">Federico Pistono</a> says <a href="http://robotswillstealyourjob.com/">that&rsquo;s ok</a>.</p>
+
+<p>We read articles about how many jobs will not exist anymore soon, and sometimes how new jobs will be create to support automation.
+The most advanced analysts try to predict how a society can survive with massive unemployment.</p>
+
+<p>The exciting part for me, as a Network Engineer, is that I can do my job faster and automate all the boring parts keeping my focus on the architecture part and how I can contribute to the business. Are these the first steps of career shift? It may be.</p>
+
+<p>I recently finished <a href="http://www.nicholascarr.com/?page_id=18">&ldquo;The glass cage&rdquo; by Nicholas Carr</a> and I found some some very interesting points I&rsquo;ll discuss here.</p>
+
+<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-version="7" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:8px;"> <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:50.0% 0; text-align:center; width:100%;"> <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAMUExURczMzPf399fX1+bm5mzY9AMAAADiSURBVDjLvZXbEsMgCES5/P8/t9FuRVCRmU73JWlzosgSIIZURCjo/ad+EQJJB4Hv8BFt+IDpQoCx1wjOSBFhh2XssxEIYn3ulI/6MNReE07UIWJEv8UEOWDS88LY97kqyTliJKKtuYBbruAyVh5wOHiXmpi5we58Ek028czwyuQdLKPG1Bkb4NnM+VeAnfHqn1k4+GPT6uGQcvu2h2OVuIf/gWUFyy8OWEpdyZSa3aVCqpVoVvzZZ2VTnn2wU8qzVjDDetO90GSy9mVLqtgYSy231MxrY6I2gGqjrTY0L8fxCxfCBbhWrsYYAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;"></div></div> <p style=" margin:8px 0 0 0; padding:0 4px;"> <a href="https://www.instagram.com/p/BZ8X6CHF5ZX/" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_blank">A book about  how technology and automation change our lives.</a></p> <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">A post shared by Gian Paolo Boarina (@gpboa) on <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2017-10-07T10:24:26+00:00">Oct 7, 2017 at 3:24am PDT</time></p></div></blockquote>
+<script async defer src="//platform.instagram.com/en_US/embeds.js"></script>
+
+<h2 id="learning">Learning</h2>
+
+<blockquote>
+<p>If automation is used to bypass learning, it won&rsquo;t help to gain knowledge and skills.</p>
+</blockquote>
+
+<p>At school we learn basic math doing operations manually, even if calculators are available since decades. Learning requires inefficiency.</p>
+
+<p>Most Network Engineers today still build networks by hand, as a craftsman creating an unique product.</p>
+
+<p>This method is slow, error-prone and very subjective but allows the junior to reach an expert level.</p>
+
+<p>If you think about your career in IT, what are the moments when you learned more? If the answer is <strong>while troubleshooting</strong> we agree on a concept here:</p>
+
+<blockquote>
+<p>&ldquo;Problems produce friction in our lives, but friction can act as a catalyst, pushing us to a fuller awareness and deeper understanding of situations&rdquo;
+<em>(<a href="http://www.nicholascarr.com/?page_id=18">The Class Cage, Nicholas Carr</a>)</em></p>
+</blockquote>
+
+<p>What if the next junior arrives to his new job and finds only automated tools to work with? A couple of experts prepare the automation tools and everyone else is just an operator for those tools.</p>
+
+<p>How can a novice advance to the expert level on the <a href="https://en.wikipedia.org/wiki/Dreyfus_model_of_skill_acquisition">Dreyfus model</a> if he can&rsquo;t practice?</p>
+
+<blockquote>
+<p>&ldquo;The more automated the machine, the less operators has to do&rdquo;
+<em>(Automation and management, <a href="https://en.wikipedia.org/wiki/James_Bright">James Bright</a>, 1958)</em></p>
+</blockquote>
+
+<p>The worker becomes a machinist and then a watchmen without opportunities to create skills.</p>
+
+<blockquote>
+<p>What if the cost of machines that think is people who don&rsquo;t?</p>
+</blockquote>
+
+<p>Asked George Dyson in 2008. The question is still unanswered.</p>
+
+<p>We can go back to 1996 to &ldquo;<a href="https://en.wikipedia.org/wiki/The_Social_Construction_of_Reality">The Social Construction of Reality</a>&rdquo; and maybe more with <a href="https://en.wikipedia.org/wiki/Alfred_Sch%C3%BCtz">Alfred Schütz</a> and his <em><a href="https://en.wikipedia.org/wiki/Phenomenological_sociology">Phenomenology of the Social World</a></em> to understand how knowledge is created and transmitted but the topic is too far. Follow the links if you&rsquo;re interested.</p>
+
+<h2 id="automation-disaster">Automation disaster</h2>
+
+<p>Air France <strong><a href="https://www.theguardian.com/technology/2016/oct/11/crash-how-computers-are-setting-us-up-disaster">learned the hard way</a></strong> how automation can lead to a disaster and since then pilots are required to manual flight planes to keep their skills sharp. (<a href="https://www.theguardian.com/technology/2016/oct/11/crash-how-computers-are-setting-us-up-disaster">I strongly advice to read the whole article</a>).</p>
+
+<p>Can this be a solution for network engineers too? Maybe a lab environment or <a href="https://en.wikipedia.org/wiki/Sandbox_(software_development)">sandbox</a> where juniors can play and do manually the tasks that are automated in production, so they can learn the actual protocols and challenges involved?</p>
+
+<p>This sounds a viable option but I don&rsquo;t think it will work long therm. It is quite likely in future network devices will not have a CLI anymore, at least not for actual configuration, so this learning path will be precluded.</p>
+
+<p>What will happen to experts then?</p>
+
+<blockquote>
+<p>&ldquo;a formerly experienced operator who has been monitoring an automated process may now be an inexperienced one.&rdquo;
+<em><a href="http://www.bainbrdg.demon.co.uk/Papers/Ironies.html">(Ironies of Automation, Lisanne Bainbridge, Department of Psychology, University College London, 1983)</a></em></p>
+</blockquote>
+
+<p>Even if operators are expert, automatic systems erode their skills by removing the need for practice.<a href="https://en.wikipedia.org/wiki/Automation_surprise">Automation surprises</a> will still happen and expert will be not experts anymore. No good.</p>
+
+<h2 id="what-is-the-cure-for-imperfect-automation">What is the cure for imperfect automation?</h2>
+
+<p>Reading about self-driving cars it seems the biggest challenge is coexistence with human-driven cars.
+<a href="https://www.axios.com/autonomous-car-traffic-accidents-2466289474.html">Humans cause most self-driving car accidents.</a></p>
+
+<p>The proposed solution for this problem is <strong>total automation</strong>:</p>
+
+
+<div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; height: 0; overflow: hidden;">
+  <iframe src="//www.youtube.com/embed/OlLFK8oSNEM" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" allowfullscreen frameborder="0"></iframe>
+ </div>
+
+
+<p>Will it work the same way for networks? Should we keep humans completely out pf path an only use tools like <a href="http://www.apstra.com/">Apstra</a> to manage the devices?</p>
+
+<h2 id="automation-fail">Automation #FAIL</h2>
+
+<p>Can we assume automation is flawless? As any product created by humans we already know it will fail.</p>
+
+<p>But reaction to failure is different if it is caused by humans or by software.</p>
+
+<p>It is somehow easier to accept an accident caused by an human error than the same accident caused by automation.</p>
+
+<p>If/when the first self-driving car will kill somebody it is easy to expect <a href="https://en.wikipedia.org/wiki/Luddite">luddities</a> will ask to remove all of them of the streets. A request totally unjustified, self-driving cars will more likely cause a drop of deaths by street accidents.</p>
+
+<p>I see two possible scenarios here, and the difference is on the technology used to automate.</p>
+
+<h3 id="tesla-automation-strategy">Tesla automation strategy</h3>
+
+<p>After the first Tesla crashes Musk said:</p>
+
+<blockquote>
+<p>the updated Autopilot would use the radar data to better assess the situation, so that the car would respond more accurately (<a href="http://www.businessinsider.com/elon-musk-autopilot-update-makes-cars-safer-2016-9?IR=T">source</a>)</p>
+</blockquote>
+
+<p>This is the key point. After an human accident it is impossible to learn from that and improve the driving skills of current and future drivers. Tesla can do that.</p>
+
+<p>We should ask our network automation vendors to do the same. No black boxes and full visibility of checks and improvements. And on top of that, no <a href="https://en.wikipedia.org/wiki/Minimum_viable_product">MVP</a> but thoroughly tested products.</p>
+
+<h3 id="ai-automation">AI automation</h3>
+
+<p>I&rsquo;m not an AI expert so I may be in error here but as I understand, AI outcome may not be always predictable and it may be impossible to understand what information or algorithm led to a particular decision.</p>
+
+<p>Should we just trust the AI not to repeat the same error in the future? This sounds a bit scary to me.</p>
+
+<h2 id="are-we-the-last-generation-of-network-engineers">Are we the last generation of Network Engineers?</h2>
+
+<p>We can split the path to automation in three phases.</p>
+
+<p>Phase 1 - past</p>
+
+<ul>
+<li>automation reduces experts workload automating boring/repetitive tasks</li>
+<li>enhancement of precision, speed, economics</li>
+<li>many advantages</li>
+</ul>
+
+<p>Phase 2 - present</p>
+
+<ul>
+<li>more automation</li>
+<li>less trained people required to perform the same work</li>
+<li>reduction of skills</li>
+<li>reduction of costs</li>
+<li>experts don&rsquo;t work on CLI anymore</li>
+</ul>
+
+<p>Phase 3 - possible future?</p>
+
+<ul>
+<li>experts not needed anymore in the Enterprise</li>
+<li>ignorant operators</li>
+<li>strong reliance on automation products</li>
+</ul>
+
+<p>The answer to the question could be &ldquo;yes we are&rdquo;. We can already see what&rsquo;s happening at Facebook, Amazon, Netflix and Google. Enterprise market will follow, it will take some time but</p>
+
+<blockquote>
+<p>The future is already here — it&rsquo;s just not very evenly distributed. (<a href="https://en.wikiquote.org/wiki/William_Gibson">William Gibson</a>)</p>
+</blockquote>
+
+<p>As Network Engineers we should embrace the new automation tools. We&rsquo;ll spend years supporting the Enterprise transition to automation and then happily retire while robots mow our lawns.</p>
+
+<p>Juniors will mainly operate the automation tools, some of them will work for companies that create the tools, that&rsquo;s where all the fun will be.</p>
+
+<p>This is just an educated guess, technology and society are changing so fast futurist is now a full time job and most of them fail, I do not pretend to know how to do better.</p>
+
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2507441616057251"
+     data-ad-slot="5064206496"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://www.ifconfig.it/hugo/post/ismoretechgoodforbusiness/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://www.ifconfig.it/hugo/post/ismoretechgoodforbusiness/">Is more technology good for your business?</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://www.ifconfig.it/hugo/post/nfd16day2ciscostartship/">NFD16 day two - Cisco Project Starship a.k.a. Intersight</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://www.ifconfig.it/hugo/post/nfd16day2ciscostartship/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'ifconfig';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2507441616057251"
+     data-ad-slot="2220017315"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  
+</div>
+
+</div>
+</div>
+<script src="https://www.ifconfig.it/hugojs/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10670358-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

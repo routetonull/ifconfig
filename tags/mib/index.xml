@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mib on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/mib/</link>
+    <description>Recent content in Mib on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 02 Mar 2011 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/mib/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>RMON and MIB</title>
+      <link>https://www.ifconfig.it/hugo/post/quick-tip-rmon-and-mib/</link>
+      <pubDate>Wed, 02 Mar 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/quick-tip-rmon-and-mib/</guid>
+      <description>RMON is generally an easy task, can be tricky but usually on CCIE workbooks the task are fair. The hardest part for me is to find the MIB to monitor.
+This is the task: monitor interface Vlan1, send a trap if it receives more than 100 packets every 30 seconds, send a trap if it goes under 50 packets every 30 seconds.
+First step: find Vlan1 ifindex.
+R#sh snmp mib ifmib ifindex Vlan99: Ifindex = 10 Virtual-Access2: Ifindex = 13 FastEthernet4: Ifindex = 5 FastEthernet0: Ifindex = 1 FastEthernet2: Ifindex = 3 Loopback0: Ifindex = 12 Null0: Ifindex = 6 Virtual-Access1: Ifindex = 11 &amp;lt;strong&amp;gt;Vlan1: Ifindex = 7&amp;lt;/strong&amp;gt; Virtual-Template1: Ifindex = 9 NVI0: Ifindex = 8 FastEthernet1: Ifindex = 2 FastEthernet3: Ifindex = 4  So Vlan1 has ifIndex value 7.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.16-DEV" />
+
+  <title>AWK and Cisco WLC &middot; ifconfig.it</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.ifconfig.it/hugoimg/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://www.ifconfig.it/hugo/">ifconfig.it</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/tags/"><i class='fa fa-list fa-fw'></i>Tags</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/gp_ifconfig" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/gpaolo" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/routetonull" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>AWK and Cisco WLC</h1>
+  <h2></h2>
+</div>
+<div class="content">
+  
+
+<p>When you see an hacker movie you see people typing on the keyboard very fast. Actually the toughest the hacker is the faster he types very long commands and all of them work the first time.</p>
+
+<p>Want to impress friends and colleagues? Type <a href="http://hackertyper.net/">HERE</a> ;-)</p>
+
+<p>More experienced network engineers, as I learn during my CCIE studies, type in a [text language=&ldquo;editor&rdquo;][/text]<a href="https://notepad-plus-plus.org/">2</a> then copy/paste on the CLI.</p>
+
+<p>This approach make easier to spot typos, faster to reuse configuration snippets and to change portions of configuration and more.</p>
+
+<p>Then comes <a href="http://www.cisco.com/c/en/us/products/wireless/wireless-lan-controller/index.html">Cisco WLC</a>.</p>
+
+<p>Do not misunderstand me, I really like the product and after many installations I really appreciate it&rsquo;s reliability and features.</p>
+
+<p>What I don&rsquo;t like are repetitive tasks and web interface.</p>
+
+<p>In this post I&rsquo;ll show you how I automate some configurations on WLC&rsquo;s CLI with these <strong>rules</strong> in mind:</p>
+
+<ul>
+<li><p>respect <a href="https://en.wikipedia.org/wiki/Pareto_principle">Pareto principle</a></p></li>
+
+<li><p>do not use a cannon to kill a mosquito</p></li>
+
+<li><p>acceptable <a href="https://en.wikipedia.org/wiki/Learning_curve">learning curve</a></p></li>
+
+<li><p>code reusability, readability and portability</p></li>
+</ul>
+
+<h1 id="script-all-the-things:9fcc72d23e4b12bce4147666fad81cff">Script all the things!</h1>
+
+<!-- more -->
+
+<p>Among the common tasks we usually do on Cisco WLC are:</p>
+
+<ul>
+<li><p>rename AP</p></li>
+
+<li><p>set AP antenna gain</p></li>
+
+<li><p>enable Flexconnect and VLAN support</p></li>
+</ul>
+
+<p>I&rsquo;ll show these examples, the scripts are easiliy customizable for any other platform and task.</p>
+
+<h1 id="choose-the-right-tool:9fcc72d23e4b12bce4147666fad81cff">Choose the right tool</h1>
+
+<p>There are many scripting tools available, my choice for this particular use is <a href="https://en.wikipedia.org/wiki/AWK">AWK</a>.</p>
+
+<p>If you know something better just send me a note but keep in mind the rules above.</p>
+
+<h1 id="the-scripts:9fcc72d23e4b12bce4147666fad81cff">The scripts</h1>
+
+<h2 id="get-the-data:9fcc72d23e4b12bce4147666fad81cff">Get the data</h2>
+
+<p>Let&rsquo;s start with the most repetitive task when a WLC is first installed: rename APs.</p>
+
+<p>Usually I do this after all the APs are connected and joined the controller. Get the AP list from the WLC CLI whit these commands:</p>
+
+<pre><code>config paging disable
+show ap summary
+</code></pre>
+
+<p>Then copy and paste on your favorite spreadsheet.</p>
+
+<p>You see all the APs have a name like <em>APxxxx.xxxx.xxxx</em> where <em>xxxx.xxxx.xxxx</em> is the MAC address.</p>
+
+<h2 id="set-parameters:9fcc72d23e4b12bce4147666fad81cff">Set parameters</h2>
+
+<p>Now add a second column and type the AP name you want to set according to the naming convention in use.</p>
+
+<p>If you use external antennas add a third column with the correct gain in dBi.</p>
+
+<p>Now export the data in a file named <strong>aplist.txt</strong> values should be separated by a space.</p>
+
+<p>Your file should look like something like this:</p>
+
+<pre><code>AP54a2.7469.6316 AP01
+AP54a2.8458.4666 AP02
+AP54a2.c346.9837 AP03 2.5
+AP54a2.7646.3339 AP04 2.5
+AP54a2.3015.5053 AP05 2.5
+AP54a2.0336.9286 AP06 2.5
+AP54a2.4517.995a AP07 2.5
+AP54a2.1000.8907 AP08 2.5
+AP54a2.5344.3444 AP09 5
+AP54a2.6856.2293 AP10 5
+</code></pre>
+
+<h2 id="first-script-rename-aps:9fcc72d23e4b12bce4147666fad81cff">First script: rename APs</h2>
+
+<p>Create a file named <strong>wlc_rename_ap.awk</strong> with this commands:</p>
+
+<pre><code># RENAME ACCESS POINTS
+# $1 = old name
+# $2 = new name
+{print &quot;config ap name &quot;,$2,&quot; &quot;,$1}
+</code></pre>
+
+<p>Now run:</p>
+
+<pre><code>cat aplist.txt | awk -f wlc_rename_ap.awk
+</code></pre>
+
+<p>The expected output:</p>
+
+<pre><code>config ap name  AP01   AP54a2.7469.6316
+config ap name  AP02   AP54a2.8458.4666
+config ap name  AP03   AP54a2.c346.9837
+config ap name  AP04   AP54a2.7646.3339
+config ap name  AP05   AP54a2.3015.5053
+config ap name  AP06   AP54a2.0336.9286
+config ap name  AP07   AP54a2.4517.995a
+config ap name  AP08   AP54a2.1000.8907
+config ap name  AP09   AP54a2.5344.3444
+config ap name  AP10   AP54a2.6856.2293
+</code></pre>
+
+<p>Good! Now just copy/paste on WLC&rsquo;s CLI and all the APs will have the correct name.</p>
+
+<h2 id="second-script-set-ap-antenna-gain:9fcc72d23e4b12bce4147666fad81cff">Second script: set AP antenna gain</h2>
+
+<p>When the antenna gain is set the value to put is the double of the actual value:</p>
+
+<p><img src="http://www.cisco.com/c/dam/en/us/td/i/200001-300000/200001-210000/207001-208000/207760.tif/_jcr_content/renditions/207760.jpg" alt="" /></p>
+
+<p>Notice also in aplist.txt not all APs have antenna gain set, some have internal antenna.</p>
+
+<p>I set the same gain for both 802.11b and 802.11a radios because in my case I use dual-band antennas.</p>
+
+<p>Let&rsquo;s see the script:</p>
+
+<pre><code># RENAME ACCESS POINTS
+# $1 = old name
+# $2 = new name
+# $3 =  actual antenna gain
+{if ($3)
+{
+print &quot;config 802.11b disable &quot;$2;
+print &quot;config 802.11b antenna extAntGain &quot;$3*2;
+print &quot;config 802.11b enable &quot;$2;
+print &quot;config 802.11a disable &quot;$2;
+print &quot;config 802.11a antenna extAntGain &quot;$3*2;
+print &quot;config 802.11a enable &quot;$2;
+}}
+</code></pre>
+
+<p>The <strong>if</strong> statement runs the print commands only if the antenna gain is specified.</p>
+
+<p>The second print command prints twice the value of the gain.</p>
+
+<p>Check the ouput:</p>
+
+<pre><code>config 802.11b disable AP03
+config 802.11b antenna extAntGain 5
+config 802.11b enable AP03
+config 802.11a disable AP03
+config 802.11a antenna extAntGain 5
+config 802.11a enable AP03
+config 802.11b disable AP04
+config 802.11b antenna extAntGain 5
+config 802.11b enable AP04
+config 802.11a disable AP04
+config 802.11a antenna extAntGain 5
+config 802.11a enable AP04
+config 802.11b disable AP05
+config 802.11b antenna extAntGain 5
+config 802.11b enable AP05
+config 802.11a disable AP05
+config 802.11a antenna extAntGain 5
+config 802.11a enable AP05
+config 802.11b disable AP06
+config 802.11b antenna extAntGain 5
+config 802.11b enable AP06
+config 802.11a disable AP06
+config 802.11a antenna extAntGain 5
+config 802.11a enable AP06
+config 802.11b disable AP07
+config 802.11b antenna extAntGain 5
+config 802.11b enable AP07
+config 802.11a disable AP07
+config 802.11a antenna extAntGain 5
+config 802.11a enable AP07
+config 802.11b disable AP08
+config 802.11b antenna extAntGain 5
+config 802.11b enable AP08
+config 802.11a disable AP08
+config 802.11a antenna extAntGain 5
+config 802.11a enable AP08
+config 802.11b disable AP09
+config 802.11b antenna extAntGain 10
+config 802.11b enable AP09
+config 802.11a disable AP09
+config 802.11a antenna extAntGain 10
+config 802.11a enable AP09
+config 802.11b disable AP10
+config 802.11b antenna extAntGain 10
+config 802.11b enable AP10
+config 802.11a disable AP10
+config 802.11a antenna extAntGain 10
+config 802.11a enable AP10
+</code></pre>
+
+<p>Looks good! APs AP01 and AP02 are not listed as expected, all the gain values are the double of the value in the file.</p>
+
+<h2 id="third-script-enable-flexconnect-and-vlan-support:9fcc72d23e4b12bce4147666fad81cff">Third script: enable flexconnect and VLAN support</h2>
+
+<p>This is very simple, just some commands to disable the AP (required to enable FlexConnect), enable FlexConnect, VLAN support an enable the AP again:</p>
+
+<pre><code># ENABLE FLEXCONNECT AND VLAN SUPPORT ON AP
+# $2 = new name
+{
+print &quot;config ap disable &quot;$2;
+print &quot;config ap mode flexconnect &quot;$2;
+print &quot;config ap flexconnect vlan enable &quot;$2;
+print &quot;config ap enable &quot;$2
+}
+</code></pre>
+
+<p>The ouput:</p>
+
+<pre><code>config ap disable AP01
+config ap mode flexconnect AP01
+config ap flexconnect vlan enable AP01
+config ap enable AP01
+config ap disable AP02
+config ap mode flexconnect AP02
+config ap flexconnect vlan enable AP02
+config ap enable AP02
+config ap disable AP03
+config ap mode flexconnect AP03
+config ap flexconnect vlan enable AP03
+config ap enable AP03
+config ap disable AP04
+config ap mode flexconnect AP04
+config ap flexconnect vlan enable AP04
+config ap enable AP04
+config ap disable AP05
+config ap mode flexconnect AP05
+config ap flexconnect vlan enable AP05
+config ap enable AP05
+config ap disable AP06
+config ap mode flexconnect AP06
+config ap flexconnect vlan enable AP06
+config ap enable AP06
+config ap disable AP07
+config ap mode flexconnect AP07
+config ap flexconnect vlan enable AP07
+config ap enable AP07
+config ap disable AP08
+config ap mode flexconnect AP08
+config ap flexconnect vlan enable AP08
+config ap enable AP08
+config ap disable AP09
+config ap mode flexconnect AP09
+config ap flexconnect vlan enable AP09
+config ap enable AP09
+config ap disable AP10
+config ap mode flexconnect AP10
+config ap flexconnect vlan enable AP10
+config ap enable AP10
+</code></pre>
+
+<h1 id="wrap-up:9fcc72d23e4b12bce4147666fad81cff">Wrap up</h1>
+
+<p>In this post I showed how to reduce the mouse clicks, avoid typing errors and save time.</p>
+
+<p>AWK is a very powerful tool, I just scratched the surface but as a network engineer I don&rsquo;t want to master it, I just want to be able to use it at my own advantage in the most efficient way.</p>
+
+<p>I hope you enjoyed this post, please share it if you find it useful and feel free to comment if you find errors or want to add you point of view.</p>
+
+<h2 id="useful-links:9fcc72d23e4b12bce4147666fad81cff">Useful links</h2>
+
+<p><a href="http://www.grymoire.com/Unix/Awk.html#TOC">Awk tutorial on grymoire.com</a></p>
+
+<p><a href="http://www.gnu.org/software/gawk/manual/gawk.html">The GNU Awk User’s Guide</a></p>
+
+</div>
+
+</div>
+</div>
+<script src="https://www.ifconfig.it/hugojs/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10670358-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

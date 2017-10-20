@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Apple on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/apple/</link>
+    <description>Recent content in Apple on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Sat, 24 Mar 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/apple/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Airfoil</title>
+      <link>https://www.ifconfig.it/hugo/post/2012-03-24-airfoil/</link>
+      <pubDate>Sat, 24 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2012-03-24-airfoil/</guid>
+      <description>Apple&amp;rsquo;s Airport Express is a multi-pourpose device that I really like. It is small, not energy hungry and has many features.
+Wireless music streaming is a very useful feature, but it&amp;rsquo;s limited to use iTunes as source.
+Today I bought Airfoil that allows to stream the audio from any running program on PC or MAC.
+
+Now I can stream music from any online service like Grooveshark or Rdio to my home stereo.</description>
+    </item>
+    
+  </channel>
+</rss>

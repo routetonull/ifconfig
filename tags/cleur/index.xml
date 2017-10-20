@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cleur on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/cleur/</link>
+    <description>Recent content in Cleur on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Tue, 28 Feb 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/cleur/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Cisco Live Europe 2017 Berlin</title>
+      <link>https://www.ifconfig.it/hugo/post/cleur2017/</link>
+      <pubDate>Tue, 28 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/cleur2017/</guid>
+      <description>It&amp;rsquo;s time for CLEUR again, for the second year in Berlin, that&amp;rsquo;s 5 years in a row and I still get excited when the date arrives.
+I won&amp;rsquo;t repeat many consideration&amp;rsquo;s I&amp;rsquo;ve already made last year.
+This year my main focus was security, I attended many FirePower, AMP and FTD sessions. General routing/switching and wireless are topics I can see in other partner events or learn by myself watching recordings later.</description>
+    </item>
+    
+    <item>
+      <title>Cisco Live 2016 Europe</title>
+      <link>https://www.ifconfig.it/hugo/post/2016-02-21-cleur2016/</link>
+      <pubDate>Sun, 21 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2016-02-21-cleur2016/</guid>
+      <description>Hi CLEUR! This year, for the fourth year in a row, I&amp;rsquo;ve attended Cisco Live Europe.
+I&amp;rsquo;ve earned the &amp;ldquo;Netvet&amp;rdquo; status, that means my name was on the wall before the keynote, ain&amp;rsquo;t that great? ;-)
+Aesthetics apart, this year&amp;rsquo;s event was the biggest I&amp;rsquo;ve attended so far, twelve thousands people in a huge venue (for European standards) and a lot of sessions available.
+Here&amp;rsquo;s my recap of the event.</description>
+    </item>
+    
+    <item>
+      <title>Cisco Live 2014 Milan</title>
+      <link>https://www.ifconfig.it/hugo/post/2014-02-01-cleur2014/</link>
+      <pubDate>Sat, 01 Feb 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2014-02-01-cleur2014/</guid>
+      <description>Last week I had the opportunity to attend Cisco Live in Milan. This is my second time at Cisco Live, I&amp;rsquo;ve been in London last year.
+Some people still doesn&amp;rsquo;t know what Cisco Live is. Is it an event for pre-sales? A technical training? A party with free beer for nerds? I can say it is it all and much more.
+At Cisco Live you have the opportunity to participate in very deep technical sessions, some with hands-on labs, and to talk with the smartest guys in Cisco.</description>
+    </item>
+    
+    <item>
+      <title>Cisco Live! Europe 2013</title>
+      <link>https://www.ifconfig.it/hugo/post/2013-02-28-cleur2013/</link>
+      <pubDate>Thu, 28 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2013-02-28-cleur2013/</guid>
+      <description>Cisco Live! Europe: I&amp;rsquo;m in!
+First time here, the impression is like being in the Willy Wonka chocolate factory with the big difference you can touch everything without disappear.
+As my job is not focused on a single technology I&amp;rsquo;m registered to many different sessions, from WiFi to Security, from FCoE to Routing/Switching.
+A longer review will follow. It&amp;rsquo;ll be a long week.
+_ _</description>
+    </item>
+    
+  </channel>
+</rss>

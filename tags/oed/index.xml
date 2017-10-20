@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Oed on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/oed/</link>
+    <description>Recent content in Oed on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Mon, 21 Mar 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/oed/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>OED tools: tmux</title>
+      <link>https://www.ifconfig.it/hugo/post/2016-03-21-oed-tools-tmux/</link>
+      <pubDate>Mon, 21 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2016-03-21-oed-tools-tmux/</guid>
+      <description>The need If you work with Linux machines and you don&amp;rsquo;t use a terminal multiplexer you&amp;rsquo;re doing it wrong.
+What is a terminal multiplexer? It lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and reattach them to a different terminal.
+The Solution I use tmux, some people prefer sceen, just pick one and learn how to use is.
+For tmux users this cheat sheet helps.</description>
+    </item>
+    
+    <item>
+      <title>OED tools: bash oneliners</title>
+      <link>https://www.ifconfig.it/hugo/post/2016-03-14-oed-tools-bash-1line/</link>
+      <pubDate>Mon, 14 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2016-03-14-oed-tools-bash-1line/</guid>
+      <description>Linux scripting is a skill every network/system engineer should learn in the early stages of the career. Plenty of guides available in the interwebz, The Bash Academy is a good start.
+A particular type of scripts are the one-liners: just a line of code to solve a problem.
+This is the latest I&amp;rsquo;ve used while testing autossh, check active ssh sessions continuously:
+while true; do netstat -an | egrep -e &#39;:22 &#39;; sleep 2s;clear;done  Enjoy!</description>
+    </item>
+    
+    <item>
+      <title>OED tools: OneNote</title>
+      <link>https://www.ifconfig.it/hugo/post/2016-03-07-oed-tools-onenote/</link>
+      <pubDate>Mon, 07 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2016-03-07-oed-tools-onenote/</guid>
+      <description>The Problem Notes, code and configuration snippets, links, screenshots&amp;hellip; where/how to save them and allow and easy/fast way to tag/search them when needed?
+The Solution In my opinion the best software for notes is Onenote today.
+One note has a better integration with Windows 10, it&amp;rsquo;s free, supports multiple platforms and the mobile App actually works.
+Among all the cool features maybe my favourite is to be able to search text inside the pictures pasted inside a note.</description>
+    </item>
+    
+    <item>
+      <title>OED tools: Pushover</title>
+      <link>https://www.ifconfig.it/hugo/post/oed-tools-pushover/</link>
+      <pubDate>Mon, 01 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/oed-tools-pushover/</guid>
+      <description>The problem In my last post about Linux at command I talked about notifications on my mobile.
+In most of my automation scripts I prefer notifications to come to my mobile instead of via email or SMS (really? in 2015?) because:
+ it is always with me
+ I check it thousands times a day (I know you too ;-) )
+ it is a preferred channel - a specific app just for that</description>
+    </item>
+    
+    <item>
+      <title>OED Tolls: Linux &#34;at&#34;</title>
+      <link>https://www.ifconfig.it/hugo/post/oed-tolls-linux-at/</link>
+      <pubDate>Thu, 28 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/oed-tolls-linux-at/</guid>
+      <description>Another post on Linux commands, short and simple but very useful: at.
+The problem As IT pros we are all comfortable with the change window concept.
+This window usually opens at night or during the week-end and sometimes the change actually just requires a few commands on a Linux machine.
+The automation The at command allows to schedule a command or script to be run at a specific time.</description>
+    </item>
+    
+    <item>
+      <title>OED tools: Linux command alias</title>
+      <link>https://www.ifconfig.it/hugo/post/oed-tools-linux-command-alias/</link>
+      <pubDate>Mon, 18 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/oed-tools-linux-command-alias/</guid>
+      <description>After a few posts about Windows software now it&amp;rsquo;s time for Linux.
+The problem Working with the Linux bash sometimes requires to type long commands multiple times. Isn&amp;rsquo;t that a motivation strong enough to look for a better way?
+The automation Linux alias is quite self-explanatory, it allows to create command aliases like with the familiar Cisco CLI.
+A good place to store aliases is .bashrc.
+Add some alias:</description>
+    </item>
+    
+    <item>
+      <title>OED tools: Chocolatey</title>
+      <link>https://www.ifconfig.it/hugo/post/oed-tools-chocolatey/</link>
+      <pubDate>Mon, 11 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/oed-tools-chocolatey/</guid>
+      <description>The problem Install software on Windows and keep it updated is a boring and repetitive task.
+Linux and BSD/OSX users can install software from packages and keep it updated with a simple apt-get update;apt-get upgrade command.
+Wouldn&amp;rsquo;t it be great to have the same feature on Windows?
+The automation Chocolatey is a package manager for Windows fast to install, easy to use and supports thousands of software.
+Installation is very simple, just one command:</description>
+    </item>
+    
+    <item>
+      <title>OED Tools: ConzoleZ</title>
+      <link>https://www.ifconfig.it/hugo/post/oed-tools-conzolez/</link>
+      <pubDate>Mon, 04 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/oed-tools-conzolez/</guid>
+      <description>The problem As many IT professionals I work quite often on the command line with many command prompts open.
+Windows lacks a good native command prompt software so usually you see monitors filled with black terminals that are hard to manage and track.
+The automation ConsoleZ allows multiple tabs and to split tabs vertically or horizontally among with many other features.
+Get ConsoleZ HERE</description>
+    </item>
+    
+    <item>
+      <title>OED Tools: 1Password</title>
+      <link>https://www.ifconfig.it/hugo/post/oed-tools-1password/</link>
+      <pubDate>Sat, 26 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/oed-tools-1password/</guid>
+      <description>The problem Security today is a main concern for every computer user. One of the first problem is how to manage password.
+I see many creative solutions around: post-it or paper only, use of the same password for all services, a spreadsheet inside an encrypted zip file&amp;hellip; none of them appear safe or efficient.
+The automation I evaluated many password managers and I&amp;rsquo;m a happy 1Password user for years now.</description>
+    </item>
+    
+    <item>
+      <title>OED Tools: NetSetMan</title>
+      <link>https://www.ifconfig.it/hugo/post/oed-tools-netsetman/</link>
+      <pubDate>Mon, 21 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/oed-tools-netsetman/</guid>
+      <description>The problem I manage many networks and quite often I work at customer site.
+For every site I need and IP address, gateway, Wi-Fi network, sometimes proxy, a printer and many other unique network settings.
+Change IP address on Windows is a process that takes too much time and many clicks.
+The automation I used to use netsh scripts to do that but it was hard to maintain.
+The OED solution: NETSETMAN</description>
+    </item>
+    
+    <item>
+      <title>Obsessive Efficiency Disorder</title>
+      <link>https://www.ifconfig.it/hugo/post/obsessive-efficiency-disorder/</link>
+      <pubDate>Sun, 13 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/obsessive-efficiency-disorder/</guid>
+      <description>I read this blog post from Mattias Geniar and I think he gave a name of a concept I had in my mind from years.
+It started a while ago when I tried to find a more efficient ways to do my daily work and it got bigger and bigger up to be almost an&amp;hellip; obsession.
+Obsession is actually a negative word related do some sort of mental disorder. Let&amp;rsquo;s say OED could be considered more about automation of boring stuff to be more efficient, a sort of Kaizen applied to IT.</description>
+    </item>
+    
+  </channel>
+</rss>

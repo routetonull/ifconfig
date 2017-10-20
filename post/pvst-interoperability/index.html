@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.16-DEV" />
+
+  <title>PVST and non Cisco switches interoperability &middot; ifconfig.it</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.ifconfig.it/hugoimg/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://www.ifconfig.it/hugo/">ifconfig.it</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/tags/"><i class='fa fa-list fa-fw'></i>Tags</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/gp_ifconfig" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/gpaolo" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/routetonull" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>PVST and non Cisco switches interoperability</h1>
+  <h2></h2>
+</div>
+<div class="content">
+  <p>This week I&rsquo;m attending an <a href="http://h17007.www1.hp.com/docs/training/epg/HP0-Y32_EPG.pdf">HP training</a> in Milan The course topics aren&rsquo;t as challenging as I&rsquo;ve expected but I had the opportunity to test focus on some interoperability problems that may occur in mixed environments, especially with Cisco and non-Cisco devices, like PVST.</p>
+
+<p>For this post we use 2 switches, a Cisco and a non Cisco (HP in this case), the topology is simple:</p>
+
+<blockquote>CISCO port g1/0/3 --> HP port 13</blockquote>
+
+<p>On the Cisco switch we enable PVST:</p>
+
+<blockquote>spanning-tree mode pvst
+
+</blockquote>
+
+<p>We have MST enabled on HP switch, all VLANS mapped to the default instance.</p>
+
+<ul>
+<li>* * * * CASE 1 - NO VLAN 1 ALLOWED ON CISCO * * * * *</li>
+</ul>
+
+<p>Trunk enbaled between the switches, only VLAN 50 tagged is allowed:</p>
+
+<p>Cisco port config:</p>
+
+<blockquote>interface GigabitEthernet1/0/3
+switchport trunk encapsulation dot1q
+switchport trunk allowed vlan 50
+switchport mode trunk
+end
+
+! NOTICE THAT VLAN 1 IS NOT ALLOWED</blockquote>
+
+<p>HP port config:</p>
+
+<blockquote>HP-F# sh vlans ports 13 detail
+
+Status and Counters - VLAN Information - for ports 13
+
+VLAN ID Name | Status Voice Jumbo Mode
+------- -------------------- + ---------- ----- ----- --------
+50 **VLAN50** | Port-based No No **Tagged**</blockquote>
+
+<p>What the Cisco switch sends in VLAN 50:</p>
+
+<blockquote>Condition 1: interface Gi1/0/3 (1 flags triggered)
+
+Flags: Gi1/0/3
+Condition 2: vlan 50 (1 flags triggered)
+Flags: 50</blockquote>
+
+<p>Launch the debug:</p>
+
+<blockquote>Cisco-B#deb spanning-tree all
+
+</blockquote>
+
+<p>See what happens for VLAN 50:</p>
+
+<blockquote>
+
+*Mar 1 22:54:51.102: STP: opt: **VLAN0050**: get ports: chunk 0 allocated
+*Mar 1 22:54:51.102: STP SW: TX: opt: VLAN50: bpdu cnt 1, chunk 0
+*Mar 1 22:54:51.102: STP SW: TX: opt: VLAN50: ieee chunk 1, sstp chunk 2
+*Mar 1 22:54:51.102: STP SW: TX: opt: VLAN50: ieee port count 0, sstp port count 1
+*Mar 1 22:54:51.102: optimized sstp bpdus to be sent on chunk 2
+*Mar 1 22:54:51.102: idb GigabitEthernet1/0/3, vlan 50
+*Mar 1 22:54:51.102: STP: opt: VLAN0050: freeing opt chunk 0
+*Mar 1 22:54:51.102</blockquote>
+
+<p>Let&rsquo;s move the conditions to VLAN 1 and re-enable debug:</p>
+
+<blockquote>Cisco-B#no debug condition all
+Cisco-B#debug condition interface g1/0/3
+Cisco-B#debug condition vlan 1
+
+Cisco-B#debug spanning-tree all</blockquote>
+
+<p>Check the output debug:</p>
+
+<blockquote>*Mar 1 23:03:13.865: STP SW: RX ISR: **0180.c200.0000**<-68b5.990f.5eb3 type/len 0026
+*Mar 1 23:03:13.865: **encap SAP linktype ieee-st vlan 1** len 60 on v1 Gi1/0/3
+*Mar 1 23:03:13.865: 42 42 03 SPAN
+*Mar 1 23:03:13.865: CFG P:0000 V:00 T:00 F:00 R:8000 68b5.990f.5e80 00000000
+*Mar 1 23:03:13.865: B:8000 68b5.990f.5e80 80.0D A:0000 M:1400 H:0200 F:0F00
+*Mar 1 23:03:13.865: STP SW: PROC RX: 0180.c200.0000<-68b5.990f.5eb3 type/len0026
+*Mar 1 23:03:13.865: encap SAP linktype ieee-st vlan 1 len 60 on v1 Gi1/0/3
+*Mar 1 23:03:13.865: 42 42 03 SPAN
+*Mar 1 23:03:13.865: CFG P:0000 V:00 T:00 F:00 R:8000 68b5.990f.5e80 00000000
+*Mar 1 23:03:13.865: B:8000 68b5.990f.5e80 80.0D A:0000 M:1400 H:0200 F:0F00</blockquote>
+
+<p>What is this MAC address: 01:80:C2:00:00:00 ? It&rsquo;s the MAC address used for sending BPDUs, check this <a href="http://standards.ieee.org/develop/regauth/grpmac/public.html">LINK</a> on IEEE.</p>
+
+<p>So what&rsquo;s happening? The Cisco switch is sending STP BPDU&rsquo;s untagged in VLAN 1 (even if VLAN 1 is not allowed on the trunk) and PVST BPDUs in VLAN 50.</p>
+
+<p>What happens on HP side? Since HP switch is not listening for untagged packets on the port and receives only PVST BPDUs on VLAN 50, the two STP are not communicating and each switch think it is the root:</p>
+
+<blockquote>HP-F# sh spanning-tree
+
+Multiple Spanning Tree (MST) Information
+
+STP Enabled : Yes
+Force Version : MSTP-operation
+IST Mapped VLANs : 1-4094
+Switch MAC Address : 68b599-0f5e80
+Switch Priority : 32768
+Max Age : 20
+Max Hops : 20
+Forward Delay : 15
+
+Topology Change Count : 7
+Time Since Last Change : 4 hours
+
+CST Root MAC Address : 68b599-0f5e80
+CST Root Priority : 32768
+CST Root Path Cost : 0
+CST Root Port : **This switch is root**</blockquote>
+
+<p>The Cisco switch:</p>
+
+<blockquote>Cisco-B#sh spanning-tree
+
+VLAN0050
+Spanning tree enabled protocol ieee
+Root ID Priority 4146
+Address 0012.dae0.fe80
+**This bridge is the root**
+Hello Time 2 sec Max Age 20 sec Forward Delay 15 sec
+
+Bridge ID Priority 4146 (priority 4096 sys-id-ext 50)
+Address 0012.dae0.fe80
+Hello Time 2 sec Max Age 20 sec Forward Delay 15 sec
+Aging Time 300 sec
+
+Interface Role Sts Cost Prio.Nbr Type
+------------------- ---- --- --------- -------- --------------------------------
+Gi1/0/3 Desg FWD 4 128.3 P2p</blockquote>
+
+<p>How can we make it work?</p>
+
+<p>The first option is to allow VLAN 1 untagged on HP side. Can this be enough?</p>
+
+<blockquote>HP-F# sh vlans ports 13 detail
+
+Status and Counters - VLAN Information - for ports 13
+
+VLAN ID Name | Status Voice Jumbo Mode
+------- -------------------- + ---------- ----- ----- --------
+**1** DEFAULT_VLAN | Port-based No No **Untagged**
+50 VLAN50 | Port-based No No Tagged</blockquote>
+
+<p>Let&rsquo;s check STP on HP switch:</p>
+
+<blockquote>HP-F# sh spanning-tree
+
+Multiple Spanning Tree (MST) Information
+
+STP Enabled : Yes
+Force Version : MSTP-operation
+IST Mapped VLANs : 1-4094
+Switch MAC Address : 68b599-0f5e80
+Switch Priority : 32768
+Max Age : 20
+Max Hops : 20
+Forward Delay : 15
+
+Topology Change Count : 7
+Time Since Last Change : 4 hours
+
+CST Root MAC Address : 68b599-0f5e80
+CST Root Priority : 32768
+CST Root Path Cost : 0
+CST Root Port : **This switch is root**</blockquote>
+
+<p>Nothing changed. Let&rsquo;s explicitly allow VLAN 1 on the Cisco side of the trunk:</p>
+
+<blockquote>Cisco-B(config)#inte g1/0/3
+Cisco-B(config-if)#**switchport trunk allowed vlan add 1**
+*Mar 1 23:42:50.987: set portid: VLAN0001 Gi1/0/3: new port id 8003
+*Mar 1 23:42:50.987: STP: VLAN0001 Gi1/0/3 -> listening
+*Mar 1 23:42:51.876: STP: VLAN0001 heard root 32768-68b5.990f.5e80 on Gi1/0/3
+*Mar 1 23:42:51.884: STP: VLAN0001 Topology Change rcvd on Gi1/0/3
+Cisco-B(config-if)#
+*Mar 1 23:43:05.994: STP: VLAN0001 Gi1/0/3 -> learning
+Cisco-B(config-if)#
+*Mar 1 23:43:21.001: STP[1]: Generating TC trap for port GigabitEthernet1/0/3
+*Mar 1 23:43:21.001: STP: VLAN0001 Gi1/0/3 -> forwarding</blockquote>
+
+<p>Check again HP switch:</p>
+
+<blockquote>HP-F# sh spanning-tree
+
+Multiple Spanning Tree (MST) Information
+
+STP Enabled : Yes
+Force Version : MSTP-operation
+IST Mapped VLANs : 1-4094
+Switch MAC Address : 68b599-0f5e80
+Switch Priority : 32768
+Max Age : 20
+Max Hops : 20
+Forward Delay : 15
+
+Topology Change Count : 7
+Time Since Last Change : 4 hours
+
+CST Root MAC Address : **0012da-e0fe80**
+CST Root Priority : **4097**
+CST Root Path Cost : 20000
+CST Root Port : 13</blockquote>
+
+<p>Now it works, the two switches have seen each other and Cisco is STP ROOT since it has priority 4096.</p>
+
+<ul>
+<li>* * * * CASE 2 - NATIVE/UNTAGGED VLAN IS NOT 1 * * * * *</li>
+</ul>
+
+<p>We try now the same test but setting VLAN 20 as native on Cisco and untagged VLAN on HP:</p>
+
+<blockquote>interface GigabitEthernet1/0/3
+! CISCO
+
+switchport trunk encapsulation dot1q
+**switchport trunk native vlan 20**
+switchport trunk allowed vlan 20,50
+switchport mode trunk
+end
+
+
+
+
+
+HP-F# sh vlan port 13 det
+
+Status and Counters - VLAN Information - for ports 13
+
+VLAN ID Name | Status Voice Jumbo Mode
+------- -------------------- + ---------- ----- ----- --------
+**20** VLAN20 | Port-based No No **Untagged**
+**50** VLAN50 | Port-based No No **Tagged**</blockquote>
+
+<p>Let&rsquo;s see STP on HP:</p>
+
+<blockquote>HP-F# sh spanning-tree
+
+Multiple Spanning Tree (MST) Information
+
+STP Enabled : Yes
+Force Version : MSTP-operation
+IST Mapped VLANs : 1-4094
+Switch MAC Address : 68b599-0f5e80
+Switch Priority : 32768
+Max Age : 20
+Max Hops : 20
+Forward Delay : 15
+
+Topology Change Count : 7
+Time Since Last Change : 4 hours
+
+CST Root MAC Address : 68b599-0f5e80
+CST Root Priority : 32768
+CST Root Path Cost : 0
+CST Root Port : **This switch is root**</blockquote>
+
+<p>HP is root. The reason is the Cisco switch sends STP BPDUs on native VLAN only if the native is VLAN ID 1, if any other VLAN is native it generates PVST BPDUs that are not understood by HP switch.</p>
+
+<ul>
+<li>* * * *CONCLUSION * * * * *</li>
+</ul>
+
+<p>In a mixed environment the best choice may be to use a standard STP version on all devices like MSTP. If you choose to run PVST on Cisco devices and STP/MSTP on other vendor devices be aware of what problems may occur.</p>
+
+<p>Notice that some devices (like HP A-Series, former 3COM) run pre-stantard MST, you may get this error message that provides a hint to fix the problem:</p>
+
+<blockquote>%SPANTREE-3-PRESTD_NEIGH: pre-standard MST interaction not configured (Port-channel1). Please, configure: 'spanning-tree mst pre-standard' on ports connected to MST pre-standard switches.</blockquote>
+
+<p>Cisco provides a <a href="http://www.cisco.com/en/US/products/hw/switches/ps708/products_configuration_example09186a00807b075f.shtml">Configuration example to migrate Spanning Tree from PVST+ to MST</a></p>
+
+<p>Let me know if you find any imprecision/error/unclear part on the post I&rsquo;ll keep it updated.</p>
+
+<ul>
+<li>* * * * THE NETWORK GEEK NOTES * * * * *</li>
+</ul>
+
+<p>In Cisco learning network there&rsquo;s an interesting post from <a href="http://smorris.uber-geek.net/">Scott Morris</a> <a href="https://learningnetwork.cisco.com/thread/26558#127273">HERE</a>:</p>
+
+<blockquote>That's a good breakdown for it, but keep in mind that these "enhancement" were a pissing contest between Cisco and IEEE.
+
+
+
+For a long time, IEEE believed there should be one common spanning tree (CST) and obviously Cisco had come out with ISL trunking and PVST allowing for multiple instances.
+
+When the 802.1Q standard was derived, they mandated a single spanning tree, which if you followed the spec would **** the operation of PVST.  So Cisco "improvised" by merely changing the destination address to a different L2 multicast address.
+
+The good thing about that is that in case you had a mixed environment, now any non-Cisco switch receiving a PVST+ BPDU would simply flood it out all available ports for that vlan instead of killing it if it were using the original IEEE multicast address and not in the native vlan.
+
+Sometimes the history of "why" makes it easier to remember the details of "how".  So PVST doesn't "not support" 802.1Q, it's the 802.1Q won't support PVST.
+
+Scott</blockquote>
+
+</div>
+
+</div>
+</div>
+<script src="https://www.ifconfig.it/hugojs/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10670358-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.16" />
+
+  <title>HP Comware 7 simulator &middot; ifconfig.it</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="http://www.ifconfig.it/hugo/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="http://www.ifconfig.it/hugo/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="http://www.ifconfig.it/hugo/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="http://www.ifconfig.it/hugoimg/favicon.ico" type="image/x-icon" />
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="http://www.ifconfig.it/hugo/">ifconfig.it</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://www.ifconfig.it/hugo/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://www.ifconfig.it/hugo/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://www.ifconfig.it/hugo/tags/"><i class='fa fa-list fa-fw'></i>Tags</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://www.ifconfig.it/hugo/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/gp_ifconfig" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/gpaolo" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/routetonull" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>HP Comware 7 simulator</h1>
+  <h2></h2>
+</div>
+<div class="content">
+  
+
+<p>Many network vendors are publishing simulators to the community. A simulator can be a way to complete a training or can be used for a <a href="http://en.wikipedia.org/wiki/Proof_of_concept">PoC</a>.</p>
+
+<p>GNS3 maybe is the most famous emulator while others like <a href="http://support.huawei.com/ecommunity/bbs/10143905.html">eNSP</a> for Huawei, Cisco&rsquo;s <a href="http://www.youtube.com/watch?v=nsbzHmwUz6I">VIRL</a>, Juniper <a href="https://learningportal.juniper.net/juniper/user_activity_info.aspx?id=5735">Junosphere</a> are available or will be available soon.</p>
+
+<p>The big name missing so far was HP. Last December HP announced on Linkedin the availability of a simulator for Comware platform:</p>
+
+<p><a href="http://www.ifconfig.it/wordpress/wp-content/uploads/2014/01/hp_sim_announce_linkedin.png"><img src="http://www.ifconfig.it/wordpress/wp-content/uploads/2014/01/hp_sim_announce_linkedin.png" alt="hp_sim_announce_linkedin" /></a></p>
+
+<p>I took the opportunity to download and run the emulator, these are my thoughts.</p>
+
+<h2 id="more"><!-- more --></h2>
+
+<h2 id="simulated-devices">Simulated devices</h2>
+
+<p>The devices simulated include both routers and switches. This is a good start, GNS3 will emulate switches using L2 IOU image so some features will be missing. eNSP from Huawei is the only emulator I&rsquo;ve used so far that emulates all the features of both L2 and L3 devices.</p>
+
+<p><a href="http://www.ifconfig.it/wordpress/wp-content/uploads/2014/01/02_simulated-devices.png"><img src="http://www.ifconfig.it/wordpress/wp-content/uploads/2014/01/02_simulated-devices-300x165.png" alt="02_simulated devices" /></a></p>
+
+<p>As you can see in the lists there&rsquo;s not specific platforms that you can relate to real devices but commands and features should be very similar.</p>
+
+<h2 id="download">Download</h2>
+
+<p>To download the simulator register <a href="https://www.hp.com/networking/channel-dropbox">HERE</a> then search keyword &ldquo;simulator&rdquo; on top of the page, you will get this, download the correct file for your platform.</p>
+
+<p><a href="http://www.ifconfig.it/wordpress/wp-content/uploads/2014/01/comware-download.png"><img src="http://www.ifconfig.it/wordpress/wp-content/uploads/2014/01/comware-download-300x165.png" alt="comware download" /></a></p>
+
+<h2 id="installation">Installation</h2>
+
+<p>The installation is very straightforward, there&rsquo;s a wizard to follow and a TAP interface will be configured to connect emulated devices to the LAN.</p>
+
+<p><a href="http://www.ifconfig.it/wordpress/wp-content/uploads/2014/01/install_1.png"><img src="http://www.ifconfig.it/wordpress/wp-content/uploads/2014/01/install_1-300x228.png" alt="install_1" /></a></p>
+
+<h2 id="configuration">Configuration</h2>
+
+<p>To configure devices and connections we must edit a configuration file. Sorry, no GUI folks. Remember some tyme ago how we used to configure dynamips? That&rsquo;s quite the same.</p>
+
+<p>We specify the devices, modules and ports and then interconnection. HP provides a 33 pages document that explains every parameter and shows some examples .</p>
+
+<p>The topology I&rsquo;ve used for my tests is very simple, just two routers connected with two interfaces:</p>
+
+<pre><code>#device 1
+device_id = 1
+#device type is chassis
+device_model = SIM1200
+#host ip option 
+#host_ip = 192.168.100.1
+#board slot type and aux_port memory_size
+board = SIM1201 : aux_port 51234
+#device 2
+device_id = 2
+#device tyep is box
+device_model = SIM1200
+#board slot type and aux_port memory_size
+board = SIM1201 : aux_port 51235
+#connect two interface
+device 1 : interface 2 &lt;---&gt; device 2 : interface 2
+</code></pre>
+
+<p>After the creation of the configuration file we compile it and run the .vbs files.</p>
+
+<h2 id="run">Run!</h2>
+
+<p>My laptop has a Core i5 CPU and 8Gig of RAM, it can run GNS3 and eNSP quite well, even with many devices. Comware Simulator is slow. It took minutes to start the first device and the CLI was so slow that even writing just a couple of commands is frustrating, I give up.</p>
+
+<p><a href="http://www.ifconfig.it/wordpress/wp-content/uploads/2014/01/comware_versions.png"><img src="http://www.ifconfig.it/wordpress/wp-content/uploads/2014/01/comware_versions-300x239.png" alt="comware_versions" /></a></p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>HP did the right move to provide this emulator to the community. This is just an initial release and I&rsquo;m confident that will not be the last.</p>
+
+<p>I think that a decent GUI and better performance would allow this simulator to be usable and be a great tool for training, prepare certification exams and test features in a virtual environment.</p>
+
+<h2 id="update-september-25th-2014"><strong>UPDATE September 25th 2014</strong></h2>
+
+<p>Mr. Wim Groeneveld (Networking Learning Solution Architect at HP) answered my request with the <a href="http://h17007.www1.hp.com/us/en/networking/products/simulator/index.aspx#.VCPwBYf8KL0">link to download the HP Network Simulator</a>. Join the <a href="http://h30499.www3.hp.com/t5/Network-Simulator/bd-p/network-simulator">discussion board</a> if you need support.</p>
+
+<p>I&rsquo;ll try it soon to check if newer versions run faster than the one I tried months ago.</p>
+
+<p><a href="http://h17007.www1.hp.com/us/en/networking/products/simulator/index.aspx#.VCPwBYf8KL0"><img src="http://www.ifconfig.it/wordpress/wp-content/uploads/2014/01/hpns_7.1.50.png" alt="hpns_7.1.50" /></a></p>
+
+</div>
+
+</div>
+</div>
+<script src="http://www.ifconfig.it/hugo/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10670358-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

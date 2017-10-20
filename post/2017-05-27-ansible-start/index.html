@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.26" />
+
+  <title>Ansible and IOS quick start &middot; ifconfig.it</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.ifconfig.it/hugoimg/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-2507441616057251",
+    enable_page_level_ads: true
+  });
+</script>
+  
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://www.ifconfig.it/hugo/">ifconfig.it</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/tags/"><i class='fa fa-list fa-fw'></i>Tags</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/gp_ifconfig" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/gpboa" target="_blank"><i class="fa fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/gpaolo" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/routetonull" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://keybase.io/bgp" target="_blank"><i class="fa fa-key fa-fw"></i>Keybase</a>
+    </li>
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Ansible and IOS quick start</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+	<time>Saturday, May 27, 2017
+	</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/ansible">ansible</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/networking">networking</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  
+
+<p><a href="https://www.ansible.com/" title="ansible.com">Ansible</a> has been around for I while but I didn&rsquo;t had a chance to play with it so far.</p>
+
+<p>Now the time has come: I manage enough IOS devices with homogeneous configurations in multiple sites without <a href="http://www.cisco.com/c/en/us/products/cloud-systems-management/prime-infrastructure/index.html" title="Cisco Prime Infrstructure">Cisco Prime</a>. Any change is a pain, it&rsquo;s time <em>to automate all the things!</em></p>
+
+<h2 id="my-environment">My environment</h2>
+
+<p>I run Ansible inside <a href="https://msdn.microsoft.com/en-us/commandline/wsl/install_guide" title="bash on Windows">Bash on Windows</a>, I don&rsquo;t see any issue or difference than running in an actual Linux box or docker/vagrant/whatever and it permits a better integration with the tools I already use.</p>
+
+<p>I like try new editors, I switch from <a href="https://notepad-plus-plus.org/" title="Notepad++">Notepad++</a> to <a href="https://atom.io/" title="atom">Atom</a> to <a href="https://www.nano-editor.org/">nano</a>, now I&rsquo;m testing <a href="https://code.visualstudio.com/">Visual Studio Code</a> from Microsoft, it has some nice features:</p>
+
+<ul>
+<li>free</li>
+<li>multi-platform (Windows, Linux, Mac)</li>
+<li>extensions - <a href="https://marketplace.visualstudio.com/items?itemName=haaaad.ansible" title="language-Ansible">use this for Ansible</a></li>
+</ul>
+
+<h2 id="install-ansible">Install Ansible</h2>
+
+<p>Check if Ansible is already installed with:</p>
+
+<pre><code>ansible --version
+</code></pre>
+
+<p>Today latest stable release is</p>
+
+<pre><code>ansible 2.3.0.0
+</code></pre>
+
+<p>If an older version is installed upgrade with</p>
+
+<pre><code>pip install ansible --upgrade
+</code></pre>
+
+<p>Or install it</p>
+
+<pre><code>apt-add-repository ppa:ansible/ansible
+apt-get update
+apt-get install ansible
+</code></pre>
+
+<p>Older version may cause some errors with the example I&rsquo;ll show below.</p>
+
+<h2 id="first-example-update-configuration-on-ios-devices">First example: update configuration on IOS devices</h2>
+
+<p>The first example is a very simple change: check if a command is in running configuration, if it&rsquo;s not apply the command and save the configuration.</p>
+
+<p>First thing: create a file named <strong>/etc/ansible/secrets.yaml</strong> to store the credentials to access the devices. There&rsquo;re better ways do this but for a quick start that&rsquo;s good enough:</p>
+
+<pre><code>username: myUserName
+password: mySup3rS3cr3tPa55w0rd
+</code></pre>
+
+<p>Then create/edit file <strong>/etc/ansible/hoststest</strong> with a list of host to test the scripts:</p>
+
+<pre><code>[ios]
+192.0.2.1
+192.0.2.2
+</code></pre>
+
+<p>Note: I used <a href="https://tools.ietf.org/html/rfc5737" title="rfc5737">RFC5737</a> addresses, ain&rsquo;t that cool? ;-)</p>
+
+<p>Now it&rsquo;s time for the actual script, well put it in file <strong>/etc/ansible/playbook/makechange.yaml</strong>.</p>
+
+<p>Comments are inline (starting with #), you can copy&amp;paste and make the changes you need.</p>
+
+<p>In my example I&rsquo;ll check if an SNMP community is present in running config.</p>
+
+<pre><code>---
+- connection: local
+  gather_facts: no
+  hosts: ios
+
+  tasks:
+
+    - name: SET FACTS
+      set_fact:
+        snmp_community: &quot;snmp-server community MYCOMM RW&quot; 
+        # command output that should be present in running config
+
+    - name: GET CREDENTIALS
+      # read credentials from file
+      include_vars: secrets.yaml
+
+    - name: DEFINE PROVIDER
+      # set some variables
+      set_fact:
+        provider:
+          host: &quot;{{ inventory_hostname }}&quot;
+          username: &quot;{{ creds['username'] }}&quot;
+          password: &quot;{{ creds['password'] }}&quot;
+
+    - name: GET COMMUNITY
+      # variable snmp_config will store the output ot the command below
+      register: snmp_config       
+      ios_command:
+        provider: &quot;{{ provider }}&quot;
+        commands:
+           # this is the command that will be run on remote hosts
+           - &quot;sh run | i snmp-server community MYCOMM RW&quot;
+
+    - name: SET COMMUNITY
+      # if the community is not in running configuration...
+      when: (&quot;snmp_community != snmp_config.stdout_lines[0]&quot;)
+      # ...set a variable with name &quot;changed&quot;...
+      register: changed
+      # ...and run the following command
+      ios_config:
+        provider: &quot;{{ provider }}&quot;
+        lines:
+          - snmp-server community MYCOMM RW
+
+    - name: SAVE CONFIG
+      # if variable &quot;changed&quot; exists and it's value is &quot;true&quot;, meaning a configuration change was made...
+      when: &quot;(changed is defined) and (changed == true)&quot; # ONLY SAVE IF CONFIG HAS CHANGED
+      # ...run the following command to save the configuration
+      ios_command:
+        provider: &quot;{{ provider }}&quot;
+        commands:
+          - &quot;write memory&quot;
+</code></pre>
+
+<p>Now we can run the playbook with</p>
+
+<pre><code>ansible-playbook -i /etc/ansible/hoststest /etc/ansible/playbook/makechange.yaml
+</code></pre>
+
+<p>and see the <a href="https://en.wikipedia.org/wiki/Clarke%27s_three_laws#Variants_of_the_third_law" title="magic">magic</a> happen!</p>
+
+<h2 id="second-example-get-a-command-output">Second example: get a command output</h2>
+
+<p>Scenario: I manage a <a href="http://www.cisco.com/c/en/us/support/docs/security/flexvpn/116412-configure-flexvpn-00.html" title="flexvpn">FlexVPN network with dual-hub</a> and over 100 spokes. While I wait for a proper monitoring to be in place I need a quick way to check if all the spokes have two tunnels up.</p>
+
+<p>This playbook runs a command on each hub and saves the output in a local file.
+Comments inline.</p>
+
+<p><em>Host inventory: /etc/ansible/inventory/flexhubs</em></p>
+
+<p><em>Results saved in: /etc/ansible/results</em></p>
+
+<p><em>Playbook name: /etc/ansible/playbook/flexspokelist.yaml</em></p>
+
+<pre><code>---
+- connection: local
+  gather_facts: no
+  hosts: ios
+
+  tasks:
+
+    - name: GET CREDENTIALS
+      include_vars: secrets.yaml
+
+    - name: DEFINE PROVIDER
+      set_fact:
+        provider:
+          host: &quot;{{ inventory_hostname }}&quot;
+          username: &quot;{{ creds['username'] }}&quot;
+          password: &quot;{{ creds['password'] }}&quot;
+
+    - name: SHOW SPOKES
+      register: config
+      # run command on HUB
+      ios_command:
+        provider: &quot;{{ provider }}&quot;
+        commands:
+          - &quot;sh ip bgp | i 172.23.11&quot;
+
+    - name: append to output
+    # append the command output to a local file
+      copy:
+        content: &quot;{{ config.stdout[0] }}&quot;
+        dest: &quot;/etc/ansible/results/{{ inventory_hostname }}.txt&quot;
+</code></pre>
+
+<p>Run the playbook</p>
+
+<pre><code>ansible-playbook -i ./inventory/flexhubs ./playbook/flexspokelist.yaml
+</code></pre>
+
+<p>The output actually needs some manipulation to get the information I need:</p>
+
+<pre><code>awk '{ print $2}' ./results/flexhub1.txt | sed 's/\/32//g' | more | sort -V &gt; ./results/flexhub1list.txt
+awk '{ print $2}' ./results/flexhub2.txt | sed 's/\/32//g' | more | sort -V &gt; ./results/flexhub2list.txt
+diff -y ./results/flexhub1list.txt ./results/flexhub2list.txt | grep '&lt;\|&gt;'
+</code></pre>
+
+<p>Done! Now we have the list of spokes that have just one tunnel with bgp peering up.</p>
+
+<h2 id="wrap-up">Wrap up</h2>
+
+<p>Automation is not easy, it is something that requires some effort to start.</p>
+
+<p>Today many network engineers have a big <strong>WORKLOAD</strong> that is managed by hand, requires lots of skills, is error-prone and does not scale.</p>
+
+<p>The next step should be to translate the workload to a <strong><a href="https://en.wikipedia.org/wiki/Runbook" title="runbook">RUNBOOK</a></strong> that is <em>versionable</em>, repeatable and that could be delegated to less skilled or junior engineers.</p>
+
+<p>A further step would be to <strong>AUTOMATE</strong> the runbook, this is where Ansible really helps.</p>
+
+<p>The last step would be <strong>ORCHESTRATION</strong> a.k.a. running automated tasks when some conditions arise - that is out of scope for this post.</p>
+
+<p>I&rsquo;ll share this and future playbooks in my <strong><a href="https://github.com/routetonull/ansible" title="github">GITHUB repository</a></strong>.</p>
+
+<p><em>You can find more complex examples in the blog of my friend <a href="http://www.routereflector.com/2017/02/managing-ntp-on-cisco-ios-with-ansible/" title="http://www.routereflector.com">Andrea</a>.</em></p>
+
+<p>I hope you enjoyed this post and will use is as a starting point for more automation.</p>
+
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2507441616057251"
+     data-ad-slot="5064206496"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://www.ifconfig.it/hugo/post/cisco-tac-workshop-krakow/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://www.ifconfig.it/hugo/post/cisco-tac-workshop-krakow/">TAC Security Workshop - Poland</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://www.ifconfig.it/hugo/post/2017-07-30-network-career-interview/">Networkcareer.net interview</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://www.ifconfig.it/hugo/post/2017-07-30-network-career-interview/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'ifconfig';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2507441616057251"
+     data-ad-slot="2220017315"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  
+</div>
+
+</div>
+</div>
+<script src="https://www.ifconfig.it/hugojs/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10670358-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

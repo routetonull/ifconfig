@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.16-DEV" />
+
+  <title>Quick  Python code: Jinja2 and config templates &middot; ifconfig.it</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.ifconfig.it/hugoimg/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://www.ifconfig.it/hugo/">ifconfig.it</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/tags/"><i class='fa fa-list fa-fw'></i>Tags</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/gp_ifconfig" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/gpaolo" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/routetonull" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Quick  Python code: Jinja2 and config templates</h1>
+  <h2></h2>
+</div>
+<div class="content">
+  
+
+<p>Networking is awesome but some tasks may be quite boring and repetitive. For  new campus network installations a lot of time is used just to put a basic initial configuration template on switches.</p>
+
+<p>Each vendor has its proprietary method to distribute configs automagically but sometimes the effort to setup the system is simply too much.</p>
+
+<p>A common practice is to prepare a template in a test environment then copy it changing the IP address, hostname and a few other parameters. That&rsquo;s a manual and error prone procedure.</p>
+
+<p>I took the chance to write a quick(1) Python script to automate the process and generate the config files reading the data from a csv file and a template.</p>
+
+<!-- more -->
+
+<h2 id="how-it-works:99a7f4ab9382e8c93ed46e5d8f455de4">How it works?</h2>
+
+<p>The script reads a csv and a template files and uses <a href="http://jinja.pocoo.org/">Jinja2</a> to create all the single config files.</p>
+
+<p>How to use it?</p>
+
+<p>1) create a template using the Jinja2 sintax like this:</p>
+
+<pre><code>hostname {{hostname}}
+inte vlan 1
+ip address {{ip}} netmask {{netmask}}
+username {{username}} password {{password}}
+</code></pre>
+
+<p>Notice the values between &ldquo;{{ }}&rdquo; will be replaced with the values read from the csv file</p>
+
+<p>2) create a csv file with the values:</p>
+
+<pre><code># lines starting with # are comments
+#hostname,ip,netmask,username,password
+sw1,10.0.0.1,255.255.255.0,admin,sup3rs3cr3t
+sw2,10.0.0.2,255.255.255.0,admin,sup3rs3cr3t
+sw3,10.0.0.3,255.255.255.0,admin,sup3rs3cr3t
+sw4,10.0.0.4,255.255.255.0,admin,sup3rs3cr3t
+sw5,10.0.0.5,255.255.255.0,admin,sup3rs3cr3t
+</code></pre>
+
+<p>3) Run the script. The parameters are: csv file, template file, directory where the config will be stored:</p>
+
+<pre><code> python cfgmaker_jinja2.py list.csv template.txt CGFS
+</code></pre>
+
+<h2 id="the-output:99a7f4ab9382e8c93ed46e5d8f455de4">The output</h2>
+
+<p>The output of the scritp are 5 files in the CFGS folder with all the values:</p>
+
+<pre><code>hostname sw1
+inte vlan 1
+ip address 10.0.0.1 netmask 255.255.255.0
+username admin password sup3rs3cr3t
+
+hostname sw2
+inte vlan 1
+ip address 10.0.0.2 netmask 255.255.255.0
+username admin password sup3rs3cr3t
+
+hostname sw3
+inte vlan 1
+ip address 10.0.0.3 netmask 255.255.255.0
+username admin password sup3rs3cr3t
+
+hostname sw4
+inte vlan 1
+ip address 10.0.0.4 netmask 255.255.255.0
+username admin password sup3rs3cr3t
+
+hostname sw5
+inte vlan 1
+ip address 10.0.0.5 netmask 255.255.255.0
+username admin password sup3rs3cr3t
+</code></pre>
+
+<h2 id="where-s-the-code:99a7f4ab9382e8c93ed46e5d8f455de4">Where&rsquo;s the code?</h2>
+
+<p>You can find the source code and the example files in <a href="https://bitbucket.org/gp_ifconfig">BitBucket</a>.</p>
+
+<p><em>QUICK: just basic input control, no expection handling, poorly documented and optimized. It works for me, use it at your own risk, feel free to improve it.</em></p>
+
+</div>
+
+</div>
+</div>
+<script src="https://www.ifconfig.it/hugojs/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10670358-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.16-DEV" />
+
+  <title>OED tools: Pushover &middot; ifconfig.it</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.ifconfig.it/hugoimg/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://www.ifconfig.it/hugo/">ifconfig.it</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/tags/"><i class='fa fa-list fa-fw'></i>Tags</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/gp_ifconfig" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/gpaolo" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/routetonull" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>OED tools: Pushover</h1>
+  <h2></h2>
+</div>
+<div class="content">
+  
+
+<h2 id="the-problem:ecdbc511ea0e8b74ea7f201a3dee3c40">The problem</h2>
+
+<p>In my last post about Linux <strong>at</strong> command I talked about notifications on my mobile.</p>
+
+<p>In most of my automation scripts I prefer notifications to come to my mobile instead of via email or SMS (really? in 2015?) because:</p>
+
+<ul>
+<li><p>it is always with me</p></li>
+
+<li><p>I check it thousands times a day (I know you too ;-) )</p></li>
+
+<li><p>it is a preferred channel - a specific app just for that</p></li>
+</ul>
+
+<h2 id="the-automation:ecdbc511ea0e8b74ea7f201a3dee3c40">The automation</h2>
+
+<p>There&rsquo;re many notification services available today for free or minimal cost. When I needed it, after evaluating a few solutions, I chose <a href="https://pushover.net/">Pushover</a>.</p>
+
+<p>Main advantages of Pushover:</p>
+
+<ul>
+<li><p>no monthly fees</p></li>
+
+<li><p><a href="https://pushover.net/faq#overview-limits">7500 messages per month</a> - much more than I needed so far</p></li>
+
+<li><p>API available for <a href="https://pushover.net/faq#library">most programming languages</a></p></li>
+
+<li><p>client available for many platforms</p></li>
+</ul>
+
+<p><img src="https://pushover.net/assets/pushover-header-a9ea3145e3754dffe333ae155b25731d.png" alt="pushover logo" /></p>
+
+<p>For bash scripts I call a Python script <strong>sendpush.py</strong>:</p>
+
+<h1 id="usr-bin-python:ecdbc511ea0e8b74ea7f201a3dee3c40">!/usr/bin/python</h1>
+
+<p>&rdquo;&rsquo; last change: 20151203 notify to pushover &ldquo;&rsquo;</p>
+
+<p>import commands import httplib, urllib import sys</p>
+
+<pre><code>def sendPush(messageText):
+        conn = httplib.HTTPSConnection(&quot;api.pushover.net:443&quot;)
+        conn.request(&quot;POST&quot;, &quot;/1/messages.json&quot;,
+        urllib.urlencode({
+                &quot;token&quot;: &quot;REPLACE_WITH_YOUR_TOKEN&quot;,
+                &quot;user&quot;: &quot;REPLACE_WITH_YOUR_USER&quot;,
+                &quot;message&quot;: messageText,
+        }), { &quot;Content-type&quot;: &quot;application/x-www-form-urlencoded&quot; })
+        conn.getresponse()
+
+def main():
+        sendPush(sys.argv[1])
+
+main()
+</code></pre>
+
+<p>Usually I set a notification when the script starts, ends and a final one with a check of the expected output.</p>
+
+<p>I had positive experiences with Pushover so far, messages always arrived on time and never got lost in the path so I&rsquo;m not actively looking for a replacement (not very <a href="https://en.wikipedia.org/wiki/Kaizen">Kaizen</a>&hellip;) but suggestions are welcome.</p>
+
+</div>
+
+</div>
+</div>
+<script src="https://www.ifconfig.it/hugojs/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10670358-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

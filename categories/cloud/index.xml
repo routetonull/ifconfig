@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Cloud on IFCONFIG.IT </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>http://www.ifconfig.it/hugo/categories/cloud/</link>
+    <language>en-us</language>
+    
+    
+    <updated>Fri, 31 Jul 2015 18:57:39 &#43;0000</updated>
+    
+    <item>
+      <title>Exam passed: HP2-Z31 - Creating HP Software-defined Networks</title>
+      <link>http://www.ifconfig.it/hugo/post/exam-passed-hp2-z31-creating-hp-software-defined-networks/</link>
+      <pubDate>Fri, 31 Jul 2015 18:57:39 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/exam-passed-hp2-z31-creating-hp-software-defined-networks/</guid>
+      <description>&lt;p&gt;As a holder of many technical certifications every few months I have to renew some.&lt;/p&gt;
+
+&lt;p&gt;When possible I try to renew the certifications with a new track instead of doing the newer version of the exam I&amp;rsquo;ve already done.&lt;/p&gt;
+
+&lt;p&gt;This time was the turn of &lt;a href=&#34;http://pro-networking-h17007.external.hp.com/ph/en/training/certifications/technical/ase-network-infrastructure.aspx&#34;&gt;HP ASE - Network Infrastructure 2011&lt;/a&gt; to be renewed as &lt;a href=&#34;http://h10120.www1.hp.com/expertone/datacard/UpgradePath/ASE-FlxNetIntV1-u2&#34;&gt;HP ASE - FlexNetwork Integrator V1&lt;/a&gt; and &lt;a href=&#34;http://h10120.www1.hp.com/expertone/datacard/UpgradePath/ASE-FlxNetArcV2-u1&#34;&gt;HP ASE - FlexNetwork Architect V2&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Four exams are availale to upgrade, I choose &lt;a href=&#34;http://h10120.www1.hp.com/expertone/datacard/Exam/HP2-Z31&#34;&gt;HP2-Z31 - Creating HP Software-defined Networks&lt;/a&gt; because I hear a lot about SDN but I had not the opportunity to explore this topic yet.&lt;/p&gt;
+
+&lt;p&gt;To prepare the exam I used the &lt;a href=&#34;https://h30590.www3.hp.com/product/Creating+HP+Software-Defined+Networks+HP2-Z31+and+HP0-Y51-eBook-11378&#34;&gt;official study guide from HP Press&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The book is well written, very clear and complete, I needed to search some topics on &lt;a href=&#34;http://lmgtfy.com/?q=openflow&#34;&gt;Google&lt;/a&gt; just a few times for a better understanding of the concepts.&lt;/p&gt;
+
+&lt;p&gt;There&amp;rsquo;s no need to say that the manual focuses on the &lt;a href=&#34;http://h17007.www1.hp.com/us/en/networking/products/network-management/HP_VAN_SDN_Controller_Software/index.aspx#.VbtnivntlBc&#34;&gt;HP VAN SDN Controller Software&lt;/a&gt; but all the core topics about how &lt;a href=&#34;https://www.opennetworking.org/&#34;&gt;OpenFlow&lt;/a&gt; and an OpenFlow enabled switch works are useful for any vendor.&lt;/p&gt;
+
+&lt;p&gt;I really liked the final chapter about &lt;a href=&#34;http://mininet.org/&#34;&gt;Mininet&lt;/a&gt; and how to use it to do labs with OpenFlow.&lt;/p&gt;
+
+&lt;p&gt;I recommend &lt;a href=&#34;https://h30590.www3.hp.com/product/Creating+HP+Software-Defined+Networks+HP2-Z31+and+HP0-Y51-eBook-11378&#34;&gt;this book&lt;/a&gt; to those interested in SDN and want a good starting point to explore the topics.&lt;/p&gt;
+
+&lt;p&gt;Enjoy.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Meraki CMNA</title>
+      <link>http://www.ifconfig.it/hugo/post/cmna/</link>
+      <pubDate>Wed, 04 Mar 2015 21:39:29 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/cmna/</guid>
+      <description>&lt;p&gt;Today I&amp;rsquo;ve attended a &lt;a href=&#34;https://meraki.cisco.com/&#34;&gt;Meraki&lt;/a&gt; technical training course at &lt;a href=&#34;http://www.cisco.com/&#34;&gt;Cisco&lt;/a&gt; offices.&lt;/p&gt;
+
+&lt;p&gt;The training was organized in short presentations of product features followed by hands-on labs based on all the products available today.&lt;/p&gt;
+
+&lt;p&gt;I was suprised to find not only people from small companies or system integrators but more that 50% of the attendees were from Cisco Gold Partners sent to evaluate the products for &amp;ldquo;managed network&amp;rdquo; services. Cloud managed network gear is quite a hot topic today and I expect many projects in the future will involve this kind of solutions.&lt;/p&gt;
+
+&lt;p&gt;Included in the trainig day there is a complimentary Meraki demo kit (and t-shirt) that includes:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;1 LIC-MX64-SEC-3YR Meraki MX64 Advanced Security License and Support, 3 Years&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;1 MS220-8P-HW Meraki MS220-8P L2 Cloud Managed 8 Port GigE 124W PoE Switch&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;1 LIC-MS220-8P-3YR Meraki MS220-8P Enterprise License and Support, 3 Year&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;1 MX64-HW Meraki MX64 Cloud Managed Security Appliance&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;1 LIC-ENT-3YR Meraki MR Enterprise Cloud Controller License, 3 Years&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;1 MR32-HW Meraki MR32 Cloud Managed AP&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;That&amp;rsquo;s enough hardware to test many features and to do some POC for interested customers.&lt;/p&gt;
+
+&lt;p&gt;Thanks Meraki for both the training and the demo kit!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2015/04/meraki-cmna-signature.jpeg&#34; alt=&#34;Alt&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Wonky Wisp, Smokeping and AWS free tier</title>
+      <link>http://www.ifconfig.it/hugo/post/wonky-wisp-smokeping-and-aws-free-tier/</link>
+      <pubDate>Mon, 15 Apr 2013 20:35:11 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/wonky-wisp-smokeping-and-aws-free-tier/</guid>
+      <description>&lt;p&gt;My home network is connected to the Internet via radio bridge. The reason is ADSL services were not available a couple of years ago, now it is but since the radio bridge is cheap and works (most of the time) I really don&amp;rsquo;t care to change.&lt;/p&gt;
+
+&lt;p&gt;Some time ago I started to notice downtime of the Internet connection, I sent a few emails to the wisp but the answer was always the same: &amp;ldquo;we don&amp;rsquo;t see a problem right now&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;That was quite clear, I can send the email only if the Internet connection is active! Their time to react is very slow so I needed a tool to monitor my connection and a server to do it.&lt;/p&gt;
+
+&lt;p&gt;My first choice of tool to monitor connections is &lt;a href=&#34;http://oss.oetiker.ch/smokeping/&#34;&gt;Smokeping&lt;/a&gt;. I use it to monitor not only link latency and packet loss but also DNS, Radius and other services response time. It&amp;rsquo;s very easy to configure and the graphs are very clear.&lt;/p&gt;
+
+&lt;p&gt;But where could I install Smokeping? &lt;a href=&#34;http://aws.amazon.com/free/&#34;&gt;Amazon AWS Free Usage Tier&lt;/a&gt; seemed the perfect choice! Amazon offers a micro istance for free for 12 months, read &lt;a href=&#34;http://aws.amazon.com/free/faqs/&#34;&gt;FAQ&lt;/a&gt; for details.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/04/aws_free_tier.png&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/04/aws_free_tier-300x208.png&#34; alt=&#34;aws_free_tier&#34; /&gt;&lt;/a&gt;So I&amp;rsquo;ve registered and installed a Debian 32 bit &lt;a href=&#34;https://aws.amazon.com/amis&#34;&gt;AMI&lt;/a&gt;. The entire operation took me less than 15 minutes.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;I was quite surprised I can access my server via SSH using the provided keys, somehow I&amp;rsquo;ve expected to access the server through a proprietary shell or front end.&lt;/p&gt;
+
+&lt;p&gt;The next step is to to install smokeping with &amp;ldquo;aptitute install smokeping&amp;rdquo; and I&amp;rsquo;m ready to configure it.&lt;/p&gt;
+
+&lt;p&gt;I did just a basic configuration, what I needed was to check the reachability of my home router and the next hop that is the radio bridge:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/04/smoke_aws.png&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/04/smoke_aws-300x125.png&#34; alt=&#34;smoke_aws&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The only configuration I&amp;rsquo;ve added to Smokeping is an action to perform a traceroute and log it when more than half of the packets are lost.&lt;/p&gt;
+
+&lt;p&gt;Add this to /etc/smokeping/config.d/Alerts&lt;/p&gt;
+
+&lt;blockquote&gt;+ totalloss
+type = loss
+pattern = &gt;50%
+to = |/bin/traceroute.bin
+comment = lost half packets&lt;/blockquote&gt;
+
+&lt;p&gt;and set the alert in the host section in /etc/smokeping/config.d/Targets&lt;/p&gt;
+
+&lt;blockquote&gt;++ NEXT-HOP
+menu = NEXT-HOP
+title = NEXT-HOP 94.xx.xx.xx
+host = 94.xx.xx.xx
+alerts = totalloss&lt;/blockquote&gt;
+
+&lt;p&gt;The script _/bin/traceroute.bin_ is very simple:&lt;/p&gt;
+
+&lt;blockquote&gt;date &gt;&gt; /var/log/trace
+tracepath -b 94.xx.xx.xx &gt;&gt; /var/log/trace&lt;/blockquote&gt;
+
+&lt;p&gt;When the network goes down now I can see where the problem is and &lt;del&gt;complain&lt;/del&gt; send a detailed email to the WISP.&lt;/p&gt;
+
+&lt;p&gt;So did they solve the problem? Of course not! The Wisp backbone is made by both fiber and wireless bridges, looks like they have an issue with a link but just don&amp;rsquo;t care or know how to fix it.&lt;/p&gt;
+
+&lt;p&gt;The conclusion is my Internet connection is still wonky, but at least I had the opportunity to understand a little bit more what AWS is and to play with a quite interesting technology for free thanks to Amazon.&lt;/p&gt;
+
+&lt;p&gt;I hope they&amp;rsquo;ll keep it free even after the first 12 months, the micro instance is micro but big enough for many small tasks.&lt;/p&gt;
+
+&lt;p&gt;HTH&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Sugarsync</title>
+      <link>http://www.ifconfig.it/hugo/post/sugarsync/</link>
+      <pubDate>Sat, 18 Dec 2010 17:23:55 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/sugarsync/</guid>
+      <description>&lt;p&gt;Sugarsync is a storage service in the cloud, up to 5GB are free, register &lt;a href=&#34;https://www.sugarsync.com/referral?rf=d5zaq86670spz&#34;&gt;HERE&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

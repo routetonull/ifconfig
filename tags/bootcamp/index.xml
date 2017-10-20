@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bootcamp on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/bootcamp/</link>
+    <description>Recent content in Bootcamp on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 02 Sep 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/bootcamp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>INE CCIE R&amp;S bootcamp – 2nd week</title>
+      <link>https://www.ifconfig.it/hugo/post/ine-ccie-rs-bootcamp-2nd-week/</link>
+      <pubDate>Sun, 02 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/ine-ccie-rs-bootcamp-2nd-week/</guid>
+      <description>After the first week of the INE bootcamp I spent the weekend relaxing a bit and reviewing the topics on the doc-cd.
+The second week confimed the high level of this training, long hours and Brian Dennis showing us a lot of scenarios and how to spot a problem before it happens instead of just troubleshooting it later.
+My favorite days were MPLS and Multicast, followed by redistribution and OeR but I must say that I found in every single day something new.</description>
+    </item>
+    
+  </channel>
+</rss>

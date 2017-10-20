@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.26" />
+
+  <title>Docker join the dots &middot; ifconfig.it</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.ifconfig.it/hugoimg/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-2507441616057251",
+    enable_page_level_ads: true
+  });
+</script>
+  
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://www.ifconfig.it/hugo/">ifconfig.it</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/tags/"><i class='fa fa-list fa-fw'></i>Tags</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/gp_ifconfig" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/gpboa" target="_blank"><i class="fa fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/gpaolo" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/routetonull" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://keybase.io/bgp" target="_blank"><i class="fa fa-key fa-fw"></i>Keybase</a>
+    </li>
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Docker join the dots</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+	<time>Monday, May 25, 2015
+	</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/docker">docker</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/linux">linux</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  
+
+<p>This post is part of a series about Docker, including:</p>
+
+<ul>
+<li><p><a href="http://www.ifconfig.it/wordpress/2015/05/docker-introduction/">Docker Introduction</a></p></li>
+
+<li><p><a href="http://wp.me/p4biGi-o0">Docker: Install software inside a container</a></p></li>
+
+<li><p><a href="http://wp.me/p4biGi-o5">Docker Volumes</a></p></li>
+
+<li><p><a href="http://wp.me/p4biGi-o9">Docker Networking - bridge container to host NIC</a></p></li>
+</ul>
+
+<p>We <a href="(http://www.ifconfig.it/wordpress/2015/05/docker-introduction/)">started</a> with the basics and moved on with <a href="http://wp.me/p4biGi-o0">adding software</a>, using <a href="http://wp.me/p4biGi-o5">volumes</a> and then <a href="(http://wp.me/p4biGi-o9)">bridging a container to the network</a>.</p>
+
+<p>As a said I&rsquo;m neither a developer or a system administrator, I work as Network Engineer so I&rsquo;m not the main target for Docker but I found it very useful for a specific need and now it&rsquo;s time to <a href="https://www.youtube.com/watch?v=UF8uR6Z6KLc">join the dots</a>.</p>
+
+<!-- more -->
+
+<p>Here&rsquo;s the story. I do wireless networks with <a href="https://en.wikipedia.org/wiki/Captive_portal">captive portals</a>. I know <a href="https://twitter.com/keithrparsons/status/539935622811492352">some pleople</a> think captive portals are bad and I agree in some way, but they have a purpose.</p>
+
+<p>For those who don&rsquo;t know what a captive portal is: it is a VM or an appliance that captures the client traffic, redirects it to a web authentication portal, requests valid credentials that allow the user to access the internet.</p>
+
+<p>Long story short, how can we test a captive portal scalabilty?</p>
+
+<p>We can configure it and see how it behaves under load of real clients (reactive) or find a way to &ldquo;simulate&rdquo; many clients and test in lab environment.</p>
+
+<p>Yes it would be easier just to read and trust the vendor datasheet but we all know vendors sometimes are not so accurate with the published values so my approach is <a href="http://en.wikipedia.org/wiki/Trust,_but_verify">trust but verify</a>.</p>
+
+<p>Note: the captive portal is often used for wireless clients but it can just listen on a specific VLAN so load tests can be done with wired clients.</p>
+
+<h2 id="first-try-vms">First try: VMs</h2>
+
+<p>I first tried to use <a href="https://www.virtualbox.org/">VirtualBox</a> and clone a VM many times. Even with some scripting this solution was little scalable and required lots of resources.</p>
+
+<p>I need to simulate at least 500 clients per host and scale up to few thousands in the future.</p>
+
+<h2 id="second-try-docker">Second try: Docker</h2>
+
+<p>On my second try I used <a href="https://hub.docker.com">Docker</a>. I notice this technology thanks to <a href="http://www.twitter.com">Twitter</a> and saw a big potential for my purpose.</p>
+
+<h1 id="join-the-dots-the-final-solution">Join the dots: the final solution</h1>
+
+<p>If you read all the <a href="(http://www.ifconfig.it/wordpress/2015/05/docker-introduction/)">previous posts</a> you can see now how the dots join all toghether: I run multiple <a href="https://hub.docker.com">Docker</a> containers on a host, <a href="http://wp.me/p4biGi-o9">bridge</a> them to the host NIC using <a href="http://openvswitch.org/">Open vSwitch</a>, run a <a href="https://www.python.org">Python</a>+<a href="https://pypi.python.org/pypi/mechanize">Mechanize</a> script stored in a shared <a href="http://wp.me/p4biGi-o9">Volume</a> that does a login on the Captive Portal and then simulate Internet access from the client simply with <a href="http://en.wikipedia.org/wiki/CURL">curl</a> and a list of websites.</p>
+
+<p><strong>Advantages:</strong></p>
+
+<ul>
+<li><p>little overhead on the host</p></li>
+
+<li><p>&ldquo;real&rdquo; network access, Captive Portal need to see different MAC addressed to do its magic</p></li>
+
+<li><p>scalable performance: I can run containers on multiple hosts for a real <a href="http://en.wikipedia.org/wiki/Scalability">scale-out</a> solution</p></li>
+
+<li><p>manageable: the scripts are stored on a shared <a href="http://wp.me/p4biGi-o9">Volume</a> so it&rsquo;s easy to make changes</p></li>
+
+<li><p>reusable: a few changes on the login the script allows to test different portals</p></li>
+
+<li><p>easy to start: a simple bash loop starts as many container are neede, host performances are the only limit (more on that later)</p></li>
+</ul>
+
+<h2 id="the-start-script">The start script</h2>
+
+<p>This is the start script used to run multiple containers:</p>
+
+<pre><code>#! /bin/bash 
+# start.sh
+# runs multiple container
+for i in {0..$1}
+do
+./pipework/pipework ovsbr0 $(docker run --privileged -i -t --net=&quot;none&quot; -v /root/dockervolume:/volume -d ubuntuplus /bin/bash /volume/runthis.sh) dhcp  
+done
+</code></pre>
+
+<h2 id="the-kill-script">The kill script</h2>
+
+<p>This is the kill script, used to kill all the containers:</p>
+
+<pre><code>#! /bin/bash
+# dockerkillall.sh
+# kill all the containers
+while read containerID
+do
+docker kill $containerID 
+done &lt; &lt;(docker ps -q)
+</code></pre>
+
+<h2 id="the-ovs-clean-script">The OVS clean script</h2>
+
+<p>This command removes all the Oper vSwitch ports except the ports used to bridge the switch itself.</p>
+
+<pre><code>ovs-vsctl show | grep Interface.*veth | sed 's/&quot;//g' | awk '{ cmd= &quot;ovs-vsctl del-port &quot;$2 ; system(cmd) }'
+</code></pre>
+
+<h2 id="limitations">Limitations</h2>
+
+<p>The only limit I foud so far is the time it takes to start a new container and run the custom startup script. On my PC <a href="http://www.dell.com/us/business/p/latitude-e5550-laptop/pd">(Dell Latitude E5550, i5 CPU, 16GM RAM)</a> it takes about a hour to start 300 containers.</p>
+
+<p>I didn&rsquo;t had a chance to test it on a server hardware so I don&rsquo;t know how if more powerful hardware can speed-up the process or it&rsquo;s a software limitation that gets little advantage of faster CPUs. I&rsquo;ll update this post with my finding later.</p>
+
+<h1 id="wrap-up">Wrap Up</h1>
+
+<p>I hope you enjoyed my posts about Docker. My target was to share a very specific use case that maybe isn&rsquo;t the purpose of the techonology but I found very useful and easy to implement.</p>
+
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2507441616057251"
+     data-ad-slot="5064206496"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://www.ifconfig.it/hugo/post/2015-05-18-docker-networking-bridge/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://www.ifconfig.it/hugo/post/2015-05-18-docker-networking-bridge/">Docker networking bridge to host NIC</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://www.ifconfig.it/hugo/post/2015-06-01-scrtpython/">SecureCRT and Python</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://www.ifconfig.it/hugo/post/2015-06-01-scrtpython/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'ifconfig';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2507441616057251"
+     data-ad-slot="2220017315"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  
+</div>
+
+</div>
+</div>
+<script src="https://www.ifconfig.it/hugojs/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10670358-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

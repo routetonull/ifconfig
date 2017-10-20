@@ -1,0 +1,815 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Software on IFCONFIG.IT </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>http://www.ifconfig.it/hugo/categories/software/</link>
+    <language>en-us</language>
+    
+    
+    <updated>Mon, 07 Mar 2016 17:00:37 &#43;0000</updated>
+    
+    <item>
+      <title>OED tools: OneNote</title>
+      <link>http://www.ifconfig.it/hugo/post/oed-tools-onenote/</link>
+      <pubDate>Mon, 07 Mar 2016 17:00:37 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/oed-tools-onenote/</guid>
+      <description>
+
+&lt;h1 id=&#34;the-problem&#34;&gt;The Problem&lt;/h1&gt;
+
+&lt;p&gt;Notes, code and configuration snippets, links, screenshots&amp;hellip; where/how to save them and allow and easy/fast way to tag/search them when needed?&lt;/p&gt;
+
+&lt;h1 id=&#34;the-solution&#34;&gt;The Solution&lt;/h1&gt;
+
+&lt;p&gt;In my opinion the best software for notes is &lt;a href=&#34;https://www.onenote.com/&#34;&gt;Onenote&lt;/a&gt; today.&lt;/p&gt;
+
+&lt;p&gt;One note has a better integration with Windows 10, it&amp;rsquo;s free, supports multiple platforms and the mobile App actually works.&lt;/p&gt;
+
+&lt;p&gt;Among all the cool features maybe my favourite is to be able to search text inside the pictures pasted inside a note.&lt;/p&gt;
+
+&lt;p&gt;Get &lt;a href=&#34;https://www.onenote.com/&#34;&gt;Onenote&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;alternatives&#34;&gt;Alternatives:&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://evernote.com&#34;&gt;Evernote&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://apps.owncloud.com/content/show.php/ownNote+-+Notes+Application?content=168512&#34;&gt;ownNote&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>OED tools: Pushover</title>
+      <link>http://www.ifconfig.it/hugo/post/oed-tools-pushover/</link>
+      <pubDate>Mon, 01 Feb 2016 15:00:46 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/oed-tools-pushover/</guid>
+      <description>
+
+&lt;h2 id=&#34;the-problem&#34;&gt;The problem&lt;/h2&gt;
+
+&lt;p&gt;In my last post about Linux &lt;strong&gt;at&lt;/strong&gt; command I talked about notifications on my mobile.&lt;/p&gt;
+
+&lt;p&gt;In most of my automation scripts I prefer notifications to come to my mobile instead of via email or SMS (really? in 2015?) because:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;it is always with me&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;I check it thousands times a day (I know you too ;-) )&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;it is a preferred channel - a specific app just for that&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;the-automation&#34;&gt;The automation&lt;/h2&gt;
+
+&lt;p&gt;There&amp;rsquo;re many notification services available today for free or minimal cost. When I needed it, after evaluating a few solutions, I chose &lt;a href=&#34;https://pushover.net/&#34;&gt;Pushover&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Main advantages of Pushover:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;no monthly fees&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://pushover.net/faq#overview-limits&#34;&gt;7500 messages per month&lt;/a&gt; - much more than I needed so far&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;API available for &lt;a href=&#34;https://pushover.net/faq#library&#34;&gt;most programming languages&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;client available for many platforms&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://pushover.net/assets/pushover-header-a9ea3145e3754dffe333ae155b25731d.png&#34; alt=&#34;pushover logo&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;For bash scripts I call a Python script &lt;strong&gt;sendpush.py&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;h1 id=&#34;usr-bin-python&#34;&gt;!/usr/bin/python&lt;/h1&gt;
+
+&lt;p&gt;&amp;rdquo;&amp;rsquo; last change: 20151203 notify to pushover &amp;ldquo;&amp;rsquo;&lt;/p&gt;
+
+&lt;p&gt;import commands import httplib, urllib import sys&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;def sendPush(messageText):
+        conn = httplib.HTTPSConnection(&amp;quot;api.pushover.net:443&amp;quot;)
+        conn.request(&amp;quot;POST&amp;quot;, &amp;quot;/1/messages.json&amp;quot;,
+        urllib.urlencode({
+                &amp;quot;token&amp;quot;: &amp;quot;REPLACE_WITH_YOUR_TOKEN&amp;quot;,
+                &amp;quot;user&amp;quot;: &amp;quot;REPLACE_WITH_YOUR_USER&amp;quot;,
+                &amp;quot;message&amp;quot;: messageText,
+        }), { &amp;quot;Content-type&amp;quot;: &amp;quot;application/x-www-form-urlencoded&amp;quot; })
+        conn.getresponse()
+
+def main():
+        sendPush(sys.argv[1])
+
+main()
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Usually I set a notification when the script starts, ends and a final one with a check of the expected output.&lt;/p&gt;
+
+&lt;p&gt;I had positive experiences with Pushover so far, messages always arrived on time and never got lost in the path so I&amp;rsquo;m not actively looking for a replacement (not very &lt;a href=&#34;https://en.wikipedia.org/wiki/Kaizen&#34;&gt;Kaizen&lt;/a&gt;&amp;hellip;) but suggestions are welcome.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>OED tools: Chocolatey</title>
+      <link>http://www.ifconfig.it/hugo/post/oed-tools-chocolatey/</link>
+      <pubDate>Mon, 11 Jan 2016 13:00:54 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/oed-tools-chocolatey/</guid>
+      <description>
+
+&lt;h2 id=&#34;the-problem&#34;&gt;The problem&lt;/h2&gt;
+
+&lt;p&gt;Install software on Windows and keep it updated is a boring and repetitive task.&lt;/p&gt;
+
+&lt;p&gt;Linux and BSD/OSX users can install software from packages and keep it updated with a simple &lt;strong&gt;apt-get update;apt-get upgrade&lt;/strong&gt; command.&lt;/p&gt;
+
+&lt;p&gt;Wouldn&amp;rsquo;t it be great to have the same feature on Windows?&lt;/p&gt;
+
+&lt;h2 id=&#34;the-automation&#34;&gt;The automation&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://chocolatey.org/&#34;&gt;Chocolatey&lt;/a&gt; is a package manager for Windows fast to install, easy to use and supports thousands of software.&lt;/p&gt;
+
+&lt;p&gt;Installation is very simple, just one command:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  
+&gt; 
+&gt; @powershell -NoProfile -ExecutionPolicy Bypass -Command &#34;iex ((new-object net.webclient).DownloadString(&#39;https://chocolatey.org/install.ps1&#39;))&#34; &amp;&amp; SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
+&gt; 
+&gt; 
+&lt;/blockquote&gt;
+
+&lt;p&gt;The initial (re)installation of the software I already use via chocolatey (if available) instead of the usual exe/msi installer worth the effort. Now I can upgrade all of them with just one command:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  
+&gt; 
+&gt; choco upgrade all -y
+&gt; 
+&gt; 
+&lt;/blockquote&gt;
+
+&lt;p&gt;If you don&amp;rsquo;t like to use it from CLI there&amp;rsquo;s a &lt;a href=&#34;https://github.com/chocolatey/ChocolateyGUI&#34;&gt;GUI&lt;/a&gt; available.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://cloud.githubusercontent.com/assets/1271146/4349077/4a3e3cbc-41a7-11e4-8806-63048ea626f3.png&#34; alt=&#34;enter image description here&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>OED Tools: ConzoleZ</title>
+      <link>http://www.ifconfig.it/hugo/post/oed-tools-conzolez/</link>
+      <pubDate>Mon, 04 Jan 2016 13:00:11 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/oed-tools-conzolez/</guid>
+      <description>
+
+&lt;h2 id=&#34;the-problem&#34;&gt;The problem&lt;/h2&gt;
+
+&lt;p&gt;As many IT professionals I work quite often on the command line with many command prompts open.&lt;/p&gt;
+
+&lt;p&gt;Windows lacks a good native command prompt software so usually you see monitors filled with black terminals that are hard to manage and track.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-automation&#34;&gt;The automation&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/cbucher/console/wiki&#34;&gt;ConsoleZ&lt;/a&gt; allows multiple tabs and to split tabs vertically or horizontally among with many other features.&lt;/p&gt;
+
+&lt;p&gt;Get ConsoleZ &lt;a href=&#34;https://github.com/cbucher/console/wiki&#34;&gt;HERE&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>OED Tools: 1Password</title>
+      <link>http://www.ifconfig.it/hugo/post/oed-tools-1password/</link>
+      <pubDate>Sat, 26 Dec 2015 13:00:28 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/oed-tools-1password/</guid>
+      <description>
+
+&lt;h2 id=&#34;the-problem&#34;&gt;The problem&lt;/h2&gt;
+
+&lt;p&gt;Security today is a main concern for every computer user. One of the first problem is how to manage password.&lt;/p&gt;
+
+&lt;p&gt;I see many creative solutions around: post-it or paper only, use of the same password for all services, a spreadsheet inside an encrypted zip file&amp;hellip; none of them appear safe or efficient.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-automation&#34;&gt;The automation&lt;/h2&gt;
+
+&lt;p&gt;I evaluated many password managers and I&amp;rsquo;m a happy &lt;a href=&#34;https://agilebits.com/onepassword&#34;&gt;1Password&lt;/a&gt; user for years now. &lt;a href=&#34;https://support.1password.com/sync-options/&#34;&gt;sync options&lt;/a&gt;, mobile client, &lt;a href=&#34;https://blog.agilebits.com/1password-apps/&#34;&gt;App integrations&lt;/a&gt; and &lt;a href=&#34;https://blog.agilebits.com/2015/11/03/introducing-1password-for-teams/&#34;&gt;team features&lt;/a&gt; are awesome and they&amp;rsquo;ve never been hacked so far.&lt;/p&gt;
+
+&lt;p&gt;Get 1Password &lt;a href=&#34;https://agilebits.com/onepassword&#34;&gt;HERE&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>OED Tools: NetSetMan</title>
+      <link>http://www.ifconfig.it/hugo/post/oed-tools-netsetman/</link>
+      <pubDate>Mon, 21 Dec 2015 15:00:13 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/oed-tools-netsetman/</guid>
+      <description>
+
+&lt;h2 id=&#34;the-problem&#34;&gt;The problem&lt;/h2&gt;
+
+&lt;p&gt;I manage many networks and quite often I work at customer site.&lt;/p&gt;
+
+&lt;p&gt;For every site I need and IP address, gateway, Wi-Fi network, sometimes proxy, a printer and many other unique network settings.&lt;/p&gt;
+
+&lt;p&gt;Change IP address on Windows is a process that takes too much time and many clicks.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-automation&#34;&gt;The automation&lt;/h2&gt;
+
+&lt;p&gt;I used to use &lt;a href=&#34;https://technet.microsoft.com/it-it/library/cc770948(v=ws.10).aspx&#34;&gt;netsh&lt;/a&gt; scripts to do that but it was hard to maintain.&lt;/p&gt;
+
+&lt;p&gt;The OED solution: &lt;a href=&#34;http://www.netsetman.com/en/pro&#34;&gt;NETSETMAN&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This software allows to change many network parameters, browser proxy, printer, smtp server, run custom scripts and set many other parameters.&lt;/p&gt;
+
+&lt;p&gt;NetSetMan has a &lt;a href=&#34;http://www.netsetman.com/en/freeware&#34;&gt;free edition&lt;/a&gt; for personal usage with some feature limitations, I bought the &lt;a href=&#34;http://www.netsetman.com/en/pro&#34;&gt;Pro Edition&lt;/a&gt; it definitely worth the price.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.netsetman.com/img/netsetman-pro.png&#34; alt=&#34;enter image description here&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Docker: join the dots</title>
+      <link>http://www.ifconfig.it/hugo/post/docker-join-the-dots/</link>
+      <pubDate>Mon, 25 May 2015 17:00:18 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/docker-join-the-dots/</guid>
+      <description>
+
+&lt;p&gt;This post is part of a series about Docker, including:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/2015/05/docker-introduction/&#34;&gt;Docker Introduction&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://wp.me/p4biGi-o0&#34;&gt;Docker: Install software inside a container&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://wp.me/p4biGi-o5&#34;&gt;Docker Volumes&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://wp.me/p4biGi-o9&#34;&gt;Docker Networking - bridge container to host NIC&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We &lt;a href=&#34;(http://www.ifconfig.it/wordpress/2015/05/docker-introduction/)&#34;&gt;started&lt;/a&gt; with the basics and moved on with &lt;a href=&#34;http://wp.me/p4biGi-o0&#34;&gt;adding software&lt;/a&gt;, using &lt;a href=&#34;http://wp.me/p4biGi-o5&#34;&gt;volumes&lt;/a&gt; and then &lt;a href=&#34;(http://wp.me/p4biGi-o9)&#34;&gt;bridging a container to the network&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;As a said I&amp;rsquo;m neither a developer or a system administrator, I work as Network Engineer so I&amp;rsquo;m not the main target for Docker but I found it very useful for a specific need and now it&amp;rsquo;s time to &lt;a href=&#34;https://www.youtube.com/watch?v=UF8uR6Z6KLc&#34;&gt;join the dots&lt;/a&gt;.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;Here&amp;rsquo;s the story. I do wireless networks with &lt;a href=&#34;https://en.wikipedia.org/wiki/Captive_portal&#34;&gt;captive portals&lt;/a&gt;. I know &lt;a href=&#34;https://twitter.com/keithrparsons/status/539935622811492352&#34;&gt;some pleople&lt;/a&gt; think captive portals are bad and I agree in some way, but they have a purpose.&lt;/p&gt;
+
+&lt;p&gt;For those who don&amp;rsquo;t know what a captive portal is: it is a VM or an appliance that captures the client traffic, redirects it to a web authentication portal, requests valid credentials that allow the user to access the internet.&lt;/p&gt;
+
+&lt;p&gt;Long story short, how can we test a captive portal scalabilty?&lt;/p&gt;
+
+&lt;p&gt;We can configure it and see how it behaves under load of real clients (reactive) or find a way to &amp;ldquo;simulate&amp;rdquo; many clients and test in lab environment.&lt;/p&gt;
+
+&lt;p&gt;Yes it would be easier just to read and trust the vendor datasheet but we all know vendors sometimes are not so accurate with the published values so my approach is &lt;a href=&#34;http://en.wikipedia.org/wiki/Trust,_but_verify&#34;&gt;trust but verify&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Note: the captive portal is often used for wireless clients but it can just listen on a specific VLAN so load tests can be done with wired clients.&lt;/p&gt;
+
+&lt;h2 id=&#34;first-try-vms&#34;&gt;First try: VMs&lt;/h2&gt;
+
+&lt;p&gt;I first tried to use &lt;a href=&#34;https://www.virtualbox.org/&#34;&gt;VirtualBox&lt;/a&gt; and clone a VM many times. Even with some scripting this solution was little scalable and required lots of resources.&lt;/p&gt;
+
+&lt;p&gt;I need to simulate at least 500 clients per host and scale up to few thousands in the future.&lt;/p&gt;
+
+&lt;h2 id=&#34;second-try-docker&#34;&gt;Second try: Docker&lt;/h2&gt;
+
+&lt;p&gt;On my second try I used &lt;a href=&#34;https://hub.docker.com&#34;&gt;Docker&lt;/a&gt;. I notice this technology thanks to &lt;a href=&#34;http://www.twitter.com&#34;&gt;Twitter&lt;/a&gt; and saw a big potential for my purpose.&lt;/p&gt;
+
+&lt;h1 id=&#34;join-the-dots-the-final-solution&#34;&gt;Join the dots: the final solution&lt;/h1&gt;
+
+&lt;p&gt;If you read all the &lt;a href=&#34;(http://www.ifconfig.it/wordpress/2015/05/docker-introduction/)&#34;&gt;previous posts&lt;/a&gt; you can see now how the dots join all toghether: I run multiple &lt;a href=&#34;https://hub.docker.com&#34;&gt;Docker&lt;/a&gt; containers on a host, &lt;a href=&#34;http://wp.me/p4biGi-o9&#34;&gt;bridge&lt;/a&gt; them to the host NIC using &lt;a href=&#34;http://openvswitch.org/&#34;&gt;Open vSwitch&lt;/a&gt;, run a &lt;a href=&#34;https://www.python.org&#34;&gt;Python&lt;/a&gt;+&lt;a href=&#34;https://pypi.python.org/pypi/mechanize&#34;&gt;Mechanize&lt;/a&gt; script stored in a shared &lt;a href=&#34;http://wp.me/p4biGi-o9&#34;&gt;Volume&lt;/a&gt; that does a login on the Captive Portal and then simulate Internet access from the client simply with &lt;a href=&#34;http://en.wikipedia.org/wiki/CURL&#34;&gt;curl&lt;/a&gt; and a list of websites.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Advantages:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;little overhead on the host&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&amp;ldquo;real&amp;rdquo; network access, Captive Portal need to see different MAC addressed to do its magic&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;scalable performance: I can run containers on multiple hosts for a real &lt;a href=&#34;http://en.wikipedia.org/wiki/Scalability&#34;&gt;scale-out&lt;/a&gt; solution&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;manageable: the scripts are stored on a shared &lt;a href=&#34;http://wp.me/p4biGi-o9&#34;&gt;Volume&lt;/a&gt; so it&amp;rsquo;s easy to make changes&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;reusable: a few changes on the login the script allows to test different portals&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;easy to start: a simple bash loop starts as many container are neede, host performances are the only limit (more on that later)&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;the-start-script&#34;&gt;The start script&lt;/h2&gt;
+
+&lt;p&gt;This is the start script used to run multiple containers:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;#! /bin/bash 
+# start.sh
+# runs multiple container
+for i in {0..$1}
+do
+./pipework/pipework ovsbr0 $(docker run --privileged -i -t --net=&amp;quot;none&amp;quot; -v /root/dockervolume:/volume -d ubuntuplus /bin/bash /volume/runthis.sh) dhcp  
+done
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;the-kill-script&#34;&gt;The kill script&lt;/h2&gt;
+
+&lt;p&gt;This is the kill script, used to kill all the containers:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;#! /bin/bash
+# dockerkillall.sh
+# kill all the containers
+while read containerID
+do
+docker kill $containerID 
+done &amp;lt; &amp;lt;(docker ps -q)
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;the-ovs-clean-script&#34;&gt;The OVS clean script&lt;/h2&gt;
+
+&lt;p&gt;This command removes all the Oper vSwitch ports except the ports used to bridge the switch itself.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;ovs-vsctl show | grep Interface.*veth | sed &#39;s/&amp;quot;//g&#39; | awk &#39;{ cmd= &amp;quot;ovs-vsctl del-port &amp;quot;$2 ; system(cmd) }&#39;
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;limitations&#34;&gt;Limitations&lt;/h2&gt;
+
+&lt;p&gt;The only limit I foud so far is the time it takes to start a new container and run the custom startup script. On my PC &lt;a href=&#34;http://www.dell.com/us/business/p/latitude-e5550-laptop/pd&#34;&gt;(Dell Latitude E5550, i5 CPU, 16GM RAM)&lt;/a&gt; it takes about a hour to start 300 containers.&lt;/p&gt;
+
+&lt;p&gt;I didn&amp;rsquo;t had a chance to test it on a server hardware so I don&amp;rsquo;t know how if more powerful hardware can speed-up the process or it&amp;rsquo;s a software limitation that gets little advantage of faster CPUs. I&amp;rsquo;ll update this post with my finding later.&lt;/p&gt;
+
+&lt;h1 id=&#34;wrap-up&#34;&gt;Wrap Up&lt;/h1&gt;
+
+&lt;p&gt;I hope you enjoyed my posts about Docker. My target was to share a very specific use case that maybe isn&amp;rsquo;t the purpose of the techonology but I found very useful and easy to implement.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Quick tool: PingInfoView</title>
+      <link>http://www.ifconfig.it/hugo/post/quick-tool-pinginfoview/</link>
+      <pubDate>Sat, 25 Apr 2015 07:33:32 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/quick-tool-pinginfoview/</guid>
+      <description>&lt;p&gt;Quick tool: &lt;a href=&#34;http://www.nirsoft.net/utils/multiple_ping_tool.html&#34;&gt;PingInfoView&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;_&lt;a href=&#34;http://www.nirsoft.net/utils/multiple_ping_tool.html&#34;&gt;PingInfoView&lt;/a&gt; is a small utility that allows you to easily ping multiple host names and IP addresses, and watch the result in one table. It automatically ping to all hosts every number of seconds that you specify, and displays the number of succeed and failed pings, as well as the average ping time._&lt;/p&gt;
+
+&lt;p&gt;OS: Windows&lt;/p&gt;
+
+&lt;p&gt;License: freeware&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.nirsoft.net/utils/pinginfoview.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;How I use it&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I find it particularly useful during network migrations to check if all the hosts are available before and after. Host ip addresses in my docs are usually in an spreadsheet file so a quick copy&amp;amp;paste in &lt;a href=&#34;http://www.nirsoft.net/utils/multiple_ping_tool.html&#34;&gt;PingInfoView&lt;/a&gt; is all I need.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>NeDi and Observium/LibreNMS</title>
+      <link>http://www.ifconfig.it/hugo/post/nedi2observium/</link>
+      <pubDate>Wed, 26 Nov 2014 21:48:38 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/nedi2observium/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;http://www.nedi.ch/&#34;&gt;NeDi&lt;/a&gt; and &lt;a href=&#34;http://www.observium.org&#34;&gt;Observium&lt;/a&gt; are two of my favourites network monitoring tools.&lt;/p&gt;
+
+&lt;p&gt;I do like to deploy both, they complete each other and since they&amp;rsquo;re free there is no need to choose. The only problem with the use of two tools is the &lt;strong&gt;integration&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Observium has a &lt;a href=&#34;http://www.observium.org/wiki/FAQs#Why_can.27t_I_add_my_device_by_its_IP_address.3F_.2F_Why_do_I_need_valid_hostnames_and_DNS.3F&#34;&gt;limitation&lt;/a&gt; with host discovery: a device can be discovered only by name and that name must be resolved to an IP via DNS or hosts file. Since most of my customers don&amp;rsquo;t register network devices on DNS that means manually populate &lt;em&gt;/etc/hosts file&lt;/em&gt;. On the other hand NeDi doesn&amp;rsquo;t have this limitation and has a &lt;strong&gt;strong network/discovery&lt;/strong&gt; mechanism.&lt;/p&gt;
+
+&lt;p&gt;Can we make them to work together? Of course, that&amp;rsquo;s open source!&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h1 id=&#34;installation&#34;&gt;Installation&lt;/h1&gt;
+
+&lt;p&gt;NeDi and Observium installation processes are well explained &lt;a href=&#34;http://www.nedi.ch/installation/&#34;&gt;here&lt;/a&gt; and &lt;a href=&#34;http://www.observium.org/wiki/Installation&#34;&gt;here&lt;/a&gt;, just follow the instructions, they work fine.&lt;/p&gt;
+
+&lt;h1 id=&#34;customization&#34;&gt;Customization&lt;/h1&gt;
+
+&lt;p&gt;I&amp;rsquo;ve modified &lt;em&gt;/var/nedi/nedi.conf&lt;/em&gt; to include only the address ranges of my managed devices:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;netfilter      ^10\.5\.|^10\.16\.0\.|^192\.168\.20\.
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and &lt;em&gt;/var/nedi/seedlist&lt;/em&gt; whit a list of devices/communities that will be used as a seed for the discovery process in the format:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;ip  community1,community2
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For the sake of simplicity I just run two virtual hosts on Apache2, NeDi runs on port 80, Observium runs on port 81, edit &lt;em&gt;/etc/apache2/sites-enabled/000-default&lt;/em&gt; as follows:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;&amp;lt;VirtualHost *:80&amp;gt;
+        ServerAdmin webmaster@localhost
+
+        DocumentRoot /var/nedi/html
+        &amp;lt;Directory /&amp;gt;
+                Options FollowSymLinks
+                AllowOverride None
+        &amp;lt;/Directory&amp;gt;
+        &amp;lt;Directory /var/www/&amp;gt;
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride None
+                Order allow,deny
+                allow from all
+        &amp;lt;/Directory&amp;gt;
+
+        ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/
+        &amp;lt;Directory &amp;quot;/usr/lib/cgi-bin&amp;quot;&amp;gt;
+                AllowOverride None
+                Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch
+                Order allow,deny
+                Allow from all
+        &amp;lt;/Directory&amp;gt;
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+
+        # Possible values include: debug, info, notice, warn, error, crit,
+        # alert, emerg.
+        LogLevel warn
+
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+&amp;lt;/VirtualHost&amp;gt;
+
+&amp;lt;VirtualHost *:81&amp;gt;
+  DocumentRoot /opt/observium/html/
+  ServerName  observium.domain.com
+  CustomLog /opt/observium/logs/access_log combined
+  ErrorLog /opt/observium/logs/error_log
+  &amp;lt;Directory &amp;quot;/opt/observium/html/&amp;quot;&amp;gt;
+    AllowOverride All
+    Options FollowSymLinks MultiViews
+  &amp;lt;/Directory&amp;gt;
+&amp;lt;/VirtualHost&amp;gt;
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;integration&#34;&gt;Integration&lt;/h1&gt;
+
+&lt;p&gt;The integration between the two tools is meant to take advantage of the discovery performed by NeDi to polulate &lt;em&gt;/etc/hosts&lt;/em&gt; file and then feed the discovery process of Observium.&lt;/p&gt;
+
+&lt;h1 id=&#34;step-by-step&#34;&gt;Step by step&lt;/h1&gt;
+
+&lt;h2 id=&#34;where-is-the-data&#34;&gt;Where is the data?&lt;/h2&gt;
+
+&lt;p&gt;NeDi stores all the information on a MySQL database. A quick look on the tables and we can see how to extract the devices information:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;/usr/bin/mysql -uroot -pPASSWORD -B -e &amp;quot;select devip,device from devices&amp;quot; nedi 
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Replace &lt;em&gt;PASSWORD&lt;/em&gt; with the password you typed during the software installation.&lt;/p&gt;
+
+&lt;p&gt;Tweak this extraction a little bit to clean the list:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;filter lines that don&amp;rsquo;t begin with a number in range [1-9], that means no valid IP address was discovered via CDP/LDP&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;remove some chars (slash,spaces) that Observium doesn&amp;rsquo;t like in hostnames with &lt;em&gt;sed&lt;/em&gt; commands&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;uniform all the device names in uppercase chars&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If your device hostnames have other chars that don&amp;rsquo;t work well with Observium just add more &lt;em&gt;sed&lt;/em&gt; to the script.&lt;/p&gt;
+
+&lt;p&gt;This is the final result:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;/usr/bin/mysql -uroot -pPASSWORD -B -e &amp;quot;select devip,device,readcomm from devices&amp;quot; nedi | grep &amp;quot;^[1-9]&amp;quot; |sed -e &#39;s/ /_/g&#39; | sed -e &#39;s/\//_/g&#39; | sort | tr &#39;[:lower:]&#39; &#39;[:upper:]&#39;
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;ip-format&#34;&gt;IP format&lt;/h2&gt;
+
+&lt;p&gt;NeDi stores IP addresses in undotted decimal format, we need to convert them to dotted decimal to use them.&lt;/p&gt;
+
+&lt;p&gt;We can use Python for that, let&amp;rsquo;s create &lt;em&gt;/root/undotteddecimaltoip.py&lt;/em&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;#!/usr/bin/env python
+
+import sys
+inFile = sys.argv[1]
+#outFile = sys.argv[2]
+
+def int_to_dqn(st):
+    &amp;quot;&amp;quot;&amp;quot;
+    Convert integer to dotted quad notation
+    &amp;quot;&amp;quot;&amp;quot;
+    st = &amp;quot;%08x&amp;quot; % (st)
+    return &amp;quot;%i.%i.%i.%i&amp;quot; % (int(st[0:2],16),int(st[2:4],16),int(st[4:6],16),int(st[6:8],16))
+
+f = open(inFile,&amp;quot;r&amp;quot;)
+for line in f:
+        values = line.split(&amp;quot;\t&amp;quot;)
+        print int_to_dqn(int(values[0]))+&amp;quot; &amp;quot;+values[1].rstrip().replace(&amp;quot; &amp;quot;,&amp;quot;_&amp;quot;)
+f.close()
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Test it running:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;/root/undotteddecimaltoip.py /tmp/nedidevicelist.txt
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can see now all the IP addresses are now in dotted decimal format.  &lt;/p&gt;
+
+&lt;h2 id=&#34;populate-etc-hosts-file&#34;&gt;Populate /etc/hosts file&lt;/h2&gt;
+
+&lt;p&gt;Now we can put together the Python script we just created and a few bash commands to update the hosts file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;if [ -f &amp;quot;/etc/hosts.original&amp;quot; ]
+then
+        cat /etc/hosts.original &amp;gt; /etc/hosts
+else
+        cp /etc/hosts /etc/hosts.original
+fi
+
+/root/undotteddecimaltoip.py /tmp/nedidevicelist.txt &amp;gt;&amp;gt; /etc/hosts
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Notice that the original &lt;em&gt;hosts&lt;/em&gt; files is maintained, if we need to enter lines that shouldn&amp;rsquo;t be lost just edit &lt;em&gt;/etc/hosts.original&lt;/em&gt; file.  &lt;/p&gt;
+
+&lt;h2 id=&#34;add-devices-to-observium&#34;&gt;Add devices to Observium&lt;/h2&gt;
+
+&lt;p&gt;We can finally use the data from NeDi to add devices to Observium:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;while IFS=$&#39;\t&#39; read ip name comm
+do
+echo -e &amp;quot;NOW ADDING DEVICE $name&amp;quot;
+/opt/observium/add_device.php $name $comm
+done &amp;lt; /tmp/nedidevicelist.txt
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Notice that &lt;em&gt;$comm&lt;/em&gt; is the actual community NeDi used to discover the devices, even if in &lt;em&gt;seedlist&lt;/em&gt; more than one was specified.&lt;/p&gt;
+
+&lt;h2 id=&#34;put-it-all-together&#34;&gt;Put it all together&lt;/h2&gt;
+
+&lt;p&gt;This is the final script:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;#!/bin/bash
+/usr/bin/mysql -uroot -pPASSWORD -B -e &amp;quot;select devip,device,readcomm from devices&amp;quot; nedi | grep &amp;quot;^[1-9]&amp;quot; |sed -e &#39;s/ /_/g&#39; | sed -e &#39;s/\//_/g&#39; | sort | tr &#39;[:lower:]&#39; &#39;[:upper:]&#39; &amp;gt; /tmp/nedilist.txt
+
+if [ -f &amp;quot;/etc/hosts.original&amp;quot; ]
+then
+        cat /etc/hosts.original &amp;gt; /etc/hosts
+else
+        cp /etc/hosts /etc/hosts.original
+fi
+
+/root/undotteddecimaltoip.py /tmp/nedidevicelist.txt &amp;gt;&amp;gt; /etc/hosts
+
+while IFS=$&#39;\t&#39; read ip name comm
+do
+echo -e &amp;quot;NOW ADDING DEVICE $name&amp;quot;
+/opt/observium/add_device.php $name $comm
+done &amp;lt; /tmp/nedidevicelist.txt
+
+/opt/observium/discovery.php -h new &amp;gt;&amp;gt; /dev/null 2&amp;gt;&amp;amp;1
+/opt/observium//poller.php -h all  &amp;gt;&amp;gt; /dev/null 2&amp;gt;&amp;amp;1
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now just remember to add to cron the correct files to perform auto discovery with NeDi and then feed Observium again to keep them updated.&lt;/p&gt;
+
+&lt;h2 id=&#34;verify&#34;&gt;Verify&lt;/h2&gt;
+
+&lt;p&gt;How can we verify it worked? One simple way could be to extract the device list from NeDi and from Observium and see if they match:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;/usr/bin/mysql -uroot -pPASSWORD -B -e &amp;quot;select device from devices&amp;quot; nedi | sed -e &#39;s/ /_/g&#39; | sed -e &#39;s/\//_/g&#39; | sort | tr &#39;[:lower:]&#39; &#39;[:upper:]&#39; &amp;gt; /tmp/nedilist.txt
+/usr/bin/mysql -uroot -pPASSWORD -B -e &amp;quot;select hostname from devices&amp;quot; observium | sed -e &#39;s/ /_/g&#39; | sed -e &#39;s/\//_/g&#39; | sort | grep -v &amp;quot;^AP&amp;quot; | tr &#39;[:lower:]&#39; &#39;[:upper:]&#39; &amp;gt; /tmp/observiumlist.txt
+diff /tmp/observiumlist.txt /tmp/nedilist.txt
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If the list in Observium is shorter check if any hostname contains a symbol that can&amp;rsquo;t be read by Observium.&lt;/p&gt;
+
+&lt;h1 id=&#34;see-the-result&#34;&gt;See the result&lt;/h1&gt;
+
+&lt;p&gt;Open a browser to port 80, login and go to Devices&amp;ndash;&amp;gt;List&amp;ndash;&amp;gt;Show to se all the devices discovered by NEDI.&lt;/p&gt;
+
+&lt;p&gt;Open a browser to port 81 to see the Observium interface and check all the devices.&lt;/p&gt;
+
+&lt;p&gt;Nice!&lt;/p&gt;
+
+&lt;h1 id=&#34;wrap-up&#34;&gt;Wrap up&lt;/h1&gt;
+
+&lt;p&gt;Open source software has many advantages, in this particular case it allowed me to integrate two different software in one solution. Fell free to suggest improvements to the script in the comments, I consider this just a &lt;a href=&#34;http://en.wikipedia.org/wiki/Proof_of_concept&#34;&gt;POC&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;WARNING&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;I&amp;rsquo;m not a systems engineer or a programmer&lt;/strong&gt;, use my code &lt;strong&gt;at your own risk&lt;/strong&gt;, I take &lt;strong&gt;no responsibility&lt;/strong&gt; for any damage caused by any of the script shown.&lt;/p&gt;
+
+&lt;h1 id=&#34;update-20160109-from-observium-to-librenms&#34;&gt;UPDATE 20160109 - from Observium to LibreNMS&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.observium.org/&#34;&gt;Observium&lt;/a&gt; has been forked to &lt;a href=&#34;http://www.librenms.org/&#34;&gt;LibreNMS&lt;/a&gt; due to &lt;a href=&#34;http://libertysys.com.au/blog/observium-and-gpl&#34;&gt;different views&lt;/a&gt; about &lt;a href=&#34;http://www.gnu.org/licenses/gpl-3.0.en.html&#34;&gt;GPL licensing&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Installation of both is quite easy, just follow the instructions on each website.&lt;/p&gt;
+
+&lt;p&gt;I updated my scripts to work with LibreNMS:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;#!/bin/bash
+
+\//_/g&#39; | sort | grep -v &amp;quot;^AP&amp;quot; | tr &#39;[:lower:]&#39; &#39;[:upper:]&#39; &amp;gt; /tmp/nedilist.txt
+
+PASSWORD=$1
+
+/usr/bin/mysql -uroot -p$PASSWORD -B -e &amp;quot;select devip,device,readcomm from devices&amp;quot; nedi | grep &amp;quot;^[1-9]&amp;quot; |sed -e
+ &#39;s/ /_/g&#39; | sed -e &#39;s/\//_/g&#39; | sort | tr &#39;[:lower:]&#39; &#39;[:upper:]&#39; &amp;gt; /tmp/nedidevicelist.txt
+
+if [ -f &amp;quot;/etc/hosts.original&amp;quot; ]
+then
+        cat /etc/hosts.original &amp;gt; /etc/hosts
+else
+        cp /etc/hosts /etc/hosts.original
+fi
+
+/root/undotteddecimaltoip.py /tmp/nedidevicelist.txt &amp;gt;&amp;gt; /etc/hosts
+
+while IFS=$&#39;\t&#39; read ip name comm
+do
+echo -e &amp;quot;NOW ADDING DEVICE $name&amp;quot;
+/opt/librenms/addhost.php $name ${comm,,} v2c
+done &amp;lt; /tmp/nedidevicelist.txt
+
+# DISCOVER AN POLL
+/opt/librenms/discovery.php -h new &amp;gt;&amp;gt; /dev/null 2&amp;gt;&amp;amp;1
+/opt/librenms/poller.php -h all  &amp;gt;&amp;gt; /dev/null 2&amp;gt;&amp;amp;1
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In case you need/want to clean the LibreNMS database:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;#!/bin/bash
+while IFS=&#39;&#39; read -r line || [[ -n &amp;quot;$line&amp;quot; ]]; do
+echo REMOVING HOST $line
+/opt/librenms/delhost.php $line
+done &amp;lt; &amp;lt;(/usr/bin/mysql -uroot -p$1 -B -e &amp;quot;select hostname from devices&amp;quot; librenms)
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Log analysis GUI tools</title>
+      <link>http://www.ifconfig.it/hugo/post/log-analysis-gui-tools/</link>
+      <pubDate>Tue, 02 Sep 2014 09:05:07 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/log-analysis-gui-tools/</guid>
+      <description>&lt;p&gt;Log analysis is important to both troubleshoot and understand network devices behaviour.&lt;/p&gt;
+
+&lt;p&gt;Tail/less/grep are great tools that can help to filter and search hundreds or thousands lines of  logs.&lt;/p&gt;
+
+&lt;p&gt;If you prefer a GUI there are a couple of alternatives that can fit well.&lt;/p&gt;
+
+&lt;p&gt;For windows users only &lt;a href=&#34;http://www.log-expert.de/&#34;&gt;Log Expert&lt;/a&gt; is a great choice with many features but it is not developed since 2012.&lt;/p&gt;
+
+&lt;blockquote&gt;[Log Expert](http://www.log-expert.de/) is a Windows tail program (a GUI replacement for the Unix tail command). LogExpert is free for non-commercial or commercial use.&lt;/blockquote&gt;
+
+&lt;p&gt;An alternative multi platform choice is _&lt;a href=&#34;http://glogg.bonnefon.org/&#34;&gt;glogg&lt;/a&gt; _that is under active development:&lt;/p&gt;
+
+&lt;blockquote&gt;[_glogg_](http://glogg.bonnefon.org/) is a multi-platform GUI application to browse and search through long or complex log files. It is designed with programmers and system administrators in mind. _glogg_ can be seen as a graphical, interactive combination of _grep_ and _less_.&lt;/blockquote&gt;
+
+&lt;p&gt;Happy log analysis!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Wonky Wisp, Smokeping and AWS free tier</title>
+      <link>http://www.ifconfig.it/hugo/post/wonky-wisp-smokeping-and-aws-free-tier/</link>
+      <pubDate>Mon, 15 Apr 2013 20:35:11 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/wonky-wisp-smokeping-and-aws-free-tier/</guid>
+      <description>&lt;p&gt;My home network is connected to the Internet via radio bridge. The reason is ADSL services were not available a couple of years ago, now it is but since the radio bridge is cheap and works (most of the time) I really don&amp;rsquo;t care to change.&lt;/p&gt;
+
+&lt;p&gt;Some time ago I started to notice downtime of the Internet connection, I sent a few emails to the wisp but the answer was always the same: &amp;ldquo;we don&amp;rsquo;t see a problem right now&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;That was quite clear, I can send the email only if the Internet connection is active! Their time to react is very slow so I needed a tool to monitor my connection and a server to do it.&lt;/p&gt;
+
+&lt;p&gt;My first choice of tool to monitor connections is &lt;a href=&#34;http://oss.oetiker.ch/smokeping/&#34;&gt;Smokeping&lt;/a&gt;. I use it to monitor not only link latency and packet loss but also DNS, Radius and other services response time. It&amp;rsquo;s very easy to configure and the graphs are very clear.&lt;/p&gt;
+
+&lt;p&gt;But where could I install Smokeping? &lt;a href=&#34;http://aws.amazon.com/free/&#34;&gt;Amazon AWS Free Usage Tier&lt;/a&gt; seemed the perfect choice! Amazon offers a micro istance for free for 12 months, read &lt;a href=&#34;http://aws.amazon.com/free/faqs/&#34;&gt;FAQ&lt;/a&gt; for details.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/04/aws_free_tier.png&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/04/aws_free_tier-300x208.png&#34; alt=&#34;aws_free_tier&#34; /&gt;&lt;/a&gt;So I&amp;rsquo;ve registered and installed a Debian 32 bit &lt;a href=&#34;https://aws.amazon.com/amis&#34;&gt;AMI&lt;/a&gt;. The entire operation took me less than 15 minutes.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;I was quite surprised I can access my server via SSH using the provided keys, somehow I&amp;rsquo;ve expected to access the server through a proprietary shell or front end.&lt;/p&gt;
+
+&lt;p&gt;The next step is to to install smokeping with &amp;ldquo;aptitute install smokeping&amp;rdquo; and I&amp;rsquo;m ready to configure it.&lt;/p&gt;
+
+&lt;p&gt;I did just a basic configuration, what I needed was to check the reachability of my home router and the next hop that is the radio bridge:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/04/smoke_aws.png&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/04/smoke_aws-300x125.png&#34; alt=&#34;smoke_aws&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The only configuration I&amp;rsquo;ve added to Smokeping is an action to perform a traceroute and log it when more than half of the packets are lost.&lt;/p&gt;
+
+&lt;p&gt;Add this to /etc/smokeping/config.d/Alerts&lt;/p&gt;
+
+&lt;blockquote&gt;+ totalloss
+type = loss
+pattern = &gt;50%
+to = |/bin/traceroute.bin
+comment = lost half packets&lt;/blockquote&gt;
+
+&lt;p&gt;and set the alert in the host section in /etc/smokeping/config.d/Targets&lt;/p&gt;
+
+&lt;blockquote&gt;++ NEXT-HOP
+menu = NEXT-HOP
+title = NEXT-HOP 94.xx.xx.xx
+host = 94.xx.xx.xx
+alerts = totalloss&lt;/blockquote&gt;
+
+&lt;p&gt;The script _/bin/traceroute.bin_ is very simple:&lt;/p&gt;
+
+&lt;blockquote&gt;date &gt;&gt; /var/log/trace
+tracepath -b 94.xx.xx.xx &gt;&gt; /var/log/trace&lt;/blockquote&gt;
+
+&lt;p&gt;When the network goes down now I can see where the problem is and &lt;del&gt;complain&lt;/del&gt; send a detailed email to the WISP.&lt;/p&gt;
+
+&lt;p&gt;So did they solve the problem? Of course not! The Wisp backbone is made by both fiber and wireless bridges, looks like they have an issue with a link but just don&amp;rsquo;t care or know how to fix it.&lt;/p&gt;
+
+&lt;p&gt;The conclusion is my Internet connection is still wonky, but at least I had the opportunity to understand a little bit more what AWS is and to play with a quite interesting technology for free thanks to Amazon.&lt;/p&gt;
+
+&lt;p&gt;I hope they&amp;rsquo;ll keep it free even after the first 12 months, the micro instance is micro but big enough for many small tasks.&lt;/p&gt;
+
+&lt;p&gt;HTH&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>XCA - X Certificate and key management</title>
+      <link>http://www.ifconfig.it/hugo/post/xca/</link>
+      <pubDate>Fri, 25 May 2012 22:58:21 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/xca/</guid>
+      <description>&lt;p&gt;As a network engineer I deal with digital certificates quite often for EAP-TLS authentication,  VPN, and device certificates like on &lt;a href=&#34;http://www.cisco.com/en/US/products/ps6302/Products_Sub_Category_Home.html&#34;&gt;WLC controllers&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Customers that don&amp;rsquo;t need a public certificate just want a valid certificate loaded on the device to make it work. I used to create certificates with &lt;a href=&#34;http://www.openssl.org/&#34;&gt;OpenSSL&lt;/a&gt;, that is flexible and works great but lacks a GUI.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://xca.sourceforge.net&#34;&gt;XCA&lt;/a&gt; is a Windows application with a nice GUI and great features to create and manage certificates:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;This application is intended for creating and managing X.509 certificates, certificate requests, RSA, DSA and EC private keys, Smartcards and CRLs. Everything that is needed for a CA is implemented. All CAs can sign sub-CAs recursively. These certificate chains are shown clearly. For an easy company-wide use there are customiseable templates that can be used for certificate or request generation. All crypto data is stored in an endian-agnostic file format portable across operating systems.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;__&lt;a href=&#34;http://xca.sourceforge.net/&#34;&gt;http://xca.sourceforge.net/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2012/05/xca.png&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2012/05/xca-300x214.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;There&amp;rsquo;s a &lt;a href=&#34;http://ospkibook.sourceforge.net/&#34;&gt;Open Source PKI Book&lt;/a&gt; available online, it&amp;rsquo;s dated but a good reference to understand PKI. If you work with Cisco devices &lt;a href=&#34;http://www.ciscopress.com/bookstore/product.asp?isbn=1587059169&#34;&gt;PKI Uncovered&lt;/a&gt; from Cisco Press is a good reference too.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>PlayCap - Playback for Wireshark Captures</title>
+      <link>http://www.ifconfig.it/hugo/post/playcap-playback-for-wireshark-captures/</link>
+      <pubDate>Fri, 18 May 2012 22:23:36 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/playcap-playback-for-wireshark-captures/</guid>
+      <description>&lt;p&gt;&lt;em&gt;&lt;a href=&#34;http://www.signal11.us/oss/playcap/&#34;&gt;PlayCap &lt;/a&gt;plays back captures made from Wireshark, tcpdump, WinDump, or any libpcap-based application.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;License: GPL - Platforms: Windows / Ubuntu&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>TCPing</title>
+      <link>http://www.ifconfig.it/hugo/post/tcping/</link>
+      <pubDate>Fri, 11 May 2012 19:10:15 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/tcping/</guid>
+      <description>&lt;p&gt;&lt;em&gt;&lt;a href=&#34;http://www.elifulkerson.com/projects/tcping.php&#34;&gt;tcping.exe&lt;/a&gt; is a small console application that operates similarly to &amp;lsquo;ping&amp;rsquo;, however it works over a tcp port.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;License: GPL - Platforms: Win XP, Vista 7&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;When I have to test if a TCP connection works, like when configuring a NAT or ACL rule, usually I telnet the specific port. TCPing allows to keep the &amp;ldquo;ping&amp;rdquo; active on the port to check when the rule works:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2012/05/tcping.png&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2012/05/tcping.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Batch Compiler</title>
+      <link>http://www.ifconfig.it/hugo/post/batch-compiler/</link>
+      <pubDate>Tue, 24 Apr 2012 18:19:09 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/batch-compiler/</guid>
+      <description>&lt;p&gt;Tool of the day:&lt;/p&gt;
+
+&lt;blockquote&gt;[Batch Compiler](http://sourceforge.net/projects/batchcompiler/) is a small and very easy top use application designed to help you script batch programs and compile them in to exe file with integrated help utility and a user friendly interface.&lt;/blockquote&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

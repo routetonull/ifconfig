@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.16-DEV" />
+
+  <title>NeDi and Observium/LibreNMS &middot; ifconfig.it</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.ifconfig.it/hugoimg/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://www.ifconfig.it/hugo/">ifconfig.it</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/tags/"><i class='fa fa-list fa-fw'></i>Tags</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/gp_ifconfig" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/gpaolo" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/routetonull" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>NeDi and Observium/LibreNMS</h1>
+  <h2></h2>
+</div>
+<div class="content">
+  
+
+<p><a href="http://www.nedi.ch/">NeDi</a> and <a href="http://www.observium.org">Observium</a> are two of my favourites network monitoring tools.</p>
+
+<p>I do like to deploy both, they complete each other and since they&rsquo;re free there is no need to choose. The only problem with the use of two tools is the <strong>integration</strong>.</p>
+
+<p>Observium has a <a href="http://www.observium.org/wiki/FAQs#Why_can.27t_I_add_my_device_by_its_IP_address.3F_.2F_Why_do_I_need_valid_hostnames_and_DNS.3F">limitation</a> with host discovery: a device can be discovered only by name and that name must be resolved to an IP via DNS or hosts file. Since most of my customers don&rsquo;t register network devices on DNS that means manually populate <em>/etc/hosts file</em>. On the other hand NeDi doesn&rsquo;t have this limitation and has a <strong>strong network/discovery</strong> mechanism.</p>
+
+<p>Can we make them to work together? Of course, that&rsquo;s open source!</p>
+
+<!-- more -->
+
+<h1 id="installation:d5b42608cd681207460d25e6d40b3c0d">Installation</h1>
+
+<p>NeDi and Observium installation processes are well explained <a href="http://www.nedi.ch/installation/">here</a> and <a href="http://www.observium.org/wiki/Installation">here</a>, just follow the instructions, they work fine.</p>
+
+<h1 id="customization:d5b42608cd681207460d25e6d40b3c0d">Customization</h1>
+
+<p>I&rsquo;ve modified <em>/var/nedi/nedi.conf</em> to include only the address ranges of my managed devices:</p>
+
+<pre><code>netfilter      ^10\.5\.|^10\.16\.0\.|^192\.168\.20\.
+</code></pre>
+
+<p>and <em>/var/nedi/seedlist</em> whit a list of devices/communities that will be used as a seed for the discovery process in the format:</p>
+
+<pre><code>ip  community1,community2
+</code></pre>
+
+<p>For the sake of simplicity I just run two virtual hosts on Apache2, NeDi runs on port 80, Observium runs on port 81, edit <em>/etc/apache2/sites-enabled/000-default</em> as follows:</p>
+
+<pre><code>&lt;VirtualHost *:80&gt;
+        ServerAdmin webmaster@localhost
+
+        DocumentRoot /var/nedi/html
+        &lt;Directory /&gt;
+                Options FollowSymLinks
+                AllowOverride None
+        &lt;/Directory&gt;
+        &lt;Directory /var/www/&gt;
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride None
+                Order allow,deny
+                allow from all
+        &lt;/Directory&gt;
+
+        ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/
+        &lt;Directory &quot;/usr/lib/cgi-bin&quot;&gt;
+                AllowOverride None
+                Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch
+                Order allow,deny
+                Allow from all
+        &lt;/Directory&gt;
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+
+        # Possible values include: debug, info, notice, warn, error, crit,
+        # alert, emerg.
+        LogLevel warn
+
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+&lt;/VirtualHost&gt;
+
+&lt;VirtualHost *:81&gt;
+  DocumentRoot /opt/observium/html/
+  ServerName  observium.domain.com
+  CustomLog /opt/observium/logs/access_log combined
+  ErrorLog /opt/observium/logs/error_log
+  &lt;Directory &quot;/opt/observium/html/&quot;&gt;
+    AllowOverride All
+    Options FollowSymLinks MultiViews
+  &lt;/Directory&gt;
+&lt;/VirtualHost&gt;
+</code></pre>
+
+<h1 id="integration:d5b42608cd681207460d25e6d40b3c0d">Integration</h1>
+
+<p>The integration between the two tools is meant to take advantage of the discovery performed by NeDi to polulate <em>/etc/hosts</em> file and then feed the discovery process of Observium.</p>
+
+<h1 id="step-by-step:d5b42608cd681207460d25e6d40b3c0d">Step by step</h1>
+
+<h2 id="where-is-the-data:d5b42608cd681207460d25e6d40b3c0d">Where is the data?</h2>
+
+<p>NeDi stores all the information on a MySQL database. A quick look on the tables and we can see how to extract the devices information:</p>
+
+<pre><code>/usr/bin/mysql -uroot -pPASSWORD -B -e &quot;select devip,device from devices&quot; nedi 
+</code></pre>
+
+<p>Replace <em>PASSWORD</em> with the password you typed during the software installation.</p>
+
+<p>Tweak this extraction a little bit to clean the list:</p>
+
+<ul>
+<li><p>filter lines that don&rsquo;t begin with a number in range [1-9], that means no valid IP address was discovered via CDP/LDP</p></li>
+
+<li><p>remove some chars (slash,spaces) that Observium doesn&rsquo;t like in hostnames with <em>sed</em> commands</p></li>
+
+<li><p>uniform all the device names in uppercase chars</p></li>
+</ul>
+
+<p>If your device hostnames have other chars that don&rsquo;t work well with Observium just add more <em>sed</em> to the script.</p>
+
+<p>This is the final result:</p>
+
+<pre><code>/usr/bin/mysql -uroot -pPASSWORD -B -e &quot;select devip,device,readcomm from devices&quot; nedi | grep &quot;^[1-9]&quot; |sed -e 's/ /_/g' | sed -e 's/\//_/g' | sort | tr '[:lower:]' '[:upper:]'
+</code></pre>
+
+<h2 id="ip-format:d5b42608cd681207460d25e6d40b3c0d">IP format</h2>
+
+<p>NeDi stores IP addresses in undotted decimal format, we need to convert them to dotted decimal to use them.</p>
+
+<p>We can use Python for that, let&rsquo;s create <em>/root/undotteddecimaltoip.py</em>:</p>
+
+<pre><code>#!/usr/bin/env python
+
+import sys
+inFile = sys.argv[1]
+#outFile = sys.argv[2]
+
+def int_to_dqn(st):
+    &quot;&quot;&quot;
+    Convert integer to dotted quad notation
+    &quot;&quot;&quot;
+    st = &quot;%08x&quot; % (st)
+    return &quot;%i.%i.%i.%i&quot; % (int(st[0:2],16),int(st[2:4],16),int(st[4:6],16),int(st[6:8],16))
+
+f = open(inFile,&quot;r&quot;)
+for line in f:
+        values = line.split(&quot;\t&quot;)
+        print int_to_dqn(int(values[0]))+&quot; &quot;+values[1].rstrip().replace(&quot; &quot;,&quot;_&quot;)
+f.close()
+</code></pre>
+
+<p>Test it running:</p>
+
+<pre><code>/root/undotteddecimaltoip.py /tmp/nedidevicelist.txt
+</code></pre>
+
+<p>You can see now all the IP addresses are now in dotted decimal format.  </p>
+
+<h2 id="populate-etc-hosts-file:d5b42608cd681207460d25e6d40b3c0d">Populate /etc/hosts file</h2>
+
+<p>Now we can put together the Python script we just created and a few bash commands to update the hosts file:</p>
+
+<pre><code>if [ -f &quot;/etc/hosts.original&quot; ]
+then
+        cat /etc/hosts.original &gt; /etc/hosts
+else
+        cp /etc/hosts /etc/hosts.original
+fi
+
+/root/undotteddecimaltoip.py /tmp/nedidevicelist.txt &gt;&gt; /etc/hosts
+</code></pre>
+
+<p>Notice that the original <em>hosts</em> files is maintained, if we need to enter lines that shouldn&rsquo;t be lost just edit <em>/etc/hosts.original</em> file.  </p>
+
+<h2 id="add-devices-to-observium:d5b42608cd681207460d25e6d40b3c0d">Add devices to Observium</h2>
+
+<p>We can finally use the data from NeDi to add devices to Observium:</p>
+
+<pre><code>while IFS=$'\t' read ip name comm
+do
+echo -e &quot;NOW ADDING DEVICE $name&quot;
+/opt/observium/add_device.php $name $comm
+done &lt; /tmp/nedidevicelist.txt
+</code></pre>
+
+<p>Notice that <em>$comm</em> is the actual community NeDi used to discover the devices, even if in <em>seedlist</em> more than one was specified.</p>
+
+<h2 id="put-it-all-together:d5b42608cd681207460d25e6d40b3c0d">Put it all together</h2>
+
+<p>This is the final script:</p>
+
+<pre><code>#!/bin/bash
+/usr/bin/mysql -uroot -pPASSWORD -B -e &quot;select devip,device,readcomm from devices&quot; nedi | grep &quot;^[1-9]&quot; |sed -e 's/ /_/g' | sed -e 's/\//_/g' | sort | tr '[:lower:]' '[:upper:]' &gt; /tmp/nedilist.txt
+
+if [ -f &quot;/etc/hosts.original&quot; ]
+then
+        cat /etc/hosts.original &gt; /etc/hosts
+else
+        cp /etc/hosts /etc/hosts.original
+fi
+
+/root/undotteddecimaltoip.py /tmp/nedidevicelist.txt &gt;&gt; /etc/hosts
+
+while IFS=$'\t' read ip name comm
+do
+echo -e &quot;NOW ADDING DEVICE $name&quot;
+/opt/observium/add_device.php $name $comm
+done &lt; /tmp/nedidevicelist.txt
+
+/opt/observium/discovery.php -h new &gt;&gt; /dev/null 2&gt;&amp;1
+/opt/observium//poller.php -h all  &gt;&gt; /dev/null 2&gt;&amp;1
+</code></pre>
+
+<p>Now just remember to add to cron the correct files to perform auto discovery with NeDi and then feed Observium again to keep them updated.</p>
+
+<h2 id="verify:d5b42608cd681207460d25e6d40b3c0d">Verify</h2>
+
+<p>How can we verify it worked? One simple way could be to extract the device list from NeDi and from Observium and see if they match:</p>
+
+<pre><code>/usr/bin/mysql -uroot -pPASSWORD -B -e &quot;select device from devices&quot; nedi | sed -e 's/ /_/g' | sed -e 's/\//_/g' | sort | tr '[:lower:]' '[:upper:]' &gt; /tmp/nedilist.txt
+/usr/bin/mysql -uroot -pPASSWORD -B -e &quot;select hostname from devices&quot; observium | sed -e 's/ /_/g' | sed -e 's/\//_/g' | sort | grep -v &quot;^AP&quot; | tr '[:lower:]' '[:upper:]' &gt; /tmp/observiumlist.txt
+diff /tmp/observiumlist.txt /tmp/nedilist.txt
+</code></pre>
+
+<p>If the list in Observium is shorter check if any hostname contains a symbol that can&rsquo;t be read by Observium.</p>
+
+<h1 id="see-the-result:d5b42608cd681207460d25e6d40b3c0d">See the result</h1>
+
+<p>Open a browser to port 80, login and go to Devices&ndash;&gt;List&ndash;&gt;Show to se all the devices discovered by NEDI.</p>
+
+<p>Open a browser to port 81 to see the Observium interface and check all the devices.</p>
+
+<p>Nice!</p>
+
+<h1 id="wrap-up:d5b42608cd681207460d25e6d40b3c0d">Wrap up</h1>
+
+<p>Open source software has many advantages, in this particular case it allowed me to integrate two different software in one solution. Fell free to suggest improvements to the script in the comments, I consider this just a <a href="http://en.wikipedia.org/wiki/Proof_of_concept">POC</a>.</p>
+
+<p><strong>WARNING</strong></p>
+
+<p><strong>I&rsquo;m not a systems engineer or a programmer</strong>, use my code <strong>at your own risk</strong>, I take <strong>no responsibility</strong> for any damage caused by any of the script shown.</p>
+
+<h1 id="update-20160109-from-observium-to-librenms:d5b42608cd681207460d25e6d40b3c0d">UPDATE 20160109 - from Observium to LibreNMS</h1>
+
+<p><a href="http://www.observium.org/">Observium</a> has been forked to <a href="http://www.librenms.org/">LibreNMS</a> due to <a href="http://libertysys.com.au/blog/observium-and-gpl">different views</a> about <a href="http://www.gnu.org/licenses/gpl-3.0.en.html">GPL licensing</a>.</p>
+
+<p>Installation of both is quite easy, just follow the instructions on each website.</p>
+
+<p>I updated my scripts to work with LibreNMS:</p>
+
+<pre><code>#!/bin/bash
+
+\//_/g' | sort | grep -v &quot;^AP&quot; | tr '[:lower:]' '[:upper:]' &gt; /tmp/nedilist.txt
+
+PASSWORD=$1
+
+/usr/bin/mysql -uroot -p$PASSWORD -B -e &quot;select devip,device,readcomm from devices&quot; nedi | grep &quot;^[1-9]&quot; |sed -e
+ 's/ /_/g' | sed -e 's/\//_/g' | sort | tr '[:lower:]' '[:upper:]' &gt; /tmp/nedidevicelist.txt
+
+if [ -f &quot;/etc/hosts.original&quot; ]
+then
+        cat /etc/hosts.original &gt; /etc/hosts
+else
+        cp /etc/hosts /etc/hosts.original
+fi
+
+/root/undotteddecimaltoip.py /tmp/nedidevicelist.txt &gt;&gt; /etc/hosts
+
+while IFS=$'\t' read ip name comm
+do
+echo -e &quot;NOW ADDING DEVICE $name&quot;
+/opt/librenms/addhost.php $name ${comm,,} v2c
+done &lt; /tmp/nedidevicelist.txt
+
+# DISCOVER AN POLL
+/opt/librenms/discovery.php -h new &gt;&gt; /dev/null 2&gt;&amp;1
+/opt/librenms/poller.php -h all  &gt;&gt; /dev/null 2&gt;&amp;1
+</code></pre>
+
+<p>In case you need/want to clean the LibreNMS database:</p>
+
+<pre><code>#!/bin/bash
+while IFS='' read -r line || [[ -n &quot;$line&quot; ]]; do
+echo REMOVING HOST $line
+/opt/librenms/delhost.php $line
+done &lt; &lt;(/usr/bin/mysql -uroot -p$1 -B -e &quot;select hostname from devices&quot; librenms)
+</code></pre>
+
+</div>
+
+</div>
+</div>
+<script src="https://www.ifconfig.it/hugojs/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10670358-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

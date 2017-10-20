@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.26" />
+
+  <title>Antenna radiation pattern, law of sines, free space propagation loss &middot; ifconfig.it</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.ifconfig.it/hugoimg/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-2507441616057251",
+    enable_page_level_ads: true
+  });
+</script>
+  
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://www.ifconfig.it/hugo/">ifconfig.it</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/tags/"><i class='fa fa-list fa-fw'></i>Tags</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/gp_ifconfig" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/gpboa" target="_blank"><i class="fa fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/gpaolo" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/routetonull" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://keybase.io/bgp" target="_blank"><i class="fa fa-key fa-fw"></i>Keybase</a>
+    </li>
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Antenna radiation pattern, law of sines, free space propagation loss</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+	<time>Saturday, April 20, 2013
+	</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/wifi">wifi</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  <p>I work with WiFi more than I admit to myself and now that I have more time to study outside the CCIE R&amp;S blueprint boundaries it&rsquo;s time to focus on other technologies.</p>
+
+<p>I&rsquo;ve been involved in an interesting high density WiFi project and after a successfull deployment there&rsquo;re some things I&rsquo;d like to check. As Cisco partner my company had support for the network design from the same team involved in London Olympics and Cisco Live! so it was a great opportunity to learn a lot.</p>
+
+<p>##Antenna radiation pattern</p>
+
+<p>The first topic I want to explore is antenna radiation pattern and what it means for network coverage.</p>
+
+<p>Let&rsquo;s start with an example. <a href="http://www.cisco.com/en/US/prod/collateral/wireless/ps5678/ps11983/data_sheet_c78-686782.html">Cisco Aironet 3600</a> has a wide <a href="http://www.cisco.com/en/US/prod/collateral/wireless/ps7183/ps469/at_a_glance_c45-513837.pdf">choice of antennas</a>. Let&rsquo;s say we choose to use <a href="http://www.cisco.com/en/US/docs/wireless/antenna/installation/guide/ant2566p4w.pdf">AIR-ANT2566P4W-R</a> mounted in a 10 meters ceiling pointing down to cover a big hall like a fairground.</p>
+
+<p>How can we calculate the coverage area on the ground (where the clients are) and the expected signal power? We need this data to plan where the APs will be installed and how many APs we&rsquo;ll need to cover the area.</p>
+
+<p>##WARNING: math involved!</p>
+
+<p>The first factor to consider is <em>free space loss</em>: the radio signal loses power then travelling through space, the amount of power is based on the distance and the frequency.</p>
+
+<p>The formula is <a href="http://www.radio-electronics.com/info/propagation/path-loss/free-space-formula-equation.php">HERE</a>:</p>
+
+<p><a href="http://www.ifconfig.it/images/fspl_formula.png"><img src="http://www.ifconfig.it/images/fspl_formula-300x65.png" alt="fspl_formula" /></a></p>
+
+<p><a href="http://www.ifconfig.it/images/fspl_formula2.png"><img src="http://www.ifconfig.it/images/fspl_formula2-300x52.png" alt="fspl_formula2" /></a></p>
+
+<p>If we apply the formula using 10 meters, a frequency of 2440Mhz (around the middle of 802.11g range) and an antenna gain of 6dBi we get a just litte more than <strong>54dB</strong>.</p>
+
+<p>The maximum <a href="http://en.wikipedia.org/wiki/Equivalent_isotropically_radiated_power">EIRP</a> permitted in Europe for 2,4Ghz is 20 dBm.</p>
+
+<p>That meas we expect to measure a signal power of  <strong>20 - 54 = -34 dBm</strong> when we are just under of the antenna at a distance of 10 meters.</p>
+
+<p>But what if we move around? This is where the radiation pattern must be checked.</p>
+
+<p>I recommend to read &ldquo;<a href="http://www.cisco.com/en/US/prod/collateral/wireless/ps7183/ps469/prod_white_paper0900aecd806a1a3e.html">Antenna Patterns and Their Meaning</a>&rdquo; before going further.</p>
+
+<p>What&rsquo;s the pattern of our antenna? We can find it in the antenna <a href="http://www.cisco.com/en/US/docs/wireless/antenna/installation/guide/ant2566p4w.pdf">Data Sheet</a>:</p>
+
+<p><a href="http://www.ifconfig.it/images/radiation_pattern.png"><img src="http://www.ifconfig.it/images/radiation_pattern-300x96.png" alt="radiation_pattern" /></a></p>
+
+<p>Let&rsquo;s start with the Azimuth Plane and 2,4GHz band.</p>
+
+<p>This is the planned physical installation:</p>
+
+<p><a href="http://www.ifconfig.it/images/triangle.png"><img src="http://www.ifconfig.it/images/triangle-210x300.png" alt="triangle" /></a></p>
+
+<p>From the data sheet we know the angle at the top is 105 degrees and the ceiling height is 10 meters. We need to know the base of the triangle. The good part is trigonometry helps us and the <a href="http://en.wikipedia.org/wiki/Law_of_sines">Law of sines</a> tells us the triangle has a base of 26 meters.</p>
+
+<p>That means we expect to read -37dBm when we&rsquo;re 14 meters away from the AP on the Azimuth plane. The same formula tells us we read the same power from 7 meteres on the Elevation plane.</p>
+
+<p>So on the groud we can track a rectangle 26 meters wide and 14 meters tall where the expected signal  power is at least -37dBm. A lower signal expectation would mean a bigger area.</p>
+
+<p>Now it&rsquo;s easy to place our APs to cover all the area (notice the picture show circles, replace it with rectangles).</p>
+
+<p><a href="http://www.ifconfig.it/images/ap_placement.png"><img src="http://www.ifconfig.it/images/ap_placement-300x295.png" alt="ap_placement" /></a></p>
+
+<p>##Wrap up</p>
+
+<p>Many factors are involved in WiFi network design, in this post I just started to play with some numbers and concepts, hope you enjoy.</p>
+
+<p>###Documents to read</p>
+
+<p><a href="http://www.cisco.com/web/strategy/docs/education/cisco_wlan_design_guide.pdf">Cisco High Density WiFi Design</a></p>
+
+<p><a href="http://www.cisco.com/en/US/prod/collateral/wireless/ps7183/ps469/prod_white_paper0900aecd806a1a3e.html">Antenna Patterns and their Meaning</a></p>
+
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2507441616057251"
+     data-ad-slot="5064206496"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://www.ifconfig.it/hugo/post/wonky-wisp-smokeping-and-aws-free-tier/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://www.ifconfig.it/hugo/post/wonky-wisp-smokeping-and-aws-free-tier/">Wonky Wisp, Smokeping and AWS free tier</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://www.ifconfig.it/hugo/post/ccieplaque/">CCIE plaque</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://www.ifconfig.it/hugo/post/ccieplaque/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'ifconfig';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2507441616057251"
+     data-ad-slot="2220017315"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  
+</div>
+
+</div>
+</div>
+<script src="https://www.ifconfig.it/hugojs/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10670358-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

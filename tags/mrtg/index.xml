@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mrtg on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/mrtg/</link>
+    <description>Recent content in Mrtg on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Sat, 25 Feb 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/mrtg/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Network Weathermap</title>
+      <link>https://www.ifconfig.it/hugo/post/network-weathermap/</link>
+      <pubDate>Sat, 25 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/network-weathermap/</guid>
+      <description>Weathermap is a network visualisation tool, to take data you already have and show you an overview of your network in map form.</description>
+    </item>
+    
+  </channel>
+</rss>

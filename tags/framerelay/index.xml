@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Framerelay on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/framerelay/</link>
+    <description>Recent content in Framerelay on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 03 Mar 2011 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/framerelay/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Autoinstall - Frame Relay</title>
+      <link>https://www.ifconfig.it/hugo/post/autoinstall-frame-relay/</link>
+      <pubDate>Thu, 03 Mar 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/autoinstall-frame-relay/</guid>
+      <description>First of all: autoinstall works only on the first serial interface of the router, don&amp;rsquo;t forget it.
+This is the topology for the small lab:
+R1 is a TFTP server, it stores R3 configuration in flash.
+R3 has no configuration.
+R2 interface is configured as follow:
+``
+interface Serial1/0 ip address 10.0.23.2 255.255.255.0 &amp;lt;strong&amp;gt; ip helper-address 1.1.1.1&amp;lt;/strong&amp;gt; encapsulation frame-relay ip ospf network broadcast ip ospf 1 area 0 serial restart-delay 0 frame-relay map ip 10.</description>
+    </item>
+    
+  </channel>
+</rss>

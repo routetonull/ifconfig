@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Software on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/software/</link>
+    <description>Recent content in Software on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Mon, 01 Jun 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/software/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SecureCRT and Python</title>
+      <link>https://www.ifconfig.it/hugo/post/2015-06-01-scrtpython/</link>
+      <pubDate>Mon, 01 Jun 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2015-06-01-scrtpython/</guid>
+      <description>SecureCRT is one of my favourite tools, today I had a chance to use it in a way I didn&amp;rsquo;t expected.
+A customer called with a problem: he has a radio bridge that sometimes loses connection with the remote unit. The workaround is to reload the base unit. The process is manual, he monitors the radio bridge status and reload when required.
+Since the radio bridge is not business critical he doesn&amp;rsquo;t have budget to replace tha radio bridge or troubleshoot the problem, the request was to automate the check/reload process.</description>
+    </item>
+    
+    <item>
+      <title>Log analysis GUI tools</title>
+      <link>https://www.ifconfig.it/hugo/post/log-analysis-gui-tools/</link>
+      <pubDate>Tue, 02 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/log-analysis-gui-tools/</guid>
+      <description>Log analysis is important to both troubleshoot and understand network devices behaviour.
+Tail/less/grep are great tools that can help to filter and search hundreds or thousands lines of logs.
+If you prefer a GUI there are a couple of alternatives that can fit well.
+For windows users only Log Expert is a great choice with many features but it is not developed since 2012.
+[Log Expert](http://www.log-expert.de/) is a Windows tail program (a GUI replacement for the Unix tail command).</description>
+    </item>
+    
+    <item>
+      <title>Batch Compiler</title>
+      <link>https://www.ifconfig.it/hugo/post/batch-compiler/</link>
+      <pubDate>Tue, 24 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/batch-compiler/</guid>
+      <description>Tool of the day:
+[Batch Compiler](http://sourceforge.net/projects/batchcompiler/) is a small and very easy top use application designed to help you script batch programs and compile them in to exe file with integrated help utility and a user friendly interface. </description>
+    </item>
+    
+    <item>
+      <title>Airfoil</title>
+      <link>https://www.ifconfig.it/hugo/post/2012-03-24-airfoil/</link>
+      <pubDate>Sat, 24 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2012-03-24-airfoil/</guid>
+      <description>Apple&amp;rsquo;s Airport Express is a multi-pourpose device that I really like. It is small, not energy hungry and has many features.
+Wireless music streaming is a very useful feature, but it&amp;rsquo;s limited to use iTunes as source.
+Today I bought Airfoil that allows to stream the audio from any running program on PC or MAC.
+
+Now I can stream music from any online service like Grooveshark or Rdio to my home stereo.</description>
+    </item>
+    
+    <item>
+      <title>Tor Project</title>
+      <link>https://www.ifconfig.it/hugo/post/tor-project/</link>
+      <pubDate>Sat, 10 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/tor-project/</guid>
+      <description>Sometimes you just need some privacy when browsing the Internet:
+&amp;ldquo;Tor was originally designed, implemented, and deployed as a third-generation onion routing project of the U.S. Naval Research Laboratory. It was originally developed with the U.S. Navy in mind, for the primary purpose of protecting government communications. Today, it is used every day for a wide variety of purposes by normal people, the military, journalists, law enforcement officers, activists, and many others.</description>
+    </item>
+    
+    <item>
+      <title> Ostinato - Packet/Traffic Generator and Analyzer</title>
+      <link>https://www.ifconfig.it/hugo/post/ostinato-packettraffic-generator-and-analyzer/</link>
+      <pubDate>Sat, 18 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/ostinato-packettraffic-generator-and-analyzer/</guid>
+      <description>Ostinato is an open-source, cross-platform network packet crafter/traffic generator and analyzer with a friendly GUI. Craft and send packets of several streams with different protocols at different rates.</description>
+    </item>
+    
+  </channel>
+</rss>

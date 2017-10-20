@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.26" />
+
+  <title>SDN anyone? &middot; ifconfig.it</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.ifconfig.it/hugoimg/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-2507441616057251",
+    enable_page_level_ads: true
+  });
+</script>
+  
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://www.ifconfig.it/hugo/">ifconfig.it</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/tags/"><i class='fa fa-list fa-fw'></i>Tags</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/gp_ifconfig" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/gpboa" target="_blank"><i class="fa fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/gpaolo" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/routetonull" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://keybase.io/bgp" target="_blank"><i class="fa fa-key fa-fw"></i>Keybase</a>
+    </li>
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>SDN anyone?</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+	<time>Thursday, February 16, 2017
+	</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/sdn">sdn</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  
+
+<p><strong>DISCLAIMER</strong></p>
+
+<p>I work in the enterprise market, mostly with routing&amp;switching, wireless, security products from multiple vendors. I have no SDN/cloud/ISP real experience yet. My views here are based upon meetings with vendors pushing SDN solutions and fellow engineers who shared experiences, doubts and some labs to test the products.</p>
+
+<hr />
+
+<p>After attending a few SDN presentation of various vendors I&rsquo;m starting to make an opinion about SDN myself. Here&rsquo;s what I got so far.</p>
+
+<h2 id="now">NOW</h2>
+
+<p>The current network infrastructure elements are:</p>
+
+<p>[HUMAN] &ndash; [SOFTWARE/IOS] &ndash; [HARDWARE]</p>
+
+<p>that includes for each element:</p>
+
+<p>[ERROR] &ndash; [BUG] &ndash; [FAULT]</p>
+
+<h2 id="sdn">SDN</h2>
+
+<p>What SDN looks like in comparison:</p>
+
+<p>[HUMAN] &ndash; [GUI] &ndash; [NORTHBOUND API] &ndash; [SDN SERVER/CONTROLLER] &ndash; [SOUTHBOUND API] &ndash; [HARDWARE]</p>
+
+<p>Whoever is responsible for the network operations is worried about:</p>
+
+<p>[ERROR] &ndash; [BUG] &ndash; [BUG]&ndash; [BUG]&ndash; [BUG]&ndash; [FAULT]</p>
+
+<h2 id="the-elephant-in-the-room-is-sdn-error-free">The elephant in the room: is SDN error free?</h2>
+
+<p>We can&rsquo;t get rid of all possible human errors but you can move your trust from one human (operator) to another human (developer).</p>
+
+<p>SDN means to trust the GUI/APP to perform all the consistency check and input validation to reduce the human(operator) error and its <em><a href="https://en.wikipedia.org/wiki/Blast_radius">blast radius</a></em>.</p>
+
+<p>I can imagine many examples of checks to perform, something like</p>
+
+<pre><code>WARNING: The VLAN interface you're trying do delete has traffic running through it, are you sure?
+</code></pre>
+
+<p>or</p>
+
+<pre><code>Deleting default route will make the device unreachable, you better think twice before doing it.
+</code></pre>
+
+<p>or as last resort a sort of &ldquo;<a href="https://www.youtube.com/watch?v=ARJ8cAGm6JE" title="I'm sorry Dave">I&rsquo;m sorry Dave</a>&rdquo; feature that requires higher privileges to override.</p>
+
+<p>But what about the GUI/APP bugs introduced by&hellip; the other human(developer) errors?</p>
+
+<p>I recall a test in a vendor lab just a few days ago: I create an object, modify the object and then delete the object where object = [vlan, acl, network], it doesn&rsquo;t really matter.</p>
+
+<p>For some reason I did something wrong but the GUI accepted it. The app expected to delete the objects in a specific order (childs to father) that I didn&rsquo;t follow (bad me!).</p>
+
+<p>The SND GUI shown no error messages or warnings but in the end I needed to use the CLI (yes, SDN sometimes has a CLI) to delete by hand all the connected objects and restore the initial state that can be managet by the GUI.</p>
+
+<h2 id="it-s-all-about-trust-a-k-a-moving-risk">It&rsquo;s all about trust a.k.a. moving risk</h2>
+
+<p>Leave apart for now scalability, automation, speed, repeatability, readability of SDN solutions. Let&rsquo;s talk about risk.</p>
+
+<p>SDN is about reducing the risk of human errors and trust the provider of the SDN solution. At most SDN product presentations I see many <strong><a href="https://en.wikipedia.org/wiki/Minimum_viable_product" title="mvp">MVP (Minimum Viable Product)</a></strong> and then claims like &ldquo;whe have API&rdquo; or &ldquo;build your own app&rdquo;.</p>
+
+<p><em>What if I don&rsquo;t want/can build my own app?</em></p>
+
+<h2 id="who-s-sdn-for">Who&rsquo;s SDN for?</h2>
+
+<p>SDN right now looks a solution for ISP and big software companies with lot of developers that want to run <a href="https://en.wikipedia.org/wiki/Infrastructure_as_Code"><strong>infrastructure as a code</strong></a>.</p>
+
+<p>ISPs right now are more interested about <strong><a href="https://www.sdxcentral.com/sd-wan/definitions/software-defined-sdn-wan/" title="sd-wan">SD-WAN</a></strong> that is a different thing than SDN.</p>
+
+<p>Take <strong><a href="https://www.openstack.org/videos/video/devops-at-betfair-using-openstack-and-sdn" title="betfair">Betfair</a></strong> for example, one of the most advertised case studies of <strong><a href="http://www.nuagenetworks.net/">Nuage</a></strong>. That&rsquo;s a company more similar to Netflix and Facebook than the typical enterprise. They have lot of developers and to run the infrastructure via software is most likely the better solution for them.</p>
+
+<p>But how many companies have the same needs and resources? Not the typical enterprise.</p>
+
+<h2 id="let-s-talk-about-enterprise-the-european-size">Let&rsquo;s talk about Enterprise? (the european size)</h2>
+
+<p>An enterprise has some basic needs:</p>
+
+<ul>
+<li>uptime and reliability</li>
+<li>reduce cost of operations</li>
+</ul>
+
+<p>What an enterprise wants:</p>
+
+<ul>
+<li>a finished product with clear cost, roadmap, support</li>
+<li>a vendor to blame/get rid of in case something goes wrong</li>
+</ul>
+
+<p>What an enterprise does not want:</p>
+
+<ul>
+<li>take risks</li>
+<li>develop it&rsquo;s own SDN GUI/APP</li>
+</ul>
+
+<p>Current SDN solutions imho do not fit enterprise needs (yet).</p>
+
+<h2 id="but-we-have-plenty-of-apps">But we have plenty of apps!</h2>
+
+<p>No you don&rsquo;t. Cisco&rsquo;s <em><a href="https://developer.cisco.com/site/apic-em/" title="apic-em">APIC-EM</a></em> has just a <em><a href="http://www.cisco.com/c/en/us/products/cloud-systems-management/application-policy-infrastructure-controller-enterprise-module/index.html" title="apic-em modules">few Apps</a></em>, the <em><a href="https://marketplace.saas.hpe.com/sdn" title="hpe app store">HPE SDN App Store</a></em> has less apps than the <em><a href="https://en.wikipedia.org/wiki/Nokia_Store" title="nokia ovi store">Nokia OVI store</a></em> had.</p>
+
+<h2 id="what-i-like-as-a-system-integrator">What I like as a system integrator</h2>
+
+<p>One answer: NFV a.k.a <a href="https://www.sdxcentral.com/nfv/definitions/whats-network-functions-virtualization-nfv/" title="nfv">Network Function Virtualization</a>.</p>
+
+<p>NFV can be seen as a bridge technology that can be implemented today and creates a strong base for the large adoption of SDN tomorrow.</p>
+
+<p>Italtel and Cisco are <strong><a href="http://www.italtel.com/sdn-and-nfv-italtel-and-cisco-together/">working together</a></strong> to standardize NFV and maybe in the future &ldquo;F&rdquo; in NFV will be just an App you can install in any commodoty/white box hardware you like.</p>
+
+<h2 id="my-2-cents">My 2 cents</h2>
+
+<p>SDN product presentations should be more like <em><a href="https://developer.apple.com/wwdc/" title="wwdc">Apple WWDC</a></em> or <em><a href="https://events.google.com/io/" title="google io">Google I/O</a></em> where developers are engaged to write good/reliable/meaningful SDN apps an enterprise customers would buy with confidence.</p>
+
+<p>I noticed in the Cisco Champions newsletter that Cisco has a <a href="http://blogs.cisco.com/cloud/introducing-devnet-create-conference-in-may-2017" title="devnet conference may 2017">DevNet conference coming in May</a>.</p>
+
+<p>The current aim are the network engineers that are supposed to become all developers in the near future (they will not). The common *&ldquo;CCIEs will be useless soon&rdquo; <strong><a href="https://en.wikipedia.org/wiki/Fear,_uncertainty_and_doubt" title="fud">fud</a></strong> is not working anymore (except for authors of Pyhton books).</p>
+
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2507441616057251"
+     data-ad-slot="5064206496"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://www.ifconfig.it/hugo/post/merakimasters/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://www.ifconfig.it/hugo/post/merakimasters/">Meraki Masters</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://www.ifconfig.it/hugo/post/cleur2017/">Cisco Live Europe 2017 Berlin</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://www.ifconfig.it/hugo/post/cleur2017/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'ifconfig';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2507441616057251"
+     data-ad-slot="2220017315"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  
+</div>
+
+</div>
+</div>
+<script src="https://www.ifconfig.it/hugojs/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10670358-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

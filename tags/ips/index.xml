@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ips on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/ips/</link>
+    <description>Recent content in Ips on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Fri, 04 May 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/ips/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Tomahawk Test Tool</title>
+      <link>https://www.ifconfig.it/hugo/post/tomahawk/</link>
+      <pubDate>Fri, 04 May 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/tomahawk/</guid>
+      <description>Tomahawk is a command line tool for testing network-based intrusion prevention systems (NIPS).
+The concept is simple, you can download virus,attacks,exploit pcaps from many sources and save them on the Tomahawk machine. To test an IPS you need tree network interfaces: one for management, one to send traffic and one to receive. If the attack sent on the interface is received on the other interface the IPS didn&amp;rsquo;t filtered it.</description>
+    </item>
+    
+  </channel>
+</rss>

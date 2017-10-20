@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.26" />
+
+  <title>Opportunistic Learning &middot; ifconfig.it</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.ifconfig.it/hugoimg/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-2507441616057251",
+    enable_page_level_ads: true
+  });
+</script>
+  
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://www.ifconfig.it/hugo/">ifconfig.it</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/tags/"><i class='fa fa-list fa-fw'></i>Tags</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/gp_ifconfig" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/gpboa" target="_blank"><i class="fa fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/gpaolo" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/routetonull" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://keybase.io/bgp" target="_blank"><i class="fa fa-key fa-fw"></i>Keybase</a>
+    </li>
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Opportunistic Learning</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+	<time>Tuesday, August 23, 2016
+	</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/work">work</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/book">book</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  
+
+<p>I got inspired by the book <strong>&ldquo;<a href="http://www.the1thing.com/">The 1 Thing</a>&ldquo;</strong> and changed a little bit my behavior about work and training I&rsquo;d like to share here to discuss and improve.</p>
+
+<h2 id="the-background">The Background</h2>
+
+<p>A while ago one guy could setup a bunch of physical servers, install/configure/manage OS, configure network equipment and setup a firewall to connect to the internet.</p>
+
+<p>For some specific software platforms the support of the vendor for installation and maintenance was enough.</p>
+
+<p>IT today is big, very big. You can either be a generalist or an expert on a couple of topics.</p>
+
+<p>But what if, like me, you work for a system integrator and you need to be both?</p>
+
+<h2 id="the-focus">The focus</h2>
+
+<p>I work on multiple projects at the same time. Every project requires some skills I have, some skills I need to develop and some others I borrow or buy from colleagues or partners.</p>
+
+<p>The hardest part for me is to plan in advance the skills I&rsquo;ll need in the next few months/years. How do I do that?</p>
+
+<p><strong>I don&rsquo;t.</strong></p>
+
+<p>Let me explain, it&rsquo;s not like I just wait for fate or luck decide for me. I just can&rsquo;t afford to learn everything or follow every last hot topic of the moment (cloud, containers, SDN, whatever). Choices have to be made, some very interesting topics must be delayed or ignored.</p>
+
+<p>So I made up a custom personal strategy.</p>
+
+<h2 id="the-strategy">The Strategy</h2>
+
+<p>My strategy is base on these pillars:</p>
+
+<p><strong>1) very strong fundamentals</strong></p>
+
+<p>I&rsquo;m a CCIE, my specialization is <a href="http://www.cisco.com/c/en/us/training-events/training-certifications/certifications/expert/ccie-routing-switching.html">Routing&amp;Switching</a>. CCIE is not a <em>fundamentals</em> certification but I use it as a base to understand other technologies and it works most of the time.
+You can&rsquo;t skip learning the protocols on which many other technologies are built so all the time invested building strong fundamentals is well spent. I&rsquo;d say a CCNP(R&amp;S) with a good knowledge of <a href="https://www.amazon.com/TCP-Illustrated-Vol-Addison-Wesley-Professional/dp/0201633469">TCP/IP</a> is a good start.</p>
+
+<p><strong>2) a structured learning method</strong></p>
+
+<p>Over the years I learned to learn. I know where to look for good study material (<a href="https://www.safaribooksonline.com" title="safari">Safari</a>, <a href="https://www.pluralsight.com/">Pluralsight</a>, <a href="https://www.ciscolive.com/online/connect/search.ww" title="clive">Cisco Live Library</a>&hellip;) and where to find help from the experts (forums, Twitter, communities etc.).</p>
+
+<p>The most important part is to learn how your body and brain works to optimize information acquisition and retention. For me it usually starts with some videos to grasp the general concepts followed by reading design and implementation manuals with all the details mixed with labs.</p>
+
+<p><strong>3) feel the mood</strong></p>
+
+<p>I use blogs, Twitter and podcast to understand the trends on networking world and be aware of changes and new technologies.</p>
+
+<p>Just a few of the many:</p>
+
+<ul>
+<li><a href="http://packetpushers.net/">Packet Pushers</a></li>
+<li><a href="http://www.networkworld.com/">Network World</a></li>
+<li><a href="http://blog.ipspace.net/">Ipspace blog by Ivan Pepelnjak</a></li>
+<li><a href="http://techfieldday.com/">Tech Field Day</a></li>
+</ul>
+
+<p>When a new technology looks promising I read enough to understand the general concepts, ready to go deeper if needed.</p>
+
+<p><strong>4) save for later</strong></p>
+
+<p>I save on OneNote/Pocket/Keep/Evernote all the articles I think could be useful later. Tags help a lot.
+It doesn&rsquo;t make sense to bookmark what I can easily find with some <a href="https://en.wiktionary.org/wiki/Google-fu">Google-fu</a> but some design considerations or configuration snippets are very useful to save time.</p>
+
+<p><strong>5) learn for yourself</strong></p>
+
+<p>I love networking and the technology world in general so for me learning is most of the time a mix of fun and work together. Sometimes I pick a technology and study it just for fun and quite often in the future it happens the chance to use it.</p>
+
+<p><em>&ldquo;Luck Is What Happens When Preparation Meets Opportunity&rdquo;</em>, we can&rsquo;t foresee the opportunities but preparation is our responsibility.</p>
+
+<h2 id="the-one-skill">The One Skill</h2>
+
+<p>Based on these assumptions what is the most important skill today? In my opinion, for my kind of work, the most important skill is:</p>
+
+<pre><code>To be able to be proficient in most technologies in a small amount of time.
+</code></pre>
+
+<p>Proficiency is used here according to the <a href="https://en.wikipedia.org/wiki/Dreyfus_model_of_skill_acquisition">Dreyfus model of skill acquisition</a>.</p>
+
+<p>Not all projects require an Expert level of skills and if they do, for a small amount, it is usually <em>easier/faster/cheaper</em> to buy/hire/rent a few days of an expert consultant than to develop the skills internally.</p>
+
+<p>The trick is to keep a Beginner/Advanced Beginner level of skills in most technologies involved in my projects (Linux, Microsoft Server, VMWare etc.), keep my expert skills fresh and be aware of the other technologies coming up just in case they&rsquo;ll be necessary, knowing I&rsquo;ve a method to learn fast when opportunity arises.</p>
+
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2507441616057251"
+     data-ad-slot="5064206496"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://www.ifconfig.it/hugo/post/hugo/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://www.ifconfig.it/hugo/post/hugo/">Welcome Hugo</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://www.ifconfig.it/hugo/post/merakimasters/">Meraki Masters</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://www.ifconfig.it/hugo/post/merakimasters/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'ifconfig';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2507441616057251"
+     data-ad-slot="2220017315"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  
+</div>
+
+</div>
+</div>
+<script src="https://www.ifconfig.it/hugojs/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10670358-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

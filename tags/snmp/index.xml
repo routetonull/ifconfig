@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Snmp on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/snmp/</link>
+    <description>Recent content in Snmp on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 02 Dec 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/snmp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Simple Cisco switch inventory with bash and snmp</title>
+      <link>https://www.ifconfig.it/hugo/post/2015-12-02-simple-cisco-switch-inventory-with-bash-and-snmp/</link>
+      <pubDate>Wed, 02 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2015-12-02-simple-cisco-switch-inventory-with-bash-and-snmp/</guid>
+      <description>Scripts, usually I write some because I don&amp;rsquo;t like repetitive tasks and I&amp;rsquo;m lazy, meaning I prefer automation over useless hard work.
+Don&amp;rsquo;t know where I found this quote but I like it:
+Don&#39;t spend your time doing work a well-trained monkey could do.  Today&amp;rsquo;s request was quite simple: get model and serial number from a bunch of Cisco switches.
+I now NEDI, Observium and LibreNMS can do that but I preferred to write a quick script I could use as a one shot tool instead of a complete software solution.</description>
+    </item>
+    
+    <item>
+      <title>NetCure Discovery</title>
+      <link>https://www.ifconfig.it/hugo/post/netcure-discovery/</link>
+      <pubDate>Sat, 03 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/netcure-discovery/</guid>
+      <description>NetCure Discovery is a free version of NetCure Audit that autodiscovers your network from layer-2 to layer-7.
+ Patented high-speed agentless multi-vendor L2 – L7 autodiscovery and topology mapping software accurately models your network
+ Software discovery finds applications, databases, services, processes and daemons
+ Storage discovery find server attached storage as well as many SAN devices
+ VM discovery finds host-to-guest relationships
+ Generate network diagrams for easy browsing and export to JPEG or PNG</description>
+    </item>
+    
+    <item>
+      <title>Network Weathermap</title>
+      <link>https://www.ifconfig.it/hugo/post/network-weathermap/</link>
+      <pubDate>Sat, 25 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/network-weathermap/</guid>
+      <description>Weathermap is a network visualisation tool, to take data you already have and show you an overview of your network in map form.</description>
+    </item>
+    
+    <item>
+      <title>RMON and MIB</title>
+      <link>https://www.ifconfig.it/hugo/post/quick-tip-rmon-and-mib/</link>
+      <pubDate>Wed, 02 Mar 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/quick-tip-rmon-and-mib/</guid>
+      <description>RMON is generally an easy task, can be tricky but usually on CCIE workbooks the task are fair. The hardest part for me is to find the MIB to monitor.
+This is the task: monitor interface Vlan1, send a trap if it receives more than 100 packets every 30 seconds, send a trap if it goes under 50 packets every 30 seconds.
+First step: find Vlan1 ifindex.
+R#sh snmp mib ifmib ifindex Vlan99: Ifindex = 10 Virtual-Access2: Ifindex = 13 FastEthernet4: Ifindex = 5 FastEthernet0: Ifindex = 1 FastEthernet2: Ifindex = 3 Loopback0: Ifindex = 12 Null0: Ifindex = 6 Virtual-Access1: Ifindex = 11 &amp;lt;strong&amp;gt;Vlan1: Ifindex = 7&amp;lt;/strong&amp;gt; Virtual-Template1: Ifindex = 9 NVI0: Ifindex = 8 FastEthernet1: Ifindex = 2 FastEthernet3: Ifindex = 4  So Vlan1 has ifIndex value 7.</description>
+    </item>
+    
+    <item>
+      <title>SNMP v3</title>
+      <link>https://www.ifconfig.it/hugo/post/snmp-v3/</link>
+      <pubDate>Tue, 01 Mar 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/snmp-v3/</guid>
+      <description>Snmp v3 is described in many RFC, like RFC3414 and so on.
+History and security of the various SNMP versions are easy to find and well known, let&amp;rsquo;s focus on configuration.
+SNMPv3 can work in three ways:
+ noAuthNoPriv
+ authNoPriv
+ authPriv
+  For the tests I use a Cisco871 as snmp-server and a OSX computer to walk the MIBs.
+noAuthNoPriv No authorization, no encryption
+Router configuration;
+R(config)#snmp-server view noAuthNoPriv internet included R(config)#snmp-server user user1 noAuthNoPriv v3 R(config)#snmp-server group noAuthNoPriv v3 noauth read noAuthNoPriv  Query from OSX:</description>
+    </item>
+    
+  </channel>
+</rss>

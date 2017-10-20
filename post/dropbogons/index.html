@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.16" />
+
+  <title>Drop and bogons list on Cisco router &middot; ifconfig.it</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="http://www.ifconfig.it/hugo/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="http://www.ifconfig.it/hugo/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="http://www.ifconfig.it/hugo/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="http://www.ifconfig.it/hugoimg/favicon.ico" type="image/x-icon" />
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="http://www.ifconfig.it/hugo/">ifconfig.it</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://www.ifconfig.it/hugo/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://www.ifconfig.it/hugo/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://www.ifconfig.it/hugo/tags/"><i class='fa fa-list fa-fw'></i>Tags</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://www.ifconfig.it/hugo/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/gp_ifconfig" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/gpaolo" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/routetonull" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Drop and bogons list on Cisco router</h1>
+  <h2></h2>
+</div>
+<div class="content">
+  
+
+<p>The <a href="https://www.eff.org/cyberspace-independence">Cyberspace</a> a.k.a. the <a href="https://www.youtube.com/watch?v=iDbyYGrswtg">Internet</a> is full of <a href="http://www.usanetwork.com/mrrobot">bad guys</a> wanting to mess with our computers right?</p>
+
+<p>Of course everyone of us have a firewall configured with proper access and inspection rules, don&rsquo;t ya?</p>
+
+<p>Spamhaus and Team Cymru can help providing list of known bad IPs and subnets that should be filtered in our networks.</p>
+
+<h2 id="spamhaus-drop-list">Spamhaus DROP list</h2>
+
+<p><img src="https://www.spamhaus.org/images/dropadvisory.gif" alt="" /></p>
+
+<blockquote>
+  "DROP (Don't Route Or Peer) and EDROP are advisory "drop all traffic" lists, consisting of netblocks that are "hijacked" or leased by professional spam or cyber-crime operations (used for dissemination of malware, trojan downloaders, botnet controllers). The DROP and EDROP lists are a tiny subset of the SBL, designed for use by firewalls and routing equipment to filter out the malicious traffic from these netblocks."
+</blockquote>
+
+<p>Spamhaus DROP and EDRP lists can be downloaded from <a href="https://www.spamhaus.org/drop/">HERE</a>, updated hourly.</p>
+
+<h2 id="team-cymru-bogon-list">Team Cymru Bogon List</h2>
+
+<p><img src="http://www.team-cymru.org/images/main-logo.png" alt="" /></p>
+
+<blockquote>
+  "A bogon prefix is a route that should never appear in the Internet routing table" so let's filter thos.
+</blockquote>
+
+<p><a href="http://www.team-cymru.org/bogon-reference.html">Team Cymru bogons list</a> can be downloaded <a href="http://www.team-cymru.org/Services/Bogons/fullbogons-ipv4.txt">HERE</a>, it is updated every four hours.</p>
+
+<h2 id="apply-on-cisco-router">Apply on Cisco router</h2>
+
+<h3 id="drop-list">DROP list</h3>
+
+<p>First this we do is to download the DROP list in plain text from:</p>
+
+<pre><code>&lt;code&gt;wget https://www.spamhaus.org/drop/drop.lasso     
+wget https://www.spamhaus.org/drop/edrop.txt
+&lt;/code&gt;
+</code></pre>
+
+<p>Then we need some script magic to convert to the familiar Cisco sintax.</p>
+
+<p>Create a sed script file called <strong>subnet2wildmask.sed</strong>:</p>
+
+<pre><code>&lt;code&gt;s/\/0/ 255.255.255.255/
+s/\/1/ 127.255.255.255/
+s/\/2/ 63.255.255.255/
+s/\/3/ 31.255.255.255/
+s/\/4/ 15.255.255.255/
+s/\/5/ 7.255.255.255/
+s/\/6/ 3.255.255.255/
+s/\/7/ 1.255.255.255/
+s/\/8/ 0.255.255.255/
+s/\/9/ 0.127.255.255/
+s/\/10/ 0.63.255.255/
+s/\/11/ 0.31.255.255/
+s/\/12/ 0.15.255.255/
+s/\/13/ 0.7.255.255/
+s/\/14/ 0.3.255.255/
+s/\/15/ 0.1.255.255/
+s/\/16/ 0.0.255.255/
+s/\/17/ 0.0.127.255/
+s/\/18/ 0.0.63.255/
+s/\/19/ 0.0.31.255/
+s/\/20/ 0.0.15.255/
+s/\/21/ 0.0.7.255/
+s/\/22/ 0.0.3.255/
+s/\/23/ 0.0.1.255/
+s/\/24/ 0.0.0.255/
+s/\/25/ 0.0.0.127/
+s/\/26/ 0.0.0.63/
+s/\/27/ 0.0.0.31/
+s/\/28/ 0.0.0.15/
+s/\/29/ 0.0.0.7/
+s/\/30/ 0.0.0.3/
+s/\/31/ 0.0.0.1/
+s/\/32/ 0.0.0.0/
+&lt;/code&gt;
+</code></pre>
+
+<p>Then create the router commands running these scripts:</p>
+
+<pre><code>&lt;code&gt;echo &quot;ip access-list extended DROP.OUT&quot; &gt; DROP.OUT
+cat drop.lasso | grep -v &quot;^;&quot; | awk 'BEGIN {FS=&quot; ; &quot;} ; { print $1}' | sed -f subnet2wildmask.sed | awk '{ print &quot;permit ip any &quot;$1&quot; &quot;$2}' &gt;&gt; DROP.OUT
+
+echo &quot;ip access-list extended DROP.IN&quot; &gt; DROP.IN
+cat drop.lasso | grep -v &quot;^;&quot; | awk 'BEGIN {FS=&quot; ; &quot;} ; { print $1}' | sed -f subnet2wildmask.sed | awk '{ print &quot;permit ip &quot;$1&quot; &quot;$2&quot; any&quot;}' &gt;&gt; DROP.IN
+
+echo &quot;ip access-list extended EDROP.OUT&quot; &gt; EDROP.OUT
+cat edrop.txt | grep -v &quot;^;&quot; | awk 'BEGIN {FS=&quot; ; &quot;} ; { print $1}' | sed -f subnet2wildmask.sed | awk '{ print &quot;permit ip any &quot;$1&quot; &quot;$2}' &gt;&gt; EDROP.OUT
+
+echo &quot;ip access-list extended EDROP.IN&quot; &gt; EDROP.IN
+cat edrop.txt | grep -v &quot;^;&quot; | awk 'BEGIN {FS=&quot; ; &quot;} ; { print $1}' | sed -f subnet2wildmask.sed | awk '{ print &quot;permit ip &quot;$1&quot; &quot;$2&quot; any&quot;}' &gt;&gt; EDROP.IN
+&lt;/code&gt;
+</code></pre>
+
+<h3 id="bogon-list">BOGON list</h3>
+
+<p>Get the list:</p>
+
+<pre><code>&lt;code&gt;wget http://www.team-cymru.org/Services/Bogons/fullbogons-ipv4.txt
+&lt;/code&gt;
+</code></pre>
+
+<p>Convert subnet mask to wildcard mask and create Cisco commands:</p>
+
+<pre><code>&lt;code&gt;echo &quot;ip access-list extended BOGONS.IN&quot; &gt; BOGONS.IN
+cat fullbogons-ipv4.txt | grep -v &quot;^#&quot; | sed -f subnet2wildmask.sed | awk '{ print &quot;permit ip &quot;$1&quot; &quot;$2&quot; any&quot;}' &gt;&gt; BOGONS.IN
+&lt;/code&gt;
+</code></pre>
+
+<p>Note: bogons filters should be only appliend inbound (from public to private network).</p>
+
+<h3 id="apply-lists-on-cisco-s-zone-based-firewall">Apply lists on Cisco&rsquo;s Zone Based Firewall</h3>
+
+<p>We have 6 files now with all the commands necessary to create the access lists on the router:</p>
+
+<ul>
+<li><p>DROP.IN</p></li>
+
+<li><p>DROP.OUT</p></li>
+
+<li><p>EDROP.IN</p></li>
+
+<li><p>EDROP.OUT</p></li>
+
+<li><p>BOGONS.IN</p></li>
+</ul>
+
+<p>Just copy&amp;paste the commands on CLI.</p>
+
+<p>You may have noticed that the commands are all permits. The reason is I use <a href="http://www.cisco.com/c/en/us/support/docs/security/ios-firewall/98628-zone-design-guide.html">Zone Based Firewall</a> on my router with a policy like this:</p>
+
+<pre><code>&lt;code&gt;policy-map type inspect LAN2WAN 
+    class type inspect DROP.OUT
+        drop 
+    class type inspect EDROP.OUT
+        drop
+    class type inspect LAN
+        inspect 
+    class class-default
+        drop
+
+policy-map type inspect WAN2LAN
+    class type inspect BOGONS.IN
+        drop 
+    class type inspect DROP.IN
+        drop 
+    class type inspect EDROP.IN
+        drop
+    class type inspect WAN2LAN
+        pass
+    class class-default
+        drop
+&lt;/code&gt;
+</code></pre>
+
+<p>I&rsquo;ll not dig in the details of ZBFW configuration, if you&rsquo;re interested grab a copy of <a href="http://www.amazon.com/gp/product/B000P28WP8?ie=UTF8&amp;tag=cisioshinandt-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=B000P28WP8">this excellent book</a> written by <a href="http://blog.ipspace.net/2006/11/deploying-zone-based-firewalls.html">Ivan</a> and you&rsquo;ll be good.</p>
+
+<h2 id="what-s-next">What&rsquo;s next</h2>
+
+<p>Since DROP and bogons lists change over time I&rsquo;ll see how they work and maybe implement some sort of update automation with <a href="https://github.com/ktbyers/netmiko">Python/Netmiko</a>.</p>
+
+<h2 id="wrap-up">Wrap up</h2>
+
+<p>DROP and bogons lists should be applied on Tier 1 routers. We&rsquo;re not supposed to see traffic matching those access-lists, this is more a test and a &ldquo;better safe than sorry&rdquo; configuration not something I expect to see on the <a href="http://csrc.nist.gov/publications/PubsSPs.html">NIST Guidelines on Firewalls and Firewall Policy</a> so please think about it before applying on production routers.</p>
+
+<p><strong>FINAL NOTES:</strong> the access lists may be too long, check your device&rsquo;s data sheet to be sure it can support them or enable the compression of config:</p>
+
+<pre><code>&lt;code&gt;ROUTER(config)#service compress-config
+&lt;/code&gt;
+</code></pre>
+
+</div>
+
+</div>
+</div>
+<script src="http://www.ifconfig.it/hugo/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10670358-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

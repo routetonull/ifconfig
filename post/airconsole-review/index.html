@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.16-DEV" />
+
+  <title>New toy: Airconsole &middot; ifconfig.it</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.ifconfig.it/hugoimg/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://www.ifconfig.it/hugo/">ifconfig.it</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/tags/"><i class='fa fa-list fa-fw'></i>Tags</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/gp_ifconfig" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/gpaolo" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/routetonull" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>New toy: Airconsole</h1>
+  <h2></h2>
+</div>
+<div class="content">
+  <p>Console access to devices for a network engineer is almost as important as telnet/ssh access. Usually an usb to serial adapter is required since almost all laptops don&rsquo;t have a serial port. I must admit that a <a href="http://www.amazon.com/Micro-Connectors-Serial-Adapter-E07-162/dp/B0032325LE/ref=sr_1_15?s=electronics&amp;ie=UTF8&amp;qid=1372086953&amp;sr=1-15&amp;keywords=usb+to+serial">dual</a> or <a href="http://www.amazon.com/4-port-RS232-Adapter-FT4232H-ZyWyn/dp/B004EKI4DC/ref=sr_1_36?s=electronics&amp;ie=UTF8&amp;qid=1372087037&amp;sr=1-36&amp;keywords=4+port+usb+to+serial">quad</a> serial adapter is in my Amazon wishlist ;-)</p>
+
+<p>I looked for wireless serial adapters, both bluetooth and wifi, and I even thought to build one myself with <a href="http://www.youtube.com/watch?v=9gLXfOA87zI">RaspberryPi</a>. My final choice was <a href="http://www.get-console.com/airconsole/">Airconsole</a>, now it&rsquo;s time for a review.</p>
+
+<p>What&rsquo;s in the box?</p>
+
+<ul>
+<li><ul>
+<li>Airconsole</li>
+</ul></li>
+
+<li><ul>
+<li>USB to Serial adapter</li>
+</ul></li>
+
+<li><ul>
+<li>Mini USB cable to charge the device</li>
+</ul></li>
+</ul>
+
+<p><img src="http://www.ifconfig.it/images/2013-06-24-17.04.44-300x225.jpg" alt="Airconsole" /></p>
+
+<!-- more -->
+
+<p>The unit is battery powered, it has a button on the side to check the charge:</p>
+
+<p><a href="http://www.ifconfig.it/images/2013-06-24-17.06.06.jpg"><img src="http://www.ifconfig.it/images/2013-06-24-17.06.06-300x225.jpg" alt="2013-06-24 17.06.06" /></a></p>
+
+<p>On one side there&rsquo;s the USB port to connect the serial adapter:</p>
+
+<p><a href="http://www.ifconfig.it/images/2013-06-24-17.05.34.jpg"><img src="http://www.ifconfig.it/images/2013-06-24-17.05.34-300x225.jpg" alt="2013-06-24 17.05.34" /></a></p>
+
+<p>On the other side a RJ45 port to connect it to the network:</p>
+
+<p><a href="http://www.ifconfig.it/images/2013-06-24-17.05.21.jpg"><img src="http://www.ifconfig.it/images/2013-06-24-17.05.21-300x225.jpg" alt="2013-06-24 17.05.21" /></a></p>
+
+<p>The last side has a mini usb port to charge the battery:</p>
+
+<p><a href="http://www.ifconfig.it/images/2013-06-24-17.06.46.jpg"><img src="http://www.ifconfig.it/images/2013-06-24-17.06.46-300x225.jpg" alt="2013-06-24 17.06.46" /></a></p>
+
+<p>How it looks like when connected. The DB9 adapter is not inclued in the <a href="http://www.get-console.com/faq/?secid=9">standard kit</a>, the <a href="http://www.get-console.com/faq/?secid=9">pro kit </a>includes two adapters and a license for the getconsole server.</p>
+
+<p><a href="http://www.ifconfig.it/images/2013-06-24-17.07.39.jpg"><img src="http://www.ifconfig.it/images/2013-06-24-17.07.39-300x225.jpg" alt="2013-06-24 17.07.39" /></a></p>
+
+<p> So how do we connect to the device? It has a web interface for the configuration, see the <a href="http://www.get-console.com/airconsole/files/Airconsole-User-Manual-Full-v1.02.pdf">manual </a>for details, and is <a href="http://tools.ietf.org/html/rfc2217">RFC2217</a> compliant so any virtual serial software should work. I&rsquo;ve tried one from <a href="http://www.hw-group.com/products/hw_vsp/index_en.html">HWgroup</a> and it works.</p>
+
+<p>The software setup is quite easy and well explained on the manual, there&rsquo;s no need to repeat it here.</p>
+
+<p>The serial access speed depends on the quality of the wifi connection. I set it to channel 13 since it&rsquo;s not used in most environments, if the laptop has poos signal the lag on the console can be a problem.</p>
+
+<p>I did some tests of the wifi signal in my house:</p>
+
+<p>Signal in the same room:</p>
+
+<p><a href="http://www.ifconfig.it/images/airconsole-signal-same-room.png"><img src="http://www.ifconfig.it/images/airconsole-signal-same-room-300x220.png" alt="airconsole signal - same room" /></a></p>
+
+<p>Another room, same floor:</p>
+
+<p><a href="http://www.ifconfig.it/images/airconsole-signal-another-room-same-floor1.png"><img src="http://www.ifconfig.it/images/airconsole-signal-another-room-same-floor1-300x223.png" alt="airconsole signal - another room, same floor1" /></a></p>
+
+<p>Another room, same floor:</p>
+
+<p><a href="http://www.ifconfig.it/images/airconsole-signal-another-room-same-floor.png"><img src="http://www.ifconfig.it/images/airconsole-signal-another-room-same-floor-300x218.png" alt="airconsole signal - another room, same floor" /></a></p>
+
+<p>Another floor:</p>
+
+<p><a href="http://www.ifconfig.it/images/airconsole-signal-another-floor.png"><img src="http://www.ifconfig.it/images/airconsole-signal-another-floor-300x224.png" alt="airconsole signal - another floor" /></a></p>
+
+<p>The results are not a surprise, a small battery powered device with integrated antenna can have just a good enough wifi coverage. It is intended to be used inside a server room or datacenter, so the performances are good for it.</p>
+
+<p>The Airconsole can be used as access point too, just remember to disable the internal DHCP server to avoid conflicts in your local network.</p>
+
+<p>Since I&rsquo;ve an iPad I took the chance to test the <a href="https://itunes.apple.com/it/app/get-console/id412067943?mt=8">GetConsole app</a> from the same producer of Airconsole. GetConsole can connect to the Airconsole but the coolest part is the connection sharing, it is possible to access the serial session on the iPad via the Getconsole website:</p>
+
+<p><a href="http://www.ifconfig.it/images/getconsole.png"><img src="http://www.ifconfig.it/images/getconsole-300x252.png" alt="getconsole" /></a></p>
+
+<p>This looks a great solution to remote support field engineers, I&rsquo;ll show this to my boss since it may save us a lot of time for some installations.</p>
+
+<p>I didn&rsquo;t had the opportunity to test the Airconsole in field yet but I&rsquo;m very satisfied so far. I think It will save me from walking in the datacenter with my laptop to get access to the console of the devices (or use a very long cable) I&rsquo;ll just find a comfortable place to sit and move the Airconsole where needed.</p>
+
+<p>As stated in the website the software is under development and more features will be added in the future, like support to multiple serial adapters (via usb hub I suppose).</p>
+
+<p>You can follow one of the co-founder on twitter <a href="https://twitter.com/getconsole">@getconsole</a> (he&rsquo;s a CCIE) or the updates on the website <a href="http://www.get-console.com/">GetConsole</a>.<a href="https://twitter.com/getconsole">
+</a></p>
+
+<p> Five stars to Airconsole and Getconsole!</p>
+
+<p>Note: my review is not sponsored, I paid out of my pocket for this product.</p>
+
+</div>
+
+</div>
+</div>
+<script src="https://www.ifconfig.it/hugojs/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10670358-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

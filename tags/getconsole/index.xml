@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Getconsole on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/getconsole/</link>
+    <description>Recent content in Getconsole on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Mon, 24 Jun 2013 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/getconsole/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>New toy: Airconsole</title>
+      <link>https://www.ifconfig.it/hugo/post/airconsole-review/</link>
+      <pubDate>Mon, 24 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/airconsole-review/</guid>
+      <description>Console access to devices for a network engineer is almost as important as telnet/ssh access. Usually an usb to serial adapter is required since almost all laptops don&amp;rsquo;t have a serial port. I must admit that a dual or quad serial adapter is in my Amazon wishlist ;-)
+I looked for wireless serial adapters, both bluetooth and wifi, and I even thought to build one myself with RaspberryPi. My final choice was Airconsole, now it&amp;rsquo;s time for a review.</description>
+    </item>
+    
+  </channel>
+</rss>

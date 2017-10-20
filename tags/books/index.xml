@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Books on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/books/</link>
+    <description>Recent content in Books on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Sat, 07 Oct 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/books/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Are we the last generation of Network Engineers?</title>
+      <link>https://www.ifconfig.it/hugo/post/theglasscage/</link>
+      <pubDate>Sat, 07 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/theglasscage/</guid>
+      <description>Automation is today a word that can be both scaring and exciting at the same time.
+The scary part is often related to the question: will robots steal my job?
+Federico Pistono says that&amp;rsquo;s ok.
+We read articles about how many jobs will not exist anymore soon, and sometimes how new jobs will be create to support automation. The most advanced analysts try to predict how a society can survive with massive unemployment.</description>
+    </item>
+    
+  </channel>
+</rss>

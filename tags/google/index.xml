@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Google on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/google/</link>
+    <description>Recent content in Google on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Sat, 05 May 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/google/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Google&#39;s Python Class</title>
+      <link>https://www.ifconfig.it/hugo/post/googles-python-class/</link>
+      <pubDate>Sat, 05 May 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/googles-python-class/</guid>
+      <description>Google provides free Python Class under Creative Commons license.</description>
+    </item>
+    
+  </channel>
+</rss>

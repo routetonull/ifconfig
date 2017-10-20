@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.16-DEV" />
+
+  <title>Wonky Wisp, Smokeping and AWS free tier &middot; ifconfig.it</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.ifconfig.it/hugoimg/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://www.ifconfig.it/hugo/">ifconfig.it</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/tags/"><i class='fa fa-list fa-fw'></i>Tags</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/gp_ifconfig" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/gpaolo" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/routetonull" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Wonky Wisp, Smokeping and AWS free tier</h1>
+  <h2></h2>
+</div>
+<div class="content">
+  <p>My home network is connected to the Internet via radio bridge. The reason is ADSL services were not available a couple of years ago, now it is but since the radio bridge is cheap and works (most of the time) I really don&rsquo;t care to change.</p>
+
+<p>Some time ago I started to notice downtime of the Internet connection, I sent a few emails to the wisp but the answer was always the same: &ldquo;we don&rsquo;t see a problem right now&rdquo;.</p>
+
+<p>That was quite clear, I can send the email only if the Internet connection is active! Their time to react is very slow so I needed a tool to monitor my connection and a server to do it.</p>
+
+<p>My first choice of tool to monitor connections is <a href="http://oss.oetiker.ch/smokeping/">Smokeping</a>. I use it to monitor not only link latency and packet loss but also DNS, Radius and other services response time. It&rsquo;s very easy to configure and the graphs are very clear.</p>
+
+<p>But where could I install Smokeping? <a href="http://aws.amazon.com/free/">Amazon AWS Free Usage Tier</a> seemed the perfect choice! Amazon offers a micro istance for free for 12 months, read <a href="http://aws.amazon.com/free/faqs/">FAQ</a> for details.</p>
+
+<p><a href="http://www.ifconfig.it/images/aws_free_tier.png"><img src="http://www.ifconfig.it/images/aws_free_tier-300x208.png" alt="aws_free_tier" /></a>So I&rsquo;ve registered and installed a Debian 32 bit <a href="https://aws.amazon.com/amis">AMI</a>. The entire operation took me less than 15 minutes.</p>
+
+<!-- more -->
+
+<p>I was quite surprised I can access my server via SSH using the provided keys, somehow I&rsquo;ve expected to access the server through a proprietary shell or front end.</p>
+
+<p>The next step is to to install smokeping with &ldquo;aptitute install smokeping&rdquo; and I&rsquo;m ready to configure it.</p>
+
+<p>I did just a basic configuration, what I needed was to check the reachability of my home router and the next hop that is the radio bridge:</p>
+
+<p><a href="http://www.ifconfig.it/images/smoke_aws.png"><img src="http://www.ifconfig.it/images/smoke_aws-300x125.png" alt="smoke_aws" /></a></p>
+
+<p>The only configuration I&rsquo;ve added to Smokeping is an action to perform a traceroute and log it when more than half of the packets are lost.</p>
+
+<p>Add this to /etc/smokeping/config.d/Alerts</p>
+
+<blockquote>+ totalloss
+type = loss
+pattern = >50%
+to = |/bin/traceroute.bin
+comment = lost half packets</blockquote>
+
+<p>and set the alert in the host section in /etc/smokeping/config.d/Targets</p>
+
+<blockquote>++ NEXT-HOP
+menu = NEXT-HOP
+title = NEXT-HOP 94.xx.xx.xx
+host = 94.xx.xx.xx
+alerts = totalloss</blockquote>
+
+<p>The script _/bin/traceroute.bin_ is very simple:</p>
+
+<blockquote>date >> /var/log/trace
+tracepath -b 94.xx.xx.xx >> /var/log/trace</blockquote>
+
+<p>When the network goes down now I can see where the problem is and <del>complain</del> send a detailed email to the WISP.</p>
+
+<p>So did they solve the problem? Of course not! The Wisp backbone is made by both fiber and wireless bridges, looks like they have an issue with a link but just don&rsquo;t care or know how to fix it.</p>
+
+<p>The conclusion is my Internet connection is still wonky, but at least I had the opportunity to understand a little bit more what AWS is and to play with a quite interesting technology for free thanks to Amazon.</p>
+
+<p>I hope they&rsquo;ll keep it free even after the first 12 months, the micro instance is micro but big enough for many small tasks.</p>
+
+<p>HTH</p>
+
+</div>
+
+</div>
+</div>
+<script src="https://www.ifconfig.it/hugojs/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10670358-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

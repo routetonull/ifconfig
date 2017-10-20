@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Certification on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/certification/</link>
+    <description>Recent content in Certification on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 04 May 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/certification/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CWNA</title>
+      <link>https://www.ifconfig.it/hugo/post/2014-05-04-cwna/</link>
+      <pubDate>Sun, 04 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2014-05-04-cwna/</guid>
+      <description>Last week I passed PW0-105 exam and obtained the CWNA certification:
+I work with wireless network since 2005, I began installing some SoHo APs and in the last few years I designed and deployed many bigger networks, some of which are challenging high density environments.
+I read manyCisco documents about wifi design and in this year&amp;rsquo;s Cisco Live I attended many session related to wifi. After passing CCNA-W I didn&amp;rsquo;t felt confident enough, I know how to design, install and troubleshoot a wireless network but I wanted to have a deeper knowledge of the technologies involved ant how the protocols work.</description>
+    </item>
+    
+    <item>
+      <title>Certified in CCNP Security</title>
+      <link>https://www.ifconfig.it/hugo/post/2011-11-23-certified-in-ccnp-security/</link>
+      <pubDate>Wed, 23 Nov 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2011-11-23-certified-in-ccnp-security/</guid>
+      <description>Today I passed this Cisco exam: (642-647) Deploying Cisco ASA VPN Solutions v1.0 (VPN) and my CCSP certification is now updated to the new CCNP(Security).
+I&amp;rsquo;ve prepared the exam on the Cisco Press Official Cert Guide. The exam was not very hard, probably because I work on Pix/Asa platforms since 2007. The guide is very complete and actually I&amp;rsquo;ve re-learned some topics and how to deploy SSL and WebVPN in a better way, easyer to manage and to scale.</description>
+    </item>
+    
+  </channel>
+</rss>

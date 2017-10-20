@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Brocade on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/brocade/</link>
+    <description>Recent content in Brocade on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 12 Apr 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/brocade/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Brocade Certified Network Professional</title>
+      <link>https://www.ifconfig.it/hugo/post/2012-04-12-bcnp/</link>
+      <pubDate>Thu, 12 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2012-04-12-bcnp/</guid>
+      <description>Passed Brocade 150-220 exam, another badge added to my c.v.
+Having a CCNP background and some CCIE theory knowledge I found this exam quite easy.On the exam blueprint just some QoS implementations, VRRP-E and Metro Ring Protocol are different than Cisco exams. STP and IGP/BGP are almost the same, and no EIGRP of course!</description>
+    </item>
+    
+  </channel>
+</rss>

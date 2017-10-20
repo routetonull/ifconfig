@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vcp on ifconfig.it</title>
+    <link>http://www.ifconfig.it/hugo/tags/vcp/</link>
+    <description>Recent content in Vcp on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Fri, 11 Dec 2015 22:03:27 +0000</lastBuildDate>
+    <atom:link href="http://www.ifconfig.it/hugo/tags/vcp/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>VMware VCP5-DCV for a network engineer</title>
+      <link>http://www.ifconfig.it/hugo/post/vcp5dcv/</link>
+      <pubDate>Fri, 11 Dec 2015 22:03:27 +0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/vcp5dcv/</guid>
+      <description>
+
+&lt;p&gt;Today I passed exam &lt;strong&gt;VCP550&lt;/strong&gt; and got &lt;a href=&#34;https://mylearn.vmware.com/mgrReg/plan.cfm?plan=12457&amp;amp;ui=www_cert=www&#34;&gt;&lt;strong&gt;VMware VCP5-DCV&lt;/strong&gt;&lt;/a&gt; certification.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2015/12/vcp-dcv.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;exam-preparation&#34;&gt;Exam preparation&lt;/h2&gt;
+
+&lt;p&gt;For exam preparation I attended the official training that is mandatory to access the exam. The printed material provided with the training is good enough but I integrated with the great &lt;a href=&#34;http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118661141.html&#34;&gt;Mastering VMware vSphere 5.5&lt;/a&gt; by &lt;a href=&#34;http://blog.scottlowe.org/&#34;&gt;Scott Lowe&lt;/a&gt;. The &lt;a href=&#34;https://pubs.vmware.com/vsphere-55/index.jsp&#34;&gt;official documentation&lt;/a&gt; available online for free.&lt;/p&gt;
+
+&lt;p&gt;I had some hands-on experience with VSphere, did some installations myself and supported some trouble tickets so even if I don&amp;rsquo;t work every day with VSphere I have a decent knowledge on the topic.&lt;/p&gt;
+
+&lt;p&gt;For the practice labs I used my trusty &lt;a href=&#34;http://n40l.wikia.com/wiki/HP_MicroServer_N40L_Wiki&#34;&gt;HP Microserver N40L&lt;/a&gt; with a &lt;a href=&#34;http://vsphere-land.com/tag/home-lab&#34;&gt;nested lab&lt;/a&gt;. It takes some minutes to start but I can easily run 2 ESXi hosts and a vCenter Appliance plus a Linux VM for iSCSI shared storage.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-exam&#34;&gt;The Exam&lt;/h2&gt;
+
+&lt;p&gt;I found the exam quite long but questions were very clear and well explained, VMware put a good effort to make the exam hard but fair. I skipped some question and had to think through some others, many were quite easy if you have a good grasp of the products.&lt;/p&gt;
+
+&lt;h2 id=&#34;why-vcp-for-a-network-engineer&#34;&gt;Why VCP for a Network Engineer?&lt;/h2&gt;
+
+&lt;p&gt;Because I&amp;rsquo;m a generalist as &lt;a href=&#34;http://www.networkworld.com/article/3012318/leadership-management/why-you-need-to-hire-it-generalists.html&#34;&gt;defined by Thor Olavsrud from NetworkWorld&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I want to be able to talk with VMware professionals and understand what they say and how their needs interact with the network I manage or design. And I&amp;rsquo;m curious.&lt;/p&gt;
+
+&lt;p&gt;Networking is not just about moving IP packets anymore. I don&amp;rsquo;t want use use buzz words but what SDN is teaching to network professionals today is that the devices we manage and networks we design must go up to L7.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Next-Generation_Firewall&#34;&gt;Next gen firewalls&lt;/a&gt;, &lt;a href=&#34;https://en.wikipedia.org/wiki/Overlay_network&#34;&gt;overlay networks&lt;/a&gt;, traffic type and directions analysis in a datacenter, &lt;a href=&#34;http://www.cisco.com/c/en/us/solutions/enterprise-networks/intelligent-wan/index.html&#34;&gt;IWAN&lt;/a&gt;, SDN, virtualization&amp;hellip; all these technologies require a broader understanting of applications, traffic flows and what is carried by the network.&lt;/p&gt;
+
+&lt;p&gt;I don&amp;rsquo;t want to blame developers, servery guys or other professionals but I see the Network Engineer as the best profile to manage all the components of the IT infrastructure.&lt;/p&gt;
+
+&lt;p&gt;Years of &lt;a href=&#34;https://www.google.com/search?q=blame+the+network&amp;amp;oq=blame+the+network&amp;amp;aqs=chrome..69i57j0l2.2258j0j1&amp;amp;sourceid=chrome&amp;amp;es_sm=93&amp;amp;ie=UTF-8&#34;&gt;pointed fingers&lt;/a&gt; and &lt;a href=&#34;http://www.itblame.com/&#34;&gt;blame game&lt;/a&gt; from the other IT roles forced Network Engineers to understand all the elements of the IT company so we already have a broad view of the IT world, now it&amp;rsquo;s time to use it for our own career.&lt;/p&gt;
+
+&lt;h2 id=&#34;my-2-cents&#34;&gt;My 2 cents&lt;/h2&gt;
+
+&lt;p&gt;IT Generalist will be an actual job role soon or maybe we should just be brave and call us IT Architects.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

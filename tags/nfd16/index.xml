@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nfd16 on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/nfd16/</link>
+    <description>Recent content in Nfd16 on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Tue, 17 Oct 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/nfd16/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>NFD16 day two - Cisco Project Starship a.k.a. Intersight</title>
+      <link>https://www.ifconfig.it/hugo/post/nfd16day2ciscostartship/</link>
+      <pubDate>Tue, 17 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/nfd16day2ciscostartship/</guid>
+      <description>Day two of NFD16 with Cisco. The presentation was split in two parts. First part for Intersight, second part for Tetration.
+I&amp;rsquo;ll post here just a few thoughts about Intersight.
+Merakify all the servers! What&amp;rsquo;s Cisco Intersight? If you&amp;rsquo;re familiar with cloud-managed devices like Meraki the concept is quite similar.
+A Cisco server runs the Device Connector client that links to a central management portal that runs on Cisco DC SaaS.</description>
+    </item>
+    
+    <item>
+      <title>NFD16 day two - Apstra</title>
+      <link>https://www.ifconfig.it/hugo/post/nfd16day2apstra/</link>
+      <pubDate>Fri, 29 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/nfd16day2apstra/</guid>
+      <description>Day two of NFD16 started with Apstra and their intent-based networking system.
+Intent concept is not as broad as SDN but still vendors have different views of this meaning.
+According to Apstra an intent is &amp;ldquo;the definition of the expected outcome&amp;rdquo;. The sum of the intents of a network is the source of truth.
+Read Sasha Ratkovic blog post about the definition of Intent Based Networking. The checklist he suggest can be very useful to compare different solutions and spot intent washing strategies.</description>
+    </item>
+    
+    <item>
+      <title>NFD16 day one - Arista</title>
+      <link>https://www.ifconfig.it/hugo/post/nfd16day1arista/</link>
+      <pubDate>Sat, 23 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/nfd16day1arista/</guid>
+      <description>Second part of Tech Field Day NFD16 day 1 continues with Arista.
+Getting ready for @AristaNetworks #NFD16 pic.twitter.com/SCWXVGsR2l
+&amp;mdash; Gian Paolo (@gp_ifconfig) September 13, 2017  Arista&amp;rsquo;s presentation included 400G (hist: it&amp;rsquo;s fast!), EOS programmability, Network Automation and Telemetry, Routing Architecture Transformations.
+All video recording are in the youtube channel of TechFielDay.
+EOS Programmability Ken Duda (Founder, CTO, and Senior VP of Software Engineering) did a great session about EOS programmability explaining the reason of some technical choices and the available options.</description>
+    </item>
+    
+    <item>
+      <title>NFD16 day one - Veriflow</title>
+      <link>https://www.ifconfig.it/hugo/post/nfd16day1veriflow/</link>
+      <pubDate>Wed, 20 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/nfd16day1veriflow/</guid>
+      <description>First day at Tech Field Day NFD16, I&amp;rsquo;m quite excited to be here among fellow network engineers to share our views on products and technologies.
+I&amp;rsquo;m planning to post my takeaways for each vendor with variable lengths based on my knowledge and interest of the specific product.
+Today&amp;rsquo;s first presenter is Veriflow. Let&amp;rsquo;s see what Continuous Network Verification is and how it can help to make networks more robust and secure.</description>
+    </item>
+    
+  </channel>
+</rss>

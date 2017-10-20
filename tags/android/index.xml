@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Android on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/android/</link>
+    <description>Recent content in Android on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 18 Jan 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Android - Airdroid</title>
+      <link>https://www.ifconfig.it/hugo/post/android-airdroid/</link>
+      <pubDate>Wed, 18 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/android-airdroid/</guid>
+      <description>&amp;ldquo;AirDroid is a fast, free app that lets you wirelessly manage &amp;amp; control your Android device from a web browser Over-The-Air.&amp;rdquo;
+LINK</description>
+    </item>
+    
+    <item>
+      <title>Android - Sleep Bot Tracket Log</title>
+      <link>https://www.ifconfig.it/hugo/post/android-sleep-bot-tracket-log/</link>
+      <pubDate>Wed, 11 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/android-sleep-bot-tracket-log/</guid>
+      <description>&amp;ldquo;SleepBot logs, graphs, &amp;amp; analyzes your sleep - With resources, alarm, &amp;amp; exports!&amp;rdquo;
+This is a great alarm app for Android. It&amp;rsquo;s not only an alarm but it tracks your sleeping hours and shows in a graph the trending.
+LINK</description>
+    </item>
+    
+  </channel>
+</rss>

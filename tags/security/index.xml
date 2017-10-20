@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Security on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/security/</link>
+    <description>Recent content in Security on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Mon, 04 Apr 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>WiFi security 4 dummies</title>
+      <link>https://www.ifconfig.it/hugo/post/2016-04-04-wifisec4dummies/</link>
+      <pubDate>Mon, 04 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2016-04-04-wifisec4dummies/</guid>
+      <description>Customer site, their security policy for WiFi is an SSID with a secret PSK: the IT manager type the password on my PC to allow me to access the network.
+Maybe he&amp;rsquo;s not aware of my keylogger or that the password con be easily retrieved in cleartext. Let&amp;rsquo;s see how.
+Windows 10: retrieve the WiFi PSK in cleartext Show a list of all WiFi profiles configured on the PC:</description>
+    </item>
+    
+    <item>
+      <title>Drop and bogons list on Cisco router</title>
+      <link>https://www.ifconfig.it/hugo/post/2016-03-28-dropbogons/</link>
+      <pubDate>Mon, 28 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2016-03-28-dropbogons/</guid>
+      <description>The Cyberspace a.k.a. the Internet is full of bad guys wanting to mess with our computers right?
+Of course everyone of us have a firewall configured with proper access and inspection rules, don&amp;rsquo;t ya?
+Spamhaus and Team Cymru can help providing list of known bad IPs and subnets that should be filtered in our networks.
+Spamhaus DROP list  &amp;ldquo;DROP (Don&amp;rsquo;t Route Or Peer) and EDROP are advisory &amp;ldquo;drop all traffic&amp;rdquo; lists, consisting of netblocks that are &amp;ldquo;hijacked&amp;rdquo; or leased by professional spam or cyber-crime operations (used for dissemination of malware, trojan downloaders, botnet controllers).</description>
+    </item>
+    
+    <item>
+      <title>Tomahawk Test Tool</title>
+      <link>https://www.ifconfig.it/hugo/post/tomahawk/</link>
+      <pubDate>Fri, 04 May 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/tomahawk/</guid>
+      <description>Tomahawk is a command line tool for testing network-based intrusion prevention systems (NIPS).
+The concept is simple, you can download virus,attacks,exploit pcaps from many sources and save them on the Tomahawk machine. To test an IPS you need tree network interfaces: one for management, one to send traffic and one to receive. If the attack sent on the interface is received on the other interface the IPS didn&amp;rsquo;t filtered it.</description>
+    </item>
+    
+  </channel>
+</rss>

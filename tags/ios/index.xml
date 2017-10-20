@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ios on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/ios/</link>
+    <description>Recent content in Ios on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Mon, 03 Aug 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/ios/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Quick config: SSL VPN on Cisco IOS via CLI</title>
+      <link>https://www.ifconfig.it/hugo/post/2015-08-03-quick-config-ssl-vpn-on-cisco-ios-via-cli/</link>
+      <pubDate>Mon, 03 Aug 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2015-08-03-quick-config-ssl-vpn-on-cisco-ios-via-cli/</guid>
+      <description>Platform: CISCO2921 IOS version: 15.3(3)M5
+Load the anyconnect package on the flash of the router and configure anyconnect client package (be patient, this may take a while&amp;hellip;):
+crypto vpn anyconnect flash0:/webvpn/anyconnect-win-4.1.04011-k9.pkg sequence 1 SSLVPN Package SSL-VPN-Client (seq:1): installed successfully  Create a virtual template, that&amp;rsquo;s the interface the VPN clients will attach to:
+interface Virtual-Template1 ip address 172.31.255.254 255.255.255.0  Create a local pool to assign IP addresses to VPN clients:</description>
+    </item>
+    
+  </channel>
+</rss>

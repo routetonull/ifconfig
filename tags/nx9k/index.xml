@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nx9k on ifconfig.it</title>
+    <link>http://www.ifconfig.it/hugo/tags/nx9k/</link>
+    <description>Recent content in Nx9k on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 27 Nov 2014 15:26:27 +0000</lastBuildDate>
+    <atom:link href="http://www.ifconfig.it/hugo/tags/nx9k/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Cisco Nexus 9000 training DCINX9K</title>
+      <link>http://www.ifconfig.it/hugo/post/dcinx9k/</link>
+      <pubDate>Thu, 27 Nov 2014 15:26:27 +0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/dcinx9k/</guid>
+      <description>&lt;p&gt;This week I attended a two days training of Cisco &lt;strong&gt;&lt;a href=&#34;http://www.fireflycom.net/?cmd=course&amp;amp;id=DCINX9K&#34;&gt;DCINX9K&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The training is focused on Cisco Nexus 9000 switches in NX-OS mode.&lt;/p&gt;
+
+&lt;p&gt;NX9K can run two different software images, the full ACI image with all the cool SDN stuff and the traditional NS-OX image with some cool features like &lt;a href=&#34;http://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus9000/sw/6-x/programmability/guide/b_Cisco_Nexus_9000_Series_NX-OS_Programmability_Guide.html&#34;&gt;Python&lt;/a&gt;, Rest API, VX-LAN and more.&lt;/p&gt;
+
+&lt;p&gt;Now it&amp;rsquo;s time to improve my Python skills and borrow a couple of boxes to do some labs.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m quite excited of the convergence of Virtualization, Networking and Python, feels like &lt;strong&gt;&lt;a href=&#34;http://news.stanford.edu/news/2005/june15/jobs-061505.html&#34;&gt;joining the dots&lt;/a&gt;&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/hugo/wordpress/wp-content/uploads/2014/11/wpid-20141127_160712.jpg&#34; alt=&#34;Alt&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

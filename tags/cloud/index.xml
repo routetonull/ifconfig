@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cloud on ifconfig.it</title>
+    <link>http://www.ifconfig.it/hugo/tags/cloud/</link>
+    <description>Recent content in Cloud on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Sat, 18 Dec 2010 17:23:55 +0000</lastBuildDate>
+    <atom:link href="http://www.ifconfig.it/hugo/tags/cloud/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Sugarsync</title>
+      <link>http://www.ifconfig.it/hugo/post/sugarsync/</link>
+      <pubDate>Sat, 18 Dec 2010 17:23:55 +0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/sugarsync/</guid>
+      <description>&lt;p&gt;Sugarsync is a storage service in the cloud, up to 5GB are free, register &lt;a href=&#34;https://www.sugarsync.com/referral?rf=d5zaq86670spz&#34;&gt;HERE&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

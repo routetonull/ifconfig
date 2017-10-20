@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.26" />
+
+  <title>Networking &middot; ifconfig.it</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="ifconfig.it" href="https://www.ifconfig.it/hugo/tags/networking/index.xml" />
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.ifconfig.it/hugoimg/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-2507441616057251",
+    enable_page_level_ads: true
+  });
+</script>
+  
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://www.ifconfig.it/hugo/">ifconfig.it</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/tags/"><i class='fa fa-list fa-fw'></i>Tags</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/tags/networking/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/gp_ifconfig" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/gpboa" target="_blank"><i class="fa fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/gpaolo" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/routetonull" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://keybase.io/bgp" target="_blank"><i class="fa fa-key fa-fw"></i>Keybase</a>
+    </li>
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Networking</h1>
+</div>
+
+<div class="content">
+  
+    <article>
+  <header>
+    <h2><a href="https://www.ifconfig.it/hugo/post/nfd16day2apstra/">NFD16 day two - Apstra</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+	<time>Friday, September 29, 2017
+	</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/networking">networking</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/techfieldday">techfieldday</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/nfd16">nfd16</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Day two of NFD16 started with Apstra and their intent-based networking system.
+Intent concept is not as broad as SDN but still vendors have different views of this meaning.
+According to Apstra an intent is &ldquo;the definition of the expected outcome&rdquo;. The sum of the intents of a network is the source of truth.
+Read Sasha Ratkovic blog post about the definition of Intent Based Networking. The checklist he suggest can be very useful to compare different solutions and spot intent washing strategies.
+  </p>
+
+  
+  <footer>
+    <a href="https://www.ifconfig.it/hugo/post/nfd16day2apstra/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://www.ifconfig.it/hugo/post/nfd16day1arista/">NFD16 day one - Arista</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+	<time>Saturday, September 23, 2017
+	</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/networking">networking</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/techfieldday">techfieldday</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/nfd16">nfd16</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Second part of Tech Field Day NFD16 day 1 continues with Arista.
+Getting ready for @AristaNetworks #NFD16 pic.twitter.com/SCWXVGsR2l
+&mdash; Gian Paolo (@gp_ifconfig) September 13, 2017  Arista&rsquo;s presentation included 400G (hist: it&rsquo;s fast!), EOS programmability, Network Automation and Telemetry, Routing Architecture Transformations.
+All video recording are in the youtube channel of TechFielDay.
+EOS Programmability Ken Duda (Founder, CTO, and Senior VP of Software Engineering) did a great session about EOS programmability explaining the reason of some technical choices and the available options.
+  </p>
+
+  
+  <footer>
+    <a href="https://www.ifconfig.it/hugo/post/nfd16day1arista/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://www.ifconfig.it/hugo/post/nfd16day1veriflow/">NFD16 day one - Veriflow</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+	<time>Wednesday, September 20, 2017
+	</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/networking">networking</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/techfieldday">techfieldday</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/nfd16">nfd16</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  First day at Tech Field Day NFD16, I&rsquo;m quite excited to be here among fellow network engineers to share our views on products and technologies.
+I&rsquo;m planning to post my takeaways for each vendor with variable lengths based on my knowledge and interest of the specific product.
+Today&rsquo;s first presenter is Veriflow. Let&rsquo;s see what Continuous Network Verification is and how it can help to make networks more robust and secure.
+  </p>
+
+  
+  <footer>
+    <a href="https://www.ifconfig.it/hugo/post/nfd16day1veriflow/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://www.ifconfig.it/hugo/post/piconsole2/">AirPiConsole part two</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+	<time>Saturday, September 2, 2017
+	</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/networking">networking</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/linux">linux</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/raspberry">raspberry</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Welcome back to AirPiConsole blog post, this is part two.
+If you read part one and followed the configuration steps you should now have a fully working Raspberry Pi Zero W connected to your WiFi network.
+You should also be able to connect via Bluetooth to get a console connection without knowing the IP address of the Raspi.
+Now it&rsquo;s time to move on and start to actually connect to the serial ports.
+  </p>
+
+  
+  <footer>
+    <a href="https://www.ifconfig.it/hugo/post/piconsole2/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://www.ifconfig.it/hugo/post/piconsole1/">AirPiConsole part one</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+	<time>Friday, September 1, 2017
+	</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/networking">networking</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/linux">linux</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/raspberry">raspberry</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  As a network engineer I spend a lot of time with my laptop connected via serial cable to various devices.
+Physical serial connection is needed for initial device setup and sometimes per customer&rsquo;s security policy I can&rsquo;t access the network, so I can only use out-of-band management. I also configure many devices at staging lab that I call the &ldquo;Theory room&rdquo; because you know, in theory everything works ;-)
+  </p>
+
+  
+  <footer>
+    <a href="https://www.ifconfig.it/hugo/post/piconsole1/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://www.ifconfig.it/hugo/post/2017-08-12-nfd16-delegate/">NFD16 delegate</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+	<time>Saturday, August 12, 2017
+	</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/networking">networking</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/events">events</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/nfd">nfd</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  I&rsquo;m happy to announce I&rsquo;ll join a great team of professionals for 3 days of pure networking awesomeness in Silicon Valley:
+Great news: I&#39;m a #NFD16 delegate! https://t.co/WuziopJtKc Can&#39;t wait to join such a great team of professionals!
+&mdash; Gian Paolo (@gp_ifconfig) August 11, 2017  NFD16 is part of Tech Field Day events where vendors and professionals meet to share and discuss about the IT world, products, trends and future.
+  </p>
+
+  
+  <footer>
+    <a href="https://www.ifconfig.it/hugo/post/2017-08-12-nfd16-delegate/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://www.ifconfig.it/hugo/post/2017-08-07-python-hp-to-cisco-switchport-migration/">HP Procurve to Cisco switchport migration with Python and Netmiko</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+	<time>Friday, August 11, 2017
+	</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/networking">networking</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/python">python</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/automation">automation</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Summertime usually means a busy period for Network Engineers, customers are on holidays and we have the opportunity to performs all the changes that impact network connectivity.
+For me this usually means core switch replacement.
+Today I was moving a configuration from an HP8200 to a Cisco 4500, taking care of all the details of ports, trunks, vlans.
+From this:
+to this:
+When a task is manual, boring, repetitive and error-prone my automation skills came to help.
+  </p>
+
+  
+  <footer>
+    <a href="https://www.ifconfig.it/hugo/post/2017-08-07-python-hp-to-cisco-switchport-migration/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://www.ifconfig.it/hugo/post/2017-07-30-network-career-interview/">Networkcareer.net interview</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+	<time>Wednesday, July 26, 2017
+	</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/networking">networking</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  My interview was published today on Networkcareer.net, the latest project from Daniel Dib and Kim Pedersen.
+It&rsquo;s available online HERE.
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://www.ifconfig.it/hugo/post/2017-05-27-ansible-start/">Ansible and IOS quick start</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+	<time>Saturday, May 27, 2017
+	</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/ansible">ansible</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/networking">networking</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Ansible has been around for I while but I didn&rsquo;t had a chance to play with it so far.
+Now the time has come: I manage enough IOS devices with homogeneous configurations in multiple sites without Cisco Prime. Any change is a pain, it&rsquo;s time to automate all the things!
+My environment I run Ansible inside Bash on Windows, I don&rsquo;t see any issue or difference than running in an actual Linux box or docker/vagrant/whatever and it permits a better integration with the tools I already use.
+  </p>
+
+  
+  <footer>
+    <a href="https://www.ifconfig.it/hugo/post/2017-05-27-ansible-start/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://www.ifconfig.it/hugo/post/merakimasters/">Meraki Masters</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+	<time>Monday, November 14, 2016
+	</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/meraki">meraki</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/networking">networking</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Last week I had the opportunity to attend a &ldquo;Cisco Meraki Masters&rdquo; session at Meraki HQ in San Francisco.
+Meraki Masters is a program that sits on top of CMNA to give partners a deeper view of the Meraki product line, vision and roadmap.
+Merakify a.k.a. &ldquo;Don&rsquo;t spend your time doing work a well-trained monkey could do.&rdquo; Meraki has a strong focus on the &ldquo;merakification&rdquo; of the products. Merakification means that all the repetitive tasks a network administrator performs almost on daily basis are now included in the Meraki Dashboard.
+  </p>
+
+  
+  <footer>
+    <a href="https://www.ifconfig.it/hugo/post/merakimasters/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://www.ifconfig.it/hugo/post/2015-05-18-docker-networking-bridge/">Docker networking bridge to host NIC</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+	<time>Monday, May 18, 2015
+	</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/docker">docker</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/linux">linux</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/networking">networking</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  This post is part of a series about Docker, including:
+ Docker Introduction
+ Docker: Install software inside a container
+ Docker Volumes
+  Today we&rsquo;ll see Docker networking with a very specific target in mind: bridge container to the host network.
+This isn&rsquo;t supposed to be the way of work of containers: a container should be created to run a single application so container networking, from the point of view of a Network Engineer, is essentialy a Port Address Translation with a firewall exception.
+  </p>
+
+  
+  <footer>
+    <a href="https://www.ifconfig.it/hugo/post/2015-05-18-docker-networking-bridge/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://www.ifconfig.it/hugo/post/2014-11-28-rj45splitter/">Ethernet Economiser aka RJ45 splitter</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+	<time>Friday, November 28, 2014
+	</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/networking">networking</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Just a quick post since I speak with many network engineers and I notice some confusion about this topic.
+Are all 4 pairs of an Cat5e cable used? The answer is.. it depends.
+For gigabit speed 1000T all four pairs are used. If 100TX speed is enough we can of course split the cable and double the connections without pulling more cables:
+In my specific case I&rsquo;ve used a single cable drop in the garage to connect a humidity/temperature to a 1wire bus sensor while allowing a future connection of an ethernet device.
+  </p>
+
+  
+  <footer>
+    <a href="https://www.ifconfig.it/hugo/post/2014-11-28-rj45splitter/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://www.ifconfig.it/hugo/post/2014-05-04-cwna/">CWNA</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+	<time>Sunday, May 4, 2014
+	</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/networking">networking</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/wireless">wireless</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/certification">certification</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Last week I passed PW0-105 exam and obtained the CWNA certification:
+I work with wireless network since 2005, I began installing some SoHo APs and in the last few years I designed and deployed many bigger networks, some of which are challenging high density environments.
+I read manyCisco documents about wifi design and in this year&rsquo;s Cisco Live I attended many session related to wifi. After passing CCNA-W I didn&rsquo;t felt confident enough, I know how to design, install and troubleshoot a wireless network but I wanted to have a deeper knowledge of the technologies involved ant how the protocols work.
+  </p>
+
+  
+  <footer>
+    <a href="https://www.ifconfig.it/hugo/post/2014-05-04-cwna/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://www.ifconfig.it/hugo/post/2012-10-23-pvst-interoperability/">PVST and non Cisco switches interoperability</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+	<time>Tuesday, October 23, 2012
+	</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/networking">networking</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  This week I&rsquo;m attending an HP training in Milan The course topics aren&rsquo;t as challenging as I&rsquo;ve expected but I had the opportunity to test focus on some interoperability problems that may occur in mixed environments, especially with Cisco and non-Cisco devices, like PVST.
+For this post we use 2 switches, a Cisco and a non Cisco (HP in this case), the topology is simple:
+CISCO port g1/0/3 --&gt; HP port 13  On the Cisco switch we enable PVST:
+  </p>
+
+  
+  <footer>
+    <a href="https://www.ifconfig.it/hugo/post/2012-10-23-pvst-interoperability/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://www.ifconfig.it/hugo/post/2012-01-28-cisco-switches-and-voice-vlan/">Cisco switches and Voice VLAN</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+	<time>Saturday, January 28, 2012
+	</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/networking">networking</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Remember: voice Vlan is not automatically created when applied to a port. You must create it!
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://www.ifconfig.it/hugo/post/2012-01-02-122/">HP Fast Track</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+	<time>Monday, January 2, 2012
+	</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/networking">networking</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/certifications">certifications</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  HP allows Cisco certified people to achieve it&rsquo;s MASE/ASE certs using Fast Track:
+
+While HP certifications aren&rsquo;t as popular as Cisco&rsquo;s they can be a way to learn a different platform and increase career opportunities.
+The official cert guide is available on Amazon.
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://www.ifconfig.it/hugo/post/2011-03-13-the-10-networking-commandments/">The 10 Networking Commandments</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+	<time>Sunday, March 13, 2011
+	</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/networking">networking</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Thou shalt above all, maintain the integrity of the network. Thou shalt have a long term strategic direction. Thou shalt always opt for quality before expediency. Thou shalt meet the requirements, exceed the expectations and anticipate the needs of users. Thou shalt benefit from a successful implementation by careful project planning. Thou shalt provide reliability, availability and serviceability. Thou shalt maintain detailed, timely and accurate documentation. Thou shalt commit to continuous training.
+  </p>
+
+  
+  <footer>
+    <a href="https://www.ifconfig.it/hugo/post/2011-03-13-the-10-networking-commandments/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+</div>
+
+</div>
+</div>
+<script src="https://www.ifconfig.it/hugojs/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10670358-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>

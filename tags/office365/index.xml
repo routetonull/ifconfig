@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Office365 on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/office365/</link>
+    <description>Recent content in Office365 on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Sat, 11 Jun 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/office365/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Cisco ASA and Office 365</title>
+      <link>https://www.ifconfig.it/hugo/post/2016-06-11-asaoffice365/</link>
+      <pubDate>Sat, 11 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2016-06-11-asaoffice365/</guid>
+      <description>Office 365 is widely used between many customers. Some of them happen to manage all the Internet connections through a Cisco ASA, not the fancy ASA-X with Firepower, just the plain old 5510.
+I was asked to allow Office 365 traffic, looks easy huh?
+Step 1: know your enemy After some Google-fu I found Microsoft kindly provides an update list of the IP/subnet/URLs necessary to access various services including Office 365, Lync, OneNOte etc.</description>
+    </item>
+    
+  </channel>
+</rss>

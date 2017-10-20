@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Security on IFCONFIG.IT </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>http://www.ifconfig.it/hugo/categories/security/</link>
+    <language>en-us</language>
+    
+    
+    <updated>Mon, 28 Mar 2016 15:33:40 &#43;0000</updated>
+    
+    <item>
+      <title>Drop and bogons list on Cisco router</title>
+      <link>http://www.ifconfig.it/hugo/post/dropbogons/</link>
+      <pubDate>Mon, 28 Mar 2016 15:33:40 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/dropbogons/</guid>
+      <description>
+
+&lt;p&gt;The &lt;a href=&#34;https://www.eff.org/cyberspace-independence&#34;&gt;Cyberspace&lt;/a&gt; a.k.a. the &lt;a href=&#34;https://www.youtube.com/watch?v=iDbyYGrswtg&#34;&gt;Internet&lt;/a&gt; is full of &lt;a href=&#34;http://www.usanetwork.com/mrrobot&#34;&gt;bad guys&lt;/a&gt; wanting to mess with our computers right?&lt;/p&gt;
+
+&lt;p&gt;Of course everyone of us have a firewall configured with proper access and inspection rules, don&amp;rsquo;t ya?&lt;/p&gt;
+
+&lt;p&gt;Spamhaus and Team Cymru can help providing list of known bad IPs and subnets that should be filtered in our networks.&lt;/p&gt;
+
+&lt;h2 id=&#34;spamhaus-drop-list&#34;&gt;Spamhaus DROP list&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://www.spamhaus.org/images/dropadvisory.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &#34;DROP (Don&#39;t Route Or Peer) and EDROP are advisory &#34;drop all traffic&#34; lists, consisting of netblocks that are &#34;hijacked&#34; or leased by professional spam or cyber-crime operations (used for dissemination of malware, trojan downloaders, botnet controllers). The DROP and EDROP lists are a tiny subset of the SBL, designed for use by firewalls and routing equipment to filter out the malicious traffic from these netblocks.&#34;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Spamhaus DROP and EDRP lists can be downloaded from &lt;a href=&#34;https://www.spamhaus.org/drop/&#34;&gt;HERE&lt;/a&gt;, updated hourly.&lt;/p&gt;
+
+&lt;h2 id=&#34;team-cymru-bogon-list&#34;&gt;Team Cymru Bogon List&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.team-cymru.org/images/main-logo.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &#34;A bogon prefix is a route that should never appear in the Internet routing table&#34; so let&#39;s filter thos.
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.team-cymru.org/bogon-reference.html&#34;&gt;Team Cymru bogons list&lt;/a&gt; can be downloaded &lt;a href=&#34;http://www.team-cymru.org/Services/Bogons/fullbogons-ipv4.txt&#34;&gt;HERE&lt;/a&gt;, it is updated every four hours.&lt;/p&gt;
+
+&lt;h2 id=&#34;apply-on-cisco-router&#34;&gt;Apply on Cisco router&lt;/h2&gt;
+
+&lt;h3 id=&#34;drop-list&#34;&gt;DROP list&lt;/h3&gt;
+
+&lt;p&gt;First this we do is to download the DROP list in plain text from:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;wget https://www.spamhaus.org/drop/drop.lasso     
+wget https://www.spamhaus.org/drop/edrop.txt
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then we need some script magic to convert to the familiar Cisco sintax.&lt;/p&gt;
+
+&lt;p&gt;Create a sed script file called &lt;strong&gt;subnet2wildmask.sed&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;s/\/0/ 255.255.255.255/
+s/\/1/ 127.255.255.255/
+s/\/2/ 63.255.255.255/
+s/\/3/ 31.255.255.255/
+s/\/4/ 15.255.255.255/
+s/\/5/ 7.255.255.255/
+s/\/6/ 3.255.255.255/
+s/\/7/ 1.255.255.255/
+s/\/8/ 0.255.255.255/
+s/\/9/ 0.127.255.255/
+s/\/10/ 0.63.255.255/
+s/\/11/ 0.31.255.255/
+s/\/12/ 0.15.255.255/
+s/\/13/ 0.7.255.255/
+s/\/14/ 0.3.255.255/
+s/\/15/ 0.1.255.255/
+s/\/16/ 0.0.255.255/
+s/\/17/ 0.0.127.255/
+s/\/18/ 0.0.63.255/
+s/\/19/ 0.0.31.255/
+s/\/20/ 0.0.15.255/
+s/\/21/ 0.0.7.255/
+s/\/22/ 0.0.3.255/
+s/\/23/ 0.0.1.255/
+s/\/24/ 0.0.0.255/
+s/\/25/ 0.0.0.127/
+s/\/26/ 0.0.0.63/
+s/\/27/ 0.0.0.31/
+s/\/28/ 0.0.0.15/
+s/\/29/ 0.0.0.7/
+s/\/30/ 0.0.0.3/
+s/\/31/ 0.0.0.1/
+s/\/32/ 0.0.0.0/
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then create the router commands running these scripts:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;echo &amp;quot;ip access-list extended DROP.OUT&amp;quot; &amp;gt; DROP.OUT
+cat drop.lasso | grep -v &amp;quot;^;&amp;quot; | awk &#39;BEGIN {FS=&amp;quot; ; &amp;quot;} ; { print $1}&#39; | sed -f subnet2wildmask.sed | awk &#39;{ print &amp;quot;permit ip any &amp;quot;$1&amp;quot; &amp;quot;$2}&#39; &amp;gt;&amp;gt; DROP.OUT
+
+echo &amp;quot;ip access-list extended DROP.IN&amp;quot; &amp;gt; DROP.IN
+cat drop.lasso | grep -v &amp;quot;^;&amp;quot; | awk &#39;BEGIN {FS=&amp;quot; ; &amp;quot;} ; { print $1}&#39; | sed -f subnet2wildmask.sed | awk &#39;{ print &amp;quot;permit ip &amp;quot;$1&amp;quot; &amp;quot;$2&amp;quot; any&amp;quot;}&#39; &amp;gt;&amp;gt; DROP.IN
+
+echo &amp;quot;ip access-list extended EDROP.OUT&amp;quot; &amp;gt; EDROP.OUT
+cat edrop.txt | grep -v &amp;quot;^;&amp;quot; | awk &#39;BEGIN {FS=&amp;quot; ; &amp;quot;} ; { print $1}&#39; | sed -f subnet2wildmask.sed | awk &#39;{ print &amp;quot;permit ip any &amp;quot;$1&amp;quot; &amp;quot;$2}&#39; &amp;gt;&amp;gt; EDROP.OUT
+
+echo &amp;quot;ip access-list extended EDROP.IN&amp;quot; &amp;gt; EDROP.IN
+cat edrop.txt | grep -v &amp;quot;^;&amp;quot; | awk &#39;BEGIN {FS=&amp;quot; ; &amp;quot;} ; { print $1}&#39; | sed -f subnet2wildmask.sed | awk &#39;{ print &amp;quot;permit ip &amp;quot;$1&amp;quot; &amp;quot;$2&amp;quot; any&amp;quot;}&#39; &amp;gt;&amp;gt; EDROP.IN
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;bogon-list&#34;&gt;BOGON list&lt;/h3&gt;
+
+&lt;p&gt;Get the list:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;wget http://www.team-cymru.org/Services/Bogons/fullbogons-ipv4.txt
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Convert subnet mask to wildcard mask and create Cisco commands:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;echo &amp;quot;ip access-list extended BOGONS.IN&amp;quot; &amp;gt; BOGONS.IN
+cat fullbogons-ipv4.txt | grep -v &amp;quot;^#&amp;quot; | sed -f subnet2wildmask.sed | awk &#39;{ print &amp;quot;permit ip &amp;quot;$1&amp;quot; &amp;quot;$2&amp;quot; any&amp;quot;}&#39; &amp;gt;&amp;gt; BOGONS.IN
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note: bogons filters should be only appliend inbound (from public to private network).&lt;/p&gt;
+
+&lt;h3 id=&#34;apply-lists-on-cisco-s-zone-based-firewall&#34;&gt;Apply lists on Cisco&amp;rsquo;s Zone Based Firewall&lt;/h3&gt;
+
+&lt;p&gt;We have 6 files now with all the commands necessary to create the access lists on the router:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;DROP.IN&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;DROP.OUT&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;EDROP.IN&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;EDROP.OUT&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;BOGONS.IN&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Just copy&amp;amp;paste the commands on CLI.&lt;/p&gt;
+
+&lt;p&gt;You may have noticed that the commands are all permits. The reason is I use &lt;a href=&#34;http://www.cisco.com/c/en/us/support/docs/security/ios-firewall/98628-zone-design-guide.html&#34;&gt;Zone Based Firewall&lt;/a&gt; on my router with a policy like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;policy-map type inspect LAN2WAN 
+    class type inspect DROP.OUT
+        drop 
+    class type inspect EDROP.OUT
+        drop
+    class type inspect LAN
+        inspect 
+    class class-default
+        drop
+
+policy-map type inspect WAN2LAN
+    class type inspect BOGONS.IN
+        drop 
+    class type inspect DROP.IN
+        drop 
+    class type inspect EDROP.IN
+        drop
+    class type inspect WAN2LAN
+        pass
+    class class-default
+        drop
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I&amp;rsquo;ll not dig in the details of ZBFW configuration, if you&amp;rsquo;re interested grab a copy of &lt;a href=&#34;http://www.amazon.com/gp/product/B000P28WP8?ie=UTF8&amp;amp;tag=cisioshinandt-20&amp;amp;linkCode=as2&amp;amp;camp=1789&amp;amp;creative=9325&amp;amp;creativeASIN=B000P28WP8&#34;&gt;this excellent book&lt;/a&gt; written by &lt;a href=&#34;http://blog.ipspace.net/2006/11/deploying-zone-based-firewalls.html&#34;&gt;Ivan&lt;/a&gt; and you&amp;rsquo;ll be good.&lt;/p&gt;
+
+&lt;h2 id=&#34;what-s-next&#34;&gt;What&amp;rsquo;s next&lt;/h2&gt;
+
+&lt;p&gt;Since DROP and bogons lists change over time I&amp;rsquo;ll see how they work and maybe implement some sort of update automation with &lt;a href=&#34;https://github.com/ktbyers/netmiko&#34;&gt;Python/Netmiko&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;wrap-up&#34;&gt;Wrap up&lt;/h2&gt;
+
+&lt;p&gt;DROP and bogons lists should be applied on Tier 1 routers. We&amp;rsquo;re not supposed to see traffic matching those access-lists, this is more a test and a &amp;ldquo;better safe than sorry&amp;rdquo; configuration not something I expect to see on the &lt;a href=&#34;http://csrc.nist.gov/publications/PubsSPs.html&#34;&gt;NIST Guidelines on Firewalls and Firewall Policy&lt;/a&gt; so please think about it before applying on production routers.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;FINAL NOTES:&lt;/strong&gt; the access lists may be too long, check your device&amp;rsquo;s data sheet to be sure it can support them or enable the compression of config:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;ROUTER(config)#service compress-config
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

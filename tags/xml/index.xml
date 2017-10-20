@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Xml on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/xml/</link>
+    <description>Recent content in Xml on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 28 Dec 2011 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/xml/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Enable XML for Android App access to Wordpress</title>
+      <link>https://www.ifconfig.it/hugo/post/enable-xml-for-android-app-access-to-wordpress/</link>
+      <pubDate>Wed, 28 Dec 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/enable-xml-for-android-app-access-to-wordpress/</guid>
+      <description>If you get an error when configuring Wordpress app for Android, log into your WordPress blog and in the admin area go to Settings -&amp;gt; Writing and under Remote Publishing you&amp;rsquo;ll see a checkbox for XML-RPC. Check that, click &amp;lsquo;Save Changes&amp;rsquo; and XML-RPC services will be turned on for your blog.</description>
+    </item>
+    
+  </channel>
+</rss>

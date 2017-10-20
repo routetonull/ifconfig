@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Certifications on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/certifications/</link>
+    <description>Recent content in Certifications on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Fri, 21 Apr 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/certifications/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CWDP</title>
+      <link>https://www.ifconfig.it/hugo/post/2017-04-21-cwdp/</link>
+      <pubDate>Fri, 21 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2017-04-21-cwdp/</guid>
+      <description>Today I passed exam CWDP-302 and got CWDP.
+To be honest I had to renew my CWNA that was about to expire but I don&amp;rsquo;t really like to renew, I prefer o move forward when I can.
+Exam preparation To prepare the exam I read cover-to-cover the official study guide and review some topics on the CWNA study guide.
+The study guide is dated 2011 so it covers up to 802.</description>
+    </item>
+    
+    <item>
+      <title>VMware VCP5-DCV for a network engineer</title>
+      <link>https://www.ifconfig.it/hugo/post/2015-12-11-vcp5dcv/</link>
+      <pubDate>Fri, 11 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2015-12-11-vcp5dcv/</guid>
+      <description>Today I passed exam VCP550 and got VMware VCP5-DCV certification.
+Exam preparation For exam preparation I attended the official training that is mandatory to access the exam. The printed material provided with the training is good enough but I integrated with the great Mastering VMware vSphere 5.5 by Scott Lowe. The official documentation available online for free.
+I had some hands-on experience with VSphere, did some installations myself and supported some trouble tickets so even if I don&amp;rsquo;t work every day with VSphere I have a decent knowledge on the topic.</description>
+    </item>
+    
+    <item>
+      <title>Exam passed HP2-Z31 - Creating HP Software-defined Networks</title>
+      <link>https://www.ifconfig.it/hugo/post/2015-07-31-exam-passed-hp2-z31-creating-hp-software-defined-networks/</link>
+      <pubDate>Fri, 31 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2015-07-31-exam-passed-hp2-z31-creating-hp-software-defined-networks/</guid>
+      <description>As a holder of many technical certifications every few months I have to renew some.
+When possible I try to renew the certifications with a new track instead of doing the newer version of the exam I&amp;rsquo;ve already done.
+This time was the turn of HP ASE - Network Infrastructure 2011 to be renewed as HP ASE - FlexNetwork Integrator V1 and HP ASE - FlexNetwork Architect V2.
+Four exams are availale to upgrade, I choose HP2-Z31 - Creating HP Software-defined Networks because I hear a lot about SDN but I had not the opportunity to explore this topic yet.</description>
+    </item>
+    
+    <item>
+      <title>Meraki CMNA</title>
+      <link>https://www.ifconfig.it/hugo/post/2015-03-04-cmna/</link>
+      <pubDate>Wed, 04 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2015-03-04-cmna/</guid>
+      <description>Today I&amp;rsquo;ve attended a Meraki technical training course at Cisco offices.
+The training was organized in short presentations of product features followed by hands-on labs based on all the products available today.
+I was suprised to find not only people from small companies or system integrators but more that 50% of the attendees were from Cisco Gold Partners sent to evaluate the products for &amp;ldquo;managed network&amp;rdquo; services. Cloud managed network gear is quite a hot topic today and I expect many projects in the future will involve this kind of solutions.</description>
+    </item>
+    
+    <item>
+      <title>CCIE renewed</title>
+      <link>https://www.ifconfig.it/hugo/post/2014-06-05-cciersrenew2014/</link>
+      <pubDate>Thu, 05 Jun 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2014-06-05-cciersrenew2014/</guid>
+      <description>In the very last day of availability of the CCIE v4 350-001 written exam I&amp;rsquo;ve renewed my CCIE for a couple of years more:
+
+My plan was to recertify with another track - Wireless or Security - but life happens and I took the easy path and did R&amp;amp;S again.
+I&amp;rsquo;ve passed the same written exam 3 times. The first time in 2010, followed by a failed lab attempt in 2011.</description>
+    </item>
+    
+    <item>
+      <title>HP Master Accredited Systems Engineer</title>
+      <link>https://www.ifconfig.it/hugo/post/2013-12-27-hp_mase/</link>
+      <pubDate>Fri, 27 Dec 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2013-12-27-hp_mase/</guid>
+      <description>As many other vendors HP has a fast track for people already certified with Cisco to achieve an HP certification skipping some basic exams. There&amp;rsquo;s an upgrade path tool available on HP website than shows the required exams for each path. CCIE R&amp;amp;S certification in my case allows to get &amp;ldquo;HP MASE Network Infrastructure&amp;rdquo; passing two exams:
+ HP0-Y32: designing and troubleshooting open standard networks
+ HP0-Y37: migrating and troubleshooting HP enterprise networks</description>
+    </item>
+    
+    <item>
+      <title>Huawei Certified Datacom Professional</title>
+      <link>https://www.ifconfig.it/hugo/post/hcdp/</link>
+      <pubDate>Thu, 18 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/hcdp/</guid>
+      <description>Huawei network devices are becoming more and more popular in european market lately. It all started with 3G adapters, then mobiles, and now I see routers and switches deployed in many locations.
+For a project I&amp;rsquo;ll deploy in the next few weeks I had the opportunity to attend an Huawei training.
+Huawei provides a fast-track for people already certified with other vendors, three training courses are condensed in just one week but it works if you don&amp;rsquo;t want to hear for the 100th time how STP works ;)</description>
+    </item>
+    
+    <item>
+      <title>My CCIE experience</title>
+      <link>https://www.ifconfig.it/hugo/post/my-ccie-experience/</link>
+      <pubDate>Tue, 09 Apr 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/my-ccie-experience/</guid>
+      <description>In really enjoyed to read all the blog post of people passing the CCIE lab exam over the years. I&amp;rsquo;ve found the stories very inspirational so now it&amp;rsquo;s time for me to give back.
+I started working as a system engineer in 2001 supporting Microsoft Windows 2000 client and server for a bank. I had the opportunity to work with some network engineers for a project and being intrigued by the new world I started to study what seemed to be the right choice for the moment: Cisco CCNA.</description>
+    </item>
+    
+    <item>
+      <title>Cisco certifications: download PDF and order additional printed copies</title>
+      <link>https://www.ifconfig.it/hugo/post/ciscocertsorder/</link>
+      <pubDate>Fri, 29 Mar 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/ciscocertsorder/</guid>
+      <description>I noticed that not everybody knows how to download Cisco certs PDF files or order additional printed copies. Just open this link, login with your Cisco credentials and enter the menu &amp;ldquo;Certification Fulfillment&amp;rdquo;.
+An additional CCIE plaque costs 150USD, paper certs cost 15USD.
+
+HTH</description>
+    </item>
+    
+    <item>
+      <title>Alcatel Lucent Certified Field Expert</title>
+      <link>https://www.ifconfig.it/hugo/post/2012-11-22-acfe/</link>
+      <pubDate>Thu, 22 Nov 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2012-11-22-acfe/</guid>
+      <description>After one week of training in Milan and passing the exam I&amp;rsquo;ve added an Alcatel-Lucent certification to my c.v.:
+&amp;ldquo;Alcatel-Lucent Certified Field Expert - ACFE - OmniSwitch R6/R6&amp;ldquo;
+OmniSwitch have some proprietary features, like mobile vlans, that may be very useful in some deployments. The new 10K platform with MC-LAG and other featuers seems great as core switch.
+The bright side of working for a system integrator is the opportunity to mess play work with many different vendors and accumulate experience with many devices.</description>
+    </item>
+    
+    <item>
+      <title>Brocade Certified Network Professional</title>
+      <link>https://www.ifconfig.it/hugo/post/2012-04-12-bcnp/</link>
+      <pubDate>Thu, 12 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2012-04-12-bcnp/</guid>
+      <description>Passed Brocade 150-220 exam, another badge added to my c.v.
+Having a CCNP background and some CCIE theory knowledge I found this exam quite easy.On the exam blueprint just some QoS implementations, VRRP-E and Metro Ring Protocol are different than Cisco exams. STP and IGP/BGP are almost the same, and no EIGRP of course!</description>
+    </item>
+    
+    <item>
+      <title>HP Fast Track</title>
+      <link>https://www.ifconfig.it/hugo/post/2012-01-02-122/</link>
+      <pubDate>Mon, 02 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2012-01-02-122/</guid>
+      <description>HP allows Cisco certified people to achieve it&amp;rsquo;s MASE/ASE certs using Fast Track:
+
+While HP certifications aren&amp;rsquo;t as popular as Cisco&amp;rsquo;s they can be a way to learn a different platform and increase career opportunities.
+The official cert guide is available on Amazon.</description>
+    </item>
+    
+    <item>
+      <title>Certified in Cisco Data Center Support for UC Specialist</title>
+      <link>https://www.ifconfig.it/hugo/post/certified-in-cisco-data-center-support-for-uc-specialist/</link>
+      <pubDate>Wed, 21 Dec 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/certified-in-cisco-data-center-support-for-uc-specialist/</guid>
+      <description>Today I passed Cisco 642-983 DCUCI exam and it was a surprise to see two certifications on my Cisco curriculum:
+Cisco Unified Computing Technology Support Specialist
+and
+Cisco Data Center Support for UC Specialist
+The next step would be &amp;ldquo;Cisco Data Center Unified Computing Support Specialist&amp;rdquo; but since VCP is a requirement and is not in my plans I have to skip that cert.</description>
+    </item>
+    
+  </channel>
+</rss>

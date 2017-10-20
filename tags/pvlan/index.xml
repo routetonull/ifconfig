@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pvlan on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/pvlan/</link>
+    <description>Recent content in Pvlan on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 20 Dec 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/pvlan/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>PVLAN Quick Notes</title>
+      <link>https://www.ifconfig.it/hugo/post/pvlan-quick-notes/</link>
+      <pubDate>Thu, 20 Dec 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/pvlan-quick-notes/</guid>
+      <description>Private VLAN configuration:
+vlan 300 private-vlan primary private-vlan association 301-302 ! vlan 301 private-vlan isolated ! vlan 302 private-vlan community Port configuration:
+interface GigabitEthernet1/0/1 switchport private-vlan host-association 300 301 switchport mode private-vlan host What about the SVI?
+interface Vlan300 ip address 11.0.0.48 255.255.255.0 private-vlan mapping ? WORD Secondary VLAN IDs of the private VLAN SVI interface mapping add Add a VLAN to private VLAN list remove Remove a VLAN from private VLAN list If we add a private-vlan mapping to the SVI it works like a promicuous port for all the secondary vlans mapped, reachable by both isolated and community ports:</description>
+    </item>
+    
+  </channel>
+</rss>

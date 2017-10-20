@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Huawei on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/huawei/</link>
+    <description>Recent content in Huawei on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 18 Jul 2013 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/huawei/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Huawei Certified Datacom Professional</title>
+      <link>https://www.ifconfig.it/hugo/post/hcdp/</link>
+      <pubDate>Thu, 18 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/hcdp/</guid>
+      <description>Huawei network devices are becoming more and more popular in european market lately. It all started with 3G adapters, then mobiles, and now I see routers and switches deployed in many locations.
+For a project I&amp;rsquo;ll deploy in the next few weeks I had the opportunity to attend an Huawei training.
+Huawei provides a fast-track for people already certified with other vendors, three training courses are condensed in just one week but it works if you don&amp;rsquo;t want to hear for the 100th time how STP works ;)</description>
+    </item>
+    
+  </channel>
+</rss>

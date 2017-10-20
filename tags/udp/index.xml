@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Udp on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/udp/</link>
+    <description>Recent content in Udp on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Sat, 26 Mar 2011 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/udp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Small servers</title>
+      <link>https://www.ifconfig.it/hugo/post/small-servers/</link>
+      <pubDate>Sat, 26 Mar 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/small-servers/</guid>
+      <description>A quick note about tcp small servers.
+DOC-CD says:
+&amp;ldquo;The TCP small servers consist of three services: Discard (port 9), Echo (port 7), and Chargen (port 19).&amp;rdquo;
+If we do a portscan to a router before and after enabling tcp-small-server with the command:
+R(config)#service tcp-small-servers  We can see that these ports are opened:
+Starting nmap V. 3.00 ( www.insecure.org/nmap/ ) Interesting ports on (10.1.0.254): Port State Service 7/tcp open echo 9/tcp open discard 13/tcp open daytime 19/tcp open chargen  The DOC-CD misses port 13 corresponding to Daytime Protocol.</description>
+    </item>
+    
+  </channel>
+</rss>

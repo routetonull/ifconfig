@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.16-DEV" />
+
+  <title>Autoinstall - LAN &middot; ifconfig.it</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.ifconfig.it/hugoimg/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://www.ifconfig.it/hugo/">ifconfig.it</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/tags/"><i class='fa fa-list fa-fw'></i>Tags</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/gp_ifconfig" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/gpaolo" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/routetonull" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Autoinstall - LAN</h1>
+  <h2></h2>
+</div>
+<div class="content">
+  <p>Autoinstall is a quite interesting topic, it deserves some labbing.</p>
+
+<p>Start from the <a href="http://www.cisco.com/en/US/docs/ios/fundamentals/configuration/guide/cf_autoinstall_ps6441_TSD_Products_Configuration_Guide_Chapter.html">DOC-CD</a> as usual, we focus on the LAN implementation first.</p>
+
+<p>You can find <a href="http://www.cisco.com/en/US/docs/ios/fundamentals/configuration/guide/cf_autoinstall_ps6441_TSD_Products_Configuration_Guide_Chapter.html#wp1186894">HERE</a> the flowchart of the autoinstall process.</p>
+
+<p>This guide is quite clear too:</p>
+
+<p><a href="http://www.cisco.com/en/US/docs/ios/12_1t/12_1t5/feature/guide/dt_dhcpa.html">AutoInstall Using DHCP for LAN Interfaces</a></p>
+
+<p>This is the topology we&rsquo;ll use:</p>
+
+<p><img src="http://www.ifconfig.it/ccie_blog/files/page4_blog_entry95-autoinstall_cisco.jpg" alt="autoinstall_cisco" /></p>
+
+<p>R1 and R2 will start without configuration.</p>
+
+<p>R3 is the DHCP server that provides TFTP informations to R1 and R2.</p>
+
+<p>R4 acts as TFTP server that stores the configurations</p>
+
+<p>First step: configure DHCP pool on R3:</p>
+
+<pre><code>ip dhcp pool R1 host 10.0.123.1 255.255.255.0 client-identifier 0063.6973.636f.2d63.3230.302e.3636.6262.2e30.3030.302d.4661.302f.30 option 150 ip 4.4.4.4 option 67 ascii R1-confg default-router 10.0.123.3 
+</code></pre>
+
+<p>Do you prefer an easier client identifier? Read <a href="http://blog.ioshints.info/2007/08/default-dhcp-client-id.html">THIS</a> blog post from Ivan Pepelnjak.</p>
+
+<p>The pool defines a reserved IP address to be assigned to R1. We provide a default router and a couple of options.
+Option 150 defines a TFTP server, option 67 defines the filename do look for.</p>
+
+<p>Second step: configure R4 as TFTP server</p>
+
+<pre><code>R4(config)#tftp-server flash:R1-confg
+</code></pre>
+
+<p>The config file for R1 is stored in R4&rsquo;s flash.</p>
+
+<p>Now we erase the configuration on R1 and reload it:</p>
+
+<pre><code>R1#erase startup-config Erasing the nvram filesystem will remove all configuration files! Continue? [confirm] [confirm] [OK] Erase of nvram: complete R1#reload
+</code></pre>
+
+<p>R1 starts without a config file, requests an IP address via DHCP:</p>
+
+<pre><code>*Mar 1 00:00:29.735: AUTOINSTALL: FastEthernet0/0 is assigned 10.0.123.1
+</code></pre>
+
+<p>Together with the IP address, R1 gets some options, so it looks for the TFTP server 4.4.4.4:</p>
+
+<pre><code>*Mar 1 00:00:29.739: AUTOINSTALL: Obtain tftp server address (opt 150) 4.4.4.4
+</code></pre>
+
+<p>The option 67 informs R1 to download the config file R1-confg:</p>
+
+<pre><code>*Mar 1 00:00:49.291: %SYS-5-CONFIG_I: Configured from tftp://4.4.4.4/R1-confg by console
+</code></pre>
+
+<p>We can see the TFTP request on R4:</p>
+
+<pre><code>R4# Mar 2 23:20:14.226: TFTP: Looking for R1-confg Mar 2 23:20:14.230: TFTP: Opened flash:R1-confg, fd 0, size 1989 for process 244 Mar 2 23:20:14.374: TFTP: Finished flash:R1-confg, time 00:00:00 for process 244
+</code></pre>
+
+<p>This is the capture of the request coming from R1 to R4:</p>
+
+<p><img src="http://www.ifconfig.it/ccie_blog/files/page4_blog_entry95-autoinstall_1.jpg" alt="autoinstall_1" /></p>
+
+<p>We can have the same result using option 66 &ldquo;Server-Name&rdquo; instead of option 150. We must provide a DNS server via DHCP.</p>
+
+<p>Let&rsquo;s do it using R2 as DHCP client. Create DHCP pool on R3:</p>
+
+<pre><code>ip dhcp pool R2 host 10.0.123.2 255.255.255.0 client-identifier 0063.6973.636f.2d63.3230.312e.3636.6262.2e30.3030.302d.4661.302f.30 default-router 10.0.123.3 option 66 ascii tftp.ifconfig.it option 67 ascii R2-confg
+</code></pre>
+
+<p>We configure R3 as DNS server too:</p>
+
+<pre><code>R3(config)#ip host tftp.ifconfig.it 4.4.4.4 R3(config)#ip dns server
+</code></pre>
+
+<p>Now we can erase startup-config and reload R2.</p>
+
+<p>On R2:</p>
+
+<pre><code>Translating &quot;tftp.ifconfig.it&quot;...domain server (255.255.255.255) [OK] Loading R2-confg from 4.4.4.4 (via FastEthernet0/0): ! [OK - 1923 bytes] *Mar 1 00:00:16.863: AUTOINSTALL: FastEthernet0/0 is assigned 10.0.123.2 *Mar 1 00:00:16.863: AUTOINSTALL: Obtain tftp server name tftp.ifconfig.itresolved to 4.4.4.4 *Mar 1 00:00:26.459: %SYS-5-CONFIG_I: Configured from tftp://tftp.ifconfig.it/R2-confg by console
+</code></pre>
+
+<p>On R4:</p>
+
+<pre><code>Mar 1 00:25:26.647: TFTP: Looking for R2-confg *Mar 1 00:25:26.651: TFTP: Opened flash:R2-confg, fd 0, size 1923 for process 245 *Mar 1 00:25:26.719: TFTP: Finished flash:R2-confg, time 00:00:00 for process 245
+</code></pre>
+
+<p>Everything worked as expected.</p>
+
+<p>USEFUL LINKS:</p>
+
+<p>DHCP options are assigned by IANA, full list <a href="http://www.iana.org/assignments/bootp-dhcp-parameters/bootp-dhcp-parameters.xml">HERE</a>.</p>
+
+<p>How to use the mac address as client-id is explained <a href="http://blog.ioshints.info/2007/08/default-dhcp-client-id.html">HERE</a> on ioshints blog. There&rsquo;re plenty of posts about<a href="http://blog.ioshints.info/search/label/DHCP">DHCP</a>.</p>
+
+</div>
+
+</div>
+</div>
+<script src="https://www.ifconfig.it/hugojs/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10670358-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

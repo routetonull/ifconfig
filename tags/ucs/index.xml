@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ucs on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/ucs/</link>
+    <description>Recent content in Ucs on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 21 Dec 2011 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/ucs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Certified in Cisco Data Center Support for UC Specialist</title>
+      <link>https://www.ifconfig.it/hugo/post/certified-in-cisco-data-center-support-for-uc-specialist/</link>
+      <pubDate>Wed, 21 Dec 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/certified-in-cisco-data-center-support-for-uc-specialist/</guid>
+      <description>Today I passed Cisco 642-983 DCUCI exam and it was a surprise to see two certifications on my Cisco curriculum:
+Cisco Unified Computing Technology Support Specialist
+and
+Cisco Data Center Support for UC Specialist
+The next step would be &amp;ldquo;Cisco Data Center Unified Computing Support Specialist&amp;rdquo; but since VCP is a requirement and is not in my plans I have to skip that cert.</description>
+    </item>
+    
+    <item>
+      <title>Cisco DCUCI training</title>
+      <link>https://www.ifconfig.it/hugo/post/cisco-dcuci-training/</link>
+      <pubDate>Mon, 28 Nov 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/cisco-dcuci-training/</guid>
+      <description>This week I&amp;rsquo;m attending Cisco DCUCI course in Milan. I have no experience on blade servers or Cisco UC plaftorm and it&amp;rsquo;ll be a great opportunity to learn new topics and move another step towards the datacenter.
+I&amp;rsquo;ve prepared for this course watching Cisco PEC videos and reading the two must-read books from Silvano Gai:
+ I/O Consolidation in the Data Center
+ Cisco Unified Computing System (UCS)
+  Cisco provides an emulator for the Cisco UCS , available only to Partners.</description>
+    </item>
+    
+  </channel>
+</rss>

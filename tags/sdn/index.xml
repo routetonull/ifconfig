@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sdn on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/sdn/</link>
+    <description>Recent content in Sdn on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 16 Feb 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/sdn/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SDN anyone?</title>
+      <link>https://www.ifconfig.it/hugo/post/2017-02-16-sdn/</link>
+      <pubDate>Thu, 16 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2017-02-16-sdn/</guid>
+      <description>DISCLAIMER
+I work in the enterprise market, mostly with routing&amp;amp;switching, wireless, security products from multiple vendors. I have no SDN/cloud/ISP real experience yet. My views here are based upon meetings with vendors pushing SDN solutions and fellow engineers who shared experiences, doubts and some labs to test the products.
+After attending a few SDN presentation of various vendors I&amp;rsquo;m starting to make an opinion about SDN myself. Here&amp;rsquo;s what I got so far.</description>
+    </item>
+    
+  </channel>
+</rss>

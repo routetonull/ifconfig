@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ripe on ifconfig.it</title>
+    <link>http://www.ifconfig.it/hugo/tags/ripe/</link>
+    <description>Recent content in Ripe on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Fri, 11 May 2012 12:43:49 +0000</lastBuildDate>
+    <atom:link href="http://www.ifconfig.it/hugo/tags/ripe/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>How do I get an IPv6? How much it costs?</title>
+      <link>http://www.ifconfig.it/hugo/post/how-do-i-get-an-ipv6/</link>
+      <pubDate>Fri, 11 May 2012 12:43:49 +0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/how-do-i-get-an-ipv6/</guid>
+      <description>&lt;p&gt;Sometimes customers ask me how they can get provider indipendent IP addresses. Since IPv4 are finished, I looked for IPv6 only.&lt;/p&gt;
+
+&lt;p&gt;To apply for PI addresses there are some &lt;a href=&#34;http://www.ripe.net/ripe/docs/ripe-452&#34;&gt;Contractual Requirements&lt;/a&gt; that must be met. It&amp;rsquo;s cleat that IP are assigned to the organization and can&amp;rsquo;t be assigned to third parties, i.e. you&amp;rsquo;re not an ISP.&lt;/p&gt;
+
+&lt;p&gt;Direct assignment for users are available on RIPE website, there&amp;rsquo;s an annual fee and a one-time Administration Fee of 2000€:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2012/04/ripe_dau.png&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2012/04/ripe_dau.png&#34; alt=&#34;&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href=&#34;http://www.ripe.net/ripe/docs/ripe-545&#34;&gt;policy&lt;/a&gt; for PI assignments states that &lt;a href=&#34;http://www.ripe.net/ripe/docs/ripe-545#IPv6_PI_Assignments&#34;&gt;the minimum size is a /48&lt;/a&gt;, so there&amp;rsquo;re 2^16 possible subnets of 2^64 hosts, a lot of addresses!&lt;/p&gt;
+
+&lt;p&gt;LINKS&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.ripe.net/lir-services/member-support/info/billing/billing-procedure-and-fee-schedule-for-direct-assignment-users-2011&#34;&gt;RIPE direct assignment for users&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hp on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/hp/</link>
+    <description>Recent content in Hp on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Fri, 31 Jul 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/hp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Exam passed HP2-Z31 - Creating HP Software-defined Networks</title>
+      <link>https://www.ifconfig.it/hugo/post/2015-07-31-exam-passed-hp2-z31-creating-hp-software-defined-networks/</link>
+      <pubDate>Fri, 31 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2015-07-31-exam-passed-hp2-z31-creating-hp-software-defined-networks/</guid>
+      <description>As a holder of many technical certifications every few months I have to renew some.
+When possible I try to renew the certifications with a new track instead of doing the newer version of the exam I&amp;rsquo;ve already done.
+This time was the turn of HP ASE - Network Infrastructure 2011 to be renewed as HP ASE - FlexNetwork Integrator V1 and HP ASE - FlexNetwork Architect V2.
+Four exams are availale to upgrade, I choose HP2-Z31 - Creating HP Software-defined Networks because I hear a lot about SDN but I had not the opportunity to explore this topic yet.</description>
+    </item>
+    
+    <item>
+      <title>HP Comware 7 simulator</title>
+      <link>https://www.ifconfig.it/hugo/post/2014-01-05-simware/</link>
+      <pubDate>Sun, 05 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2014-01-05-simware/</guid>
+      <description>Many network vendors are publishing simulators to the community. A simulator can be a way to complete a training or can be used for a PoC.
+GNS3 maybe is the most famous emulator while others like eNSP for Huawei, Cisco&amp;rsquo;s VIRL, Juniper Junosphere are available or will be available soon.
+The big name missing so far was HP. Last December HP announced on Linkedin the availability of a simulator for Comware platform:</description>
+    </item>
+    
+    <item>
+      <title>HP Master Accredited Systems Engineer</title>
+      <link>https://www.ifconfig.it/hugo/post/2013-12-27-hp_mase/</link>
+      <pubDate>Fri, 27 Dec 2013 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2013-12-27-hp_mase/</guid>
+      <description>As many other vendors HP has a fast track for people already certified with Cisco to achieve an HP certification skipping some basic exams. There&amp;rsquo;s an upgrade path tool available on HP website than shows the required exams for each path. CCIE R&amp;amp;S certification in my case allows to get &amp;ldquo;HP MASE Network Infrastructure&amp;rdquo; passing two exams:
+ HP0-Y32: designing and troubleshooting open standard networks
+ HP0-Y37: migrating and troubleshooting HP enterprise networks</description>
+    </item>
+    
+  </channel>
+</rss>

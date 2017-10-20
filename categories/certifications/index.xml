@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Certifications on IFCONFIG.IT </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>http://www.ifconfig.it/hugo/categories/certifications/</link>
+    <language>en-us</language>
+    
+    
+    <updated>Fri, 29 Jan 2016 21:58:20 &#43;0000</updated>
+    
+    <item>
+      <title>Welcome 2016 Cisco Champions!</title>
+      <link>http://www.ifconfig.it/hugo/post/ciscochampion2016/</link>
+      <pubDate>Fri, 29 Jan 2016 21:58:20 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/ciscochampion2016/</guid>
+      <description>
+
+&lt;p&gt;With a good amount of surprise I&amp;rsquo;ve been nominated &lt;strong&gt;Cisco Champion&lt;/strong&gt; for 2016:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  
+&gt; 
+&gt; Because of your impactful and valuable contributions to the IT community, you have been chosen out of hundreds of nominees to be part of the 2016 Cisco Champion program. Congratulations!
+&gt; 
+&gt; 
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/images/ciscochampion2016-200.png&#34; alt=&#34;cisco champions logo&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;cisco-champion-resources&#34;&gt;Cisco Champion resources&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://communities.cisco.com/groups/cisco-champions&#34;&gt;Communities&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://twitter.com/CiscoChampion/lists/cisco-champions-2016/members&#34;&gt;Twitter list&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>VMware VCP5-DCV for a network engineer</title>
+      <link>http://www.ifconfig.it/hugo/post/vcp5dcv/</link>
+      <pubDate>Fri, 11 Dec 2015 22:03:27 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/vcp5dcv/</guid>
+      <description>
+
+&lt;p&gt;Today I passed exam &lt;strong&gt;VCP550&lt;/strong&gt; and got &lt;a href=&#34;https://mylearn.vmware.com/mgrReg/plan.cfm?plan=12457&amp;amp;ui=www_cert=www&#34;&gt;&lt;strong&gt;VMware VCP5-DCV&lt;/strong&gt;&lt;/a&gt; certification.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2015/12/vcp-dcv.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;exam-preparation&#34;&gt;Exam preparation&lt;/h2&gt;
+
+&lt;p&gt;For exam preparation I attended the official training that is mandatory to access the exam. The printed material provided with the training is good enough but I integrated with the great &lt;a href=&#34;http://eu.wiley.com/WileyCDA/WileyTitle/productCd-1118661141.html&#34;&gt;Mastering VMware vSphere 5.5&lt;/a&gt; by &lt;a href=&#34;http://blog.scottlowe.org/&#34;&gt;Scott Lowe&lt;/a&gt;. The &lt;a href=&#34;https://pubs.vmware.com/vsphere-55/index.jsp&#34;&gt;official documentation&lt;/a&gt; available online for free.&lt;/p&gt;
+
+&lt;p&gt;I had some hands-on experience with VSphere, did some installations myself and supported some trouble tickets so even if I don&amp;rsquo;t work every day with VSphere I have a decent knowledge on the topic.&lt;/p&gt;
+
+&lt;p&gt;For the practice labs I used my trusty &lt;a href=&#34;http://n40l.wikia.com/wiki/HP_MicroServer_N40L_Wiki&#34;&gt;HP Microserver N40L&lt;/a&gt; with a &lt;a href=&#34;http://vsphere-land.com/tag/home-lab&#34;&gt;nested lab&lt;/a&gt;. It takes some minutes to start but I can easily run 2 ESXi hosts and a vCenter Appliance plus a Linux VM for iSCSI shared storage.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-exam&#34;&gt;The Exam&lt;/h2&gt;
+
+&lt;p&gt;I found the exam quite long but questions were very clear and well explained, VMware put a good effort to make the exam hard but fair. I skipped some question and had to think through some others, many were quite easy if you have a good grasp of the products.&lt;/p&gt;
+
+&lt;h2 id=&#34;why-vcp-for-a-network-engineer&#34;&gt;Why VCP for a Network Engineer?&lt;/h2&gt;
+
+&lt;p&gt;Because I&amp;rsquo;m a generalist as &lt;a href=&#34;http://www.networkworld.com/article/3012318/leadership-management/why-you-need-to-hire-it-generalists.html&#34;&gt;defined by Thor Olavsrud from NetworkWorld&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I want to be able to talk with VMware professionals and understand what they say and how their needs interact with the network I manage or design. And I&amp;rsquo;m curious.&lt;/p&gt;
+
+&lt;p&gt;Networking is not just about moving IP packets anymore. I don&amp;rsquo;t want use use buzz words but what SDN is teaching to network professionals today is that the devices we manage and networks we design must go up to L7.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Next-Generation_Firewall&#34;&gt;Next gen firewalls&lt;/a&gt;, &lt;a href=&#34;https://en.wikipedia.org/wiki/Overlay_network&#34;&gt;overlay networks&lt;/a&gt;, traffic type and directions analysis in a datacenter, &lt;a href=&#34;http://www.cisco.com/c/en/us/solutions/enterprise-networks/intelligent-wan/index.html&#34;&gt;IWAN&lt;/a&gt;, SDN, virtualization&amp;hellip; all these technologies require a broader understanting of applications, traffic flows and what is carried by the network.&lt;/p&gt;
+
+&lt;p&gt;I don&amp;rsquo;t want to blame developers, servery guys or other professionals but I see the Network Engineer as the best profile to manage all the components of the IT infrastructure.&lt;/p&gt;
+
+&lt;p&gt;Years of &lt;a href=&#34;https://www.google.com/search?q=blame+the+network&amp;amp;oq=blame+the+network&amp;amp;aqs=chrome..69i57j0l2.2258j0j1&amp;amp;sourceid=chrome&amp;amp;es_sm=93&amp;amp;ie=UTF-8&#34;&gt;pointed fingers&lt;/a&gt; and &lt;a href=&#34;http://www.itblame.com/&#34;&gt;blame game&lt;/a&gt; from the other IT roles forced Network Engineers to understand all the elements of the IT company so we already have a broad view of the IT world, now it&amp;rsquo;s time to use it for our own career.&lt;/p&gt;
+
+&lt;h2 id=&#34;my-2-cents&#34;&gt;My 2 cents&lt;/h2&gt;
+
+&lt;p&gt;IT Generalist will be an actual job role soon or maybe we should just be brave and call us IT Architects.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Exam passed: HP2-Z31 - Creating HP Software-defined Networks</title>
+      <link>http://www.ifconfig.it/hugo/post/exam-passed-hp2-z31-creating-hp-software-defined-networks/</link>
+      <pubDate>Fri, 31 Jul 2015 18:57:39 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/exam-passed-hp2-z31-creating-hp-software-defined-networks/</guid>
+      <description>&lt;p&gt;As a holder of many technical certifications every few months I have to renew some.&lt;/p&gt;
+
+&lt;p&gt;When possible I try to renew the certifications with a new track instead of doing the newer version of the exam I&amp;rsquo;ve already done.&lt;/p&gt;
+
+&lt;p&gt;This time was the turn of &lt;a href=&#34;http://pro-networking-h17007.external.hp.com/ph/en/training/certifications/technical/ase-network-infrastructure.aspx&#34;&gt;HP ASE - Network Infrastructure 2011&lt;/a&gt; to be renewed as &lt;a href=&#34;http://h10120.www1.hp.com/expertone/datacard/UpgradePath/ASE-FlxNetIntV1-u2&#34;&gt;HP ASE - FlexNetwork Integrator V1&lt;/a&gt; and &lt;a href=&#34;http://h10120.www1.hp.com/expertone/datacard/UpgradePath/ASE-FlxNetArcV2-u1&#34;&gt;HP ASE - FlexNetwork Architect V2&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Four exams are availale to upgrade, I choose &lt;a href=&#34;http://h10120.www1.hp.com/expertone/datacard/Exam/HP2-Z31&#34;&gt;HP2-Z31 - Creating HP Software-defined Networks&lt;/a&gt; because I hear a lot about SDN but I had not the opportunity to explore this topic yet.&lt;/p&gt;
+
+&lt;p&gt;To prepare the exam I used the &lt;a href=&#34;https://h30590.www3.hp.com/product/Creating+HP+Software-Defined+Networks+HP2-Z31+and+HP0-Y51-eBook-11378&#34;&gt;official study guide from HP Press&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The book is well written, very clear and complete, I needed to search some topics on &lt;a href=&#34;http://lmgtfy.com/?q=openflow&#34;&gt;Google&lt;/a&gt; just a few times for a better understanding of the concepts.&lt;/p&gt;
+
+&lt;p&gt;There&amp;rsquo;s no need to say that the manual focuses on the &lt;a href=&#34;http://h17007.www1.hp.com/us/en/networking/products/network-management/HP_VAN_SDN_Controller_Software/index.aspx#.VbtnivntlBc&#34;&gt;HP VAN SDN Controller Software&lt;/a&gt; but all the core topics about how &lt;a href=&#34;https://www.opennetworking.org/&#34;&gt;OpenFlow&lt;/a&gt; and an OpenFlow enabled switch works are useful for any vendor.&lt;/p&gt;
+
+&lt;p&gt;I really liked the final chapter about &lt;a href=&#34;http://mininet.org/&#34;&gt;Mininet&lt;/a&gt; and how to use it to do labs with OpenFlow.&lt;/p&gt;
+
+&lt;p&gt;I recommend &lt;a href=&#34;https://h30590.www3.hp.com/product/Creating+HP+Software-Defined+Networks+HP2-Z31+and+HP0-Y51-eBook-11378&#34;&gt;this book&lt;/a&gt; to those interested in SDN and want a good starting point to explore the topics.&lt;/p&gt;
+
+&lt;p&gt;Enjoy.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Meraki CMNA</title>
+      <link>http://www.ifconfig.it/hugo/post/cmna/</link>
+      <pubDate>Wed, 04 Mar 2015 21:39:29 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/cmna/</guid>
+      <description>&lt;p&gt;Today I&amp;rsquo;ve attended a &lt;a href=&#34;https://meraki.cisco.com/&#34;&gt;Meraki&lt;/a&gt; technical training course at &lt;a href=&#34;http://www.cisco.com/&#34;&gt;Cisco&lt;/a&gt; offices.&lt;/p&gt;
+
+&lt;p&gt;The training was organized in short presentations of product features followed by hands-on labs based on all the products available today.&lt;/p&gt;
+
+&lt;p&gt;I was suprised to find not only people from small companies or system integrators but more that 50% of the attendees were from Cisco Gold Partners sent to evaluate the products for &amp;ldquo;managed network&amp;rdquo; services. Cloud managed network gear is quite a hot topic today and I expect many projects in the future will involve this kind of solutions.&lt;/p&gt;
+
+&lt;p&gt;Included in the trainig day there is a complimentary Meraki demo kit (and t-shirt) that includes:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;1 LIC-MX64-SEC-3YR Meraki MX64 Advanced Security License and Support, 3 Years&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;1 MS220-8P-HW Meraki MS220-8P L2 Cloud Managed 8 Port GigE 124W PoE Switch&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;1 LIC-MS220-8P-3YR Meraki MS220-8P Enterprise License and Support, 3 Year&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;1 MX64-HW Meraki MX64 Cloud Managed Security Appliance&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;1 LIC-ENT-3YR Meraki MR Enterprise Cloud Controller License, 3 Years&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;1 MR32-HW Meraki MR32 Cloud Managed AP&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;That&amp;rsquo;s enough hardware to test many features and to do some POC for interested customers.&lt;/p&gt;
+
+&lt;p&gt;Thanks Meraki for both the training and the demo kit!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2015/04/meraki-cmna-signature.jpeg&#34; alt=&#34;Alt&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>CCIE renewed</title>
+      <link>http://www.ifconfig.it/hugo/post/cciersrenew2014/</link>
+      <pubDate>Thu, 05 Jun 2014 21:15:58 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/cciersrenew2014/</guid>
+      <description>&lt;p&gt;In the very last day of availability of the  CCIE v4 350-001 written exam I&amp;rsquo;ve renewed my CCIE for a couple of years more:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2014/07/ccie_exam_renew_2014.png&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2014/07/ccie_exam_renew_2014-1024x38.png&#34; alt=&#34;ccie_exam_renew_2014&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;My plan was to recertify with another track - Wireless or Security - but life happens and I took the easy path and did R&amp;amp;S again.&lt;/p&gt;
+
+&lt;p&gt; I&amp;rsquo;ve passed the same written exam 3 times. The first time in 2010, followed by a failed lab attempt in 2011. Then I did it again  in 2012 and &lt;a href=&#34;http://www.ifconfig.it/wordpress/2013/03/ccie38619/&#34;&gt;passed the lab exam&lt;/a&gt; in 2013.&lt;/p&gt;
+
+&lt;p&gt;The first time I&amp;rsquo;ve complained about the quality of the images in the exam, they look like scanned images from a fax printed with a 300dpi printer. The second time the images quality was better but the questions were unclear, hard to understand. I can say the third time the exam was quite better, no question looked strange or unexpected but while some topics were deeply tested other were completely ignored. The  CCIE R&amp;amp;S written blueprint is quite long, even with a 100 questions exam is not easy to test all topics.&lt;/p&gt;
+
+&lt;p&gt;Now my CCIE is safe until March 19th 2017 so I&amp;rsquo;ve plenty of time to study other certifications. It&amp;rsquo;ll be hard to prepare the written exam again in 3 year so I&amp;rsquo;m likely to do another track for real this time. Another CCIE lab? That&amp;rsquo;s not in my plans, I&amp;rsquo;ve spent so much time and energy for the R&amp;amp;S and I don&amp;rsquo;t think my career would get any improvement from a second CCIE.&lt;/p&gt;
+
+&lt;p&gt;Good luck to anyone taking R&amp;amp;S v5 written exam!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>CCNA 10 years!</title>
+      <link>http://www.ifconfig.it/hugo/post/ccna-10-years/</link>
+      <pubDate>Thu, 13 Feb 2014 12:00:24 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/ccna-10-years/</guid>
+      <description>&lt;p&gt;Ten years ago I&amp;rsquo;ve passed my first Cisco exam: CCNA! What was supposed to be just a marginal skill for a junior systems engineer became both my job and my passion.&lt;/p&gt;
+
+&lt;p&gt;Ten years later and 21 Cisco exams later (and a bunch of other vendors), with 2 labs in Brussels, 1 FAIL and 1 PASS, I&amp;rsquo;m still excited about networking and I hope the next ten year will be as valuable and inspired.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2014/02/cisco_exams.png&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2014/02/cisco_exams.png&#34; alt=&#34;cisco_exams&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>CCNA-Wireless</title>
+      <link>http://www.ifconfig.it/hugo/post/ccna-wireless/</link>
+      <pubDate>Sat, 01 Feb 2014 10:59:14 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/ccna-wireless/</guid>
+      <description>&lt;p&gt;I took advantage of my participation at &lt;a href=&#34;http://www.ifconfig.it/wordpress/2014/02/cleur2014/&#34;&gt;Cisco Live 2014&lt;/a&gt; to book a free Cisco exam &lt;a href=&#34;http://www.cisco.com/web/learning/exams/list/iuwne.html&#34;&gt;IUWNE&lt;/a&gt;. I passed with a strict margin but a pass is a pass right?&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2014/02/CCNA_wireless_large.jpg&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2014/02/CCNA_wireless_large.jpg&#34; alt=&#34;CCNA_wireless_large&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ve prepared the exam with the &lt;a href=&#34;http://www.ciscopress.com/store/ccna-wireless-640-722-iuwne-quick-reference-9781587133152&#34;&gt;Cisco Press Quick Reference&lt;/a&gt; since many topics are familiar to me and I didn&amp;rsquo;t hat the time to read the full &lt;a href=&#34;http://www.ciscopress.com/store/ccna-wireless-official-exam-certification-guide-ccna-9781587202117&#34;&gt;Exam Certification Guide&lt;/a&gt; that is quite old (2008).&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>HP Master Accredited Systems Engineer</title>
+      <link>http://www.ifconfig.it/hugo/post/hp_mase/</link>
+      <pubDate>Fri, 27 Dec 2013 21:56:16 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/hp_mase/</guid>
+      <description>
+
+&lt;p&gt;As many other vendors HP has a fast track for people already certified with Cisco to achieve an HP certification skipping some basic exams. There&amp;rsquo;s an &lt;a href=&#34;http://h17007.www1.hp.com/us/en/networking/training/certifications/upgrade-path.aspx&#34;&gt;upgrade path tool available&lt;/a&gt; on HP website than shows the required exams for each path. CCIE R&amp;amp;S certification in my case allows to get &amp;ldquo;HP MASE Network Infrastructure&amp;rdquo; passing two exams:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://h17007.www1.hp.com/docs/training/epg/HP0-Y32_EPG.pdf&#34;&gt;HP0-Y32: designing and troubleshooting open standard networks&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://h17007.www1.hp.com/docs/training/epg/HP0-Y37_EPG.pdf&#34;&gt;HP0-Y37: migrating and troubleshooting HP enterprise networks&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Class training is optional, exams are delivered in &lt;a href=&#34;http://www.vue.com/&#34;&gt;Pearson VUE&lt;/a&gt; centers, books are available in &lt;a href=&#34;https://h30590.www3.hp.com/product/HP+MASE+Fast+Track+Bundle+HP0-Y32++HP0-Y37-2+%C3%97+Hardcover-7263&#34;&gt;HP Press website&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;more&#34;&gt;&lt;!-- more --&gt;&lt;/h2&gt;
+
+&lt;h2 id=&#34;the-exams&#34;&gt;The Exams&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;HP0-Y32&lt;/strong&gt; is focused on design and troubleshooting L2 and L3 protocols. Many topics are already covered in CCNP/CCIE blueprints like VLAN, OSPF, BGP, subnetting so it&amp;rsquo;s just a matter to get familiar with the syntax and some things called with another name. An example: a trunk in HP lingo is a port aggregations for all the other vendors. Some topics that are covered in details are the coexistence of different or when PVST and MST coexist in the same network, how an HP switch manages PVST BPDUs&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;HP0-Y37&lt;/strong&gt; is focused on migration and troubleshooting. Migration for HP means replace Cisco gear, first chapter is &amp;ldquo;Migrating a Cisco Network to Open Standards&amp;rdquo; so the target is clear.&lt;/p&gt;
+
+&lt;p&gt;Some chapters of the related book are very superficial but that is the only option when the topics range from VLAN to OSPG, BGP and VPLS/L2VPN.&lt;/p&gt;
+
+&lt;p&gt;The bigger difference I&amp;rsquo;ve found from other Cisco exams I did (&lt;a href=&#34;http://www.cisco.com/web/learning/exams/list/arch.html&#34;&gt;ARCH&lt;/a&gt; excluded) is that migration path and possible dowtime is always taken in consideration, while like in CCIE and CCNP exams the focus is in configuration/troubleshooting only (maybe newer exam versions are different).&lt;/p&gt;
+
+&lt;p&gt;One thing to keep in mind is that HP exams are actually based on two different families of products, HP and former 3COM, now called HP A-Series. Afaik the CLI will eventually converge to 3COM/Comware but for now you need to know both.&lt;/p&gt;
+
+&lt;h2 id=&#34;certification-value&#34;&gt;Certification Value&lt;/h2&gt;
+
+&lt;p&gt;HP MASE is sometimes compared to Cisco CCIE, I don&amp;rsquo;t think that&amp;rsquo;s fair. The complete track can be long if you can&amp;rsquo;t fast track but what this certification misses is a real hands-on lab exam that differentiates CCIE from many other certifications.&lt;/p&gt;
+
+&lt;p&gt;I can say that I&amp;rsquo;ve enjoyed the exam preparation, many topics were discussed from a different point of view and the focus on downtime while migrating is quite interesting and reflects the real word scenarios I see on daily basis.&lt;/p&gt;
+
+&lt;p&gt;If you have a CCNP/CCIE preparation ASE or MASE tracks won&amp;rsquo;t be too hard to achieve and may be useful if you work in multi vendor environments.&lt;/p&gt;
+
+&lt;p&gt; &lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/12/HP_MASE-300x204.png&#34; alt=&#34;HP_MASE&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;UPDATE#1&lt;/p&gt;
+
+&lt;p&gt;If you&amp;rsquo;re familiar with Cisco CLI yo may find this &amp;ldquo;&lt;a href=&#34;https://h30590.www3.hp.com/product/HP+Networking+and+Cisco+CLI+Reference+Guide+-+Version+2-PDF-8407&#34;&gt;HP Networking and Cisco CLI Reference Guide&lt;/a&gt;&amp;rdquo; very useful. PDF edition is FREE.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Four letters more: CCDP</title>
+      <link>http://www.ifconfig.it/hugo/post/ccdp/</link>
+      <pubDate>Fri, 30 Aug 2013 14:41:39 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/ccdp/</guid>
+      <description>&lt;p&gt;Today I&amp;rsquo;ve passed &lt;a href=&#34;http://www.cisco.com/web/learning/exams/list/arch.html&#34;&gt;642-874 ARCH&lt;/a&gt; exam that in conjunction with CCIE and CCNP entitles to obtain the &lt;a href=&#34;https://learningnetwork.cisco.com/community/certifications/ccdp&#34;&gt;CCDP&lt;/a&gt; certification.&lt;/p&gt;
+
+&lt;p&gt;To prepare the exam I&amp;rsquo;ve used the &lt;a href=&#34;http://www.ciscopress.com/store/designing-cisco-network-service-architectures-arch-9781587142888&#34;&gt;official study guide&lt;/a&gt;  along with the documents in the &lt;a href=&#34;http://www.cisco.com/en/US/netsol/ns742/networking_solutions_program_category_home.html&#34;&gt;Cisco Design Zone&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The hardest part of the exam preparation was to study technologies I&amp;rsquo;ve never really implemented and to focus on design, scalability and restrictions more than on the commands.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/09/ccdp_design_large.jpg&#34; alt=&#34;ccdp_design_large&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Huawei Certified Datacom Professional</title>
+      <link>http://www.ifconfig.it/hugo/post/hcdp/</link>
+      <pubDate>Thu, 18 Jul 2013 20:25:41 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/hcdp/</guid>
+      <description>
+
+&lt;p&gt;Huawei network devices are becoming more and more popular in european market lately. It all started with 3G adapters, then mobiles, and now I see routers and switches deployed in many locations.&lt;/p&gt;
+
+&lt;p&gt;For a project I&amp;rsquo;ll deploy in the next few weeks I had the opportunity to attend an Huawei training.&lt;/p&gt;
+
+&lt;p&gt;Huawei provides a fast-track for people already certified with other vendors, three training courses are condensed in just one week but it works if you don&amp;rsquo;t want to hear for the 100th time how STP works ;)&lt;/p&gt;
+
+&lt;p&gt;The track I did was &lt;a href=&#34;http://support.huawei.com/learning/NavigationAction!createNavi#navi%5Bid%5D=term1000025451&amp;amp;navi%5Bt%5D=1388154726704&amp;amp;params%5Bevent%5D=loadCertificate&amp;amp;params%5Bid%5D=Node1000004605&#34;&gt;HCDP&lt;/a&gt; FastTrack (aka HCNP R&amp;amp;S) that overlaps many topics with Cisco&amp;rsquo;s CCNP R&amp;amp;S and CCIE R&amp;amp;S.&lt;/p&gt;
+
+&lt;p&gt;Since I&amp;rsquo;m &amp;ldquo;born&amp;rdquo; in networks with Cisco, to learn another CLI is like learn a foreign language, you can speak it but it&amp;rsquo;s not your native.&lt;/p&gt;
+
+&lt;p&gt;The good thing is Huawei&amp;rsquo;s CLI is very similar to 3COM&amp;rsquo;s that I had the opportunity to work with quite often in the past years. Some concepts where new (like some types of particular VLANs behaviour) but I didn&amp;rsquo;t find topics hard to understand.&lt;/p&gt;
+
+&lt;p&gt;The material provided with the course is not complete or flawless but the references available in the website and some quick labs helped me to prepare the certification exam.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-emulator&#34;&gt;The emulator&lt;/h2&gt;
+
+&lt;p&gt;Huawei provides an emulator called &lt;a href=&#34;http://support.huawei.com/ecommunity/bbs/10142183.html&#34;&gt;ENSP&lt;/a&gt; very similar to &lt;a href=&#34;http://www.gns3.net/&#34;&gt;GNS3&lt;/a&gt; to do some labs. It works fine and CPU/memory requirements are not too high. It uses VirtualBox under the hood. I&amp;rsquo;ve used it to configure routing OSPF/BGP and some MPLS.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-certification&#34;&gt;The certification&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/12/HCDP.png&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/12/HCDP-300x213.png&#34; alt=&#34;HCDP&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>CCIE plaque</title>
+      <link>http://www.ifconfig.it/hugo/post/ccieplaque/</link>
+      <pubDate>Fri, 03 May 2013 11:02:07 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/ccieplaque/</guid>
+      <description>&lt;p&gt;Got mail from Cisco:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/05/ccie-plaque.jpg&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/05/ccie-plaque-300x207.jpg&#34; alt=&#34;ccie plaque&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>My CCIE experience</title>
+      <link>http://www.ifconfig.it/hugo/post/my-ccie-experience/</link>
+      <pubDate>Tue, 09 Apr 2013 12:35:12 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/my-ccie-experience/</guid>
+      <description>
+
+&lt;p&gt;In really enjoyed to read all the blog post of people passing the CCIE lab exam over the years. I&amp;rsquo;ve found the stories very inspirational so now it&amp;rsquo;s time for me to give back.&lt;/p&gt;
+
+&lt;p&gt;I started working as a system engineer in 2001 supporting Microsoft Windows 2000 client and server for a bank. I had the opportunity to work with some network engineers for a project and being intrigued by the new world I started to study what seemed to be the right choice for the moment: Cisco CCNA. I got my certification in 2004 but never really used for some years.&lt;/p&gt;
+
+&lt;p&gt;In 2007 I&amp;rsquo;ve started to work for my current employer and I entered the networking world for real. I knew I wasn&amp;rsquo;t prepared enough so I studied hard again to reach the level of my colleagues.&lt;/p&gt;
+
+&lt;p&gt;Since my first assignments were PIX to ASA migrations I began with CCSP (2007) but once I started the thirst of knowledge wasn&amp;rsquo;t satisfied so I continued with CCNP (2008) and CCIP (2009).&lt;/p&gt;
+
+&lt;p&gt;The path led me to the obvious next step: CCIE.&lt;/p&gt;
+
+&lt;h3 id=&#34;ipexpert-bootcamp-written-exam&#34;&gt;IPExpert bootcamp: written exam&lt;/h3&gt;
+
+&lt;p&gt;In 2010 I attended a bootcamp with &lt;a href=&#34;http://www.ipexpert.com/&#34;&gt;IPEXPERT&lt;/a&gt;, the trainer was &lt;a href=&#34;https://twitter.com/icemarkom&#34;&gt;Marko Milivojevic&lt;/a&gt;, a course that both scared and excited me. The bootcamp was aimed at the CCIE R&amp;amp;S written exam but we did a lot of labs too. I realized then that I was not fast enough or precise to have any chance to pass the lab. Marko did a great job indeed to show me how a CCIE should think and work and he was a big inspiration to work harder.&lt;/p&gt;
+
+&lt;p&gt;I passed the written exam then with a good score and I was quite satisfied. And then the real fun began.&lt;/p&gt;
+
+&lt;h3 id=&#34;ine-bootcamp-lab-preparation-gets-real&#34;&gt;INE bootcamp: lab preparation gets real&lt;/h3&gt;
+
+&lt;p&gt;In 2011 I attended another bootcamp with &lt;a href=&#34;http://www.ine.com/&#34;&gt;INE&lt;/a&gt;, the trainers were &lt;a href=&#34;http://blog.ine.com/author/petr/&#34;&gt;Petr Lapukhov&lt;/a&gt; and &lt;a href=&#34;https://twitter.com/brianmcgahan&#34;&gt;Brian McGahan&lt;/a&gt;. I spent two weeks in Tampa labbing all day and performed quite well on Mock Labs so I decided it was time to go and try the actual lab.&lt;/p&gt;
+
+&lt;h3 id=&#34;attemp-one-fail&#34;&gt;Attemp one: fail!&lt;/h3&gt;
+
+&lt;p&gt;In June 2011 I failed my first attempt.&lt;/p&gt;
+
+&lt;p&gt;Due to personal reasons and knowing that it would be a mistake I have not tried again soon. The moment would have been the right one, maybe with a little more effort I would be able to get a positive result but life decided otherwise.&lt;/p&gt;
+
+&lt;h3 id=&#34;ine-bootcamp-again&#34;&gt;INE bootcamp again&lt;/h3&gt;
+
+&lt;p&gt;In 2012 I read on &lt;a href=&#34;www.ine.com&#34;&gt;INE&lt;/a&gt; blog that &lt;a href=&#34;https://twitter.com/ccie2210&#34;&gt;Brian Dennis&lt;/a&gt; offered the opportunity to &lt;a href=&#34;http://blog.ine.com/2012/03/23/ines-rs-ccie-bootcamp-update-new-racks-new-structure-reseats-and-scholarships-for-2012&#34;&gt;resit the bootcamp&lt;/a&gt;, it was the sign I needed to focus again in the lab preparation. I got my seat in the London bootcamp and I spent two wonderful weeks labbing and reviewing all the CCIE topics.&lt;/p&gt;
+
+&lt;p&gt;After the bootcamp I booked my lab. A countdown and a deadline are very effective to focus a target.&lt;/p&gt;
+
+&lt;h3 id=&#34;second-attempt-pass&#34;&gt;Second attempt: pass!&lt;/h3&gt;
+
+&lt;p&gt;On March 19th 2013 I entered the lab room in Brussels feeling much more prepared and confident than I was a couple of years before. I knew I did well before leaving the room and waited the results knowing I had a very good chance to pass.&lt;/p&gt;
+
+&lt;p&gt;I spent the night awake waiting for the mail but I had to wait until 10:30 AM to get my result. I can&amp;rsquo;t say how happy and relieved I was seeing a PASS! CCIE #38619.&lt;/p&gt;
+
+&lt;h3 id=&#34;common-questions-about-the-preparation&#34;&gt;Common questions about the preparation&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Are CCxP level certs useful to CCIE?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I think so, I used IPExpert CCIE material to prepare CCNP, CCIP and the CCIE written exam. A big problem is easier if you divide it in smaller problems.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Do I recommend attending a bootcamp to prepare the CCIE lab exam?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;It depends. My experiences about bootcamps were very positive. The opportunity to see how the trainers think and work was as valuable as the topics they taught. For the way I learn the bootcamp was the better choice I could&amp;rsquo;ve made. Of course you can replace the bootcamp with video trainings. For me the bootcamp was a way to disconnect from the world and focus 100% on the labs, sometimes that is hard if you stay at home or office.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Is training vendor X better than vendor Y?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ve found almost all the material I&amp;rsquo;ve used to prepare for the lab quite good. Some labs in the workbook are better than others but working with at least two different vendors allows you to see different approaches, that is very positive. Getting used to a topology, wording, addressing can be a trap when you&amp;rsquo;re in the lab.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;What&amp;rsquo;s the better way to prepare for the lab?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I can&amp;rsquo;t answer this question. Different people learn in different ways and speeds. Finding your way can take some time but when you get it the preparation becomes easier.&lt;/p&gt;
+
+&lt;h3 id=&#34;final-thoughts&#34;&gt;Final thoughts&lt;/h3&gt;
+
+&lt;p&gt;The journey to CCIE gave me the opportunity to meet very smart guys, the bootcamp trainers were all very prepared and inspirational. They don&amp;rsquo;t just teach you the topics of the lab but also how to think and approach any technical problem. I can&amp;rsquo;t forget the people I met in the bootcamp like &lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/danieldibswe&#34;&gt;Daniel&lt;/a&gt;, &lt;a href=&#34;https://twitter.com/davidrothera&#34;&gt;David&lt;/a&gt;, &lt;a href=&#34;https://twitter.com/joseleitao&#34;&gt;Jose&lt;/a&gt;, &lt;a href=&#34;https://twitter.com/scontreraf&#34;&gt;Susana&lt;/a&gt;, &lt;a href=&#34;http://www.routereflector.com&#34;&gt;Andrea&lt;/a&gt;. It was great to share the different experiences and the same goal. I have to thank my wife for the support, the patience and the motivation she gave me over the months I spent studying and the weeks away from home. A big thank to my employer who believed in my ambitions and supported me to get this important result.  &lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Cisco certifications: download PDF and order additional printed copies</title>
+      <link>http://www.ifconfig.it/hugo/post/ciscocertsorder/</link>
+      <pubDate>Fri, 29 Mar 2013 11:27:46 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/ciscocertsorder/</guid>
+      <description>&lt;p&gt;I noticed that not everybody knows how to download Cisco certs PDF files or order additional printed copies. Just open &lt;a href=&#34;https://i7lp.integral7.com/durango/do/login?ownername=cisco&amp;amp;channel=cisco&amp;amp;basechannel=integral7&#34;&gt;this link&lt;/a&gt;, login with your Cisco credentials and enter the menu &amp;ldquo;Certification Fulfillment&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;An additional CCIE plaque costs 150USD, paper certs cost 15USD.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/03/cert_fulfil.png&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/03/cert_fulfil.png&#34; alt=&#34;cert_fulfil&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;HTH&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>CCIE #38619</title>
+      <link>http://www.ifconfig.it/hugo/post/ccie38619/</link>
+      <pubDate>Wed, 20 Mar 2013 20:25:12 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/ccie38619/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve passed the &lt;a href=&#34;http://www.cisco.com/web/learning/certifications/expert/ccie_rs/index.html&#34;&gt;CCIE R&amp;amp;S lab exam&lt;/a&gt; yesterday in Brussels, results arrived this morning:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/03/ccie-status.png&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/03/ccie-status.png&#34; alt=&#34;ccie status&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/03/CCIERouting_and_Switching_UseLogo.jpg&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/03/CCIERouting_and_Switching_UseLogo.jpg&#34; alt=&#34;CCIERouting_and_Switching_UseLogo&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>CCIE lab numbers, preallocation myth, certification value.</title>
+      <link>http://www.ifconfig.it/hugo/post/ccie-lab-numbers/</link>
+      <pubDate>Sun, 10 Mar 2013 07:49:55 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/ccie-lab-numbers/</guid>
+      <description>&lt;p&gt;Cisco stopped to publish CCIE statistics some time ago but in Cisco Live presentations we can find some slides like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/03/ccie_stats_2012.png&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/03/ccie_stats_2012-300x203.png&#34; alt=&#34;ccie_stats_2012&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Based on this numbers the math is simple:
+&lt;table cellpadding=&#34;0&#34; width=&#34;260&#34; cellspacing=&#34;0&#34; border=&#34;0&#34; &gt;
+&lt;tbody &gt;
+&lt;tr &gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;td width=&#34;100&#34; style=&#34;text-align: center;&#34; height=&#34;21&#34; &gt;&lt;strong&gt;TOTAL CCIE&lt;/strong&gt;
+&lt;/td&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;td width=&#34;80&#34; style=&#34;text-align: center;&#34; &gt;&lt;strong&gt;26634&lt;/strong&gt;
+&lt;/td&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;td width=&#34;80&#34; style=&#34;text-align: center;&#34; &gt;&lt;strong&gt;%&lt;/strong&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr &gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;td style=&#34;text-align: center;&#34; height=&#34;20&#34; &gt;RS
+&lt;/td&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;td style=&#34;text-align: center;&#34; &gt;17320
+&lt;/td&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;td style=&#34;text-align: center;&#34; &gt;65,03%
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr &gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;td style=&#34;text-align: center;&#34; height=&#34;20&#34; &gt;SEC
+&lt;/td&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;td style=&#34;text-align: center;&#34; &gt;3794
+&lt;/td&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;td style=&#34;text-align: center;&#34; &gt;14,24%
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr &gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;td style=&#34;text-align: center;&#34; height=&#34;20&#34; &gt;SP
+&lt;/td&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;td style=&#34;text-align: center;&#34; &gt;2885
+&lt;/td&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;td style=&#34;text-align: center;&#34; &gt;10,83%
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr &gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;td style=&#34;text-align: center;&#34; height=&#34;20&#34; &gt;VOICE
+&lt;/td&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;td style=&#34;text-align: center;&#34; &gt;2291
+&lt;/td&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;td style=&#34;text-align: center;&#34; &gt;8,60%
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr &gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;td style=&#34;text-align: center;&#34; height=&#34;20&#34; &gt;SAN
+&lt;/td&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;td style=&#34;text-align: center;&#34; &gt;170
+&lt;/td&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;td style=&#34;text-align: center;&#34; &gt;0,64%
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr &gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;td style=&#34;text-align: center;&#34; height=&#34;20&#34; &gt;WIRELESS
+&lt;/td&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;td style=&#34;text-align: center;&#34; &gt;93
+&lt;/td&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;td style=&#34;text-align: center;&#34; &gt;0,35%
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr &gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;td style=&#34;text-align: center;&#34; height=&#34;20&#34; &gt;CCDE
+&lt;/td&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;td style=&#34;text-align: center;&#34; &gt;63
+&lt;/td&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;td style=&#34;text-align: center;&#34; &gt;0,24%
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr &gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;td style=&#34;text-align: center;&#34; height=&#34;20&#34; &gt;SP OPS
+&lt;/td&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;td style=&#34;text-align: center;&#34; &gt;11
+&lt;/td&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;td style=&#34;text-align: center;&#34; &gt;0,04%
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr &gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;td style=&#34;text-align: center;&#34; height=&#34;21&#34; &gt;CCA
+&lt;/td&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;td style=&#34;text-align: center;&#34; &gt;7
+&lt;/td&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;td style=&#34;text-align: center;&#34; &gt;0,03%
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;&lt;/p&gt;
+
+&lt;p&gt;A couple of days ago on twitter &lt;a href=&#34;https://twitter.com/BobMcCouch&#34;&gt;Bob McCouch&lt;/a&gt; who passed his lab on February 21st posted this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/03/tweet_1177ccie.png&#34; alt=&#34;tweet_1177ccie&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I know 14 days are not enough to make statistics, but let&amp;rsquo;s play with the numbers since they&amp;rsquo;re very fresh.&lt;/p&gt;
+
+&lt;p&gt;There&amp;rsquo;re 9 &lt;a href=&#34;http://www.cisco.com/web/learning/certifications/general/pop_exam_locations.html&#34;&gt;CCIE lab locations wordwide&lt;/a&gt;, suppose each lab locations ha 5 seats per day. I say 5 because on the online schedule of the lab I can&amp;rsquo;t find a single day with more than 5 seats available, maybe they are more.&lt;/p&gt;
+
+&lt;p&gt;9 lab locations X 5 seats X 10 labs days (2 weeks) = 450 candidates, about 900 per month&lt;/p&gt;
+
+&lt;p&gt;If 177 candidates passed in two weeks that means a passing rate of 40%, quite higher than I expected but not knowing the number of seats that&amp;rsquo;s hard to say.&lt;/p&gt;
+
+&lt;p&gt;CCIE is divided in &lt;a href=&#34;http://www.cisco.com/web/learning/certifications/expert/index.html&#34;&gt;9 tracks&lt;/a&gt; now, but if we stick with the numbers above, 65% of them go for the R&amp;amp;S exam so we have 115 every 2 weeks, or 230 per month.&lt;/p&gt;
+
+&lt;p&gt; So first myth busted: are CCIE numbers pre-allocated? I would say no, that would mean aroud 11k new numbers per year and since lastest CCIEs numbers are around 38k that&amp;rsquo;s not possible.&lt;/p&gt;
+
+&lt;p&gt;Take for example &lt;a href=&#34;http://rizzitech.blogspot.it/2011/02/ccie-lab-exam-result-pass.html&#34;&gt;Marco Rizzi&lt;/a&gt;, he got his digits in February 2011, number 28129. With 11k pre-allocated numbers per year they would have reached almost 50k now .&lt;/p&gt;
+
+&lt;p&gt;Another proof of that: &lt;a href=&#34;http://networkbroadcast.co.uk/&#34;&gt;David Rothera&lt;/a&gt; passed after a re-read, he got a higher number than &lt;a href=&#34;http://herdingpackets.net/&#34;&gt;Bob&lt;/a&gt;&amp;rsquo;s who passed the lab earlier:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/03/ccie_david_reread.png&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/03/ccie_david_reread.png&#34; alt=&#34;ccie_david_reread&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Second question: is the CCIE still a certification for an elite?&lt;/p&gt;
+
+&lt;p&gt;IMO the answer is yes.&lt;/p&gt;
+
+&lt;p&gt;Numbers are growing fast, but can they keep the pace of the growth of the networking market worldwide? Definitely no.&lt;/p&gt;
+
+&lt;p&gt;Like many other jobs in IT, the demand is growing faster than the offer, higher skills are still rare so the certification worths any minute  and money spent to achieve it.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ll update this post if any correction/update is required, feel free to reply here of on my &lt;a href=&#34;https://twitter.com/gp_ifconfig&#34;&gt;twitte&lt;/a&gt;&lt;a href=&#34;https://twitter.com/gp_ifconfig&#34;&gt;r account&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;UPDATE 20/04/13&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://aitaseller.wordpress.com/2013/03/13/one-of-the-best-feeling-ccie-38520/&#34;&gt;Laurent Prat&lt;/a&gt; passed his lab on March 12 2013 and got #32520, I passed mine on March 19th and got #38619 so 100 CCIE in just one week.&lt;/p&gt;
+
+&lt;p&gt;LINKS&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;More accurate CCIE statistics can be found on &lt;a href=&#34;http://www.bradreese.com/worldwide-ccie-count.htm&#34;&gt;Brad Reese website&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Thanks to &lt;a href=&#34;https://twitter.com/madkiwiinaus&#34;&gt;@madkiwiinaus&lt;/a&gt; for the link to &lt;a href=&#34;http://www.ccie18473.net/wwccies/wwccies.htm&#34;&gt;Worldwide CCIEs since January 2006&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

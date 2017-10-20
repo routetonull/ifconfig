@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Book on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/book/</link>
+    <description>Recent content in Book on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Tue, 23 Aug 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/book/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Opportunistic Learning</title>
+      <link>https://www.ifconfig.it/hugo/post/opportunisticlearning/</link>
+      <pubDate>Tue, 23 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/opportunisticlearning/</guid>
+      <description>I got inspired by the book &amp;ldquo;The 1 Thing&amp;ldquo; and changed a little bit my behavior about work and training I&amp;rsquo;d like to share here to discuss and improve.
+The Background A while ago one guy could setup a bunch of physical servers, install/configure/manage OS, configure network equipment and setup a firewall to connect to the internet.
+For some specific software platforms the support of the vendor for installation and maintenance was enough.</description>
+    </item>
+    
+    <item>
+      <title>Hacking work</title>
+      <link>https://www.ifconfig.it/hugo/post/2010-12-07-hacking-work/</link>
+      <pubDate>Tue, 07 Dec 2010 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2010-12-07-hacking-work/</guid>
+      <description>&amp;ldquo;Breaking stupid rules for smart results.&amp;rdquo;
+ Not the best book ever but I liked the concept: don&amp;rsquo;t stick to the rules if you feel the rules don&amp;rsquo;t allows to work in and efficient way.
+Hacking work is actually intrapreneurship and requires a little anarchic spirit. How can we improve if we never try something different?
+Good reads:
+ Moxie Marlinspike - We should all have something to hide</description>
+    </item>
+    
+  </channel>
+</rss>

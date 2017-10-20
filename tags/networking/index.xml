@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Networking on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/networking/</link>
+    <description>Recent content in Networking on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Fri, 29 Sep 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/networking/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>NFD16 day two - Apstra</title>
+      <link>https://www.ifconfig.it/hugo/post/nfd16day2apstra/</link>
+      <pubDate>Fri, 29 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/nfd16day2apstra/</guid>
+      <description>Day two of NFD16 started with Apstra and their intent-based networking system.
+Intent concept is not as broad as SDN but still vendors have different views of this meaning.
+According to Apstra an intent is &amp;ldquo;the definition of the expected outcome&amp;rdquo;. The sum of the intents of a network is the source of truth.
+Read Sasha Ratkovic blog post about the definition of Intent Based Networking. The checklist he suggest can be very useful to compare different solutions and spot intent washing strategies.</description>
+    </item>
+    
+    <item>
+      <title>NFD16 day one - Arista</title>
+      <link>https://www.ifconfig.it/hugo/post/nfd16day1arista/</link>
+      <pubDate>Sat, 23 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/nfd16day1arista/</guid>
+      <description>Second part of Tech Field Day NFD16 day 1 continues with Arista.
+Getting ready for @AristaNetworks #NFD16 pic.twitter.com/SCWXVGsR2l
+&amp;mdash; Gian Paolo (@gp_ifconfig) September 13, 2017  Arista&amp;rsquo;s presentation included 400G (hist: it&amp;rsquo;s fast!), EOS programmability, Network Automation and Telemetry, Routing Architecture Transformations.
+All video recording are in the youtube channel of TechFielDay.
+EOS Programmability Ken Duda (Founder, CTO, and Senior VP of Software Engineering) did a great session about EOS programmability explaining the reason of some technical choices and the available options.</description>
+    </item>
+    
+    <item>
+      <title>NFD16 day one - Veriflow</title>
+      <link>https://www.ifconfig.it/hugo/post/nfd16day1veriflow/</link>
+      <pubDate>Wed, 20 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/nfd16day1veriflow/</guid>
+      <description>First day at Tech Field Day NFD16, I&amp;rsquo;m quite excited to be here among fellow network engineers to share our views on products and technologies.
+I&amp;rsquo;m planning to post my takeaways for each vendor with variable lengths based on my knowledge and interest of the specific product.
+Today&amp;rsquo;s first presenter is Veriflow. Let&amp;rsquo;s see what Continuous Network Verification is and how it can help to make networks more robust and secure.</description>
+    </item>
+    
+    <item>
+      <title>AirPiConsole part two</title>
+      <link>https://www.ifconfig.it/hugo/post/piconsole2/</link>
+      <pubDate>Sat, 02 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/piconsole2/</guid>
+      <description>Welcome back to AirPiConsole blog post, this is part two.
+If you read part one and followed the configuration steps you should now have a fully working Raspberry Pi Zero W connected to your WiFi network.
+You should also be able to connect via Bluetooth to get a console connection without knowing the IP address of the Raspi.
+Now it&amp;rsquo;s time to move on and start to actually connect to the serial ports.</description>
+    </item>
+    
+    <item>
+      <title>AirPiConsole part one</title>
+      <link>https://www.ifconfig.it/hugo/post/piconsole1/</link>
+      <pubDate>Fri, 01 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/piconsole1/</guid>
+      <description>As a network engineer I spend a lot of time with my laptop connected via serial cable to various devices.
+Physical serial connection is needed for initial device setup and sometimes per customer&amp;rsquo;s security policy I can&amp;rsquo;t access the network, so I can only use out-of-band management. I also configure many devices at staging lab that I call the &amp;ldquo;Theory room&amp;rdquo; because you know, in theory everything works ;-)</description>
+    </item>
+    
+    <item>
+      <title>NFD16 delegate</title>
+      <link>https://www.ifconfig.it/hugo/post/2017-08-12-nfd16-delegate/</link>
+      <pubDate>Sat, 12 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2017-08-12-nfd16-delegate/</guid>
+      <description>I&amp;rsquo;m happy to announce I&amp;rsquo;ll join a great team of professionals for 3 days of pure networking awesomeness in Silicon Valley:
+Great news: I&amp;#39;m a #NFD16 delegate! https://t.co/WuziopJtKc Can&amp;#39;t wait to join such a great team of professionals!
+&amp;mdash; Gian Paolo (@gp_ifconfig) August 11, 2017  NFD16 is part of Tech Field Day events where vendors and professionals meet to share and discuss about the IT world, products, trends and future.</description>
+    </item>
+    
+    <item>
+      <title>HP Procurve to Cisco switchport migration with Python and Netmiko</title>
+      <link>https://www.ifconfig.it/hugo/post/2017-08-07-python-hp-to-cisco-switchport-migration/</link>
+      <pubDate>Fri, 11 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2017-08-07-python-hp-to-cisco-switchport-migration/</guid>
+      <description>Summertime usually means a busy period for Network Engineers, customers are on holidays and we have the opportunity to performs all the changes that impact network connectivity.
+For me this usually means core switch replacement.
+Today I was moving a configuration from an HP8200 to a Cisco 4500, taking care of all the details of ports, trunks, vlans.
+From this:
+to this:
+When a task is manual, boring, repetitive and error-prone my automation skills came to help.</description>
+    </item>
+    
+    <item>
+      <title>Networkcareer.net interview</title>
+      <link>https://www.ifconfig.it/hugo/post/2017-07-30-network-career-interview/</link>
+      <pubDate>Wed, 26 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2017-07-30-network-career-interview/</guid>
+      <description>My interview was published today on Networkcareer.net, the latest project from Daniel Dib and Kim Pedersen.
+It&amp;rsquo;s available online HERE.</description>
+    </item>
+    
+    <item>
+      <title>Ansible and IOS quick start</title>
+      <link>https://www.ifconfig.it/hugo/post/2017-05-27-ansible-start/</link>
+      <pubDate>Sat, 27 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2017-05-27-ansible-start/</guid>
+      <description>Ansible has been around for I while but I didn&amp;rsquo;t had a chance to play with it so far.
+Now the time has come: I manage enough IOS devices with homogeneous configurations in multiple sites without Cisco Prime. Any change is a pain, it&amp;rsquo;s time to automate all the things!
+My environment I run Ansible inside Bash on Windows, I don&amp;rsquo;t see any issue or difference than running in an actual Linux box or docker/vagrant/whatever and it permits a better integration with the tools I already use.</description>
+    </item>
+    
+    <item>
+      <title>Meraki Masters</title>
+      <link>https://www.ifconfig.it/hugo/post/merakimasters/</link>
+      <pubDate>Mon, 14 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/merakimasters/</guid>
+      <description>Last week I had the opportunity to attend a &amp;ldquo;Cisco Meraki Masters&amp;rdquo; session at Meraki HQ in San Francisco.
+Meraki Masters is a program that sits on top of CMNA to give partners a deeper view of the Meraki product line, vision and roadmap.
+Merakify a.k.a. &amp;ldquo;Don&amp;rsquo;t spend your time doing work a well-trained monkey could do.&amp;rdquo; Meraki has a strong focus on the &amp;ldquo;merakification&amp;rdquo; of the products. Merakification means that all the repetitive tasks a network administrator performs almost on daily basis are now included in the Meraki Dashboard.</description>
+    </item>
+    
+    <item>
+      <title>Docker networking bridge to host NIC</title>
+      <link>https://www.ifconfig.it/hugo/post/2015-05-18-docker-networking-bridge/</link>
+      <pubDate>Mon, 18 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2015-05-18-docker-networking-bridge/</guid>
+      <description>This post is part of a series about Docker, including:
+ Docker Introduction
+ Docker: Install software inside a container
+ Docker Volumes
+  Today we&amp;rsquo;ll see Docker networking with a very specific target in mind: bridge container to the host network.
+This isn&amp;rsquo;t supposed to be the way of work of containers: a container should be created to run a single application so container networking, from the point of view of a Network Engineer, is essentialy a Port Address Translation with a firewall exception.</description>
+    </item>
+    
+    <item>
+      <title>Ethernet Economiser aka RJ45 splitter</title>
+      <link>https://www.ifconfig.it/hugo/post/2014-11-28-rj45splitter/</link>
+      <pubDate>Fri, 28 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2014-11-28-rj45splitter/</guid>
+      <description>Just a quick post since I speak with many network engineers and I notice some confusion about this topic.
+Are all 4 pairs of an Cat5e cable used? The answer is.. it depends.
+For gigabit speed 1000T all four pairs are used. If 100TX speed is enough we can of course split the cable and double the connections without pulling more cables:
+In my specific case I&amp;rsquo;ve used a single cable drop in the garage to connect a humidity/temperature to a 1wire bus sensor while allowing a future connection of an ethernet device.</description>
+    </item>
+    
+    <item>
+      <title>CWNA</title>
+      <link>https://www.ifconfig.it/hugo/post/2014-05-04-cwna/</link>
+      <pubDate>Sun, 04 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2014-05-04-cwna/</guid>
+      <description>Last week I passed PW0-105 exam and obtained the CWNA certification:
+I work with wireless network since 2005, I began installing some SoHo APs and in the last few years I designed and deployed many bigger networks, some of which are challenging high density environments.
+I read manyCisco documents about wifi design and in this year&amp;rsquo;s Cisco Live I attended many session related to wifi. After passing CCNA-W I didn&amp;rsquo;t felt confident enough, I know how to design, install and troubleshoot a wireless network but I wanted to have a deeper knowledge of the technologies involved ant how the protocols work.</description>
+    </item>
+    
+    <item>
+      <title>PVST and non Cisco switches interoperability</title>
+      <link>https://www.ifconfig.it/hugo/post/2012-10-23-pvst-interoperability/</link>
+      <pubDate>Tue, 23 Oct 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2012-10-23-pvst-interoperability/</guid>
+      <description>This week I&amp;rsquo;m attending an HP training in Milan The course topics aren&amp;rsquo;t as challenging as I&amp;rsquo;ve expected but I had the opportunity to test focus on some interoperability problems that may occur in mixed environments, especially with Cisco and non-Cisco devices, like PVST.
+For this post we use 2 switches, a Cisco and a non Cisco (HP in this case), the topology is simple:
+CISCO port g1/0/3 --&amp;gt; HP port 13  On the Cisco switch we enable PVST:</description>
+    </item>
+    
+    <item>
+      <title>Cisco switches and Voice VLAN</title>
+      <link>https://www.ifconfig.it/hugo/post/2012-01-28-cisco-switches-and-voice-vlan/</link>
+      <pubDate>Sat, 28 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2012-01-28-cisco-switches-and-voice-vlan/</guid>
+      <description>Remember: voice Vlan is not automatically created when applied to a port. You must create it!</description>
+    </item>
+    
+    <item>
+      <title>HP Fast Track</title>
+      <link>https://www.ifconfig.it/hugo/post/2012-01-02-122/</link>
+      <pubDate>Mon, 02 Jan 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2012-01-02-122/</guid>
+      <description>HP allows Cisco certified people to achieve it&amp;rsquo;s MASE/ASE certs using Fast Track:
+
+While HP certifications aren&amp;rsquo;t as popular as Cisco&amp;rsquo;s they can be a way to learn a different platform and increase career opportunities.
+The official cert guide is available on Amazon.</description>
+    </item>
+    
+    <item>
+      <title>The 10 Networking Commandments</title>
+      <link>https://www.ifconfig.it/hugo/post/2011-03-13-the-10-networking-commandments/</link>
+      <pubDate>Sun, 13 Mar 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2011-03-13-the-10-networking-commandments/</guid>
+      <description>Thou shalt above all, maintain the integrity of the network. Thou shalt have a long term strategic direction. Thou shalt always opt for quality before expediency. Thou shalt meet the requirements, exceed the expectations and anticipate the needs of users. Thou shalt benefit from a successful implementation by careful project planning. Thou shalt provide reliability, availability and serviceability. Thou shalt maintain detailed, timely and accurate documentation. Thou shalt commit to continuous training.</description>
+    </item>
+    
+  </channel>
+</rss>

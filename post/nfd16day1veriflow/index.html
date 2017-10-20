@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.26" />
+
+  <title>NFD16 day one - Veriflow &middot; ifconfig.it</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.ifconfig.it/hugoimg/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-2507441616057251",
+    enable_page_level_ads: true
+  });
+</script>
+  
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://www.ifconfig.it/hugo/">ifconfig.it</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/tags/"><i class='fa fa-list fa-fw'></i>Tags</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/gp_ifconfig" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/gpboa" target="_blank"><i class="fa fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/gpaolo" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/routetonull" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://keybase.io/bgp" target="_blank"><i class="fa fa-key fa-fw"></i>Keybase</a>
+    </li>
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>NFD16 day one - Veriflow</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+	<time>Wednesday, September 20, 2017
+	</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/networking">networking</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/techfieldday">techfieldday</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/nfd16">nfd16</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  
+
+<p>First day at <a href="http://techfieldday.com/event/nfd16/">Tech Field Day NFD16</a>, I&rsquo;m quite excited to be here among fellow network engineers to share our views on products and technologies.</p>
+
+<p>I&rsquo;m planning to post my takeaways for each vendor with variable lengths based on my knowledge and interest of the specific product.</p>
+
+<p>Today&rsquo;s first presenter is <a href="https://www.veriflow.net/">Veriflow</a>. Let&rsquo;s see what <em>Continuous Network Verification</em> is and how it can help to make networks more robust and secure.</p>
+
+<h2 id="veriflow">Veriflow</h2>
+
+<p>What Veriflow does is to collect data plane L1 to L4 information about the network, create a model of the whole network and then predict the impact of changes and outages.</p>
+
+<p>The collected information used to create the model include running configurations, L2 and L3 tables, CDP/ LLDP neighbors, VRRP/HSRP status, routing tables etc. The product does not collect actual data or flow information but uses only control plane information (more on that later).</p>
+
+<p>All the collection is agentless and works with multiple vendors. what you put in your network in a <em>collection machine</em> that grabs all the information and sends that to a verification engine.</p>
+
+<p>The verification engine performs data normalization and creates the predictive model.</p>
+
+<p>The product focus right now is mostly on L3 Access-List changes. With <a href="https://www.veriflow.net/">Veriflow</a> it is possible to verify if a traffic is allowed on all the access-lists on the path of it is blocked somewhere. The search engine clearly shows which ACL dropped the traffic with a detail up to the exact line on the ACL.</p>
+
+<p>If we compare this to the manual process involved to get the some result it is easy to understand how much time it saves.</p>
+
+<p>It is also possible to predict if a change in an access list would impact some network communication allowing unwanted traffic or blocking business traffic.</p>
+
+<h3 id="the-intent">The Intent</h3>
+
+<p>The <em>intent</em> feature in Veryflow is not the same <em>intent based</em> you find in other automation products but is still quite useful indeed. We can define how the network should behave and verify the model supports that <em>intent</em>.</p>
+
+<p>In my opinion the best part is many intents are <em>automagically</em> created when the model is built. It is possible to create new intents with the GUI or API.</p>
+
+<p><strong>What is an intent for Veriflow?</strong> It could be the reachability status of a particular network from a specified source, the presence of a prefix on the RIB or a specific devise, the presence of an ACL that permits or allows specific traffic.</p>
+
+<p>What happens for example if we filter a prefix somewhere on the network? Or we create and access list that filters traffic that should be allowed?</p>
+
+<p><a href="https://www.veriflow.net/">Veriflow</a> collects the information, verifies if the updated model satisfies the intent and generates an alarm when it doesn&rsquo;t. The alarm includes a very detailed information of the configuration that generates the <strong><a href="https://www.youtube.com/watch?v=i9LOFXwPwC4">unintended</a></strong> model so it&rsquo;s possible to go back and fix it.</p>
+
+<p>It is also possible to investigate the status of the network in different times to compare the differences. That&rsquo;s a great whay to get an answer of <strong>the most important question when something goes wrong: what&rsquo;s changed?</strong>.</p>
+
+<h3 id="what-i-d-like-to-see-in-the-roadmap">What I&rsquo;d like to see in the roadmap</h3>
+
+<p>The model of the network can be very good and accurate but over the years in IT I learned to <strong>trust&amp;verify</strong>. I feel like the verify part can be stronger here.</p>
+
+<p>The question is: <em>what happens if the model is wrong?</em></p>
+
+<p>What I&rsquo;d really like to see is an integration with Netflow/IPFIX to validate the model with actual data traffic. It may happen that the model misses something and the data takes an unpredicted path. Veriflow right now wouldn&rsquo;t be able to verify that, there&rsquo;s no <em>model validation</em> in the workflow. It may be a corner case but we now that sometimes Network Engineers can be very creative in their solutions and a model can&rsquo;t predict every single case.</p>
+
+<p>I don&rsquo;t think <a href="https://www.veriflow.net/">Veriflow</a> should replace a Netflow/IPFIX collector but limited collection to validate the model would close the loop.</p>
+
+<p>Another feature where I can see improvement is about prediction, or Pre-flight as they call this feature. It is possible to read the BGP table and OSPF database from the devices. It would be very useful to evaluate the second-best path, not installed in RIB, to verify there is a valid backup path in case of problems. What happens if one interface or routing peer goes down? Right now we need an actual problem to happen to collect all the information during the fault from the devices and verify the second path.</p>
+
+<p><a href="https://youtu.be/-IFbnqP-wak?t=19m44s">See the session recording for more on this.</a>.</p>
+
+<p>I understand <a href="https://www.veriflow.net/">Veriflow</a> does not focus on this feature right now. Read &ldquo;<em><a href="https://ratul.org/papers/sigcomm2017-minesweeper.pdf">A General Approach to Network Configuration Verification</a>&ldquo;</em> for more on this topic.</p>
+
+<p>Last feature I&rsquo;d like to see is the integration of Security Intelligence feeds to create <em>Security Intents</em>. Security intents could be used to verify if traffic that may lead to and attack is allowed on the network. Something as simple as <em>port 445 should not be open to the WAN</em> could be a good start.</p>
+
+<h3 id="wrap-up-veriflow">Wrap up Veriflow</h3>
+
+<p>I think <a href="https://www.veriflow.net/">Veriflow</a> is a great product, the GUI is very nice&amp;clear and very fast. It is possible to filter the prefixes using a tcpdump-like syntax. The model generated is very accurate and it&rsquo;s possible to extend it, sky&rsquo;s the limit.</p>
+
+<p><a href="https://www.veriflow.net/">Veriflow</a> can be used both as a preventive tool to spot outages before they occur or as troubleshooting tool when things are bad, every Network Engineer would love to have it in the toolbox.</p>
+
+<p>You can see the full recordings of this and previous events on <a href="https://www.youtube.com/watch?v=xnb0Y1LTbew&amp;list=PLinuRwpnsHafgjtdfqok8aGVdjsEGffcl">youtube</a>. Go to <a href="http://techfieldday.com/">TechFieldDay.com</a> for more videos and great articles on IT.</p>
+
+<h2 id="disclaimer">DISCLAIMER</h2>
+
+<p><em>Tech Field Day (TFD) is a commercial activity for TFD and the presenting companies. When I attend TFD events my travel and accommodation expenses are usually paid for by TFD. At the events, most of my meals are provided by TFD. In addition, the companies that present at TFD usually give the delegates gifts. At TFD the presenting companies engage with delegates to educate us about their products and services. The smart companies also want to learn from delegates (a few are very smart about this). The aim of the event is to help the presenting companies connect with delegates. Ultimately get the company’s message spread by delegates. Usually, delegates will write about some or all of the presenting companies.</em></p>
+
+<p><em>Neither the TFD staff nor the presenting companies get to review what the delegates write. There is no obligation on delegates to write about any or all presenters. Nor is there an obligation to write nice things about presenters. In fact, the greatest expectation is that delegates will be honest in any writing that they do.</em></p>
+
+<p><em>This (ifconfig.it) is my personal blog. Everything I write here is my thoughts and opinions.  None of it is reviewed by the organizations I write about before publication. I could get corrections from the companies I write about and may incorporate the parts I agree with into my posts here.</em></p>
+
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2507441616057251"
+     data-ad-slot="5064206496"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://www.ifconfig.it/hugo/post/piconsole2/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://www.ifconfig.it/hugo/post/piconsole2/">AirPiConsole part two</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://www.ifconfig.it/hugo/post/nfd16day1arista/">NFD16 day one - Arista</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://www.ifconfig.it/hugo/post/nfd16day1arista/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'ifconfig';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2507441616057251"
+     data-ad-slot="2220017315"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  
+</div>
+
+</div>
+</div>
+<script src="https://www.ifconfig.it/hugojs/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10670358-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

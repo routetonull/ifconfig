@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sysadmin on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/sysadmin/</link>
+    <description>Recent content in Sysadmin on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Fri, 27 Jul 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/sysadmin/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>System Administrator Appreciation Day</title>
+      <link>https://www.ifconfig.it/hugo/post/system-administrator-appreciation-day/</link>
+      <pubDate>Fri, 27 Jul 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/system-administrator-appreciation-day/</guid>
+      <description> Today is system administrator appreciation day. Don&amp;rsquo;t forget to show your appreciation to youy SysAdmin (on Network Admin).
+LINK </description>
+    </item>
+    
+  </channel>
+</rss>

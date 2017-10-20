@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Debug on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/debug/</link>
+    <description>Recent content in Debug on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Tue, 01 Mar 2011 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/debug/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Conditional Debug</title>
+      <link>https://www.ifconfig.it/hugo/post/2011-03-01-conditional-debug/</link>
+      <pubDate>Tue, 01 Mar 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2011-03-01-conditional-debug/</guid>
+      <description>Conditional debugging is used to filter debugging messages:
+R#debug condition ? application Application called called number calling calling card card glbp interface group interface interface ip IP address mac-address MAC address match-list apply the match-list standby interface group username username vcid VC ID vlan vlan voice-port voice-port number xconnect Xconnect conditional debugging on segment pair  A quick example: filter RIP events only for interface Serial1/1.
+We just need to enable a debug condition for interface S1/1:</description>
+    </item>
+    
+  </channel>
+</rss>

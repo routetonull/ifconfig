@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ipexpert on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/ipexpert/</link>
+    <description>Recent content in Ipexpert on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Mon, 20 Jun 2011 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/ipexpert/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Guide to CCIE Lab Locations: Brussels</title>
+      <link>https://www.ifconfig.it/hugo/post/guide-to-ccie-lab-locations-brussels/</link>
+      <pubDate>Mon, 20 Jun 2011 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/guide-to-ccie-lab-locations-brussels/</guid>
+      <description>A video shot by Marko Milivojevic from IPExpert showing the Cisco HQ in Brussels, famous for being the european site of CCIE lab exams.
+[youtube]9bRbL_SOYfo[/youtube]</description>
+    </item>
+    
+  </channel>
+</rss>

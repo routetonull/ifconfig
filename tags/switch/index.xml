@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Switch on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/switch/</link>
+    <description>Recent content in Switch on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 20 Dec 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/switch/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>L2 QoS lab with DSCP mutation map and QoS port statistics</title>
+      <link>https://www.ifconfig.it/hugo/post/dscp-mutatio/</link>
+      <pubDate>Thu, 20 Dec 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/dscp-mutatio/</guid>
+      <description>The dscp mutation map is a per-port configuration that permits to modify the dscp field of a packet. The mutation map works for EGRESS traffic only
+We trust the documentation but it&amp;rsquo;s event better to verify it.
+The topology si simple:
+PC1 11.0.0.1 -- G1/0/1 C3750-24 G1/0/24 -- G1/0/24 C3750-48 G1/0/1 -- PC2 11.0.0.2 running wireshark First step: turn on QOS on both switches with the command
+mls qos Then on C3750-24 port G1/0/1 we set COS to 5:</description>
+    </item>
+    
+    <item>
+      <title>PVLAN Quick Notes</title>
+      <link>https://www.ifconfig.it/hugo/post/pvlan-quick-notes/</link>
+      <pubDate>Thu, 20 Dec 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/pvlan-quick-notes/</guid>
+      <description>Private VLAN configuration:
+vlan 300 private-vlan primary private-vlan association 301-302 ! vlan 301 private-vlan isolated ! vlan 302 private-vlan community Port configuration:
+interface GigabitEthernet1/0/1 switchport private-vlan host-association 300 301 switchport mode private-vlan host What about the SVI?
+interface Vlan300 ip address 11.0.0.48 255.255.255.0 private-vlan mapping ? WORD Secondary VLAN IDs of the private VLAN SVI interface mapping add Add a VLAN to private VLAN list remove Remove a VLAN from private VLAN list If we add a private-vlan mapping to the SVI it works like a promicuous port for all the secondary vlans mapped, reachable by both isolated and community ports:</description>
+    </item>
+    
+  </channel>
+</rss>

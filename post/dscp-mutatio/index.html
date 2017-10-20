@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.16-DEV" />
+
+  <title>L2 QoS lab with DSCP mutation map and QoS port statistics &middot; ifconfig.it</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.ifconfig.it/hugoimg/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://www.ifconfig.it/hugo/">ifconfig.it</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/tags/"><i class='fa fa-list fa-fw'></i>Tags</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/gp_ifconfig" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/gpaolo" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/routetonull" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>L2 QoS lab with DSCP mutation map and QoS port statistics</h1>
+  <h2></h2>
+</div>
+<div class="content">
+  <p>The dscp mutation map is a per-port configuration that permits to modify the dscp field of a packet. The mutation map works for EGRESS traffic only</p>
+
+<p>We trust the documentation but it&rsquo;s event better to verify it.</p>
+
+<p>The topology si simple:</p>
+
+<blockquote>PC1 11.0.0.1 --> G1/0/1 C3750-24 G1/0/24 --> G1/0/24 C3750-48 G1/0/1 --> PC2 11.0.0.2 running wireshark</blockquote>
+
+<p>First step: turn on QOS on both switches with the command</p>
+
+<blockquote>mls qos</blockquote>
+
+<p>Then on C3750-24 port G1/0/1 we set COS to 5:</p>
+
+<blockquote>interface GigabitEthernet1/0/1
+description PC1
+mls qos cos 5
+mls qos cos override</blockquote>
+
+<p>Let&rsquo;s check the statistics of the port:</p>
+
+<blockquote>C3750-24#sh mls qos interface g1/0/1 statistics
+
+------------ cut -------------
+
+cos: incoming
+-------------------------------
+
+0 - 4 : 0 0 0 0 0
+5 - 7 : 20 0 0
+
+----------- cut --------------</blockquote>
+
+<p>As expected we are receiving packets with COS = 5</p>
+
+<p>Whats going out of C3750-24 port G1/0/24 facing the other switch?</p>
+
+<blockquote>dscp: outgoing
+-------------------------------
+
+40 - 44 :         167
+
+cos: outgoing
+-------------------------------
+
+5 - 7 : 168</blockquote>
+
+<p>Packets form PC1 are being sent with COS = 5 and DSCP = 40</p>
+
+<p>Why DSCP = 40? Because the default cos-dscp map is applied:</p>
+
+<blockquote>C3750-24#sh mls qos maps cos-dscp
+Cos-dscp map:
+cos: 0 1 2 3 4 5 6 7
+--------------------------------
+dscp: 0 8 16 24 32 40 48 56</blockquote>
+
+<p>What&rsquo;s received on switch C3750-48 port G1/0/24 if we trust COS on the port?</p>
+
+<blockquote>C3750-48(config)#inte g1/0/24
+C3750-48(config-if)#mls qos trust cos
+
+
+
+cos: incoming
+-------------------------------
+
+0 - 4 : 83 0 0 0 0
+
+5 -  7 :           0            0            0</blockquote>
+
+<p>We receive only COS = 0. The reason is we&rsquo;re working with VLAN 1 thats is untagged on the port, COS value exists in the dot1q header so no header means no COS.</p>
+
+<p>What about DSCP?</p>
+
+<blockquote>dscp: incoming
+-------------------------------
+
+40 - 44 :          60</blockquote>
+
+<p>We receive DSCP = 40, since the value exists in the IP header.</p>
+
+<p>What if we tag the native vlan in the trunk between the two switches?</p>
+
+<blockquote>On both switches:
+
+vlan dot1q tag native
+
+
+
+cos: incoming
+----------------------
+
+5 - 7 : 53 0 0</blockquote>
+
+<p>Now we&rsquo;re receiving COS = 5 and DSCP = 40.</p>
+
+<p>Check the DSCP value of the packets sent from PC1 and received by PC2:</p>
+
+<p><a href="http://www.ifconfig.it/images/pc2_1.png"><img src="http://www.ifconfig.it/images/pc2_1-300x71.png" alt="pc2_1" /></a></p>
+
+<p>DSCP value is hex 28 that is decimal 40. Verify on C3750-48 G1/0/1 port statistics:</p>
+
+<blockquote>dscp: outgoing
+-------------------------------
+
+40 - 44 :          80            0            0            0            0</blockquote>
+
+<p>Everything worked as expected until now.</p>
+
+<p>Now let&rsquo;s create and apply a DSCP mutation map on the port connected to PC2. We remap DSCP 40 to DSCP 46:</p>
+
+<blockquote>C3750-48(config)#mls qos map dscp-mutation 40to46 40 to 46
+
+C3750-48(config)#inte g1/0/1
+
+C3750-48(config-if)#mls qos dscp-mutation 40to46</blockquote>
+
+<p>Check again if on PC2 we are receiving packest with DSCP 46 instead of 40 from PC1.</p>
+
+<p><a href="http://www.ifconfig.it/images/pc2_2.png"><img src="http://www.ifconfig.it/images/pc2_2-300x129.png" alt="pc2_2" /></a></p>
+
+<p>Something&rsquo;s wrong:  we&rsquo;re still getting DSCP hex 28, decimal 40.</p>
+
+<p>The command reference guide says that DSCP mutation map works egress on the interface right? But what if we apply the dscp mutation map to port G1/0/24 instead?</p>
+
+<p><a href="http://www.ifconfig.it/images/pc2_3.png"><img src="http://www.ifconfig.it/images/pc2_3-300x143.png" alt="pc2_3" /></a></p>
+
+<p>We&rsquo;re getting the correct DSCP hex 2E, decimal 46 now.</p>
+
+<p>What&rsquo;s on the statistics of port G1/0/24?</p>
+
+<blockquote>dscp: incoming
+-------------------------------
+
+40 - 44 :          60</blockquote>
+
+<p>On port G1/0/1 to PC2:</p>
+
+<blockquote>dscp: outgoing
+-------------------------------
+
+45 - 49 :           0          122</blockquote>
+
+<p>So the dscp mutation map is applied for egress packets but the command must be applied to the port where packets are coming in, not where they&rsquo;re going out.</p>
+
+</div>
+
+</div>
+</div>
+<script src="https://www.ifconfig.it/hugojs/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10670358-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cacti on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/cacti/</link>
+    <description>Recent content in Cacti on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Sat, 31 Mar 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/cacti/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Monitor Cisco router UPTIME with Nagios and Cacti</title>
+      <link>https://www.ifconfig.it/hugo/post/monitor-cisco-router-uptime-with-nagios-and-cacti/</link>
+      <pubDate>Sat, 31 Mar 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/monitor-cisco-router-uptime-with-nagios-and-cacti/</guid>
+      <description>On a customer&amp;rsquo;s network we noticed that the Internet facing router reboots because of a software error. We stumbled on this issue by chance, just because one of the reboots was during a videoconference. Nobody noticed the problem before and they really don&amp;rsquo;t know if the problem was there since the installation of the router a couple of years ago. They have Nagios running to monitor the network, so I&amp;rsquo;ve configured it to monitor the router uptime too.</description>
+    </item>
+    
+    <item>
+      <title>Network Weathermap</title>
+      <link>https://www.ifconfig.it/hugo/post/network-weathermap/</link>
+      <pubDate>Sat, 25 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/network-weathermap/</guid>
+      <description>Weathermap is a network visualisation tool, to take data you already have and show you an overview of your network in map form.</description>
+    </item>
+    
+  </channel>
+</rss>

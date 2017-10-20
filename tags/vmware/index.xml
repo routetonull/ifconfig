@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vmware on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/vmware/</link>
+    <description>Recent content in Vmware on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Fri, 11 Dec 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/vmware/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>VMware VCP5-DCV for a network engineer</title>
+      <link>https://www.ifconfig.it/hugo/post/2015-12-11-vcp5dcv/</link>
+      <pubDate>Fri, 11 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2015-12-11-vcp5dcv/</guid>
+      <description>Today I passed exam VCP550 and got VMware VCP5-DCV certification.
+Exam preparation For exam preparation I attended the official training that is mandatory to access the exam. The printed material provided with the training is good enough but I integrated with the great Mastering VMware vSphere 5.5 by Scott Lowe. The official documentation available online for free.
+I had some hands-on experience with VSphere, did some installations myself and supported some trouble tickets so even if I don&amp;rsquo;t work every day with VSphere I have a decent knowledge on the topic.</description>
+    </item>
+    
+  </channel>
+</rss>

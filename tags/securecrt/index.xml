@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Securecrt on ifconfig.it</title>
+    <link>http://www.ifconfig.it/hugo/tags/securecrt/</link>
+    <description>Recent content in Securecrt on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Mon, 01 Jun 2015 21:00:49 +0000</lastBuildDate>
+    <atom:link href="http://www.ifconfig.it/hugo/tags/securecrt/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>SecureCRT and Python</title>
+      <link>http://www.ifconfig.it/hugo/post/scrtpython/</link>
+      <pubDate>Mon, 01 Jun 2015 21:00:49 +0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/scrtpython/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://www.vandyke.com/products/securecrt/&#34;&gt;SecureCRT&lt;/a&gt; is one of my favourite tools, today I had a chance to use it in a way I didn&amp;rsquo;t expected.&lt;/p&gt;
+
+&lt;p&gt;A customer called with a problem: he has a radio bridge that sometimes loses connection with the remote unit. The workaround is to reload the base unit. The process is manual, he monitors the radio bridge status and reload when required.&lt;/p&gt;
+
+&lt;p&gt;Since the radio bridge is not business critical he doesn&amp;rsquo;t have budget to replace tha radio bridge or troubleshoot the problem, the request was to automate the check/reload process.&lt;/p&gt;
+
+&lt;p&gt;I checked the available tools: no Linux servers, no monitoring, no management platform&amp;hellip; just a Windows server and&amp;hellip; &lt;a href=&#34;http://www.vandyke.com/products/securecrt/&#34;&gt;SecureCRT&lt;/a&gt;!&lt;/p&gt;
+
+&lt;p&gt;A quick look on &lt;a href=&#34;http://www.vandyke.com/products/securecrt/&#34;&gt;SecureCRT&lt;/a&gt; website confirmed that it supports &lt;a href=&#34;http://www.vandyke.com/products/securecrt/scripts.html&#34;&gt;scripting&lt;/a&gt; with &lt;a href=&#34;https://www.python.org/&#34;&gt;Python&lt;/a&gt;, VBScript, Jscript and PerlScript. I&amp;rsquo;m familiar with &lt;a href=&#34;https://www.python.org/&#34;&gt;Python&lt;/a&gt; so it is my choice.&lt;/p&gt;
+
+&lt;p&gt;The idea is simple:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;connect to the remote device via &lt;a href=&#34;https://tools.ietf.org/html/rfc854&#34;&gt;telnet&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;verify the radio bridge is up&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;reload the device if radio bridge is down&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The script with comments is quite self explanatory:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;# $language = &amp;quot;Python&amp;quot;
+# $interface = &amp;quot;1.0&amp;quot;
+
+# Website: www.ifconfig.it
+# License: https://creativecommons.org/licenses/by-sa/4.0/legalcode
+
+def main():
+
+    # CONNECTION DATA
+    hostIP = &amp;quot;X.X.X.X&amp;quot;
+    username = &amp;quot;myUsername&amp;quot;
+    password = &amp;quot;myPassword&amp;quot;
+    enablePassword = &amp;quot;myEnablePassword&amp;quot;
+    prompt = &amp;quot;#&amp;quot;
+
+    # PARAMETERS
+    command = &amp;quot;sh dot11 associations&amp;quot;
+    searchString = &amp;quot;6cfa.8923.beef&amp;quot;
+    reloadCommand = &amp;quot;reload in 1 reason REMOTE_NOT_FOUND&amp;quot;
+
+    # LOGIN STRINGS
+    loginStrings = [&amp;quot;Username&amp;quot;,&amp;quot;Password:&amp;quot;,&amp;quot;&amp;gt;&amp;quot;,&amp;quot;Password:&amp;quot;]
+    sendString = [username,password,&amp;quot;enable&amp;quot;,enablePassword]
+
+    crt.Screen.Synchronous = True
+
+    # CONNECT TO REMOTE DEVICE  
+    crt.Session.Connect(&amp;quot;/telnet &amp;quot;+hostIP)
+
+    # AUTHENTICATE PROCESS
+
+    if (crt.Session.Connected):
+
+        i=0
+        for string in loginStrings:
+            crt.Screen.WaitForString(string)
+            crt.Screen.Send(sendString[i]+&amp;quot;\r&amp;quot;)
+            i = i+1
+
+        crt.Screen.WaitForString(prompt)
+        crt.Screen.Send(&amp;quot;term len 0&amp;quot;+&amp;quot;\r&amp;quot;)
+
+        crt.Screen.WaitForString(prompt)
+
+        # EXECUTE VERIFICATION COMMAND AND GET OUTPUT
+        crt.Screen.Send(command+&amp;quot;\r&amp;quot;)
+
+        crt.Screen.IgnoreEscape = True
+
+        result = crt.Screen.ReadString(prompt)
+        result.strip()
+
+        crt.Screen.IgnoreEscape = False
+
+        #SEARCH STRING IN OUTPUT
+
+        if searchString not in result:
+            #crt.Dialog.MessageBox(&amp;quot;FOUND STRING&amp;quot;)
+        #else:
+            #crt.Dialog.MessageBox(&amp;quot;STRING NOT FOUND&amp;quot;)
+            crt.Screen.Send(&amp;quot;\r&amp;quot;)
+            crt.Screen.WaitForString(prompt)
+            crt.Screen.Send(reloadCommand+&amp;quot;\r&amp;quot;)
+
+        # EXIT THE SESSION
+        crt.Screen.Send(&amp;quot;\r&amp;quot;)
+        crt.Screen.WaitForString(prompt)
+        crt.Screen.Send(&amp;quot;exit&amp;quot;+&amp;quot;\r&amp;quot;)    
+
+        crt.Screen.Synchronous = False
+
+main()
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This script is scheduled to run every 30 minutes on the Windows server using this sintax:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;&amp;quot;c:\Program Files\SecureCRT\securecrt.exe&amp;quot; /script c:\script\checkRadioBridge.py
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I&amp;rsquo;d have prefered a better implementation on a Linux machine but this works so far, the customer is happy and I learnt something new: &lt;a href=&#34;http://en.wikipedia.org/wiki/Win-win_game&#34;&gt;win-win&lt;/a&gt;!&lt;/p&gt;
+
+&lt;p&gt;Useful links:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://forums.vandyke.com/forumdisplay.php?f=14&#34;&gt;VanDyke scripting forum&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://learnpythonthehardway.org/&#34;&gt;LearnPythonTheHardWay&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

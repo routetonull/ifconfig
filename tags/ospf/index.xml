@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ospf on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/ospf/</link>
+    <description>Recent content in Ospf on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 16 Sep 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/ospf/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>OSPF Forward Address</title>
+      <link>https://www.ifconfig.it/hugo/post/2012-09-16-quick-notes-ospf-forward-address/</link>
+      <pubDate>Sun, 16 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2012-09-16-quick-notes-ospf-forward-address/</guid>
+      <description>OSPF Forward Address (FA):
+ works like BGP next-hop for OSPF external routes
+ advertised only if next-hop is on a not-passive and multiaccess interface
+ if there&amp;rsquo;s not a route to FA address, route is not installed
+ FA = 0.0.0.0 &amp;ndash;&amp;gt; cost to ABR
+ FA &amp;lt;&amp;gt; 0.0.0.0 &amp;ndash;&amp;gt; cost to FA address
+ NSSA &amp;ndash;&amp;gt; FA is ASBR IP &amp;ndash;&amp;gt; remove FA with &amp;ldquo;area 1 nssa no-summary translate type7 suppress-fa&amp;rdquo;</description>
+    </item>
+    
+  </channel>
+</rss>

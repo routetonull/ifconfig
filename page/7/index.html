@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.26" />
+
+  <title>ifconfig.it</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://www.ifconfig.it/hugo/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+  <link rel="alternate" type="application/rss+xml" title="ifconfig.it" href="https://www.ifconfig.it/hugo/index.xml" />
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://www.ifconfig.it/hugoimg/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-2507441616057251",
+    enable_page_level_ads: true
+  });
+</script>
+  
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://www.ifconfig.it/hugo/">ifconfig.it</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/tags/"><i class='fa fa-list fa-fw'></i>Tags</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://www.ifconfig.it/hugo/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/gp_ifconfig" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/gpboa" target="_blank"><i class="fa fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/gpaolo" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/routetonull" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://keybase.io/bgp" target="_blank"><i class="fa fa-key fa-fw"></i>Keybase</a>
+    </li>
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>ifconfig.it</h1>
+  <h2>Where the vNIC meets the Network</h2>
+</div>
+
+<div class="content">
+  
+    <article>
+  <header>
+    <h2><a href="https://www.ifconfig.it/hugo/post/mtu-fun/">MTU</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+	<time>Wednesday, August 27, 2014
+	</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/cisco">cisco</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/mtu">mtu</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/pppoe">pppoe</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Today I had a chat about MTU with a customer. MTU is my second favorite topic for tech talks in front of the coffee machine, STP is still the first because there are so many misconceptions about it. Even QoS is funny, people has many creative ideas and expectations from it.
+Let&rsquo;s talk about MTU. Everything begun today from a ping (it&rsquo;s italian in the screenshot, but you know the output by heart right?
+  </p>
+
+  
+  <footer>
+    <a href="https://www.ifconfig.it/hugo/post/mtu-fun/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://www.ifconfig.it/hugo/post/flowcontrol-port-buffers-and-dropped-packets/">Flowcontrol, port buffers and dropped packets</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+	<time>Saturday, August 23, 2014
+	</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  A few days ago a customer called worried by the flowcontrol counters increasing on his Cisco 4510 switch, he just sent me this asking for an explanation:
+CORE_4510#show interfaces flowcontrol Port Send FlowControl Receive FlowControl RxPause TxPause admin oper admin oper --------- -------- -------- -------- -------- ------- ------- Gi1/1 on on desired on 28972 107274064 Gi1/2 on on desired on 9494 111534 Gi1/3 on on desired on 32580 1406178 Gi1/4 on on desired on 1278 84112 (cut for brevity) RxPause: Number of Pause frames received.
+  </p>
+
+  
+  <footer>
+    <a href="https://www.ifconfig.it/hugo/post/flowcontrol-port-buffers-and-dropped-packets/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://www.ifconfig.it/hugo/post/2014-06-05-cciersrenew2014/">CCIE renewed</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+	<time>Thursday, June 5, 2014
+	</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/ccie">ccie</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/certifications">certifications</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  In the very last day of availability of the CCIE v4 350-001 written exam I&rsquo;ve renewed my CCIE for a couple of years more:
+
+My plan was to recertify with another track - Wireless or Security - but life happens and I took the easy path and did R&amp;S again.
+I&rsquo;ve passed the same written exam 3 times. The first time in 2010, followed by a failed lab attempt in 2011.
+  </p>
+
+  
+  <footer>
+    <a href="https://www.ifconfig.it/hugo/post/2014-06-05-cciersrenew2014/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://www.ifconfig.it/hugo/post/2014-05-04-cwna/">CWNA</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+	<time>Sunday, May 4, 2014
+	</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/networking">networking</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/wireless">wireless</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/certification">certification</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Last week I passed PW0-105 exam and obtained the CWNA certification:
+I work with wireless network since 2005, I began installing some SoHo APs and in the last few years I designed and deployed many bigger networks, some of which are challenging high density environments.
+I read manyCisco documents about wifi design and in this year&rsquo;s Cisco Live I attended many session related to wifi. After passing CCNA-W I didn&rsquo;t felt confident enough, I know how to design, install and troubleshoot a wireless network but I wanted to have a deeper knowledge of the technologies involved ant how the protocols work.
+  </p>
+
+  
+  <footer>
+    <a href="https://www.ifconfig.it/hugo/post/2014-05-04-cwna/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://www.ifconfig.it/hugo/post/airpcap/">AirPcap</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+	<time>Monday, April 28, 2014
+	</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Wireless traffic packet capture is not easy as wired traffic. Linux and OSX have several solutions but if you&rsquo;re stuck with Windows the first problem is to find a compatible adapter.
+My choice is AirPcap, fully compatible with Wireshark and very esay to install.
+Install and setup Download and install Wireshark and AirPcap drivers.
+Using AirPcap Control Panel, set the channel to listen. Each adapter can listen one channel ad time, that&rsquo;s why there&rsquo;re bundles with 3 adapters if you use channel 1,6,11 in your WLAN.
+  </p>
+
+  
+  <footer>
+    <a href="https://www.ifconfig.it/hugo/post/airpcap/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://www.ifconfig.it/hugo/post/qpc_jinja2/">Quick  Python code: Jinja2 and config templates</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+	<time>Friday, April 11, 2014
+	</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Networking is awesome but some tasks may be quite boring and repetitive. For new campus network installations a lot of time is used just to put a basic initial configuration template on switches.
+Each vendor has its proprietary method to distribute configs automagically but sometimes the effort to setup the system is simply too much.
+A common practice is to prepare a template in a test environment then copy it changing the IP address, hostname and a few other parameters.
+  </p>
+
+  
+  <footer>
+    <a href="https://www.ifconfig.it/hugo/post/qpc_jinja2/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://www.ifconfig.it/hugo/post/2014-04-09-nxmtucdp/">MTU on Nexus switches, CDP and vCenter</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+	<time>Wednesday, April 9, 2014
+	</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/cisco">cisco</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://www.ifconfig.it/hugotags/nexus">nexus</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Some time ago I&rsquo;ve installed the new core switches for a customer: a couple of Nexus 7000, a couple of 5000 and twelve Nexus 2232TM, Virtual port channels, VLANs, Radius auth and so on.. all the usual configs a good network engineer does.
+
+Since the Nexus 5000 are connected to an iSCSI storage I&rsquo;ve configured Jumbo frames.
+Customer called complaining that MTU isn&rsquo;t correctly set and I must fix it.
+  </p>
+
+  
+  <footer>
+    <a href="https://www.ifconfig.it/hugo/post/2014-04-09-nxmtucdp/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://www.ifconfig.it/hugo/post/ccie-recert-2014/">CCIE: You need to recertify in twelve months</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+	<time>Wednesday, March 19, 2014
+	</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  This means two things:
+ I&rsquo;m CCIE for over one year now
+ I need to prepare again the written exam
+  The last day to test the v4 edition is June 3, 2014, I&rsquo;ve passed that exam twice so I expect a little effort to pass it again.
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://www.ifconfig.it/hugo/post/ccna-10-years/">CCNA 10 years!</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+	<time>Thursday, February 13, 2014
+	</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Ten years ago I&rsquo;ve passed my first Cisco exam: CCNA! What was supposed to be just a marginal skill for a junior systems engineer became both my job and my passion.
+Ten years later and 21 Cisco exams later (and a bunch of other vendors), with 2 labs in Brussels, 1 FAIL and 1 PASS, I&rsquo;m still excited about networking and I hope the next ten year will be as valuable and inspired.
+  </p>
+
+  
+  <footer>
+    <a href="https://www.ifconfig.it/hugo/post/ccna-10-years/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://www.ifconfig.it/hugo/post/ccna-wireless/">CCNA-Wireless</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+	<time>Saturday, February 1, 2014
+	</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  I took advantage of my participation at Cisco Live 2014 to book a free Cisco exam IUWNE. I passed with a strict margin but a pass is a pass right?
+
+I&rsquo;ve prepared the exam with the Cisco Press Quick Reference since many topics are familiar to me and I didn&rsquo;t hat the time to read the full Exam Certification Guide that is quite old (2008).
+  </p>
+
+  
+</article>
+
+  
+
+  
+
+
+<nav class="pagination" role="pagination">
+  
+  <a href="https://www.ifconfig.it/hugo/page/6/"><i class="fa fa-chevron-left"></i></a>
+  
+  <span>&nbsp;7 / 16&nbsp;</span>
+  
+  <a href="https://www.ifconfig.it/hugo/page/8/"><i class="fa fa-chevron-right"></i></a>
+  
+</nav>
+
+
+
+</div>
+
+</div>
+</div>
+<script src="https://www.ifconfig.it/hugojs/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10670358-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

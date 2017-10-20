@@ -1,0 +1,762 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Script on IFCONFIG.IT </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>http://www.ifconfig.it/hugo/categories/script/</link>
+    <language>en-us</language>
+    
+    
+    <updated>Sat, 11 Jun 2016 13:55:00 &#43;0000</updated>
+    
+    <item>
+      <title>Cisco ASA and Office 365</title>
+      <link>http://www.ifconfig.it/hugo/post/asaoffice365/</link>
+      <pubDate>Sat, 11 Jun 2016 13:55:00 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/asaoffice365/</guid>
+      <description>
+
+&lt;p&gt;Office 365 is widely used between many customers. Some of them happen to manage all the Internet connections through a &lt;a href=&#34;http://www.cisco.com/c/en/us/products/security/adaptive-security-appliance-asa-software/index.html&#34;&gt;Cisco ASA&lt;/a&gt;, not the fancy &lt;a href=&#34;http://www.cisco.com/c/en/us/products/security/asa-firepower-services/index.html&#34;&gt;ASA-X with Firepower&lt;/a&gt;, just the plain old 5510.&lt;/p&gt;
+
+&lt;p&gt;I was asked to allow Office 365 traffic, looks easy huh?&lt;/p&gt;
+
+&lt;h2 id=&#34;step-1-know-your-enemy&#34;&gt;Step 1: know your enemy&lt;/h2&gt;
+
+&lt;p&gt;After some Google-fu I found Microsoft kindly provides an update list of the IP/subnet/URLs necessary to access various services including Office 365, Lync, OneNOte etc.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s just a matter to add them on ASA.&lt;/p&gt;
+
+&lt;h2 id=&#34;step-2-the-lazy-approach-a-k-a-if-you-think-you-ll-do-it-more-than-once-automate-it&#34;&gt;Step 2: the lazy approach A.K.A. if you think you&amp;rsquo;ll do it more than once automate it!&lt;/h2&gt;
+
+&lt;p&gt;I must admit the first time (a few weeks ago) I did it via bash with a little help from sed and awk.&lt;/p&gt;
+
+&lt;p&gt;The problem is the list is updated quite often and the process required some manual steps (and I don&amp;rsquo;t remember where I saved the original script ;-) ) so I moved to Python this time.&lt;/p&gt;
+
+&lt;p&gt;With a few Google searches and the usual trial&amp;amp;error approach I reached my goal in less than 30m: a &lt;a href=&#34;https://en.wikipedia.org/wiki/Minimum_viable_product&#34;&gt;MVP&lt;/a&gt; that works and allows me to reach the final result &amp;ndash;&amp;gt; an happy customer.&lt;/p&gt;
+
+&lt;p&gt;You can see and download the script from my &lt;a href=&#34;https://github.com/routetonull/various/blob/master/o3652asa.py&#34;&gt;github&lt;/a&gt; account.&lt;/p&gt;
+
+&lt;h2 id=&#34;wrap-up&#34;&gt;Wrap up&lt;/h2&gt;
+
+&lt;p&gt;I know the code is not elegant but it works, I don&amp;rsquo;t plan to spend more time on it soon since I&amp;rsquo;ve other priorities but feel free to use and improve it and share with the community.&lt;/p&gt;
+
+&lt;p&gt;Enjoy!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Cisco WLC roaming troubleshooting scripts</title>
+      <link>http://www.ifconfig.it/hugo/post/wlcroamingscripts/</link>
+      <pubDate>Wed, 18 May 2016 15:40:47 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/wlcroamingscripts/</guid>
+      <description>
+
+&lt;p&gt;As it often happens, everything begins with a call from a customer with a problem.&lt;/p&gt;
+
+&lt;p&gt;The problem is related to WiFi roaming in a warehouse with clients disconnecting from RDP sessions. The clients are industrial PCs installed on forklifts that move quite fast (and dangerously).&lt;/p&gt;
+
+&lt;h2 id=&#34;second-rule-of-troubleshooting-measure&#34;&gt;Second rule of troubleshooting: measure&lt;/h2&gt;
+
+&lt;p&gt;As the first rule is &lt;strong&gt;clearly identify the problem&lt;/strong&gt;, I skip to the second one.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;How can we measure roaming problems?&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;On Cisco WLC we can debug clients (up to 10 a the same time) and look for &amp;ldquo;Association&amp;rdquo; messages.&lt;/p&gt;
+
+&lt;p&gt;When a client roams correctly between APs we should see only &lt;strong&gt;RE&lt;/strong&gt;association messages. If the client for any reason drops the connection while moving it will start a new connetions sending an Association request to the AP.&lt;/p&gt;
+
+&lt;p&gt;But how many Association messages are too many? How can we check if some clients are associating/reassociating more than others?&lt;/p&gt;
+
+&lt;p&gt;Association messages are part of the behaviour of a normal WiFi network so it critical to distinguish what&amp;rsquo;s &lt;em&gt;normal&lt;/em&gt; from what&amp;rsquo;s a &lt;em&gt;problem&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;get-the-logs&#34;&gt;Get the logs&lt;/h3&gt;
+
+&lt;p&gt;We start getting the logs. Connect to WLC, debug up to 10 clients identified by MAC address, logs to a file. Easy huh?&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;debug client 7c:5c:f8:4a:79:82 7c:5c:f8:4a:7e:82 7c:5c:f8:4a:73:8d 7c:5c:f8:4a:7e:7d 7c:5c:f8:4a:7e:aa 7c:5c:f8:4b:9e:43 7c:5c:f8:4a:7e:41 7c:5c:f8:4a:7c:f7 7c:5c:f8:4a:7c:f7 7c:5c:f8:4a:7d:e2
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;count-the-messages&#34;&gt;Count the messages&lt;/h3&gt;
+
+&lt;p&gt;NOTE: I work on a Windows machine with some GNU tools installed so you can easily port these scripts on Linux/OSX. Feel free to send me a MacBookAir if you need my support on OSX ;-)&lt;/p&gt;
+
+&lt;p&gt;Association messages format:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;*apfMsConnTask_1: May 13 13:30:26.883: 7c:5c:f8:4a:7c:f7 Association received from mobile on BSSID 00:08:2f:fa:dc:b0
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Reassociation message format:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;*apfMsConnTask_7: May 13 13:25:48.487: 7c:5c:f8:4a:7e:41 Reassociation received from mobile on BSSID e0:89:9d:d2:31:e0
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now lets white a script that counts &lt;strong&gt;Association messages per AP&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;@echo off
+:loop
+cls
+echo ASSOCIATION EVENTS PER AP
+time /T
+grep &amp;quot; Association received&amp;quot; wlc_243_20160513.log | gawk &amp;quot;{print $12}&amp;quot; | sort | uniq -c | sort /R
+sleep 5
+goto loop
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In the output we see a list of APs (BSSIDs) ordered by the number of Association messages they received from one of our 10 debugged clients.&lt;/p&gt;
+
+&lt;p&gt;Since I named all my APs I prefer to replace the BSSIDs with AP names.&lt;/p&gt;
+
+&lt;p&gt;Create a sed script with a good name - I chose ap2name.sed&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;s/00:08:2f:4b:yy:xx/APB058/g
+s/1c:de:a7:1a:yy:xx/APD057/g
+s/1c:de:a7:1a:yy:xx/APD069/g
+s/1c:de:a7:1a:yy:xx/APA062/g
+s/00:08:2f:fa:yy:xx/APE068/g
+s/1c:de:a7:1a:yy:xx/APC053/g
+s/1c:de:a7:1a:yy:xx/APA064/g
+s/1c:de:a7:1a:yy:xx/APD055/g
+s/00:08:2f:fa:yy:xx/APA063/g
+s/dc:eb:94:11:yy:xx/APC071/g
+s/00:08:2f:fa:yy:xx/APC051/g
+s/00:08:2f:fa:yy:xx/APE067/g
+s/1c:de:a7:1a:yy:xx/APC054/g
+s/1c:de:a7:1a:yy:xx/APC052/g
+s/00:08:2f:fa:yy:xx/APB061/g
+s/00:08:2f:fa:yy:xx/APD070/g
+s/00:08:2f:fa:yy:xx/APD059/g
+s/00:08:2f:fa:yy:xx/APA065/g
+s/0c:27:24:0f:yy:xx/AP1410/g
+s/00:08:2f:fa:yy:xx/APE066/g
+s/1c:de:a7:1a:yy:xx/APD056/g
+s/0c:68:03:5f:yy:xx/AP1810/g
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Add it at the end of the grep command to see AP names instead of the mac address:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;@echo off
+:loop
+cls
+echo ASSOCIATION EVENTS PER AP
+time /T
+grep &amp;quot; Association received&amp;quot; wlc_243_20160513.log | gawk &amp;quot;{print $12}&amp;quot; | sort | uniq -c | sort /R | sed -f ap2name.sed
+sleep 5
+goto loop
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The output looks better now:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;ASSOCIATION PER AP
+07:55
+ 14 APA062
+ 14 APA063
+ 14 APD059
+  9 APB060
+  9 APC051
+  9 APB058
+  8 APC053
+  7 APB061
+  5 APC071
+  4 APD057
+  4 APA064
+  4 APC052
+  4 APE068
+  3 APD069
+  3 APD055
+  3 APD056
+  3 APC054
+  3 APD070
+  1 APA065
+  1 APE066
+  1 APE067
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With the same method we can count &lt;strong&gt;Reassociation messages per AP&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;@echo off
+:loop
+cls
+ECHO REASSOCIATION EVENTS PER AP
+time /T
+grep &amp;quot; Reassociation&amp;quot; wlc_243_20160513.log | gawk &amp;quot;{print $12}&amp;quot; | sort | uniq -c | sort /R | sed -f ap2name.sed
+sleep 5
+goto loop
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now focus on the clients, let&amp;rsquo;s count &lt;strong&gt;Association messages per client&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;@echo off
+:loop
+cls
+echo ASSOCIATION EVENTS PER CLIENT
+time /T
+grep &amp;quot; Association received&amp;quot; wlc_243_20160513.log | gawk &amp;quot;{print $5}&amp;quot; | sort | uniq -c | sort /R
+sleep 5
+goto loop
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And finally &lt;strong&gt;Reassociation messages per client&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;@echo off
+:loop
+cls
+echo REASSOCIATION EVENTS PER CLIENT
+time /T
+grep &amp;quot; Reassociation&amp;quot; wlc_243_20160513.log | gawk &amp;quot;{print $5}&amp;quot; | sort | uniq -c | sort /R | sed -f ap2name.sed
+sleep 5
+goto loop
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This is the final result:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/images/ap_batch_output.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;understand-the-output&#34;&gt;Understand the output&lt;/h3&gt;
+
+&lt;p&gt;What we see now is a good view of which clients and APs have more &lt;strong&gt;Association events&lt;/strong&gt;, that may be an indicator that they are not roaming correctly.&lt;/p&gt;
+
+&lt;p&gt;In the &lt;strong&gt;Association events per AP&lt;/strong&gt; output we can identify which APs are getting more association messages, possibly meaning clients moving towards that AP experience a coverage hole and a disconnection.&lt;/p&gt;
+
+&lt;h3 id=&#34;fix-the-problem&#34;&gt;Fix the problem&lt;/h3&gt;
+
+&lt;p&gt;I can&amp;rsquo;t really talk about how to fix the problem because it depends on your WiFi network design, AP placement, antennas in use, noise floor, interferers&amp;hellip; I just want to show you the results.&lt;/p&gt;
+
+&lt;p&gt;Before:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/images/ap-reass.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;After:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.ifconfig.it/images/ap-ass.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You see almost no Association messages while clients move around, it is a good sign roaming is working fine.&lt;/p&gt;
+
+&lt;h3 id=&#34;wrap-up&#34;&gt;Wrap up&lt;/h3&gt;
+
+&lt;p&gt;Use the counters _&lt;a href=&#34;https://en.wikipedia.org/wiki/Grain_of_salt&#34;&gt;cum granus salis&lt;/a&gt;_, their meaning really depends on your infrastructure, the position of the APs and how the clients move.&lt;/p&gt;
+
+&lt;p&gt;Sometimes you get many Associations on an AP that is the first one the clients connect to in the morning and that&amp;rsquo;s not a problem.&lt;/p&gt;
+
+&lt;p&gt;It is possible that an AP that receives many Associations request is workig perfectly fine but the previous one is the row is not correctly positioned or has the wrong settins so that&amp;rsquo;s the one causing roaming problems.&lt;/p&gt;
+
+&lt;p&gt;I strongly advise anybody who installs/manages WiFi network to study &lt;a href=&#34;https://www.cwnp.com/certifications/cwna&#34;&gt;CWNA&lt;/a&gt; for a better undestanding.&lt;/p&gt;
+
+&lt;p&gt;Enjoy!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Simple Cisco switch inventory with bash and snmp</title>
+      <link>http://www.ifconfig.it/hugo/post/simple-cisco-switch-inventory-with-bash-and-snmp/</link>
+      <pubDate>Wed, 02 Dec 2015 22:03:55 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/simple-cisco-switch-inventory-with-bash-and-snmp/</guid>
+      <description>
+
+&lt;p&gt;Scripts, usually I write some because I don&amp;rsquo;t like repetitive tasks and I&amp;rsquo;m lazy, meaning I prefer automation over useless hard work.&lt;/p&gt;
+
+&lt;p&gt;Don&amp;rsquo;t know where I found this quote but I like it:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;Don&#39;t spend your time doing work a well-trained monkey could do.
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Today&amp;rsquo;s request was quite simple: get model and serial number from a bunch of Cisco switches.&lt;/p&gt;
+
+&lt;p&gt;I now &lt;a href=&#34;http://nedi.ch/&#34;&gt;NEDI&lt;/a&gt;, &lt;a href=&#34;http://www.observium.org/&#34;&gt;Observium&lt;/a&gt; and &lt;a href=&#34;http://www.librenms.org/&#34;&gt;LibreNMS&lt;/a&gt; can do that but I preferred to write a quick script I could use as a one shot tool instead of a complete software solution.&lt;/p&gt;
+
+&lt;h2 id=&#34;requirements&#34;&gt;Requirements&lt;/h2&gt;
+
+&lt;p&gt;The script reads from a file that contains a list of IP addresses, all the devices must have a snmp community with read priviledge.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-script&#34;&gt;The Script&lt;/h2&gt;
+
+&lt;p&gt;The script is quite readable: for each line of the input file it does some snmp read operations and print the result when finished.&lt;/p&gt;
+
+&lt;p&gt;Sed commands are used to clean the output of the snmp output.&lt;/p&gt;
+
+&lt;p&gt;Replace variable &lt;strong&gt;community&lt;/strong&gt; with the correct value for your environment.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;#!/bin/bash
+community=MYCOMMUNITY
+while IFS=&#39;&#39; read -r line || [[ -n &amp;quot;$line&amp;quot; ]]; do
+hostname=$(snmpwalk -v 2c -c $community -O v -L n $line 1.3.6.1.4.1.9.2.1.3 | sed &#39;s/^.*://g&#39; | sed &#39;s/&amp;quot;//g&#39;)
+model=$(snmpwalk -v 2c -c $community -O v -L n $line 1.3.6.1.2.1.47.1.1.1.1.13.1001 | sed &#39;s/^.*://g&#39; | sed &#39;s/&amp;quot;//g&#39;)
+serial=$(snmpwalk -v 2c -c $community -O v -L n $line 1.3.6.1.4.1.9.5.1.2.19 | sed &#39;s/^.*://g&#39; | sed &#39;s/&amp;quot;//g&#39;)
+echo -e $line&#39;\t&#39;$hostname&#39;\t&#39;$model&amp;quot;\t&amp;quot;$serial
+done &amp;lt; &amp;quot;$1&amp;quot;
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Launch with:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;./snmpinventory.sh switchlist.txt
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;where file &lt;strong&gt;switchlist.txt&lt;/strong&gt; is a simple list of IP addresses.&lt;/p&gt;
+
+&lt;h2 id=&#34;final-result&#34;&gt;Final result&lt;/h2&gt;
+
+&lt;p&gt;The final result is a list of values separated by a tab os it is easy to copy and paste in a spreadsheet.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;hostname    model   serial
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I added this script to my &lt;a href=&#34;https://github.com/routetonull/snmp_scan&#34;&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Enjoy!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Quick script: backup multiple Alcatel Omniswitch configuration files</title>
+      <link>http://www.ifconfig.it/hugo/post/qs-bck-alomniftp/</link>
+      <pubDate>Thu, 26 Mar 2015 21:27:55 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/qs-bck-alomniftp/</guid>
+      <description>&lt;p&gt;A quick &lt;a href=&#34;http://en.wikibooks.org/wiki/Windows_Batch_Scripting&#34;&gt;batch script&lt;/a&gt; I did to backup configuration files of multiple &lt;a href=&#34;http://enterprise.alcatel-lucent.com/?product=EnterpriseProducts&amp;amp;page=directory&amp;amp;active=1#&#34;&gt;Alcatel Omniswitch&lt;/a&gt; via FTP.&lt;/p&gt;
+
+&lt;p&gt;All files are named &lt;em&gt;boot.cfg&lt;/em&gt; so the script renames each file appending the IP address.&lt;/p&gt;
+
+&lt;p&gt;Create a file with all the IP of switches to backup - iplist.txt&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;10.10.29.10
+10.12.29.10
+10.14.29.10
+10.14.29.11
+10.14.29.12
+10.14.29.13
+10.14.29.14
+10.14.29.15
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Create a FTP script to login and backup the configuration file - ftp.scr&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Note: user admin password switch are defaults on Omniswitch&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;admin
+switch
+cd ..
+cd working
+get boot.cfg
+quit
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Create the actual script file - getconfig.bat&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;for /f &amp;quot;tokens=*&amp;quot; %%i in (iplist.txt) do (
+echo %%i
+ftp -s:ftp.scr %%i
+ren boot.cfg boot.cfg-%%i )
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now run the script and see the magic happen.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>NeDi and Observium/LibreNMS</title>
+      <link>http://www.ifconfig.it/hugo/post/nedi2observium/</link>
+      <pubDate>Wed, 26 Nov 2014 21:48:38 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/nedi2observium/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;http://www.nedi.ch/&#34;&gt;NeDi&lt;/a&gt; and &lt;a href=&#34;http://www.observium.org&#34;&gt;Observium&lt;/a&gt; are two of my favourites network monitoring tools.&lt;/p&gt;
+
+&lt;p&gt;I do like to deploy both, they complete each other and since they&amp;rsquo;re free there is no need to choose. The only problem with the use of two tools is the &lt;strong&gt;integration&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Observium has a &lt;a href=&#34;http://www.observium.org/wiki/FAQs#Why_can.27t_I_add_my_device_by_its_IP_address.3F_.2F_Why_do_I_need_valid_hostnames_and_DNS.3F&#34;&gt;limitation&lt;/a&gt; with host discovery: a device can be discovered only by name and that name must be resolved to an IP via DNS or hosts file. Since most of my customers don&amp;rsquo;t register network devices on DNS that means manually populate &lt;em&gt;/etc/hosts file&lt;/em&gt;. On the other hand NeDi doesn&amp;rsquo;t have this limitation and has a &lt;strong&gt;strong network/discovery&lt;/strong&gt; mechanism.&lt;/p&gt;
+
+&lt;p&gt;Can we make them to work together? Of course, that&amp;rsquo;s open source!&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h1 id=&#34;installation&#34;&gt;Installation&lt;/h1&gt;
+
+&lt;p&gt;NeDi and Observium installation processes are well explained &lt;a href=&#34;http://www.nedi.ch/installation/&#34;&gt;here&lt;/a&gt; and &lt;a href=&#34;http://www.observium.org/wiki/Installation&#34;&gt;here&lt;/a&gt;, just follow the instructions, they work fine.&lt;/p&gt;
+
+&lt;h1 id=&#34;customization&#34;&gt;Customization&lt;/h1&gt;
+
+&lt;p&gt;I&amp;rsquo;ve modified &lt;em&gt;/var/nedi/nedi.conf&lt;/em&gt; to include only the address ranges of my managed devices:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;netfilter      ^10\.5\.|^10\.16\.0\.|^192\.168\.20\.
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and &lt;em&gt;/var/nedi/seedlist&lt;/em&gt; whit a list of devices/communities that will be used as a seed for the discovery process in the format:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;ip  community1,community2
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For the sake of simplicity I just run two virtual hosts on Apache2, NeDi runs on port 80, Observium runs on port 81, edit &lt;em&gt;/etc/apache2/sites-enabled/000-default&lt;/em&gt; as follows:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;&amp;lt;VirtualHost *:80&amp;gt;
+        ServerAdmin webmaster@localhost
+
+        DocumentRoot /var/nedi/html
+        &amp;lt;Directory /&amp;gt;
+                Options FollowSymLinks
+                AllowOverride None
+        &amp;lt;/Directory&amp;gt;
+        &amp;lt;Directory /var/www/&amp;gt;
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride None
+                Order allow,deny
+                allow from all
+        &amp;lt;/Directory&amp;gt;
+
+        ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/
+        &amp;lt;Directory &amp;quot;/usr/lib/cgi-bin&amp;quot;&amp;gt;
+                AllowOverride None
+                Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch
+                Order allow,deny
+                Allow from all
+        &amp;lt;/Directory&amp;gt;
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+
+        # Possible values include: debug, info, notice, warn, error, crit,
+        # alert, emerg.
+        LogLevel warn
+
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+&amp;lt;/VirtualHost&amp;gt;
+
+&amp;lt;VirtualHost *:81&amp;gt;
+  DocumentRoot /opt/observium/html/
+  ServerName  observium.domain.com
+  CustomLog /opt/observium/logs/access_log combined
+  ErrorLog /opt/observium/logs/error_log
+  &amp;lt;Directory &amp;quot;/opt/observium/html/&amp;quot;&amp;gt;
+    AllowOverride All
+    Options FollowSymLinks MultiViews
+  &amp;lt;/Directory&amp;gt;
+&amp;lt;/VirtualHost&amp;gt;
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;integration&#34;&gt;Integration&lt;/h1&gt;
+
+&lt;p&gt;The integration between the two tools is meant to take advantage of the discovery performed by NeDi to polulate &lt;em&gt;/etc/hosts&lt;/em&gt; file and then feed the discovery process of Observium.&lt;/p&gt;
+
+&lt;h1 id=&#34;step-by-step&#34;&gt;Step by step&lt;/h1&gt;
+
+&lt;h2 id=&#34;where-is-the-data&#34;&gt;Where is the data?&lt;/h2&gt;
+
+&lt;p&gt;NeDi stores all the information on a MySQL database. A quick look on the tables and we can see how to extract the devices information:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;/usr/bin/mysql -uroot -pPASSWORD -B -e &amp;quot;select devip,device from devices&amp;quot; nedi 
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Replace &lt;em&gt;PASSWORD&lt;/em&gt; with the password you typed during the software installation.&lt;/p&gt;
+
+&lt;p&gt;Tweak this extraction a little bit to clean the list:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;filter lines that don&amp;rsquo;t begin with a number in range [1-9], that means no valid IP address was discovered via CDP/LDP&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;remove some chars (slash,spaces) that Observium doesn&amp;rsquo;t like in hostnames with &lt;em&gt;sed&lt;/em&gt; commands&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;uniform all the device names in uppercase chars&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If your device hostnames have other chars that don&amp;rsquo;t work well with Observium just add more &lt;em&gt;sed&lt;/em&gt; to the script.&lt;/p&gt;
+
+&lt;p&gt;This is the final result:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;/usr/bin/mysql -uroot -pPASSWORD -B -e &amp;quot;select devip,device,readcomm from devices&amp;quot; nedi | grep &amp;quot;^[1-9]&amp;quot; |sed -e &#39;s/ /_/g&#39; | sed -e &#39;s/\//_/g&#39; | sort | tr &#39;[:lower:]&#39; &#39;[:upper:]&#39;
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;ip-format&#34;&gt;IP format&lt;/h2&gt;
+
+&lt;p&gt;NeDi stores IP addresses in undotted decimal format, we need to convert them to dotted decimal to use them.&lt;/p&gt;
+
+&lt;p&gt;We can use Python for that, let&amp;rsquo;s create &lt;em&gt;/root/undotteddecimaltoip.py&lt;/em&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;#!/usr/bin/env python
+
+import sys
+inFile = sys.argv[1]
+#outFile = sys.argv[2]
+
+def int_to_dqn(st):
+    &amp;quot;&amp;quot;&amp;quot;
+    Convert integer to dotted quad notation
+    &amp;quot;&amp;quot;&amp;quot;
+    st = &amp;quot;%08x&amp;quot; % (st)
+    return &amp;quot;%i.%i.%i.%i&amp;quot; % (int(st[0:2],16),int(st[2:4],16),int(st[4:6],16),int(st[6:8],16))
+
+f = open(inFile,&amp;quot;r&amp;quot;)
+for line in f:
+        values = line.split(&amp;quot;\t&amp;quot;)
+        print int_to_dqn(int(values[0]))+&amp;quot; &amp;quot;+values[1].rstrip().replace(&amp;quot; &amp;quot;,&amp;quot;_&amp;quot;)
+f.close()
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Test it running:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;/root/undotteddecimaltoip.py /tmp/nedidevicelist.txt
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can see now all the IP addresses are now in dotted decimal format.  &lt;/p&gt;
+
+&lt;h2 id=&#34;populate-etc-hosts-file&#34;&gt;Populate /etc/hosts file&lt;/h2&gt;
+
+&lt;p&gt;Now we can put together the Python script we just created and a few bash commands to update the hosts file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;if [ -f &amp;quot;/etc/hosts.original&amp;quot; ]
+then
+        cat /etc/hosts.original &amp;gt; /etc/hosts
+else
+        cp /etc/hosts /etc/hosts.original
+fi
+
+/root/undotteddecimaltoip.py /tmp/nedidevicelist.txt &amp;gt;&amp;gt; /etc/hosts
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Notice that the original &lt;em&gt;hosts&lt;/em&gt; files is maintained, if we need to enter lines that shouldn&amp;rsquo;t be lost just edit &lt;em&gt;/etc/hosts.original&lt;/em&gt; file.  &lt;/p&gt;
+
+&lt;h2 id=&#34;add-devices-to-observium&#34;&gt;Add devices to Observium&lt;/h2&gt;
+
+&lt;p&gt;We can finally use the data from NeDi to add devices to Observium:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;while IFS=$&#39;\t&#39; read ip name comm
+do
+echo -e &amp;quot;NOW ADDING DEVICE $name&amp;quot;
+/opt/observium/add_device.php $name $comm
+done &amp;lt; /tmp/nedidevicelist.txt
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Notice that &lt;em&gt;$comm&lt;/em&gt; is the actual community NeDi used to discover the devices, even if in &lt;em&gt;seedlist&lt;/em&gt; more than one was specified.&lt;/p&gt;
+
+&lt;h2 id=&#34;put-it-all-together&#34;&gt;Put it all together&lt;/h2&gt;
+
+&lt;p&gt;This is the final script:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;#!/bin/bash
+/usr/bin/mysql -uroot -pPASSWORD -B -e &amp;quot;select devip,device,readcomm from devices&amp;quot; nedi | grep &amp;quot;^[1-9]&amp;quot; |sed -e &#39;s/ /_/g&#39; | sed -e &#39;s/\//_/g&#39; | sort | tr &#39;[:lower:]&#39; &#39;[:upper:]&#39; &amp;gt; /tmp/nedilist.txt
+
+if [ -f &amp;quot;/etc/hosts.original&amp;quot; ]
+then
+        cat /etc/hosts.original &amp;gt; /etc/hosts
+else
+        cp /etc/hosts /etc/hosts.original
+fi
+
+/root/undotteddecimaltoip.py /tmp/nedidevicelist.txt &amp;gt;&amp;gt; /etc/hosts
+
+while IFS=$&#39;\t&#39; read ip name comm
+do
+echo -e &amp;quot;NOW ADDING DEVICE $name&amp;quot;
+/opt/observium/add_device.php $name $comm
+done &amp;lt; /tmp/nedidevicelist.txt
+
+/opt/observium/discovery.php -h new &amp;gt;&amp;gt; /dev/null 2&amp;gt;&amp;amp;1
+/opt/observium//poller.php -h all  &amp;gt;&amp;gt; /dev/null 2&amp;gt;&amp;amp;1
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now just remember to add to cron the correct files to perform auto discovery with NeDi and then feed Observium again to keep them updated.&lt;/p&gt;
+
+&lt;h2 id=&#34;verify&#34;&gt;Verify&lt;/h2&gt;
+
+&lt;p&gt;How can we verify it worked? One simple way could be to extract the device list from NeDi and from Observium and see if they match:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;/usr/bin/mysql -uroot -pPASSWORD -B -e &amp;quot;select device from devices&amp;quot; nedi | sed -e &#39;s/ /_/g&#39; | sed -e &#39;s/\//_/g&#39; | sort | tr &#39;[:lower:]&#39; &#39;[:upper:]&#39; &amp;gt; /tmp/nedilist.txt
+/usr/bin/mysql -uroot -pPASSWORD -B -e &amp;quot;select hostname from devices&amp;quot; observium | sed -e &#39;s/ /_/g&#39; | sed -e &#39;s/\//_/g&#39; | sort | grep -v &amp;quot;^AP&amp;quot; | tr &#39;[:lower:]&#39; &#39;[:upper:]&#39; &amp;gt; /tmp/observiumlist.txt
+diff /tmp/observiumlist.txt /tmp/nedilist.txt
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If the list in Observium is shorter check if any hostname contains a symbol that can&amp;rsquo;t be read by Observium.&lt;/p&gt;
+
+&lt;h1 id=&#34;see-the-result&#34;&gt;See the result&lt;/h1&gt;
+
+&lt;p&gt;Open a browser to port 80, login and go to Devices&amp;ndash;&amp;gt;List&amp;ndash;&amp;gt;Show to se all the devices discovered by NEDI.&lt;/p&gt;
+
+&lt;p&gt;Open a browser to port 81 to see the Observium interface and check all the devices.&lt;/p&gt;
+
+&lt;p&gt;Nice!&lt;/p&gt;
+
+&lt;h1 id=&#34;wrap-up&#34;&gt;Wrap up&lt;/h1&gt;
+
+&lt;p&gt;Open source software has many advantages, in this particular case it allowed me to integrate two different software in one solution. Fell free to suggest improvements to the script in the comments, I consider this just a &lt;a href=&#34;http://en.wikipedia.org/wiki/Proof_of_concept&#34;&gt;POC&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;WARNING&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;I&amp;rsquo;m not a systems engineer or a programmer&lt;/strong&gt;, use my code &lt;strong&gt;at your own risk&lt;/strong&gt;, I take &lt;strong&gt;no responsibility&lt;/strong&gt; for any damage caused by any of the script shown.&lt;/p&gt;
+
+&lt;h1 id=&#34;update-20160109-from-observium-to-librenms&#34;&gt;UPDATE 20160109 - from Observium to LibreNMS&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.observium.org/&#34;&gt;Observium&lt;/a&gt; has been forked to &lt;a href=&#34;http://www.librenms.org/&#34;&gt;LibreNMS&lt;/a&gt; due to &lt;a href=&#34;http://libertysys.com.au/blog/observium-and-gpl&#34;&gt;different views&lt;/a&gt; about &lt;a href=&#34;http://www.gnu.org/licenses/gpl-3.0.en.html&#34;&gt;GPL licensing&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Installation of both is quite easy, just follow the instructions on each website.&lt;/p&gt;
+
+&lt;p&gt;I updated my scripts to work with LibreNMS:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;#!/bin/bash
+
+\//_/g&#39; | sort | grep -v &amp;quot;^AP&amp;quot; | tr &#39;[:lower:]&#39; &#39;[:upper:]&#39; &amp;gt; /tmp/nedilist.txt
+
+PASSWORD=$1
+
+/usr/bin/mysql -uroot -p$PASSWORD -B -e &amp;quot;select devip,device,readcomm from devices&amp;quot; nedi | grep &amp;quot;^[1-9]&amp;quot; |sed -e
+ &#39;s/ /_/g&#39; | sed -e &#39;s/\//_/g&#39; | sort | tr &#39;[:lower:]&#39; &#39;[:upper:]&#39; &amp;gt; /tmp/nedidevicelist.txt
+
+if [ -f &amp;quot;/etc/hosts.original&amp;quot; ]
+then
+        cat /etc/hosts.original &amp;gt; /etc/hosts
+else
+        cp /etc/hosts /etc/hosts.original
+fi
+
+/root/undotteddecimaltoip.py /tmp/nedidevicelist.txt &amp;gt;&amp;gt; /etc/hosts
+
+while IFS=$&#39;\t&#39; read ip name comm
+do
+echo -e &amp;quot;NOW ADDING DEVICE $name&amp;quot;
+/opt/librenms/addhost.php $name ${comm,,} v2c
+done &amp;lt; /tmp/nedidevicelist.txt
+
+# DISCOVER AN POLL
+/opt/librenms/discovery.php -h new &amp;gt;&amp;gt; /dev/null 2&amp;gt;&amp;amp;1
+/opt/librenms/poller.php -h all  &amp;gt;&amp;gt; /dev/null 2&amp;gt;&amp;amp;1
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In case you need/want to clean the LibreNMS database:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;code&amp;gt;#!/bin/bash
+while IFS=&#39;&#39; read -r line || [[ -n &amp;quot;$line&amp;quot; ]]; do
+echo REMOVING HOST $line
+/opt/librenms/delhost.php $line
+done &amp;lt; &amp;lt;(/usr/bin/mysql -uroot -p$1 -B -e &amp;quot;select hostname from devices&amp;quot; librenms)
+&amp;lt;/code&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Cisco WLC roaming debug &#43; gawk &#43; sed</title>
+      <link>http://www.ifconfig.it/hugo/post/wlc-logs-and-sed/</link>
+      <pubDate>Tue, 14 May 2013 15:18:05 &#43;0000</pubDate>
+      
+      <guid>http://www.ifconfig.it/hugo/post/wlc-logs-and-sed/</guid>
+      <description>&lt;p&gt;Quite often I have to debug a wireless client roaming across lighweight Cisco APs to confirm it moves between APs as expected in the network design.&lt;/p&gt;
+
+&lt;p&gt;On the WLC the command is &amp;ldquo;debug client MAC&amp;rdquo;. The command shows all the events related to the specific client including:&lt;/p&gt;
+
+&lt;blockquote&gt;Reassociation received from mobile on AP 00:23:ab:ba:YY:XX&lt;/blockquote&gt;
+
+&lt;p&gt;that means client moved to the AP with radio MAC 00:23:ab:ba:YY:XX. Since I&amp;rsquo;ve named all the APs and and I&amp;rsquo;ve a map with all the positions, I&amp;rsquo;d like to see the names in the debug instead of MAC. Lastest WLC release (7.4.100) still shows only MAC so it&amp;rsquo;s time to fix that.&lt;/p&gt;
+
+&lt;p&gt;This site has 33 APs connected to this controller. The first step is to create file with a list containing AP NAME,MAC. See below hot to get the data:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/03/aplist.png&#34;&gt;&lt;img src=&#34;http://www.ifconfig.it/wordpress/wp-content/uploads/2013/03/aplist-300x107.png&#34; alt=&#34;aplist&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;We name this file &amp;ldquo;aplist.txt&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;We can use &lt;a href=&#34;http://www.gnu.org/software/sed/&#34;&gt;sed&lt;/a&gt; to replace the mac address with the name, with a command like this:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+&gt; 
+&gt; sed -e &#34;s/00:14:f2:aa:bb:cc/G057/g&#34;
+&gt; 
+&gt; &lt;/blockquote&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;Since copy/paste is not a proper way to do things, we ca use &lt;a href=&#34;http://www.gnu.org/software/gawk/&#34;&gt;gawk&lt;/a&gt; to create all the sed lines we need.&lt;/p&gt;
+
+&lt;p&gt;With just a single awk line we read the aplist.txt file and write all the required sed commands:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+&gt; 
+&gt; awk &#39;BEGIN { FS=&#34;,&#34; } { print &#34;s/&#34; $2 &#34;/&#34; $1&#34;/g&#34;}&#39; aplist.txt &gt; sost.sed
+&gt; 
+&gt; &lt;/blockquote&gt;
+
+&lt;p&gt;The result is a file with one line with the correct sed command for each AP NAME/MAC couple.&lt;/p&gt;
+
+&lt;p&gt;So now the action begins. We connect via SSH to the controller and send all the output to /tmp/wlc.log:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+&gt; 
+&gt; ssh 10.106.0.10 | tee /tmp/wlc.log
+&gt; 
+&gt; &lt;/blockquote&gt;
+
+&lt;p&gt;My advice is to disable the ssh inactivity timeout on the WLC with:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+&gt; 
+&gt; config sessions timeout 0
+&gt; 
+&gt; 
+
+&gt; 
+&gt; &lt;/blockquote&gt;
+
+&lt;p&gt;Then enable the client debug with:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+&gt; 
+&gt; debug client 84:00:d2:aa:bb:cc
+&gt; 
+&gt; &lt;/blockquote&gt;
+
+&lt;p&gt;Now it&amp;rsquo;s time to manipulate the output. In another shell we exec:&lt;/p&gt;
+
+&lt;blockquote&gt;
+
+&gt; 
+&gt; tail -f /tmp/wlc.log | grep &#34;association &#34; | sed -f sost.sed
+&gt; 
+&gt; &lt;/blockquote&gt;
+
+&lt;p&gt;So now the log from WLC becomes:&lt;/p&gt;
+
+&lt;blockquote&gt;Reassociation received from mobile on AP APxx&lt;/blockquote&gt;
+
+&lt;p&gt;That&amp;rsquo;s quite easier to read, don&amp;rsquo;t you think?&lt;/p&gt;
+
+&lt;p&gt;Tech tip: if you see &amp;ldquo;association&amp;rdquo; in the logs it means the roaming didn&amp;rsquo;t worked and the client disconnected. If you see &amp;ldquo;Reassociation&amp;rdquo; the roaming worked fine.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m sure that after the effort to write those scripts the next WLC release will show both ap name and mac in the logs but I enjoyed the opportunity to learn more about sed and awk, two very powerful tools.&lt;/p&gt;
+
+&lt;p&gt;HTH&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

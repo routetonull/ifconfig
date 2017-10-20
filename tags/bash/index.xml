@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bash on ifconfig.it</title>
+    <link>https://www.ifconfig.it/hugo/tags/bash/</link>
+    <description>Recent content in Bash on ifconfig.it</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; 2016. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 02 Dec 2015 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.ifconfig.it/hugo/tags/bash/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Simple Cisco switch inventory with bash and snmp</title>
+      <link>https://www.ifconfig.it/hugo/post/2015-12-02-simple-cisco-switch-inventory-with-bash-and-snmp/</link>
+      <pubDate>Wed, 02 Dec 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/2015-12-02-simple-cisco-switch-inventory-with-bash-and-snmp/</guid>
+      <description>Scripts, usually I write some because I don&amp;rsquo;t like repetitive tasks and I&amp;rsquo;m lazy, meaning I prefer automation over useless hard work.
+Don&amp;rsquo;t know where I found this quote but I like it:
+Don&#39;t spend your time doing work a well-trained monkey could do.  Today&amp;rsquo;s request was quite simple: get model and serial number from a bunch of Cisco switches.
+I now NEDI, Observium and LibreNMS can do that but I preferred to write a quick script I could use as a one shot tool instead of a complete software solution.</description>
+    </item>
+    
+    <item>
+      <title>NeDi and Observium/LibreNMS</title>
+      <link>https://www.ifconfig.it/hugo/post/nedi2observium/</link>
+      <pubDate>Wed, 26 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.ifconfig.it/hugo/post/nedi2observium/</guid>
+      <description>NeDi and Observium are two of my favourites network monitoring tools.
+I do like to deploy both, they complete each other and since they&amp;rsquo;re free there is no need to choose. The only problem with the use of two tools is the integration.
+Observium has a limitation with host discovery: a device can be discovered only by name and that name must be resolved to an IP via DNS or hosts file.</description>
+    </item>
+    
+  </channel>
+</rss>

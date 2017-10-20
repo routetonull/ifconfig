@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.16" />
+
+  <title>Simple Cisco switch inventory with bash and snmp &middot; ifconfig.it</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="http://www.ifconfig.it/hugo/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="http://www.ifconfig.it/hugo/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="http://www.ifconfig.it/hugo/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="http://www.ifconfig.it/hugoimg/favicon.ico" type="image/x-icon" />
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="http://www.ifconfig.it/hugo/">ifconfig.it</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://www.ifconfig.it/hugo/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://www.ifconfig.it/hugo/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://www.ifconfig.it/hugo/tags/"><i class='fa fa-list fa-fw'></i>Tags</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="http://www.ifconfig.it/hugo/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/gp_ifconfig" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/gpaolo" target="_blank"><i class="fa fa-linkedin-square fa-fw"></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/routetonull" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2016. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Simple Cisco switch inventory with bash and snmp</h1>
+  <h2></h2>
+</div>
+<div class="content">
+  
+
+<p>Scripts, usually I write some because I don&rsquo;t like repetitive tasks and I&rsquo;m lazy, meaning I prefer automation over useless hard work.</p>
+
+<p>Don&rsquo;t know where I found this quote but I like it:</p>
+
+<pre><code>&lt;code&gt;Don't spend your time doing work a well-trained monkey could do.
+&lt;/code&gt;
+</code></pre>
+
+<p>Today&rsquo;s request was quite simple: get model and serial number from a bunch of Cisco switches.</p>
+
+<p>I now <a href="http://nedi.ch/">NEDI</a>, <a href="http://www.observium.org/">Observium</a> and <a href="http://www.librenms.org/">LibreNMS</a> can do that but I preferred to write a quick script I could use as a one shot tool instead of a complete software solution.</p>
+
+<h2 id="requirements">Requirements</h2>
+
+<p>The script reads from a file that contains a list of IP addresses, all the devices must have a snmp community with read priviledge.</p>
+
+<h2 id="the-script">The Script</h2>
+
+<p>The script is quite readable: for each line of the input file it does some snmp read operations and print the result when finished.</p>
+
+<p>Sed commands are used to clean the output of the snmp output.</p>
+
+<p>Replace variable <strong>community</strong> with the correct value for your environment.</p>
+
+<pre><code>&lt;code&gt;#!/bin/bash
+community=MYCOMMUNITY
+while IFS='' read -r line || [[ -n &quot;$line&quot; ]]; do
+hostname=$(snmpwalk -v 2c -c $community -O v -L n $line 1.3.6.1.4.1.9.2.1.3 | sed 's/^.*://g' | sed 's/&quot;//g')
+model=$(snmpwalk -v 2c -c $community -O v -L n $line 1.3.6.1.2.1.47.1.1.1.1.13.1001 | sed 's/^.*://g' | sed 's/&quot;//g')
+serial=$(snmpwalk -v 2c -c $community -O v -L n $line 1.3.6.1.4.1.9.5.1.2.19 | sed 's/^.*://g' | sed 's/&quot;//g')
+echo -e $line'\t'$hostname'\t'$model&quot;\t&quot;$serial
+done &lt; &quot;$1&quot;
+&lt;/code&gt;
+</code></pre>
+
+<p>Launch with:</p>
+
+<pre><code>&lt;code&gt;./snmpinventory.sh switchlist.txt
+&lt;/code&gt;
+</code></pre>
+
+<p>where file <strong>switchlist.txt</strong> is a simple list of IP addresses.</p>
+
+<h2 id="final-result">Final result</h2>
+
+<p>The final result is a list of values separated by a tab os it is easy to copy and paste in a spreadsheet.</p>
+
+<pre><code>&lt;code&gt;hostname    model   serial
+&lt;/code&gt;
+</code></pre>
+
+<p>I added this script to my <a href="https://github.com/routetonull/snmp_scan">GitHub repository</a>.</p>
+
+<p>Enjoy!</p>
+
+</div>
+
+</div>
+</div>
+<script src="http://www.ifconfig.it/hugo/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-10670358-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+
